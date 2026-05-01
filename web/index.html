@@ -85,6 +85,30 @@
       background: var(--accent-light);
     }
 
+    .topbar-spacer { flex: 1; }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.04em;
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    .lang-btn svg {
+      width: 12px;
+      height: 12px;
+    }
+
     /* ── Header ── */
     header {
       background: var(--white);
@@ -310,6 +334,13 @@
       <a href="cv.html" class="topbar-link" data-page="cv">CV</a>
       <a href="contact.html" class="topbar-link" data-page="contact">Contacto</a>
       <a href="reports.html" class="topbar-link" data-page="reports">Reportes</a>
+      <div class="topbar-spacer"></div>
+      <button class="lang-btn" disabled aria-disabled="true" title="Disponible en la página CV">
+        <span>ES</span>
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 4l4 4 4-4"/>
+        </svg>
+      </button>
     </div>
   </nav>
 
