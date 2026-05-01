@@ -20,7 +20,7 @@ Implementación incremental por subtarea: primero la topbar compartida, luego la
 
 ### ⏳ Fase 1 — Estructura de navegación (alta prioridad)
 - **[PORT-001]** ✅ COMPLETADO — Añadir topbar de navegación a `index.html` (Home · CV · Contacto · Reportes) (`75c2144`, 2026-05-01)
-- **[PORT-002]** ⏳ PENDIENTE — Crear `web/cv.html` con CV real + topbar + switcher ES/EN con detección de idioma del browser
+- **[PORT-002]** ✅ COMPLETADO — Crear `web/cv.html` con CV real + topbar + switcher ES/EN con detección de idioma del browser (`29c409f`, 2026-05-01)
 
 ### ⏳ Fase 2 — Páginas placeholder (media prioridad)
 - **[PORT-003]** ⏳ PENDIENTE — Crear `web/contact.html` con topbar (placeholder)
@@ -58,9 +58,9 @@ Añadir una barra de navegación superior a `index.html` con links a las página
 
 ### PORT-002 — Página cv.html con i18n ES/EN
 
-**Estado:** ⏳ PENDIENTE  
+**Estado:** ✅ COMPLETADO  
 **Rama:** `task-2-web-portfolio-nav-cv`  
-**Commits:** —
+**Commits:** `29c409f` feat(TASK-2.2): add cv.html with bilingual ES/EN switcher and update index topbar
 
 **Descripción:**  
 Crear `web/cv.html` integrando el contenido real del CV (ES como idioma principal). El idioma se detecta automáticamente con `navigator.language` al cargar. El usuario puede cambiar manualmente entre ES y EN mediante un dropdown en la topbar, y la preferencia se guarda en `localStorage`.
@@ -179,7 +179,7 @@ Crear suite de tests en `tests/ui/portfolio/cv.spec.ts` cubriendo la página CV 
 | ID | Descripción | Estado | Commits | Fecha |
 |----|-------------|--------|---------|-------|
 | PORT-001 | Topbar en index.html | ✅ COMPLETADO | `75c2144` | 2026-05-01 |
-| PORT-002 | cv.html con i18n ES/EN | ⏳ PENDIENTE | — | — |
+| PORT-002 | cv.html con i18n ES/EN | ✅ COMPLETADO | `29c409f` | 2026-05-01 |
 | PORT-003 | contact.html placeholder | ⏳ PENDIENTE | — | — |
 | PORT-004 | reports.html placeholder | ⏳ PENDIENTE | — | — |
 | PORT-005 | Servidor local para tests | ⏳ PENDIENTE | — | — |
@@ -211,3 +211,4 @@ Crear suite de tests en `tests/ui/portfolio/cv.spec.ts` cubriendo la página CV 
 |-------|--------|--------|-------------|
 | 2026-05-01 | Creado | — | Documento inicial creado |
 | 2026-05-01 | Completado | `75c2144` | PORT-001: topbar sticky en index.html |
+| 2026-05-01 | Completado | `29c409f` | PORT-002: cv.html con switcher ES/EN + botón deshabilitado en index.html |
