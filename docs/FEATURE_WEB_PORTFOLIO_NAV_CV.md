@@ -23,8 +23,8 @@ Implementación incremental por subtarea: primero la topbar compartida, luego la
 - **[PORT-002]** ✅ COMPLETADO — Crear `web/cv.html` con CV real + topbar + switcher ES/EN con detección de idioma del browser (`29c409f`, 2026-05-01)
 
 ### ⏳ Fase 2 — Páginas placeholder (media prioridad)
-- **[PORT-003]** ⏳ PENDIENTE — Crear `web/contact.html` con topbar (placeholder)
-- **[PORT-004]** ⏳ PENDIENTE — Crear `web/reports.html` con topbar (placeholder)
+- **[PORT-003]** ✅ COMPLETADO — Crear `web/contact.html` con topbar (placeholder) (`0b60de4`, 2026-05-01)
+- **[PORT-004]** ✅ COMPLETADO — Crear `web/reports.html` con topbar (placeholder) (`0b60de4`, 2026-05-01)
 
 ### ⏳ Fase 3 — Infraestructura de tests (alta prioridad)
 - **[PORT-005]** ⏳ PENDIENTE — Configurar servidor local en `playwright.config.ts` para testear el portfolio (`webServer`)
@@ -89,9 +89,9 @@ Crear `web/cv.html` integrando el contenido real del CV (ES como idioma principa
 
 ### PORT-003 — Página contact.html (placeholder)
 
-**Estado:** ⏳ PENDIENTE  
+**Estado:** ✅ COMPLETADO  
 **Rama:** `task-2-web-portfolio-nav-cv`  
-**Commits:** —
+**Commits:** `0b60de4` feat(TASK-2.3): add contact.html and reports.html placeholder pages with topbar
 
 **Descripción:**  
 Crear `web/contact.html` como placeholder con la topbar de navegación y un mensaje "Próximamente". Misma estructura visual que el resto del portfolio.
@@ -108,9 +108,9 @@ Crear `web/contact.html` como placeholder con la topbar de navegación y un mens
 
 ### PORT-004 — Página reports.html (placeholder)
 
-**Estado:** ⏳ PENDIENTE  
+**Estado:** ✅ COMPLETADO  
 **Rama:** `task-2-web-portfolio-nav-cv`  
-**Commits:** —
+**Commits:** `0b60de4` feat(TASK-2.3): add contact.html and reports.html placeholder pages with topbar
 
 **Descripción:**  
 Crear `web/reports.html` como placeholder con la topbar de navegación. Misma estructura visual.
@@ -180,8 +180,8 @@ Crear suite de tests en `tests/ui/portfolio/cv.spec.ts` cubriendo la página CV 
 |----|-------------|--------|---------|-------|
 | PORT-001 | Topbar en index.html | ✅ COMPLETADO | `75c2144` | 2026-05-01 |
 | PORT-002 | cv.html con i18n ES/EN | ✅ COMPLETADO | `29c409f` | 2026-05-01 |
-| PORT-003 | contact.html placeholder | ⏳ PENDIENTE | — | — |
-| PORT-004 | reports.html placeholder | ⏳ PENDIENTE | — | — |
+| PORT-003 | contact.html placeholder | ✅ COMPLETADO | `0b60de4` | 2026-05-01 |
+| PORT-004 | reports.html placeholder | ✅ COMPLETADO | `0b60de4` | 2026-05-01 |
 | PORT-005 | Servidor local para tests | ⏳ PENDIENTE | — | — |
 | PORT-006 | Tests automatizados cv.html | ⏳ PENDIENTE | — | — |
 
@@ -212,3 +212,4 @@ Crear suite de tests en `tests/ui/portfolio/cv.spec.ts` cubriendo la página CV 
 | 2026-05-01 | Creado | — | Documento inicial creado |
 | 2026-05-01 | Completado | `75c2144` | PORT-001: topbar sticky en index.html |
 | 2026-05-01 | Completado | `29c409f` | PORT-002: cv.html con switcher ES/EN + botón deshabilitado en index.html |
+| 2026-05-01 | Completado | `0b60de4` | PORT-003 y PORT-004: contact.html y reports.html placeholders con topbar |
