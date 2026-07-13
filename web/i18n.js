@@ -27,10 +27,20 @@ const translations = {
     'stack-api':    'Playwright request context',
     'footer-copy':  'Hecho con Claude Code · 2026',
 
-    /* ── Contact / Reports placeholders ── */
-    'contact-label': 'Contacto',
-    'contact-title': 'Próximamente',
-    'contact-desc':  'Esta sección está en construcción.',
+    /* ── Contact ── */
+    'contact-label':            'Contacto',
+    'contact-title':            'Hablemos',
+    'contact-desc':             '¿Tienes una propuesta, pregunta o simplemente quieres saludar? Déjame tu mensaje y te respondo pronto.',
+    'form-subject':             'Nuevo mensaje desde el portfolio',
+    'form-label-name':          'Nombre',
+    'form-placeholder-name':    'Tu nombre',
+    'form-label-email':         'Email',
+    'form-placeholder-email':   'tu@email.com',
+    'form-label-message':       'Mensaje',
+    'form-placeholder-message': 'Tu mensaje...',
+    'form-submit':              'Enviar mensaje',
+
+    /* ── Reports placeholder ── */
     'reports-label': 'Reportes',
     'reports-title': 'Próximamente',
     'reports-desc':  'Esta sección está en construcción.',
@@ -114,10 +124,20 @@ const translations = {
     'stack-api':    'Playwright request context',
     'footer-copy':  'Built with Claude Code · 2026',
 
-    /* ── Contact / Reports placeholders ── */
-    'contact-label': 'Contact',
-    'contact-title': 'Coming soon',
-    'contact-desc':  'This section is under construction.',
+    /* ── Contact ── */
+    'contact-label':            'Contact',
+    'contact-title':            "Let's talk",
+    'contact-desc':             'Have a proposal, a question, or just want to say hi? Leave me a message and I\'ll get back to you soon.',
+    'form-subject':             'New message from the portfolio',
+    'form-label-name':          'Name',
+    'form-placeholder-name':    'Your name',
+    'form-label-email':         'Email',
+    'form-placeholder-email':   'you@email.com',
+    'form-label-message':       'Message',
+    'form-placeholder-message': 'Your message...',
+    'form-submit':              'Send message',
+
+    /* ── Reports placeholder ── */
     'reports-label': 'Reports',
     'reports-title': 'Coming soon',
     'reports-desc':  'This section is under construction.',
@@ -189,6 +209,16 @@ function applyLanguage(lang) {
     const key = ul.getAttribute('data-i18n-list');
     if (!t[key]) return;
     ul.innerHTML = t[key].map(item => `<li>${item}</li>`).join('');
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  document.querySelectorAll('[data-i18n-name]').forEach(el => {
+    const key = el.getAttribute('data-i18n-name');
+    if (t[key] !== undefined) el.value = t[key];
   });
 
   const langLabel = document.getElementById('lang-label');

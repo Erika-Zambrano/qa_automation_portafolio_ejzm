@@ -14,10 +14,38 @@
 
   <nav class="topbar" aria-label="Main navigation" data-testid="topbar" id="topbar-mount"></nav>
 
-  <div class="container">
+  <div class="contact-wrapper">
     <p class="page-label" data-i18n="contact-label">Contacto</p>
-    <h1 class="page-title" data-i18n="contact-title">Próximamente</h1>
-    <p class="page-desc" data-i18n="contact-desc">Esta sección está en construcción.</p>
+    <h1 class="page-title" data-i18n="contact-title">Hablemos</h1>
+    <p class="page-desc" data-i18n="contact-desc">¿Tienes una propuesta, pregunta o simplemente quieres saludar? Déjame tu mensaje y te respondo pronto.</p>
+
+    <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="57dcf9ff-73a7-4422-89f6-f57300e51b13" />
+      <input type="hidden" name="subject" data-i18n-name="form-subject" value="Nuevo mensaje desde el portfolio" />
+      <input type="hidden" name="redirect" value="false" />
+
+      <div class="form-group">
+        <label class="form-label" for="name" data-i18n="form-label-name">Nombre</label>
+        <input class="form-input" type="text" id="name" name="name" required autocomplete="name" data-i18n-placeholder="form-placeholder-name" placeholder="Tu nombre" />
+        <span class="form-error" id="error-name" aria-live="polite"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email" data-i18n="form-label-email">Email</label>
+        <input class="form-input" type="email" id="email" name="email" required autocomplete="email" data-i18n-placeholder="form-placeholder-email" placeholder="tu@email.com" />
+        <span class="form-error" id="error-email" aria-live="polite"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message" data-i18n="form-label-message">Mensaje</label>
+        <textarea class="form-input form-textarea" id="message" name="message" required rows="5" data-i18n-placeholder="form-placeholder-message" placeholder="Tu mensaje..."></textarea>
+        <span class="form-error" id="error-message" aria-live="polite"></span>
+      </div>
+
+      <button class="form-submit" type="submit" data-i18n="form-submit">Enviar mensaje</button>
+
+      <p class="form-status" id="form-status" aria-live="polite"></p>
+    </form>
   </div>
 
   <script src="i18n.js"></script>
@@ -25,6 +53,98 @@
   <script>
     initTopbar('contact');
     initLang();
+
+    const fieldErrors = {
+      es: {
+        name:    'Por favor, ingresa tu nombre.',
+        email:   'Por favor, ingresa un email válido.',
+        message: 'El mensaje debe tener al menos 10 caracteres.',
+      },
+      en: {
+        name:    'Please enter your name.',
+        email:   'Please enter a valid email address.',
+        message: 'The message must be at least 10 characters.',
+      },
+    };
+
+    function validateForm(lang) {
+      const name    = document.getElementById('name');
+      const email   = document.getElementById('email');
+      const message = document.getElementById('message');
+      const errors  = fieldErrors[lang] || fieldErrors.es;
+      let valid = true;
+
+      function setError(field, errorId, msg) {
+        const el = document.getElementById(errorId);
+        if (msg) {
+          el.textContent = msg;
+          field.classList.add('form-input--error');
+          valid = false;
+        } else {
+          el.textContent = '';
+          field.classList.remove('form-input--error');
+        }
+      }
+
+      setError(name, 'error-name',
+        name.value.trim() === '' ? errors.name : null);
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      setError(email, 'error-email',
+        !emailRegex.test(email.value.trim()) ? errors.email : null);
+
+      setError(message, 'error-message',
+        message.value.trim().length < 10 ? errors.message : null);
+
+      return valid;
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form   = e.target;
+      const status = document.getElementById('form-status');
+      const btn    = form.querySelector('.form-submit');
+      const lang   = document.documentElement.lang || 'es';
+
+      status.textContent = '';
+      status.className = 'form-status';
+
+      if (!validateForm(lang)) return;
+
+      btn.disabled = true;
+      btn.textContent = lang === 'es' ? 'Enviando…' : 'Sending…';
+
+      try {
+        const res  = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(form),
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          status.textContent = lang === 'es'
+            ? '¡Mensaje enviado! Te respondo pronto.'
+            : "Message sent! I'll get back to you soon.";
+          status.classList.add('form-status--success');
+          form.reset();
+          ['name', 'email', 'message'].forEach(id => {
+            document.getElementById(id).classList.remove('form-input--error');
+            document.getElementById('error-' + id).textContent = '';
+          });
+        } else {
+          throw new Error(data.message);
+        }
+      } catch {
+        status.textContent = lang === 'es'
+          ? 'Algo salió mal. Intenta de nuevo o escríbeme a erikajzm@gmail.com'
+          : 'Something went wrong. Try again or email me at erikajzm@gmail.com';
+        status.classList.add('form-status--error');
+      } finally {
+        btn.disabled = false;
+        const t = translations[lang];
+        btn.textContent = t?.['form-submit'] || 'Enviar mensaje';
+      }
+    });
   </script>
 </body>
 </html>
