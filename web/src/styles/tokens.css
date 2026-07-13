@@ -1,0 +1,31 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+  --accent: #01696f;
+  --accent-light: rgba(1, 105, 111, 0.1);
+  --bg: #f7f6f2;
+  --white: #ffffff;
+  --text: #3a3a3a;
+  --heading: #1a1a1a;
+  --muted: #777;
+  --border: #e8e7e3;
+  --divider: #dcd9d5;
+  --text-faint: #bab9b4;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --max-width: 800px;
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }

@@ -1,0 +1,47 @@
+---
+import Topbar from '../components/Topbar.astro';
+import { getLang, type Lang } from '../i18n';
+import '../styles/tokens.css';
+
+interface Props {
+  title: string;
+  activePage: 'home' | 'cv' | 'contact' | 'reports';
+}
+
+const { title, activePage } = Astro.props;
+
+const langParam = Astro.url.searchParams.get('lang') ?? undefined;
+const lang: Lang = getLang(langParam);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <Topbar activePage={activePage} lang={lang} />
+    <slot />
+  </body>
+</html>
+
+<script>
+  // On first load (no ?lang param), check localStorage and redirect if needed
+  const params = new URLSearchParams(window.location.search);
+  if (!params.has('lang')) {
+    const saved = localStorage.getItem('cv-lang');
+    if (saved === 'en') {
+      params.set('lang', 'en');
+      window.location.replace(window.location.pathname + '?' + params.toString());
+    }
+  } else {
+    // Persist the current lang choice
+    localStorage.setItem('cv-lang', params.get('lang')!);
+  }
+</script>
