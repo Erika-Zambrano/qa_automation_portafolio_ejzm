@@ -25,7 +25,7 @@ const translations = {
     'stack-ts':     'Tipado estricto',
     'stack-pom':    'Abstracción mantenible de UI',
     'stack-api':    'Playwright request context',
-    'footer-copy':  'Hecho con Claude Code · 2026',
+    'footer-copy':  'Hecho por Erika Zambrano usando Claude Code como herramienta · 2026',
 
     /* ── Contact ── */
     'contact-label':            'Contacto',
@@ -122,7 +122,7 @@ const translations = {
     'stack-ts':     'Strict-mode type safety',
     'stack-pom':    'Maintainable UI abstraction',
     'stack-api':    'Playwright request context',
-    'footer-copy':  'Built with Claude Code · 2026',
+    'footer-copy':  'Made by Erika Zambrano using Claude Code as a tool · 2026',
 
     /* ── Contact ── */
     'contact-label':            'Contact',

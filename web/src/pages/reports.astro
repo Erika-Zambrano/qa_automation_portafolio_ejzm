@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLang, useTranslations } from '../i18n';
+
+const lang = getLang(Astro.url.searchParams.get('lang') ?? undefined);
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={`${t('reports-label')} — Erika Zambrano`} activePage="reports">
+  <div class="container">
+    <p class="page-label">{t('reports-label')}</p>
+    <h1 class="page-title">{t('reports-title')}</h1>
+    <p class="page-desc">{t('reports-desc')}</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .page-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: var(--heading);
+    margin-bottom: 16px;
+  }
+
+  .page-desc {
+    font-size: 0.975rem;
+    color: var(--muted);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+</style>

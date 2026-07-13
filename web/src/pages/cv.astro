@@ -1,0 +1,341 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLang, useTranslations } from '../i18n';
+
+const lang = getLang(Astro.url.searchParams.get('lang') ?? undefined);
+const t = useTranslations(lang);
+
+const job1Bullets = t('job1-bullets') as string[];
+const job2Bullets = t('job2-bullets') as string[];
+const job3Bullets = t('job3-bullets') as string[];
+---
+
+<BaseLayout title="CV — Erika Zambrano" activePage="cv">
+  <div class="page">
+    <header class="cv-header">
+      <h1 class="cv-name">Erika Zambrano</h1>
+      <p class="cv-title">QA Automation Engineer &nbsp;|&nbsp; Playwright · TypeScript · AI-Assisted Testing</p>
+      <div class="cv-contact">
+        <span>{t('location')}</span>
+        <span class="sep">·</span>
+        <span><a href="mailto:erikajzm@gmail.com">erikajzm@gmail.com</a></span>
+        <span class="sep">·</span>
+        <span><a href="https://www.linkedin.com/in/erikazambrano/" target="_blank" rel="noopener">linkedin.com/in/erikazambrano</a></span>
+        <span class="sep">·</span>
+        <span><a href="https://github.com/Erika-Zambrano" target="_blank" rel="noopener">github.com/Erika-Zambrano</a></span>
+      </div>
+    </header>
+
+    <!-- Profile -->
+    <section class="cv-section" data-testid="section-profile">
+      <h2 class="cv-section-title">{t('section-profile')}</h2>
+      <p class="cv-summary" set:html={t('profile-text')} />
+    </section>
+
+    <!-- Experience -->
+    <section class="cv-section" data-testid="section-experience">
+      <h2 class="cv-section-title">{t('section-experience')}</h2>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div>
+            <div class="cv-job-title">{t('job1-title')}</div>
+            <div class="cv-job-company">PSh | Providing Digital Transformation &nbsp;·&nbsp; <em>Nearpod (EdTech SaaS)</em></div>
+          </div>
+          <div>
+            <div class="cv-job-date">{t('job1-date')}</div>
+            <div class="cv-job-location">{t('job1-location')}</div>
+          </div>
+        </div>
+        <ul>
+          {job1Bullets.map(item => <li set:html={item} />)}
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div>
+            <div class="cv-job-title">Quality Assurance Tester</div>
+            <div class="cv-job-company">Cognizant &nbsp;·&nbsp; <em>{t('job2-client')}</em></div>
+          </div>
+          <div>
+            <div class="cv-job-date">Oct 2019 – Nov 2020</div>
+            <div class="cv-job-location">Buenos Aires</div>
+          </div>
+        </div>
+        <ul>
+          {job2Bullets.map(item => <li set:html={item} />)}
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <div>
+            <div class="cv-job-title">{t('job3-title')}</div>
+            <div class="cv-job-company">{t('job3-company')}</div>
+          </div>
+          <div>
+            <div class="cv-job-date">2008 – 2018</div>
+            <div class="cv-job-location">Caracas, Venezuela</div>
+          </div>
+        </div>
+        <ul>
+          {job3Bullets.map(item => <li set:html={item} />)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="cv-section" data-testid="section-projects">
+      <h2 class="cv-section-title">{t('section-projects')}</h2>
+      <div class="cv-project">
+        <div class="cv-project-header">
+          <span class="cv-project-name">My English Teacher</span>
+          <span class="cv-project-tech">React 19 · Vite · TypeScript · Tailwind CSS · OpenAI SDK · Vercel Serverless</span>
+        </div>
+        <div>
+          <a href="https://english-teacher-five-pi.vercel.app" target="_blank" rel="noopener">english-teacher-five-pi.vercel.app</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/Erika-Zambrano" target="_blank" rel="noopener">github.com/Erika-Zambrano</a>
+        </div>
+        <p>{t('project1-desc')}</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="cv-section" data-testid="section-skills">
+      <h2 class="cv-section-title">{t('section-skills')}</h2>
+      <div class="skills-grid">
+        <span class="skill-category">{t('skill-automation')}</span><span>Playwright, Protractor (legacy)</span>
+        <span class="skill-category">{t('skill-languages')}</span><span>JavaScript, TypeScript</span>
+        <span class="skill-category">{t('skill-manual')}</span><span>Web, Mobile, iOS, E2E, API</span>
+        <span class="skill-category">API Testing</span><span>Postman</span>
+        <span class="skill-category">CI/CD</span><span>GitLab CI, GitHub Actions</span>
+        <span class="skill-category">{t('skill-ai')}</span><span>{t('skill-ai-value')}</span>
+        <span class="skill-category">Frontend</span><span>React 19, Vite, Tailwind CSS, shadcn/ui, HTML5, CSS3</span>
+        <span class="skill-category">{t('skill-db')}</span><span>SQL, MySQL</span>
+        <span class="skill-category">{t('skill-mgmt')}</span><span>Jira, HP ALM, Scrum</span>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="cv-section" data-testid="section-education">
+      <h2 class="cv-section-title">{t('section-education')}</h2>
+      <div class="cv-edu-item">
+        <div>
+          <div class="cv-edu-degree">Software Tester QA</div>
+          <div class="cv-edu-school">EducacionIT</div>
+        </div>
+        <div class="cv-edu-year">2019</div>
+      </div>
+      <div class="cv-edu-item">
+        <div>
+          <div class="cv-edu-degree">{t('edu2-degree')}</div>
+          <div class="cv-edu-school">EducacionIT</div>
+        </div>
+        <div class="cv-edu-year">2019</div>
+      </div>
+      <div class="cv-edu-item">
+        <div>
+          <div class="cv-edu-degree">{t('edu3-degree')}</div>
+          <div class="cv-edu-school">EducacionIT</div>
+        </div>
+        <div class="cv-edu-year">2019</div>
+      </div>
+      <div class="cv-edu-item">
+        <div>
+          <div class="cv-edu-degree">{t('edu4-degree')}</div>
+          <div class="cv-edu-school">EANT – Escuela Argentina de Nuevas Tecnologías · Fullstack JS (53h) · HTML5 & CSS3 (50h)</div>
+        </div>
+        <div class="cv-edu-year">2020–2021</div>
+      </div>
+      <div class="cv-edu-item">
+        <div>
+          <div class="cv-edu-degree">{t('edu5-degree')}</div>
+          <div class="cv-edu-school">UCAB – Universidad Católica Andrés Bello, Venezuela</div>
+        </div>
+        <div class="cv-edu-year">2003–2008</div>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="cv-section" data-testid="section-languages">
+      <h2 class="cv-section-title">{t('section-languages')}</h2>
+      <div class="languages-row">
+        <div class="lang-item">
+          <strong>{t('lang-spanish')}</strong>
+          <span class="lang-level">{t('lang-spanish-level')}</span>
+        </div>
+        <div class="lang-item">
+          <strong>{t('lang-english')}</strong>
+          <span class="lang-level">{t('lang-english-level')}</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 48px;
+    background: var(--white);
+    min-height: calc(100vh - 48px);
+  }
+
+  .cv-header {
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cv-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 6vw, 32pt);
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+  }
+
+  .cv-title {
+    font-size: 11pt;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.3px;
+    margin-bottom: 0.75rem;
+  }
+
+  .cv-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.2rem;
+    font-size: 9pt;
+    color: var(--muted);
+    align-items: center;
+  }
+
+  .cv-contact a { color: var(--accent); }
+  .cv-contact .sep { color: var(--border); }
+
+  .cv-section { margin-bottom: 1.75rem; }
+
+  .cv-section-title {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--divider);
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .cv-summary { font-size: 10pt; line-height: 1.65; }
+
+  .cv-job { margin-bottom: 1.25rem; }
+  .cv-job + .cv-job { padding-top: 1rem; border-top: 1px solid var(--divider); }
+
+  .cv-job-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .cv-job-title { font-size: 10.5pt; font-weight: 600; }
+
+  .cv-job-company {
+    font-size: 9.5pt;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-job-company em {
+    font-style: normal;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .cv-job-date { font-size: 8.5pt; color: var(--text-faint); white-space: nowrap; text-align: right; }
+  .cv-job-location { font-size: 8.5pt; color: var(--text-faint); text-align: right; }
+
+  .cv-job ul { list-style: none; padding: 0; }
+
+  .cv-job ul li {
+    font-size: 9.5pt;
+    line-height: 1.55;
+    padding-left: 1.1em;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  .cv-job ul li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .cv-project {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .cv-project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+  }
+
+  .cv-project-name { font-size: 10pt; font-weight: 600; }
+  .cv-project-tech { font-size: 8.5pt; color: var(--muted); }
+  .cv-project a { font-size: 8.5pt; color: var(--accent); }
+  .cv-project p { font-size: 9.5pt; line-height: 1.55; margin-top: 0.25rem; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    gap: 0.5rem 1rem;
+    font-size: 9.5pt;
+  }
+
+  .skill-category { font-weight: 600; color: var(--muted); font-size: 9pt; }
+
+  .cv-edu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    align-items: start;
+  }
+
+  .cv-edu-degree { font-size: 10pt; font-weight: 600; }
+  .cv-edu-school { font-size: 9pt; color: var(--muted); margin-top: 1px; }
+  .cv-edu-year { font-size: 8.5pt; color: var(--text-faint); white-space: nowrap; text-align: right; }
+
+  .languages-row { display: flex; gap: 2rem; font-size: 9.5pt; flex-wrap: wrap; }
+  .lang-item strong { display: inline-block; margin-right: 0.25rem; }
+  .lang-level { color: var(--muted); }
+
+  @media (max-width: 600px) {
+    .page { padding: 24px 20px; }
+    .cv-job-header { grid-template-columns: 1fr; }
+    .cv-job-date, .cv-job-location { text-align: left; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .cv-edu-item { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    :global(.topbar) { display: none; }
+    .page { padding: 20px 30px; }
+    .cv-name { font-size: 28pt; }
+  }
+</style>
