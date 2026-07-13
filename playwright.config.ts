@@ -21,7 +21,17 @@ export default defineConfig({
   },
   projects: [
     {
+      name: 'portfolio',
+      testMatch: ['tests/ui/portfolio/**/*.spec.ts'],
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'https://qa-automation-portafolio-ejzm.vercel.app',
+        testIdAttribute: 'data-testid',
+      },
+    },
+    {
       name: 'chromium',
+      testIgnore: ['tests/ui/portfolio/**/*.spec.ts'],
       use: { ...devices['Desktop Chrome'] },
     },
   ],
