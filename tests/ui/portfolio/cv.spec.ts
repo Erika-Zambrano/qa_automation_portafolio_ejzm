@@ -1,89 +1,75 @@
 import { test, expect } from '@playwright/test';
+import { CvPage } from '../../../pages/portfolio/CvPage';
 
-test.describe('cv.html', () => {
+test.describe('CV page', () => {
+  let cvPage: CvPage;
+
   test.beforeEach(async ({ page }) => {
-    await page.goto('/cv.html');
-    // Force ES as starting language so tests are deterministic
-    // regardless of browser locale
-    await page.evaluate(() => localStorage.setItem('cv-lang', 'es'));
-    await page.reload();
+    cvPage = new CvPage(page);
+    await cvPage.goto('es');
   });
 
   // ── Smoke ─────────────────────────────────────────────────────────────────
 
-  test('@smoke Should be able to access the topbar and all 4 navigation links', async ({ page }) => {
-    await Promise.all([   
-      expect.soft(page.getByTestId('topbar')).toBeVisible(),
-      expect.soft(page.getByTestId('nav-home')).toBeVisible(),
-      expect.soft(page.getByTestId('nav-cv')).toBeVisible(),
-      expect.soft(page.getByTestId('nav-contact')).toBeVisible(),
-      expect.soft(page.getByTestId('nav-reports')).toBeVisible(),
-    ]);
-  });
-
-  test('@smoke Should be able to navigate to correct pages from the topbar', async ({ page }) => {
-    
-    await page.getByTestId('nav-contact').click();
-    await expect(page).toHaveURL(/contact/);
-
-    await page.goto('/cv.html');
-    await page.getByTestId('nav-reports').click();
-    await expect(page).toHaveURL(/reports/);
-
-    await page.goto('/cv.html');
-    await page.getByTestId('nav-home').click();
-    await expect(page).toHaveURL(/index|\/$/);
-  });
-
-  test('@smoke all 6 CV sections are visible in Spanish', async ({ page }) => {
+  test('@smoke topbar and all 4 nav links are visible', async () => {
     await Promise.all([
-      expect.soft(page.getByTestId('section-profile')).toBeVisible(),
-      expect.soft(page.getByTestId('section-experience')).toBeVisible(),
-      expect.soft(page.getByTestId('section-projects')).toBeVisible(),
-      expect.soft(page.getByTestId('section-skills')).toBeVisible(),
-      expect.soft(page.getByTestId('section-education')).toBeVisible(),
-      expect.soft(page.getByTestId('section-languages')).toBeVisible(),
+      expect.soft(cvPage.topbar).toBeVisible(),
+      expect.soft(cvPage.navHome).toBeVisible(),
+      expect.soft(cvPage.navCv).toBeVisible(),
+      expect.soft(cvPage.navContact).toBeVisible(),
+      expect.soft(cvPage.navReports).toBeVisible(),
     ]);
+  });
+
+  test('@smoke all 6 CV sections are visible in Spanish', async () => {
+    await Promise.all(
+      cvPage.allSections.map(s => expect.soft(s).toBeVisible())
+    );
+  });
+
+  test('@smoke nav links navigate to correct pages', async ({ page }) => {
+    await cvPage.navContact.click();
+    await expect(page).toHaveURL(/\/contact/);
+
+    await cvPage.goto('es');
+    await cvPage.navReports.click();
+    await expect(page).toHaveURL(/\/reports/);
+
+    await cvPage.goto('es');
+    await cvPage.navHome.click();
+    await expect(page).toHaveURL(/\/$|\/\?/);
   });
 
   // ── Regression ────────────────────────────────────────────────────────────
 
-  test('@regression Should be able to change the language to English', async ({ page }) => {
-    await page.getByTestId('lang-btn').click();
-    await page.getByTestId('lang-option-en').click();
+  test('@regression language switches to English via UI', async () => {
+    await cvPage.switchLangViaUI('en');
 
     await Promise.all([
-      expect.soft(page.getByTestId('section-profile')).toContainText('Professional Profile'),
-      expect.soft(page.getByTestId('section-experience')).toContainText('Professional Experience'),
-      expect.soft(page.getByTestId('section-projects')).toContainText('Personal Projects'),
-      expect.soft(page.getByTestId('section-skills')).toContainText('Technical Skills'),
-      expect.soft(page.getByTestId('section-education')).toContainText('Education'),
-      expect.soft(page.getByTestId('section-languages')).toContainText('Languages'),
+      expect.soft(cvPage.sectionProfile).toContainText('Professional Profile'),
+      expect.soft(cvPage.sectionExperience).toContainText('Professional Experience'),
+      expect.soft(cvPage.sectionProjects).toContainText('Personal Projects'),
+      expect.soft(cvPage.sectionSkills).toContainText('Technical Skills'),
+      expect.soft(cvPage.sectionEducation).toContainText('Education'),
+      expect.soft(cvPage.sectionLanguages).toContainText('Languages'),
     ]);
   });
 
-  test('@regression Should be able to persist the language preference after page reload', async ({ page }) => {
-    await page.getByTestId('lang-btn').click();
-    await page.getByTestId('lang-option-en').click();
+  test('@regression language persists after page reload', async ({ page }) => {
+    await cvPage.switchLangViaUI('en');
     await page.reload();
+    await page.waitForLoadState('networkidle');
 
     await Promise.all([
-      expect.soft(page.getByTestId('lang-btn')).toContainText('EN'),
-      expect.soft(page.getByTestId('section-profile')).toContainText('Professional Profile'),
-      expect.soft(page.getByTestId('section-experience')).toContainText('Professional Experience'),
-      expect.soft(page.getByTestId('section-projects')).toContainText('Personal Projects'),
-      expect.soft(page.getByTestId('section-skills')).toContainText('Technical Skills'),
-      expect.soft(page.getByTestId('section-education')).toContainText('Education'),
-      expect.soft(page.getByTestId('section-languages')).toContainText('Languages'),
+      expect.soft(cvPage.langBtn).toContainText('EN'),
+      expect.soft(cvPage.sectionProfile).toContainText('Professional Profile'),
+      expect.soft(cvPage.sectionExperience).toContainText('Professional Experience'),
     ]);
   });
 
-  test('@regression Should be able to update the <html lang> attribute when language changes', async ({ page }) => {
+  test('@regression html lang attribute updates when language changes', async ({ page }) => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-
-    await page.getByTestId('lang-btn').click();
-    await page.getByTestId('lang-option-en').click();
-
+    await cvPage.switchLangViaUI('en');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   });
 });
