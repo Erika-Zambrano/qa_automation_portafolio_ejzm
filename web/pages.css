@@ -1,0 +1,31 @@
+/* Shared styles for placeholder pages (contact, reports) */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.page-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--heading);
+  margin-bottom: 16px;
+}
+
+.page-desc {
+  font-size: 0.975rem;
+  color: var(--muted);
+  max-width: 420px;
+  margin: 0 auto;
+}

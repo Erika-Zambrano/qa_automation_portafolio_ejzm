@@ -1,0 +1,188 @@
+/* ── CV page wrapper ── */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 48px;
+  background: var(--white);
+  min-height: calc(100vh - 48px);
+}
+
+/* ── CV Header ── */
+.cv-header {
+  border-bottom: 2px solid var(--text);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.cv-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 6vw, 32pt);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.cv-title {
+  font-size: 11pt;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.3px;
+  margin-bottom: 0.75rem;
+}
+
+.cv-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.2rem;
+  font-size: 9pt;
+  color: var(--muted);
+  align-items: center;
+}
+
+.cv-contact a { color: var(--accent); }
+.cv-contact .sep { color: var(--border); }
+
+/* ── Sections ── */
+.cv-section { margin-bottom: 1.75rem; }
+
+.cv-section-title {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.cv-summary { font-size: 10pt; line-height: 1.65; }
+
+/* ── Jobs ── */
+.cv-job { margin-bottom: 1.25rem; }
+.cv-job + .cv-job { padding-top: 1rem; border-top: 1px solid var(--divider); }
+
+.cv-job-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.cv-job-title { font-size: 10.5pt; font-weight: 600; }
+
+.cv-job-company {
+  font-size: 9.5pt;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.cv-job-company em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.cv-job-date {
+  font-size: 8.5pt;
+  color: var(--text-faint);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.cv-job-location {
+  font-size: 8.5pt;
+  color: var(--text-faint);
+  text-align: right;
+}
+
+.cv-job ul { list-style: none; padding: 0; }
+
+.cv-job ul li {
+  font-size: 9.5pt;
+  line-height: 1.55;
+  padding-left: 1.1em;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.cv-job ul li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+strong { font-weight: 600; }
+
+/* ── Projects ── */
+.cv-project {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+}
+
+.cv-project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.cv-project-name { font-size: 10pt; font-weight: 600; }
+.cv-project-tech { font-size: 8.5pt; color: var(--muted); }
+.cv-project a { font-size: 8.5pt; color: var(--accent); }
+.cv-project p { font-size: 9.5pt; line-height: 1.55; margin-top: 0.25rem; }
+
+/* ── Skills ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  gap: 0.5rem 1rem;
+  font-size: 9.5pt;
+}
+
+.skill-category {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 9pt;
+}
+
+/* ── Education ── */
+.cv-edu-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  align-items: start;
+}
+
+.cv-edu-degree { font-size: 10pt; font-weight: 600; }
+.cv-edu-school { font-size: 9pt; color: var(--muted); margin-top: 1px; }
+.cv-edu-year { font-size: 8.5pt; color: var(--text-faint); white-space: nowrap; text-align: right; }
+
+/* ── Languages ── */
+.languages-row { display: flex; gap: 2rem; font-size: 9.5pt; flex-wrap: wrap; }
+.lang-item strong { display: inline-block; margin-right: 0.25rem; }
+.lang-level { color: var(--muted); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .page { padding: 24px 20px; }
+  .cv-job-header { grid-template-columns: 1fr; }
+  .cv-job-date, .cv-job-location { text-align: left; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .cv-edu-item { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .topbar { display: none; }
+  body { font-size: 10pt; }
+  .page { padding: 20px 30px; }
+  .cv-name { font-size: 28pt; }
+}
