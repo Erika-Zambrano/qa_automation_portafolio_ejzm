@@ -14,7 +14,7 @@ const job3Bullets = t('job3-bullets') as string[];
   <div class="page">
     <header class="cv-header">
       <h1 class="cv-name">Erika Zambrano</h1>
-      <p class="cv-title">QA Automation Engineer &nbsp;|&nbsp; Playwright · TypeScript · AI-Assisted Testing</p>
+      <p class="cv-title">Quality Engineer &nbsp;|&nbsp; Conversational AI &amp; LLM Quality · Playwright · TypeScript · API Testing · CI/CD</p>
       <div class="cv-contact">
         <span>{t('location')}</span>
         <span class="sep">·</span>
@@ -91,7 +91,7 @@ const job3Bullets = t('job3-bullets') as string[];
       <div class="cv-project">
         <div class="cv-project-header">
           <span class="cv-project-name">My English Teacher</span>
-          <span class="cv-project-tech">React 19 · Vite · TypeScript · Tailwind CSS · OpenAI SDK · Vercel Serverless</span>
+          <span class="cv-project-tech">React 19 · Vite · TypeScript · OpenAI-compatible API · Vercel Serverless</span>
         </div>
         <div>
           <a href="https://english-teacher-five-pi.vercel.app" target="_blank" rel="noopener">english-teacher-five-pi.vercel.app</a>
@@ -106,15 +106,13 @@ const job3Bullets = t('job3-bullets') as string[];
     <section class="cv-section" data-testid="section-skills">
       <h2 class="cv-section-title">{t('section-skills')}</h2>
       <div class="skills-grid">
-        <span class="skill-category">{t('skill-automation')}</span><span>Playwright, Protractor (legacy)</span>
-        <span class="skill-category">{t('skill-languages')}</span><span>JavaScript, TypeScript</span>
-        <span class="skill-category">{t('skill-manual')}</span><span>Web, Mobile, iOS, E2E, API</span>
-        <span class="skill-category">API Testing</span><span>Postman</span>
-        <span class="skill-category">CI/CD</span><span>GitLab CI, GitHub Actions</span>
+        <span class="skill-category">{t('skill-quality')}</span><span>{t('skill-quality-value')}</span>
+        <span class="skill-category">{t('skill-ai-conv')}</span><span>{t('skill-ai-conv-value')}</span>
+        <span class="skill-category">{t('skill-automation')}</span><span>{t('skill-automation-value')}</span>
+        <span class="skill-category">{t('skill-integration')}</span><span>{t('skill-integration-value')}</span>
+        <span class="skill-category">{t('skill-data')}</span><span>{t('skill-data-value')}</span>
         <span class="skill-category">{t('skill-ai')}</span><span>{t('skill-ai-value')}</span>
-        <span class="skill-category">Frontend</span><span>React 19, Vite, Tailwind CSS, shadcn/ui, HTML5, CSS3</span>
-        <span class="skill-category">{t('skill-db')}</span><span>SQL, MySQL</span>
-        <span class="skill-category">{t('skill-mgmt')}</span><span>Jira, HP ALM, Scrum</span>
+        <span class="skill-category">{t('skill-mgmt')}</span><span>{t('skill-mgmt-value')}</span>
       </div>
     </section>
 
@@ -123,7 +121,7 @@ const job3Bullets = t('job3-bullets') as string[];
       <h2 class="cv-section-title">{t('section-education')}</h2>
       <div class="cv-edu-item">
         <div>
-          <div class="cv-edu-degree">Software Tester QA</div>
+          <div class="cv-edu-degree">{t('edu1-degree')}</div>
           <div class="cv-edu-school">EducacionIT</div>
         </div>
         <div class="cv-edu-year">2019</div>

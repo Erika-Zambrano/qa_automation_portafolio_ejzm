@@ -69,14 +69,22 @@ export type Translations = {
   'section-projects': string;
   'project1-desc': string;
   'section-skills': string;
+  'skill-quality': string;
+  'skill-quality-value': string;
+  'skill-ai-conv': string;
+  'skill-ai-conv-value': string;
   'skill-automation': string;
-  'skill-languages': string;
-  'skill-manual': string;
+  'skill-automation-value': string;
+  'skill-integration': string;
+  'skill-integration-value': string;
+  'skill-data': string;
+  'skill-data-value': string;
   'skill-ai': string;
   'skill-ai-value': string;
-  'skill-db': string;
   'skill-mgmt': string;
+  'skill-mgmt-value': string;
   'section-education': string;
+  'edu1-degree': string;
   'edu2-degree': string;
   'edu3-degree': string;
   'edu4-degree': string;
@@ -144,43 +152,49 @@ export const translations: Record<Lang, Translations> = {
     /* CV */
     'location':           '📍 València, España',
     'section-profile':    'Perfil profesional',
-    'profile-text':       'QA Engineer con casi 7 años de experiencia en testing manual y automatización, especializada en <strong>Playwright con JavaScript/TypeScript</strong> en entornos <strong>EdTech SaaS</strong>. Participé activamente en la migración del framework de testing de Protractor a Playwright, contribuyendo en decisiones técnicas y mejoras del repositorio. Actualmente involucrada en la transición del stack completo de JavaScript a TypeScript. Experiencia práctica con <strong>Claude Code</strong> para el desarrollo de skills y plugins orientados a testing. Sólida base en testing web, mobile, iOS, API y CI/CD. Inglés B2 con experiencia de inmersión en Canadá.',
+    'profile-text':       'Quality Engineer con casi 7 años de experiencia mejorando la confianza en los releases de productos SaaS mediante testing funcional, validación de APIs y automatización con Playwright. Experiencia testeando flujos de producto con IA y múltiples servicios, identificando riesgos de integración de forma temprana y convirtiéndolos en prácticas de calidad pragmáticas. Interés en IA conversacional, outputs dinámicos y procesos de release confiables para productos basados en LLMs.',
     'section-experience': 'Experiencia profesional',
     'job1-title':         'QA Automation Engineer',
     'job1-date':          'Nov 2020 – Presente',
     'job1-location':      'Remoto',
     'job1-bullets': [
-      'Participé activamente en la migración del framework de testing de <strong>Protractor a Playwright</strong>, contribuyendo en decisiones técnicas y mejoras del repositorio.',
-      'Desarrollo y mantenimiento de <strong>48 tests automatizados activos</strong> en 41 spec files cubriendo 18 features críticas del producto (suites @sanity, @regression y @smoke).',
-      'Contribución a la reducción del tiempo de testing manual en <strong>~3 días</strong> en entorno de pruebas y del ciclo de deploy de <strong>3 horas a 45 minutos</strong> por despliegue.',
-      'Involucrada en la <strong>migración del stack de JavaScript a TypeScript</strong>, con participación en decisiones técnicas del repositorio core y del repositorio principal de Nearpod.',
-      'Desarrollo de <strong>skills y plugins con Claude Code</strong> para mejorar la velocidad y eficiencia del equipo QA.',
-      'Testing manual de aplicaciones web, mobile e iOS; API testing con <strong>Postman</strong>; integración continua con <strong>GitLab CI</strong>.',
+      '<strong>Aumenté la confianza en los releases</strong> de una funcionalidad emergente de AI Teacher Tools, contribuyendo a una estrategia de testing por capas y API-first para un micro-frontend conversacional con dependencias de servicio en evolución.',
+      '<strong>Reduje el riesgo de integración temprana</strong> validando contratos de API, usando mocks de Playwright para servicios inestables y probando el comportamiento de feature flags antes de depender de una cobertura E2E frágil.',
+      '<strong>Protegí flujos críticos del docente</strong> validando la comunicación entre iframes, los flujos de asignación por <code>postMessage</code> y el comportamiento de autenticación JWT-to-session de la experiencia embebida con IA.',
+      '<strong>Mejoré la cobertura de calidad automatizada</strong> mediante la migración de Protractor a Playwright y el mantenimiento de <strong>48 tests activos en 41 spec files</strong>, cubriendo 18 features críticas del producto.',
+      '<strong>Ayudé a reducir el testing manual</strong> en aproximadamente 3 días y la validación de despliegue de <strong>3 horas a 45 minutos</strong>, mediante mantenimiento de la suite de regresión, validación en CI y colaboración temprana con Producto e Ingeniería.',
     ],
     'job2-client': 'cliente: Telecom Argentina',
     'job2-bullets': [
-      'Diseño, creación y ejecución de planes y casos de prueba para múltiples proyectos del sector Telco.',
-      'Testing web, desktop y mobile; E2E testing; gestión de bugs con <strong>Jira y HP ALM</strong>.',
-      'API testing con <strong>Postman</strong>; metodología <strong>Scrum</strong>.',
+      'Diseño y ejecución de planes y casos de prueba funcionales para proyectos Telco en aplicaciones web, desktop y mobile.',
+      'Mejora de la trazabilidad de defectos mediante reportes de bugs estructurados, testing end-to-end y documentación de pruebas usando <strong>Jira y HP ALM</strong>.',
+      'Validación de APIs REST con <strong>Postman</strong> y colaboración con equipos de delivery bajo prácticas <strong>Scrum</strong>.',
     ],
     'job3-title':   'Freelance Audiovisual Producer, Photography Assistant & Teacher',
     'job3-company': 'Trabajo independiente para distintas compañías y fotógrafos',
     'job3-bullets': [
-      'Trabajo freelance para distintas compañías y fotógrafos como asistente y segunda cámara en proyectos de fotografía y video.',
-      'Realización de grabaciones, edición de video y coordinación de entregables técnicos para clientes corporativos e individuales.',
-      'Docencia de fotografía digital durante más de 3 años, desarrollando habilidades de comunicación, explicación clara de procesos y acompañamiento técnico.',
+      'Entrega de proyectos audiovisuales de cara al cliente con especial atención al detalle, plazos y estándares de entrega reproducibles.',
+      'Docencia de fotografía digital durante más de 3 años, fortaleciendo habilidades de comunicación, explicación técnica, feedback estructurado y mentoría.',
     ],
-    'section-projects': 'Proyectos personales',
-    'project1-desc':    'Aplicación web en producción para aprender frases idiomáticas en inglés (nivel C1) mediante IA. Incluye validación con fuzzy matching al 90%, mini conversaciones fill-in-the-blank, i18n español/inglés automático, diseño responsive y backend serverless con integración a API de IA (KIMI vía OpenAI SDK).',
+    'section-projects': 'Proyecto destacado con IA',
+    'project1-desc':    'Producto de IA orientado al usuario final para explorar cómo hacer confiable contenido generado por IA en un flujo de interacción real. Diseñé validación en torno a nivel de idioma, estructura esperada, consistencia bilingüe, evaluación de respuestas con fuzzy matching y recuperación del usuario ante respuestas imperfectas o variables. <strong>Resultado:</strong> una aplicación en producción que demuestra consideraciones prácticas de calidad para contenido generado por IA, incluyendo guardarraíles de cara al usuario, criterios de comportamiento esperado y manejo de edge cases.',
     'section-skills':   'Habilidades técnicas',
-    'skill-automation': 'Automatización',
-    'skill-languages':  'Lenguajes',
-    'skill-manual':     'Testing Manual',
-    'skill-ai':         'IA & Tooling',
-    'skill-ai-value':   'Claude Code, desarrollo de skills y plugins',
-    'skill-db':         'Bases de datos',
-    'skill-mgmt':       'Gestión',
+    'skill-quality':        'Ingeniería de calidad',
+    'skill-quality-value':  'Testing basado en riesgo · Preparación para release · Estrategia de regresión · Testing exploratorio · Investigación de defectos',
+    'skill-ai-conv':         'IA y calidad conversacional',
+    'skill-ai-conv-value':   'Flujos conversacionales · Outputs dinámicos · Verificación de consistencia · Criterios de comportamiento esperado · Flujos de trabajo asistidos por IA',
+    'skill-automation':       'Automatización de tests',
+    'skill-automation-value': 'Playwright · TypeScript · JavaScript · Page Object Model · Regresión visual · Validación API-first',
+    'skill-integration':       'Integración y arquitectura',
+    'skill-integration-value': 'APIs REST/JSON · Contratos de API · Mock data · Micro-frontends · iframes · postMessage · Feature flags · Flujos de auth/sesión',
+    'skill-data':       'API, datos y entrega',
+    'skill-data-value': 'Postman · Códigos de estado HTTP · SQL · MySQL · GitLab CI · GitHub Actions',
+    'skill-ai':         'Exposición a IA y plataformas',
+    'skill-ai-value':   'Claude Code · Skills/plugins de QA · APIs compatibles con OpenAI · NestJS · FastAPI · Exposición a AWS Bedrock / OpenSearch',
+    'skill-mgmt':       'Colaboración',
+    'skill-mgmt-value': 'Jira · HP ALM · Scrum · Comunicación de riesgos técnicos · Colaboración con Producto e Ingeniería',
     'section-education': 'Formación',
+    'edu1-degree':       'Software Tester QA',
     'edu2-degree':       'Análisis Funcional IT',
     'edu3-degree':       'Introducción a Base de Datos y SQL',
     'edu4-degree':       'Fullstack Developer – JavaScript',
@@ -247,43 +261,49 @@ export const translations: Record<Lang, Translations> = {
     /* CV */
     'location':           '📍 Valencia, Spain',
     'section-profile':    'Professional Profile',
-    'profile-text':       'QA Engineer with nearly 7 years of experience in manual and automated testing, specializing in <strong>Playwright with JavaScript/TypeScript</strong> in <strong>EdTech SaaS</strong> environments. Actively contributed to the migration of the testing framework from Protractor to Playwright, with input on technical decisions and repository improvements. Currently involved in the full stack migration from JavaScript to TypeScript. Hands-on experience with <strong>Claude Code</strong> for developing skills and plugins focused on testing. Strong background in web, mobile, iOS, API testing, and CI/CD. B2 English with immersion experience in Canada.',
+    'profile-text':       'Quality Engineer with nearly 7 years of experience improving release confidence for SaaS products through functional testing, API validation, and Playwright automation. Experienced in testing AI-powered, multi-service product flows, identifying integration risks early, and turning them into pragmatic quality practices. Interested in conversational AI, dynamic outputs, and reliable release processes for LLM-powered products.',
     'section-experience': 'Professional Experience',
     'job1-title':         'QA Automation Engineer',
     'job1-date':          'Nov 2020 – Present',
     'job1-location':      'Remote',
     'job1-bullets': [
-      'Actively contributed to the migration of the testing framework from <strong>Protractor to Playwright</strong>, providing input on technical decisions and repository improvements.',
-      'Developed and maintain <strong>48 active automated tests</strong> across 41 spec files covering 18 critical product features (suites: @sanity, @regression, and @smoke).',
-      'Contributed to reducing manual testing time by <strong>~3 days</strong> in the test environment and cutting deploy testing cycles from <strong>3 hours to 45 minutes</strong>.',
-      'Actively involved in the <strong>JavaScript to TypeScript migration</strong>, contributing to technical decisions for both the core repository and the main Nearpod test repository.',
-      'Developed <strong>skills and plugins using Claude Code</strong> to improve QA team velocity and efficiency.',
-      'Manual testing of web, mobile, and iOS applications; API testing with <strong>Postman</strong>; CI/CD integration with <strong>GitLab CI</strong>.',
+      '<strong>Increased release confidence</strong> for an emerging AI Teacher Tools feature by contributing to an API-first, layered testing strategy for a conversational micro-frontend with evolving service dependencies.',
+      '<strong>Reduced early integration risk</strong> by validating API contracts, using Playwright mocks for unstable services, and testing feature-flag behaviour before relying on fragile end-to-end coverage.',
+      '<strong>Protected critical teacher workflows</strong> by validating iframe communication, <code>postMessage</code> assignment flows, and JWT-to-session authentication behaviour for the embedded AI experience.',
+      '<strong>Improved automated quality coverage</strong> through the Protractor-to-Playwright migration and maintenance of <strong>48 active tests across 41 spec files</strong>, covering 18 critical product features.',
+      '<strong>Helped reduce manual testing</strong> by approximately 3 days and deployment validation from <strong>3 hours to 45 minutes</strong>, through regression-suite maintenance, CI validation, and early collaboration with Product and Engineering.',
     ],
     'job2-client': 'client: Telecom Argentina',
     'job2-bullets': [
-      'Design, creation, and execution of test plans and test cases for multiple projects in the Telco sector.',
-      'Web, desktop, and mobile testing; E2E testing; bug tracking and test case management with <strong>Jira and HP ALM</strong>.',
-      'API testing with <strong>Postman</strong>; <strong>Scrum</strong> methodology.',
+      'Designed and executed functional test plans and test cases for Telco projects across web, desktop, and mobile applications.',
+      'Improved defect traceability through structured bug reporting, end-to-end testing, and test documentation using <strong>Jira and HP ALM</strong>.',
+      'Validated REST APIs with <strong>Postman</strong> and collaborated with delivery teams under <strong>Scrum</strong> practices.',
     ],
     'job3-title':   'Freelance Audiovisual Producer, Photography Assistant & Teacher',
     'job3-company': 'Independent work for various companies and photographers',
     'job3-bullets': [
-      'Freelance work as assistant and second camera operator on photography and video projects for multiple companies and independent photographers.',
-      'Video recording, editing, and technical deliverable coordination for corporate and individual clients.',
-      'Taught digital photography for over 3 years, building strong communication, process explanation, and technical mentoring skills.',
+      'Delivered client-facing audiovisual projects with strong attention to detail, deadlines, and reproducible delivery standards.',
+      'Taught digital photography for more than 3 years, strengthening communication, technical explanation, structured feedback, and mentoring skills.',
     ],
-    'section-projects': 'Personal Projects',
-    'project1-desc':    'Production web app for learning C1-level English idioms through AI. Features 90% fuzzy matching validation, fill-in-the-blank mini conversations, automatic Spanish/English i18n, responsive design, and a serverless backend integrating an AI API (KIMI via OpenAI SDK).',
+    'section-projects': 'Selected AI Project',
+    'project1-desc':    'User-facing AI learning product built to explore how generated content can be made reliable in a real interaction flow. Designed validation around language level, expected structure, bilingual consistency, fuzzy-answer evaluation, and user recovery from imperfect or variable responses. <strong>Result:</strong> a working production application demonstrating practical quality considerations for AI-generated content, including user-facing guardrails, expected-behaviour criteria, and edge-case handling.',
     'section-skills':   'Technical Skills',
-    'skill-automation': 'Test Automation',
-    'skill-languages':  'Languages',
-    'skill-manual':     'Manual Testing',
-    'skill-ai':         'AI & Tooling',
-    'skill-ai-value':   'Claude Code, skills and plugin development',
-    'skill-db':         'Databases',
-    'skill-mgmt':       'Management',
+    'skill-quality':        'Quality Engineering',
+    'skill-quality-value':  'Risk-based testing · Release readiness · Regression strategy · Exploratory testing · Defect investigation',
+    'skill-ai-conv':         'AI & Conversational Quality',
+    'skill-ai-conv-value':   'Conversational flows · Dynamic outputs · Consistency checks · Expected-behaviour criteria · AI-assisted workflows',
+    'skill-automation':       'Test Automation',
+    'skill-automation-value': 'Playwright · TypeScript · JavaScript · Page Object Model · Visual regression · API-first validation',
+    'skill-integration':       'Integration & Architecture',
+    'skill-integration-value': 'REST/JSON APIs · API contracts · Mock data · Micro-frontends · iframes · postMessage · Feature flags · Auth/session flows',
+    'skill-data':       'API, Data & Delivery',
+    'skill-data-value': 'Postman · HTTP status codes · SQL · MySQL · GitLab CI · GitHub Actions',
+    'skill-ai':         'AI & Platform Exposure',
+    'skill-ai-value':   'Claude Code · QA skills/plugins · OpenAI-compatible APIs · NestJS · FastAPI · AWS Bedrock / OpenSearch exposure',
+    'skill-mgmt':       'Collaboration',
+    'skill-mgmt-value': 'Jira · HP ALM · Scrum · Technical risk communication · Product and engineering collaboration',
     'section-education': 'Education',
+    'edu1-degree':       'Software Tester QA',
     'edu2-degree':       'IT Functional Analysis',
     'edu3-degree':       'Introduction to Databases and SQL',
     'edu4-degree':       'Fullstack Developer – JavaScript',
