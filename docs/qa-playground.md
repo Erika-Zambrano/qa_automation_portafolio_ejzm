@@ -28,8 +28,8 @@ Todo el playground gira en torno a una galería que vende reproducciones de obra
 | Tests de API | Locales contra `npm run dev:api` (servidor Node que monta los mismos handlers de `/api`, sin login ni link a Vercel; determinista, también en CI) |
 | i18n | ES y EN, igual que el resto del sitio |
 | Selectores | `data-testid` consistente en todos los componentes |
-| Lint | ESLint con reglas de tipo (type-aware) y `eslint-plugin-playwright`, para reglas obligatorias que se amplían con el tiempo. Rama previa `chore/eslint` |
-| Page objects | `PomBuilder` como fixture de Playwright en `tests/ui/fixtures/`, solo para UI. Rama previa `refactor/pom-builder` |
+| Lint | ESLint con reglas de tipo (type-aware) y `eslint-plugin-playwright`, para reglas obligatorias que se amplían con el tiempo. Regla propia `local/expect-style` en `tests/ui/` (ver fase 4) |
+| Page objects | `pageObjectsInstantiation` en `tests/ui/fixtures/pomBuilder.ts` crea todos los page objects en un solo objeto, entregado por fixtures según el contexto: `guestPages` (sin sesión) y `customerPages` (con login por API). Los specs no importan page objects: `customerPages.checkoutPage.fillAddress(...)`. Cada page object expone `generic` (`button`, `link`, `textbox`, `checkbox`, `heading`, `text`, `testId`). Solo UI |
 | Títulos de tests | `Should validate`, `create`, `navigate`, `display` o `switch`, en inglés, con ID y etiquetas en `tag`. Se exige desde la fase 4 (los tests de API de la fase 3 conservan su formato) |
 
 ## Estrategia de branches
@@ -143,25 +143,42 @@ Branch: `feat/qa-playground-3-api-tests`
 - Tags `@smoke`, `@sanity`, `@regression`.
 - Corrección de backend que salió de los tests: un body de más de 100 KB cortaba la conexión en vez de responder 413.
 - ESLint (`eslint.config.mjs`): reglas con tipos (`typescript-eslint` type-checked), `eslint-plugin-playwright` y reglas propias (`no-floating-promises`, `no-explicit-any`, `consistent-type-imports`, `expect-expect`, `no-wait-for-timeout`, `valid-title`). Scripts `npm run lint` y `npm run typecheck`, ambos en CI con `--max-warnings 0`.
-- `PomBuilder` (`tests/ui/fixtures/pomBuilder.ts`): fixture `pom` con carga lazy de page objects y opción `lang`. Los specs de portafolio migraron a él y a los títulos `Should …` con `tag`.
+- `PomBuilder` (`tests/ui/fixtures/pomBuilder.ts`) con opción `lang`. Los specs de portafolio migraron a él y a los títulos `Should …` con `tag`. En la fase 4 se reemplazó el fixture `pom` por `guestPages` y `customerPages`.
 - La regla de títulos `Should …` solo aplica a `tests/ui/`.
 
 | Commit | Mensaje |
 |---|---|
-| | |
+| `afb76b7` | fix(api): respond 413 instead of dropping the connection on oversized bodies |
+| `4e84944` | test(api): add QA playground API test suites |
+| `ec93105` | refactor(ui): add PomBuilder fixture and migrate portfolio specs to Should titles |
+| `263053b` | chore: add ESLint with type-aware and Playwright rules, and fix existing findings |
+| `5362540` | docs: record ESLint and PomBuilder in the QA playground plan |
 
 ### Fase 4: Tests E2E por UI
 
-Branch: `feat/qa-playground-4-e2e-tests`
+Branch: `feat/qa-playground-4-e2e-ui`
 
-- Page objects en `pages/playground/`, registrados en el `PomBuilder`.
-- Títulos con el vocabulario `Should …`, validado por ESLint (`valid-title` con `mustMatch`).
-- Specs: shop y checkout, forms, login, signup con términos.
-- Híbridos: login por API, `page.route` para errores 500, latencia y respuestas malformadas.
+- Proyecto `playground` en `playwright.config.ts` (`testIdAttribute: data-testid`, `baseURL` `http://localhost:5173` o `PLAYGROUND_WEB_URL`). El `webServer` levanta la API (`npm run dev:api`) y la web (Vite con proxy `/api`), reutilizando los que ya estén corriendo.
+- Page objects en `pages/playground/`: `PlaygroundBasePage`, `ShopPage`, `CheckoutPage`, `FormsPage`, `LoginPage`, `SignupPage`. Componentes reutilizables en `pages/playground/components/`: `PlaygroundMenu` (dropdown de la topbar), `SessionBar`, `CartPanel` y `Generic`.
+- Fixtures en `tests/ui/fixtures/`:
+  - `guestPages` y `customerPages`.
+  - `session.signIn(who)` y `session.seedCart(items, coupon)`: precargan sesión y carrito en `localStorage` con `addInitScript`.
+  - `isolatedRateLimit` (automático): añade `X-RateLimit-Key` único a las llamadas del navegador. El login por API del fixture también lo envía.
+- Textos de los tests (`buttonName`, `messages`) en `tests/ui/test-data/playgroundTexts.ts`, tomados del diccionario i18n de la web.
+- Specs en `tests/ui/playground/`: `navigation`, `shop` (catálogo, filtros, paginación, carrito, cupones), `checkout` (acceso, tarjeta, envío, stock, idempotencia), `forms`, `auth` (login y signup con términos obligatorios).
+- Híbridos: login por API, `page.route` para 401/409/500/503, timeouts, latencia y respuestas malformadas.
+- Regla propia de ESLint `local/expect-style` (`eslint-rules/expect-style.mjs`, solo `tests/ui/`, con autofix):
+  - Dos o más `await expect` seguidos van en `await Promise.all([...])` con `expect.soft`.
+  - Dentro de un `Promise.all` o de un bucle (`for`, `while`, `forEach`, `map`), siempre `.soft`.
+  - El último `expect` suelto de un test no lleva `.soft`; los demás sí.
+- `valid-title` exige el vocabulario `Should …`; `prefer-locator` está apagada en `tests/ui/` porque confunde `shopPage` con `page`.
+- Limitaciones: el stock vive en memoria del servidor local, así que `checkout` lo consume (usa la obra 6, con 70 copias).
 
 | Commit | Mensaje |
 |---|---|
-| | |
+| `d1b5474` | chore(lint): add expect-style rule for soft and grouped expects in UI tests |
+| `fffb7cd` | test(ui): add QA playground E2E specs, page objects and guest/customer fixtures |
+| `26a2a36` | docs: record phase 3 as done and describe phase 4 in the QA playground plan |
 
 ### Fase 5: CI y reports
 
@@ -181,6 +198,6 @@ Branch: `feat/qa-playground-5-ci-reports`
 |---|---|---|---|
 | 1 | `feat/qa-playground-1-backend` | Hecha | MR #4 (`678e73a`) |
 | 2 | `feat/qa-playground-2-frontend` | Hecha | MR #5 (`62cc4e7`) |
-| 3 | `feat/qa-playground-3-api-tests` | En curso | |
-| 4 | `feat/qa-playground-4-e2e-tests` | Pendiente | |
+| 3 | `feat/qa-playground-3-api-tests` | Hecha | MR #6 (`762e250`) |
+| 4 | `feat/qa-playground-4-e2e-ui` | En curso | |
 | 5 | `feat/qa-playground-5-ci-reports` | Pendiente | |

@@ -2,6 +2,7 @@ import js from '@eslint/js';
 import globals from 'globals';
 import playwright from 'eslint-plugin-playwright';
 import tseslint from 'typescript-eslint';
+import expectStyle from './eslint-rules/expect-style.mjs';
 
 const TITLE_VERBS = 'validate|create|navigate|display|switch';
 
@@ -69,7 +70,10 @@ export default tseslint.config(
 
   {
     files: ['tests/ui/**'],
+    plugins: { local: { rules: { 'expect-style': expectStyle } } },
     rules: {
+      'local/expect-style': 'error',
+      'playwright/prefer-locator': 'off',
       'playwright/valid-title': [
         'error',
         {
