@@ -1,22 +1,168 @@
 {
   "latest": {
-    "generatedAt": "2026-11-24T13:56:33.435Z",
+    "generatedAt": "2026-11-24T22:34:49.503Z",
     "commit": null,
-    "total": 17,
-    "passed": 17,
+    "trigger": "local",
+    "runUrl": null,
+    "total": 683,
+    "passed": 679,
     "failed": 0,
     "flaky": 0,
-    "skipped": 0,
-    "wallDuration": 11734
+    "skipped": 4,
+    "wallDuration": 104797
   },
+  "projects": [
+    {
+      "name": "api-playground",
+      "total": 549,
+      "passed": 549,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 7720
+    },
+    {
+      "name": "portfolio",
+      "total": 13,
+      "passed": 13,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 16456
+    },
+    {
+      "name": "playground",
+      "total": 73,
+      "passed": 73,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 158015
+    },
+    {
+      "name": "api",
+      "total": 4,
+      "passed": 0,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 1236
+    },
+    {
+      "name": "api-playground-stateful",
+      "total": 44,
+      "passed": 44,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 774
+    }
+  ],
   "files": [
+    {
+      "file": "playground-api/auth.spec.ts",
+      "total": 61,
+      "passed": 61,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 2630,
+      "tags": [
+        "@smoke",
+        "@sanity",
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "total": 101,
+      "passed": 101,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 856,
+      "tags": [
+        "@smoke",
+        "@sanity",
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "total": 49,
+      "passed": 49,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 1204,
+      "tags": [
+        "@smoke",
+        "@regression",
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "total": 65,
+      "passed": 65,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 745,
+      "tags": [
+        "@smoke",
+        "@regression",
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "total": 51,
+      "passed": 51,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 571,
+      "tags": [
+        "@smoke",
+        "@sanity",
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "total": 104,
+      "passed": 104,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 783,
+      "tags": [
+        "@smoke",
+        "@sanity",
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "total": 72,
+      "passed": 72,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 674,
+      "tags": [
+        "@smoke",
+        "@sanity",
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "total": 46,
+      "passed": 46,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 257,
+      "tags": [
+        "@regression"
+      ]
+    },
     {
       "file": "ui/portfolio/cv.spec.ts",
       "total": 6,
       "passed": 6,
       "failed": 0,
       "flaky": 0,
-      "duration": 8107,
+      "duration": 8835,
       "tags": [
         "@smoke",
         "@regression"
@@ -28,7 +174,67 @@
       "passed": 7,
       "failed": 0,
       "flaky": 0,
-      "duration": 6554,
+      "duration": 7621,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "total": 17,
+      "passed": 17,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 34135,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 34627,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 34158,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/navigation.spec.ts",
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 5784,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "total": 23,
+      "passed": 23,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 49311,
       "tags": [
         "@smoke",
         "@regression"
@@ -37,142 +243,6375 @@
     {
       "file": "api/public-api.spec.ts",
       "total": 4,
-      "passed": 4,
+      "passed": 0,
       "failed": 0,
       "flaky": 0,
-      "duration": 3399,
+      "duration": 1236,
       "tags": [
         "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "total": 44,
+      "passed": 44,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 774,
+      "tags": [
+        "@smoke",
+        "@sanity",
+        "@regression"
       ]
     }
   ],
   "tests": [
     {
-      "file": "ui/portfolio/cv.spec.ts",
-      "title": "topbar and all 4 nav links are visible",
-      "project": "portfolio",
+      "file": "playground-api/auth.spec.ts",
+      "title": "valid credentials return a token and the user",
+      "project": "api-playground",
       "status": "passed",
-      "duration": 1128,
+      "duration": 64,
       "tags": [
         "@smoke"
       ]
     },
     {
-      "file": "ui/portfolio/cv.spec.ts",
-      "title": "all 6 CV sections are visible in Spanish",
-      "project": "portfolio",
+      "file": "playground-api/auth.spec.ts",
+      "title": "the JWT has HS256 header and the expected claims",
+      "project": "api-playground",
       "status": "passed",
-      "duration": 1157,
+      "duration": 73,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "the admin account carries the admin role",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 62,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "the same user always gets the same id",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 82,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "email matching is case-insensitive",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a custom ttl controls expiresIn and exp",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "wrong password returns 401 INVALID_CREDENTIALS",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "passwords are case-sensitive",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "unknown email and wrong password are indistinguishable",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 26,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a locked account returns 423 ACCOUNT_LOCKED even with the right password",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a locked account with a wrong password still returns 401",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 17,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: missing email returns 400 email:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 17,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: missing password returns 400 password:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 17,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: empty email returns 400 email:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: blank email returns 400 email:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 14,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: email as number returns 400 email:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 20,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: password as number returns 400 password:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 40,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: password as object returns 400 password:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 21,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: null email returns 400 email:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 23,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: email too long returns 400 email:TOO_LONG",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: password too long returns 400 password:TOO_LONG",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 14,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: ttl zero returns 400 ttl:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: ttl above max returns 400 ttl:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 19,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: ttl negative returns 400 ttl:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: ttl float returns 400 ttl:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 18,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: ttl string returns 400 ttl:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: unknown field returns 400 admin:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation: __proto__ field returns 400 __proto__:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "ttl at the boundaries 1 and 3600 is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 24,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "several validation problems are reported together",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 31,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "SQL injection style credentials are just a failed login",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 29,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "login exposes rate limit headers that count down",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 30,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "the sixth attempt in a window is blocked with 429 and Retry-After",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 131,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a blocked client cannot log in even with valid credentials",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 54,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "different rate limit keys are tracked independently",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 34,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "validation failures also consume the quota",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 26,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "the register limit is separate from the login limit",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 20,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "GET /me returns the user for a valid token",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 14,
       "tags": [
         "@smoke"
       ]
     },
     {
-      "file": "ui/portfolio/cv.spec.ts",
-      "title": "nav links navigate to correct pages",
-      "project": "portfolio",
+      "file": "playground-api/auth.spec.ts",
+      "title": "expiresAt matches the token ttl",
+      "project": "api-playground",
       "status": "passed",
-      "duration": 2008,
+      "duration": 19,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "GET /me without Authorization returns 401 with a WWW-Authenticate challenge",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 24,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "Authorization with Basic scheme returns 401",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "Authorization with no scheme returns 401",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "Authorization with lowercase token only returns 401",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "Authorization with two tokens returns 401",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "Authorization with empty bearer returns 401",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "the Bearer scheme is case-insensitive",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 20,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a malformed token (one segment) returns 401 TOKEN_INVALID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a malformed token (two segments) returns 401 TOKEN_INVALID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a malformed token (four segments) returns 401 TOKEN_INVALID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 41,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a malformed token (non-base64 header) returns 401 TOKEN_INVALID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 33,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a malformed token (non-JSON header) returns 401 TOKEN_INVALID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a token with a tampered payload is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 14,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a token with a corrupted signature is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a token signed with another secret is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "the alg=none attack is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "an HS512 header is rejected as an unsupported algorithm",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "an expired token returns 401 TOKEN_EXPIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 1218,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "a token is usable before it expires",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "logout returns 204 with an empty body",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "logout requires a valid token",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/auth.spec.ts",
+      "title": "tokens are stateless: a token still works after logout",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "a single artwork with standard shipping",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
       "tags": [
         "@smoke"
       ]
     },
     {
-      "file": "ui/portfolio/cv.spec.ts",
-      "title": "language switches to English via UI",
-      "project": "portfolio",
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "express shipping costs more",
+      "project": "api-playground",
       "status": "passed",
-      "duration": 1221,
+      "duration": 6,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "the default shipping method is standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "line totals multiply price by quantity",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "the order of items is preserved",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "free shipping applies at exactly 10000 and not at 9900",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "free shipping applies to express too",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "the free shipping threshold is evaluated after the discount",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "SAVE10 takes 10 percent off before tax",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "FIXED5 takes 500 off",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "FREESHIP removes the shipping cost",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "coupons are case-insensitive and trimmed",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 17,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "an empty or blank coupon is treated as no coupon",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "the pricing is deterministic",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 0 coupon=none shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 0 coupon=none shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 0 coupon=SAVE10 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 0 coupon=SAVE10 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 0 coupon=FIXED5 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 0 coupon=FIXED5 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 0 coupon=FREESHIP shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 18,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 0 coupon=FREESHIP shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 1 coupon=none shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 1 coupon=none shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 1 coupon=SAVE10 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 1 coupon=SAVE10 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 1 coupon=FIXED5 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 1 coupon=FIXED5 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 1 coupon=FREESHIP shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 1 coupon=FREESHIP shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 2 coupon=none shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 2 coupon=none shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 2 coupon=SAVE10 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 2 coupon=SAVE10 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 2 coupon=FIXED5 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 2 coupon=FIXED5 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 2 coupon=FREESHIP shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 2 coupon=FREESHIP shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 3 coupon=none shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 3 coupon=none shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 3 coupon=SAVE10 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 3 coupon=SAVE10 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 3 coupon=FIXED5 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 3 coupon=FIXED5 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 3 coupon=FREESHIP shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 3 coupon=FREESHIP shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 4 coupon=none shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 4 coupon=none shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 4 coupon=SAVE10 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 4 coupon=SAVE10 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 4 coupon=FIXED5 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 4 coupon=FIXED5 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 4 coupon=FREESHIP shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 4 coupon=FREESHIP shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 5 coupon=none shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 5 coupon=none shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 5 coupon=SAVE10 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 5 coupon=SAVE10 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 5 coupon=FIXED5 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 5 coupon=FIXED5 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 5 coupon=FREESHIP shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 5 coupon=FREESHIP shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 6 coupon=none shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 6 coupon=none shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 6 coupon=SAVE10 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 6 coupon=SAVE10 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 6 coupon=FIXED5 shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 6 coupon=FIXED5 shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 6 coupon=FREESHIP shipping=standard",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "totals identity holds: cart 6 coupon=FREESHIP shipping=express",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "an unknown coupon returns 422 COUPON_INVALID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "the expired coupon returns 422 COUPON_EXPIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "a coupon longer than 32 characters is a validation error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "a coupon of the wrong type is a validation error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "coupon injection strings are just invalid coupons",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 18,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "missing items returns 400 items:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "items not an array returns 400 items:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "items as object returns 400 items:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "empty items returns 400 items:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "21 items returns 400 items:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "item not an object returns 400 items[0]:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "item as null returns 400 items[0]:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "productId as string returns 400 items[0].productId:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "productId float returns 400 items[0].productId:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "quantity as string returns 400 items[0].quantity:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "quantity float returns 400 items[0].quantity:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "quantity zero returns 400 items[0].quantity:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "quantity negative returns 400 items[0].quantity:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "quantity above 10 returns 400 items[0].quantity:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "duplicate product returns 400 items[1].productId:DUPLICATE_ITEM",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "invalid shipping returns 400 shippingMethod:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "shipping as number returns 400 shippingMethod:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "unknown field returns 400 discount:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "quantity boundaries 1 and 10 are accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "20 different items are accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "an unknown product returns 404 PRODUCT_NOT_FOUND",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "a sold out artwork returns 409 INSUFFICIENT_STOCK with available 0",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "asking for more copies than available returns 409 with the numbers",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "asking for exactly the available copies works and one more fails",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "pricing a cart never changes the stock",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/cart-pricing.spec.ts",
+      "title": "the first failing item is reported even when others are valid",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "the default response is 200 with an echo payload",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=200 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=201 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=202 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=400 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=401 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=403 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=404 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=409 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 19,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=418 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=422 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=429 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=500 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=502 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 31,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=503 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=504 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=599 returns exactly that status",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=204 returns an empty body",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=429 includes a Retry-After header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status=503 includes a Retry-After header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "other error statuses do not include Retry-After",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid status \"abc\" returns 400 INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid status \"1.5\" returns 400 INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid status \"199\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid status \"600\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid status \"0\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid status \"-200\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid status \"\" returns 400 INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "delay adds latency",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 406,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "no delay answers quickly",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "delay and status combine",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 305,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid delay \"-1\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid delay \"10001\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid delay \"fast\" returns 400 INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid delay \"1.5\" returns 400 INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "malformed=true returns a truncated JSON body that cannot be parsed",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "malformed combines with a status code",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "malformed values other than true are ignored",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "failRate=1 always fails with 503 CHAOS_FAILURE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 34,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "failRate=0 never fails",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 42,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "failRate=0.5 produces both outcomes over many calls",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid failRate \"2\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid failRate \"-0.1\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid failRate \"abc\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid failRate \"NaN\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "invalid failRate \"Infinity\" returns 400 OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "the endpoint echoes the method and the body",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "status and body combine for failing writes",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/chaos.spec.ts",
+      "title": "chaos responses are not cached",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "checkout requires a token",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 20,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an invalid token is rejected before anything else",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "a missing Idempotency-Key returns 400 IDEMPOTENCY_KEY_REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an Idempotency-Key that is too short is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an Idempotency-Key that is 65 characters is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 17,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an Idempotency-Key that is spaces is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an Idempotency-Key that is symbols is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an Idempotency-Key that is accents is rejected",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an Idempotency-Key with 8 characters is accepted (validation runs next)",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an Idempotency-Key with 64 characters is accepted (validation runs next)",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an Idempotency-Key with with dashes and underscores is accepted (validation runs next)",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "the key is checked before the body is validated",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "a body that is not an object returns 400",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "missing items returns 422 items:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "empty items returns 422 items:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "quantity above 10 returns 422 items[0].quantity:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "duplicate items returns 422 items[1].productId:DUPLICATE_ITEM",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 34,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "missing shippingMethod returns 422 shippingMethod:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "invalid shippingMethod returns 422 shippingMethod:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "missing shippingAddress returns 422 shippingAddress:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "shippingAddress as string returns 422 shippingAddress:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "missing payment returns 422 payment:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "unknown top-level field returns 422 total:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "missing fullName returns 422 shippingAddress.fullName:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "one-letter fullName returns 422 shippingAddress.fullName:TOO_SHORT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "81-letter fullName returns 422 shippingAddress.fullName:TOO_LONG",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "short street returns 422 shippingAddress.street:TOO_SHORT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 14,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "121-char street returns 422 shippingAddress.street:TOO_LONG",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "short city returns 422 shippingAddress.city:TOO_SHORT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "zip too short returns 422 shippingAddress.zip:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "zip too long returns 422 shippingAddress.zip:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "zip with symbols returns 422 shippingAddress.zip:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "invalid country returns 422 shippingAddress.country:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "lowercase country returns 422 shippingAddress.country:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 38,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "unknown address field returns 422 shippingAddress.planet:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "card number with letters returns 422 payment.cardNumber:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "card number with spaces returns 422 payment.cardNumber:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "card number too short returns 422 payment.cardNumber:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "card number too long returns 422 payment.cardNumber:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 17,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "card number failing Luhn returns 422 payment.cardNumber:INVALID_CARD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "card number as number returns 422 payment.cardNumber:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "expiry month 13 returns 422 payment.expiry:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 19,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "expiry month 00 returns 422 payment.expiry:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "expiry with 4-digit year returns 422 payment.expiry:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "expiry without slash returns 422 payment.expiry:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "expired card returns 422 payment.expiry:CARD_EXPIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 24,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "cvv with 2 digits returns 422 payment.cvv:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "cvv with 5 digits returns 422 payment.cvv:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 37,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "cvv with letters returns 422 payment.cvv:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "missing cvv returns 422 payment.cvv:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "unknown payment field returns 422 payment.holder:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "the card expiry of the current month is still valid (no 422 for expiry)",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "card number boundaries of 13 and 19 digits pass the format check",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "all problems are reported together",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an unknown product returns 404",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "a sold out artwork returns 409 INSUFFICIENT_STOCK",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "asking for more than the stock returns 409",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "an invalid coupon returns 422 COUPON_INVALID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "the expired coupon returns 422 COUPON_EXPIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "a declined card returns 402 CARD_DECLINED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "a card without funds returns 402 INSUFFICIENT_FUNDS",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "stock is checked before the card is charged",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "a declined payment does not reduce the stock",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "a decline is not cached: the same key can be retried with a good card",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/checkout-validation.spec.ts",
+      "title": "the error response never echoes the card data",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "GET /api/health returns status ok",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "every response carries X-Request-Id, no-store and CORS headers",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "a valid client X-Request-Id is echoed back",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "an invalid X-Request-Id (has spaces) is replaced by a generated one",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "an invalid X-Request-Id (aaaaaaaaaaaa) is replaced by a generated one",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "an invalid X-Request-Id (semi;colon) is replaced by a generated one",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "an invalid X-Request-Id (ñandú) is replaced by a generated one",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "each request gets a different generated request id",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "error bodies carry the same request id as the header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "unknown routes return 404 NOT_FOUND in the standard envelope",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/health answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/health rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/reset answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/reset rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/chaos answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/chaos rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 1,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/auth/login answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/auth/login rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 26,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/auth/register answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/auth/register rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/auth/me answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/auth/me rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/auth/logout answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/auth/logout rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/products answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/products rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/products/1 answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/products/1 rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 26,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/cart/price answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/cart/price rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/checkout answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/checkout rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 24,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/orders/ord_x answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/orders/ord_x rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "OPTIONS /api/forms/submit answers the CORS preflight",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "/api/forms/submit rejects unsupported methods with 405 and an Allow header",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 26,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "POST with a non-JSON content type returns 415",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "POST with form-encoded body returns 415",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "malformed JSON (truncated object) returns 400 INVALID_JSON",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "malformed JSON (trailing comma) returns 400 INVALID_JSON",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "malformed JSON (single quotes) returns 400 INVALID_JSON",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "malformed JSON (plain word) returns 400 INVALID_JSON",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "a JSON body that is an array is rejected with 400",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "a JSON body that is a string is rejected with 400",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "a JSON body that is a number is rejected with 400",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "a JSON body that is null is rejected with 400",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "a JSON body that is a boolean is rejected with 400",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "an empty POST body is rejected as a validation error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "a body just under 100 KB is processed",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "a body over 100 KB returns 413 PAYLOAD_TOO_LARGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/conventions.spec.ts",
+      "title": "every error uses the same envelope keys",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 21,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a complete request is accepted with 201",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "the response echoes the normalized data",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "optional fields get their defaults",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "every submission gets a different id",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "names are trimmed",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "unicode names are accepted: José Ángel Núñez",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "unicode names are accepted: 李小龍",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "unicode names are accepted: Zoë 🎨 Ñandú",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "unicode names are accepted: O'Brien-Smith",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "HTML payloads in message are stored as inert text",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "SQL payloads in message are stored as inert text",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "template payloads in message are stored as inert text",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "null byte payloads in message are stored as inert text",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a message of exactly 500 characters is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a name of exactly 80 characters is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "every valid interest and every combination size is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "country AR is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "country BR is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "country CL is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "country CO is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "country MX is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "country US is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "country ES is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "gender female is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "gender male is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "gender nonbinary is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "gender undisclosed is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "collectingYears boundaries 0 and 60 are accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a leap day birth date is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a person who turns 18 today is accepted and one who turns 18 tomorrow is not",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 14,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "missing fullName returns 422 fullName:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "blank fullName returns 422 fullName:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "one-letter fullName returns 422 fullName:TOO_SHORT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "81-char fullName returns 422 fullName:TOO_LONG",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "fullName as number returns 422 fullName:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "missing email returns 422 email:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "email without at returns 422 email:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "email without domain dot returns 422 email:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "email with spaces returns 422 email:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "email with one-letter tld returns 422 email:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "email too long returns 422 email:TOO_LONG",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "missing country returns 422 country:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "unknown country returns 422 country:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "lowercase country returns 422 country:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "missing gender returns 422 gender:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "unknown gender returns 422 gender:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "missing interests returns 422 interests:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "empty interests returns 422 interests:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "interests as string returns 422 interests:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "interests with numbers returns 422 interests:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "unknown interest returns 422 interests:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "duplicate interests returns 422 interests:DUPLICATE_ITEM",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "six interests returns 422 interests:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "missing birthDate returns 422 birthDate:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate in DD-MM-YYYY returns 422 birthDate:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate with slashes returns 422 birthDate:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate text returns 422 birthDate:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate with time returns 422 birthDate:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate month 13 returns 422 birthDate:INVALID_DATE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate February 30 returns 422 birthDate:INVALID_DATE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate February 29 on a non-leap year returns 422 birthDate:INVALID_DATE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate day 00 returns 422 birthDate:INVALID_DATE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate in the future returns 422 birthDate:UNDERAGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "birthDate 10 years ago returns 422 birthDate:UNDERAGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "missing collectingYears returns 422 collectingYears:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "collectingYears negative returns 422 collectingYears:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "collectingYears above 60 returns 422 collectingYears:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "collectingYears as string returns 422 collectingYears:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "collectingYears float returns 422 collectingYears:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "message too long returns 422 message:TOO_LONG",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "message as number returns 422 message:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "newsletter as string returns 422 newsletter:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "newsletter as number returns 422 newsletter:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "missing acceptTerms returns 422 acceptTerms:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "acceptTerms false returns 422 acceptTerms:TERMS_NOT_ACCEPTED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "acceptTerms as string returns 422 acceptTerms:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "acceptTerms as number returns 422 acceptTerms:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "unknown field returns 422 role:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "legacy experienceYears field returns 422 experienceYears:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "an empty object reports every required field at once",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a rejected submission does not return an id",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a non-object body returns 400",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a image/png attachment is accepted and echoed",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a image/jpeg attachment is accepted and echoed",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "a application/pdf attachment is accepted and echoed",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "size boundaries: 1 byte and exactly 2 MB are accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment size above 2 MB returns 422 attachment.size:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment size zero returns 422 attachment.size:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment negative size returns 422 attachment.size:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment size as string returns 422 attachment.size:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment size as float returns 422 attachment.size:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment gif type returns 422 attachment.type:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment executable type returns 422 attachment.type:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment uppercase type returns 422 attachment.type:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment path traversal name returns 422 attachment.name:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment name with slash returns 422 attachment.name:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment name with backslash returns 422 attachment.name:INVALID_FORMAT",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment name too long returns 422 attachment.name:TOO_LONG",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment missing name returns 422 attachment.name:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment missing size returns 422 attachment.size:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment missing type returns 422 attachment.type:REQUIRED",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment unknown attachment field returns 422 attachment.path:UNKNOWN_FIELD",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment attachment as string returns 422 attachment:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/forms.spec.ts",
+      "title": "attachment attachment as array returns 422 attachment:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "the default listing returns the first page of 5",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "every product matches the schema",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 66,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "ids and skus are unique",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "the catalog includes the expected artists",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "the catalog includes the El grito, Guernica and Miranda en La Carraca artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "page=1 pageSize=5 returns ids 1..5",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "page=2 pageSize=5 returns ids 6..10",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "page=4 pageSize=5 returns ids 16..18",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "page=1 pageSize=18 returns ids 1..18",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "page=2 pageSize=10 returns ids 11..18",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "page=1 pageSize=1 returns ids 1..1",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "page=18 pageSize=1 returns ids 18..18",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a page past the end returns an empty list with the real totals",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "pages do not overlap and cover the whole catalog",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?page=0 returns 400 page:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?page=-1 returns 400 page:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?page=1001 returns 400 page:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?page=abc returns 400 page:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?page=1.5 returns 400 page:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?pageSize=0 returns 400 pageSize:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?pageSize=51 returns 400 pageSize:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?pageSize=ten returns 400 pageSize:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?minPrice=-1 returns 400 minPrice:OUT_OF_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?maxPrice=abc returns 400 maxPrice:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?category=sculpture returns 400 category:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?sort=popularity returns 400 sort:INVALID_OPTION",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?inStock=yes returns 400 inStock:INVALID_TYPE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "invalid query ?minPrice=5000&maxPrice=1000 returns 400 minPrice:INVALID_RANGE",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "the boundary values pageSize=50 and page=1000 are valid",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "unknown query parameters are ignored",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "filtering by artist is a case-insensitive contains match",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "filtering by artist with accents and spaces",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=impressionism returns 2 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=post-impressionism returns 2 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=expressionism returns 1 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=surrealism returns 2 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=cubism returns 2 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=baroque returns 2 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=abstract returns 3 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=historical returns 1 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "category=kinetic returns 3 artworks",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "the sum of all category totals equals the catalog size",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 30,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "q searches title and artist, ignoring case",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "q with no matches returns an empty list",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "q is not interpreted as a regular expression",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "price range filters are inclusive",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "inStock=true hides sold out artworks and inStock=false shows only them",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "filters combine with AND",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "pagination applies after filtering",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sort=price orders ascending",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sort=-price orders descending",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sort=year orders ascending",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sort=-year orders descending",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sort=rating orders ascending",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sort=-rating orders descending",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sort=name orders ascending",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 32,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sort=-name orders descending",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 24,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "sorting is applied before pagination",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "GET /products/:id returns the artwork",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "the detail matches the listing entry",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 48,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "an unknown id (0) returns 404 PRODUCT_NOT_FOUND",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "an unknown id (19) returns 404 PRODUCT_NOT_FOUND",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "an unknown id (999) returns 404 PRODUCT_NOT_FOUND",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "an unknown id (99999999999) returns 404 PRODUCT_NOT_FOUND",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a non-numeric id (abc) returns 400 INVALID_ID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a non-numeric id (-1) returns 400 INVALID_ID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a non-numeric id (1.5) returns 400 INVALID_ID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a non-numeric id (1e2) returns 400 INVALID_ID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a non-numeric id (%20) returns 400 INVALID_ID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a non-numeric id (1%20) returns 400 INVALID_ID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a non-numeric id (true) returns 400 INVALID_ID",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/products.spec.ts",
+      "title": "a trailing slash still resolves the artwork",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q=' OR '1'='1 is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist=' OR '1'='1 is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q=\"; DROP TABLE products;  is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist=\"; DROP TABLE products;  is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q=<script>alert(1)</script is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist=<script>alert(1)</script is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q=${7*7} is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist=${7*7} is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q={{constructor.constructo is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist={{constructor.constructo is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q=../../../etc/passwd is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist=../../../etc/passwd is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q=%00 is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist=%00 is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q=\\u0000 is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist=\\u0000 is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 3,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "q=AAAAAAAAAAAAAAAAAAAAAAAA is harmless in the catalog search",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "artist=AAAAAAAAAAAAAAAAAAAAAAAA is harmless in the catalog filter",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (..%2F..%2Fetc%2Fpass) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (%2e%2e) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (%00) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (1;DROP) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (1%20OR%201=1) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (null) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (undefined) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (NaN) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a hostile product id (99999999999999999999) never yields a server error",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "hostile order ids return 404 without leaking details",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "error responses never expose stack traces or file paths",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 14,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "no technology disclosure headers are sent",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "deeply nested JSON is rejected cleanly",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a very long string value is handled",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "forms reject the __proto__ key",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "forms reject the constructor key",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "forms reject the prototype key",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "forms reject the isAdmin key",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "forms reject the role key",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "registration cannot assign the admin role",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a registered user is never an admin",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "the cart price cannot be overridden by the client",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 5,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a polluted request does not change later behaviour",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "a method override header does not change the method",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 6,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "CORS is open but never allows credentials",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "JSON content type with a charset or different casing is accepted",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "the token is never reflected in error responses",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 7,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/security.spec.ts",
+      "title": "password values are never echoed back in validation errors",
+      "project": "api-playground",
+      "status": "passed",
+      "duration": 4,
       "tags": [
         "@regression"
       ]
     },
     {
       "file": "ui/portfolio/cv.spec.ts",
-      "title": "language persists after page reload",
+      "title": "Should display the topbar and all 4 nav links",
       "project": "portfolio",
       "status": "passed",
-      "duration": 1437,
+      "duration": 1247,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "Should display all 6 CV sections in Spanish",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1320,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "Should navigate to the right page from each nav link",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1939,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "Should switch the language to English via the UI",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1358,
       "tags": [
         "@regression"
       ]
     },
     {
       "file": "ui/portfolio/cv.spec.ts",
-      "title": "html lang attribute updates when language changes",
+      "title": "Should validate that the language persists after a page reload",
       "project": "portfolio",
       "status": "passed",
-      "duration": 1156,
+      "duration": 1707,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "Should validate that the html lang attribute follows the selected language",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1264,
       "tags": [
         "@regression"
       ]
     },
     {
       "file": "ui/portfolio/navigation.spec.ts",
-      "title": "homepage loads with title and topbar",
+      "title": "Should display the homepage with its title and topbar",
       "project": "portfolio",
       "status": "passed",
-      "duration": 725,
+      "duration": 995,
       "tags": [
         "@smoke"
       ]
     },
     {
       "file": "ui/portfolio/navigation.spec.ts",
-      "title": "topbar shows all 4 nav links on every page",
+      "title": "Should display all 4 nav links on every page",
       "project": "portfolio",
       "status": "passed",
-      "duration": 1430,
+      "duration": 1799,
       "tags": [
         "@smoke"
       ]
     },
     {
       "file": "ui/portfolio/navigation.spec.ts",
-      "title": "/cv loads with profile section visible",
+      "title": "Should navigate to /cv and display the profile section",
       "project": "portfolio",
       "status": "passed",
-      "duration": 927,
+      "duration": 889,
       "tags": [
         "@smoke"
       ]
     },
     {
       "file": "ui/portfolio/navigation.spec.ts",
-      "title": "/contact loads with form visible",
+      "title": "Should navigate to /contact and display the contact form",
       "project": "portfolio",
       "status": "passed",
-      "duration": 659,
+      "duration": 773,
       "tags": [
         "@smoke"
       ]
     },
     {
       "file": "ui/portfolio/navigation.spec.ts",
-      "title": "/reports loads with a heading visible",
+      "title": "Should navigate to /reports and display a heading",
       "project": "portfolio",
       "status": "passed",
-      "duration": 763,
+      "duration": 832,
       "tags": [
         "@smoke"
       ]
     },
     {
       "file": "ui/portfolio/navigation.spec.ts",
-      "title": "active nav link reflects the current page",
+      "title": "Should validate that the active nav link reflects the current page",
       "project": "portfolio",
       "status": "passed",
-      "duration": 1191,
+      "duration": 1378,
       "tags": [
         "@regression"
       ]
     },
     {
       "file": "ui/portfolio/navigation.spec.ts",
-      "title": "lang switcher is visible and shows current language",
+      "title": "Should display the language switcher with the current language",
       "project": "portfolio",
       "status": "passed",
-      "duration": 859,
+      "duration": 955,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should navigate to the gallery after a valid login",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2821,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should display an error for wrong credentials",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2504,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should display an error for a locked account",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2293,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should validate the empty form shows field errors",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2105,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should switch the password visibility with the toggle",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1581,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should navigate back to the requested page after logging in",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1900,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should display the logged out state after logging out",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1822,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should display the login requirement when the token is rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2196,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should create an account and sign in when the terms are accepted",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1798,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should validate the terms are mandatory",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1708,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should display the terms and conditions when expanding the link",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1760,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should validate the empty form shows every required error",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1774,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should validate a weak password is rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1941,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should validate mismatched passwords are rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1984,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should display an error when the email is already registered",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2163,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should display an error when the server fails during sign up",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1995,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/auth.spec.ts",
+      "title": "Should navigate between sign up and login",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1790,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should display the login requirement for a guest",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1399,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should display the empty cart notice for a logged in user",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1491,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should create an order when the payment succeeds",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2076,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should validate the empty form shows the required errors",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1805,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should validate a card that fails the Luhn check is rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2291,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should validate an expired card is rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2538,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should display an error when the card is declined",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2127,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should display an error when the card has no funds",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2133,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should validate the cart is kept after a declined payment",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2705,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should switch the shipping cost when choosing express",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2353,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should validate the checkout request carries an idempotency key and the payload",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2501,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should display an error when the checkout request times out",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2636,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should display an error when the stock runs out before paying",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2319,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should create an order with the coupon discount applied",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2191,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/checkout.spec.ts",
+      "title": "Should validate the available stock is reduced after a purchase",
+      "project": "playground",
+      "status": "passed",
+      "duration": 4062,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should create a request when every field is valid",
+      "project": "playground",
+      "status": "passed",
+      "duration": 3041,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate the empty form shows the required errors",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1809,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate the terms are mandatory",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2374,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate an invalid email is rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2332,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate an underage birth date is rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2362,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate a too long message is rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2349,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate interests are multi-select and gender is single-select",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1936,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should create a request with an attached file",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2324,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate a disallowed attachment type is rejected",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2409,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should display the terms when expanding the link",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1513,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should create a new request after resetting the form",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2310,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate the form values are sent in the request payload",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2125,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should display an error with the request id when the server fails",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2160,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should display an error when the response is malformed",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2203,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/forms.spec.ts",
+      "title": "Should validate the submit button is disabled while the request is in flight",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2911,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/navigation.spec.ts",
+      "title": "Should navigate to every playground page from the topbar dropdown",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2706,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/navigation.spec.ts",
+      "title": "Should display the dropdown items only after opening it",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1677,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/navigation.spec.ts",
+      "title": "Should display the guest session bar when nobody is logged in",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1401,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should display the first page of artworks with pagination",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1850,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should navigate between result pages",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2019,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate the search filter narrows the results",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2046,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should display the empty state when no artwork matches",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1640,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate the artist filter keeps only that artist",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1939,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate the price sort orders the artworks ascending",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1567,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should display a sold out artwork with its add button disabled",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2229,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate the in stock filter hides sold out artworks",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2516,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate clearing the filters restores the full catalog",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2080,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should display an error and recover when the catalog request fails",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1871,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should display a loading-safe state when the catalog is slow",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2257,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should create a cart line and update the badge when adding an artwork",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1728,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate the totals include tax and shipping",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2051,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate shipping is free above the threshold",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1698,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate quantity controls update the line and the total",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2152,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate a limited edition cannot exceed its stock",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2481,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate removing a line empties the cart",
+      "project": "playground",
+      "status": "passed",
+      "duration": 3253,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate the cart persists after a reload",
+      "project": "playground",
+      "status": "passed",
+      "duration": 4121,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate the SAVE10 coupon applies a discount",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2169,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should display an error for an unknown coupon",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1984,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should display an error for an expired coupon",
+      "project": "playground",
+      "status": "passed",
+      "duration": 2234,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should validate the cart totals come from the pricing endpoint",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1866,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/playground/shop.spec.ts",
+      "title": "Should switch the prices to the English format",
+      "project": "playground",
+      "status": "passed",
+      "duration": 1560,
       "tags": [
         "@regression"
       ]
@@ -181,8 +6620,8 @@
       "file": "api/public-api.spec.ts",
       "title": "GET /objects returns 200 with a non-empty array",
       "project": "api",
-      "status": "passed",
-      "duration": 453,
+      "status": "skipped",
+      "duration": 400,
       "tags": [
         "@sanity"
       ]
@@ -191,8 +6630,8 @@
       "file": "api/public-api.spec.ts",
       "title": "GET /objects/:id returns 200 with id and name fields",
       "project": "api",
-      "status": "passed",
-      "duration": 2292,
+      "status": "skipped",
+      "duration": 334,
       "tags": [
         "@sanity"
       ]
@@ -201,8 +6640,8 @@
       "file": "api/public-api.spec.ts",
       "title": "POST /objects creates an object with the sent name",
       "project": "api",
-      "status": "passed",
-      "duration": 380,
+      "status": "skipped",
+      "duration": 251,
       "tags": [
         "@sanity"
       ]
@@ -211,10 +6650,450 @@
       "file": "api/public-api.spec.ts",
       "title": "GET /objects with multiple ids returns exactly 3 items",
       "project": "api",
-      "status": "passed",
-      "duration": 274,
+      "status": "skipped",
+      "duration": 251,
       "tags": [
         "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a valid checkout creates a confirmed order",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 20,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the order total matches the cart pricing endpoint",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the order stores coupon=none shipping=standard",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 14,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the order stores coupon=SAVE10 shipping=standard",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 17,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the order stores coupon=FIXED5 shipping=express",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the order stores coupon=FREESHIP shipping=express",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the order never exposes the card number, cvv or the internal user id",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 10,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the last four digits of other cards are stored",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 20,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "an admin can also place orders",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 8,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a confirmed order reduces the stock by the purchased quantity",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "every line of the cart reduces its own stock",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the new stock is visible in the listing and in the detail",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "other artworks are not affected",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 19,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the last copies can be bought one order at a time until it is sold out",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 44,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a sold out artwork disappears from inStock=true and shows in inStock=false",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 24,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a sold out artwork can no longer be priced in the cart",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "ten copies per order: four orders leave 0 and the fifth fails",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a failed multi-line order does not reduce any stock",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 25,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a declined card does not reduce the stock",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "POST /api/reset restores the initial stock",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "six parallel orders for five copies sell exactly five",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 30,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "parallel orders from different users never oversell",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 16,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "parallel orders with the same idempotency key create one order",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 17,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "one order for the last copy and concurrent price checks stay consistent",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 14,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "repeating the same request with the same key returns the original order",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 18,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a replay does not reduce the stock again",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 15,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a replay still works after the stock ran out",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the same key with a different body returns 422 IDEMPOTENCY_KEY_REUSED",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 30,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a different address with the same key is a different body",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "different keys create different orders",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 9,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the idempotency key is scoped per user",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 22,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a failed attempt does not burn the key",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 12,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "POST /api/reset forgets the idempotency keys",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the owner can read the order",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "an admin can read any order",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "another user cannot read the order",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 28,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "reading an order requires authentication",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 19,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "a user cannot read an order placed by an admin",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 23,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "the order id is a signed token: tampering returns 404",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 27,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "an order for a forged owner cannot be created by editing the payload",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "orders survive a stock reset because they are self-contained",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 13,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "reset returns 204 with an empty body",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "reset clears the rate limit counters",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 31,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "playground-api/stateful/checkout-stock.spec.ts",
+      "title": "reset is idempotent",
+      "project": "api-playground-stateful",
+      "status": "passed",
+      "duration": 11,
+      "tags": [
+        "@regression"
       ]
     }
   ],
@@ -228,6 +7107,18 @@
       "flaky": 0,
       "skipped": 0,
       "wallDuration": 11734
+    },
+    {
+      "generatedAt": "2026-11-24T22:34:49.503Z",
+      "commit": null,
+      "trigger": "local",
+      "runUrl": null,
+      "total": 683,
+      "passed": 679,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 4,
+      "wallDuration": 104797
     }
   ]
 }

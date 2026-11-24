@@ -4,7 +4,7 @@
 
 # QA Automation Portfolio — Erika Zambrano
 
-A production-quality automation suite demonstrating real-world QA engineering skills: UI testing with Page Object Model, API testing, accessibility checks, and full CI/CD integration via GitHub Actions — all in TypeScript with Playwright.
+A production-quality automation suite demonstrating real-world QA engineering skills: UI testing with Page Object Model, API testing, a purpose-built QA Playground, accessibility checks, and full CI/CD integration via GitHub Actions — all in TypeScript with Playwright.
 
 ---
 
@@ -26,12 +26,20 @@ qa-automation-portfolio/
 ├── .github/workflows/
 │   └── playwright.yml        CI pipeline (GitHub Actions)
 ├── tests/
-│   ├── ui/portfolio/
-│   │   ├── navigation.spec.ts    @smoke/@regression — topbar, routes, active link, lang switcher
-│   │   └── cv.spec.ts            @smoke/@regression — CV sections, language switch and persistence
-│   └── api/
-│       └── public-api.spec.ts    @sanity — REST API GET/POST tests
-├── pages/portfolio/          Page Objects for the portfolio site
+│   ├── ui/
+│   │   ├── fixtures/             pomBuilder (guestPages / customerPages), session helpers
+│   │   ├── test-data/            UI texts taken from the web i18n dictionary
+│   │   ├── portfolio/            navigation, cv
+│   │   └── playground/           navigation, shop + cart, checkout, forms, login + sign up
+│   ├── api/
+│   │   └── public-api.spec.ts    @sanity — REST API GET/POST tests
+│   └── playground-api/           593 API tests for the playground backend (+ stateful/)
+├── pages/
+│   ├── portfolio/                Page Objects for the portfolio site
+│   └── playground/               Page Objects + reusable components (menu, session bar, cart, generic)
+├── api/                      playground backend (one Vercel function, handlers in api/_routes/)
+├── eslint-rules/             custom ESLint rules (expect-style)
+├── docs/                     qa-playground.md (plan) and qa-playground-api.md (API contract)
 ├── utils/
 │   └── helpers.ts            reusable utilities
 ├── evals/
@@ -68,6 +76,13 @@ npx playwright install chromium
 # Run all tests
 npx playwright test
 
+# Run by project
+npx playwright test --project=playground            # playground E2E (starts API + web)
+npx playwright test --project=api-playground        # playground API, parallel
+npx playwright test --project=api-playground-stateful
+npm run dev                                          # API (3100) + web (5173) together
+npm run lint && npm run typecheck                    # ESLint (type-aware) and tsc
+
 # Run by suite
 npx playwright test --grep @smoke       # smoke tests
 npx playwright test --grep @sanity      # API sanity tests
@@ -86,6 +101,19 @@ npx playwright show-report
 | Portfolio navigation | `tests/ui/portfolio/navigation.spec.ts` | UI | `@smoke`, `@regression` |
 | CV & language | `tests/ui/portfolio/cv.spec.ts` | UI | `@smoke`, `@regression` |
 | Public API | `tests/api/public-api.spec.ts` | API | `@sanity` |
+| Playground E2E | `tests/ui/playground/*.spec.ts` | UI | `@smoke`, `@regression` |
+| Playground API | `tests/playground-api/**/*.spec.ts` | API | `@smoke`, `@sanity`, `@regression` |
+
+---
+
+## QA Playground
+
+Under the **Playground** dropdown in the topbar: an art-reproductions gallery with a shop, cart, checkout, request form, login and sign up (mandatory terms). It exists to practice E2E, API and DevTools testing against a stateless backend (JWT, idempotency keys, rate limiting, limited stock, a `chaos` endpoint for 5xx, latency and malformed responses).
+
+- Plan, phases and decisions: [`docs/qa-playground.md`](docs/qa-playground.md)
+- API contract: [`docs/qa-playground-api.md`](docs/qa-playground-api.md)
+- Seed users, cards and coupons are listed on the playground home page.
+- Test style (enforced by ESLint in `tests/ui/`): titles start with `Should validate|create|navigate|display|switch`, page objects come from the `guestPages` / `customerPages` fixtures, and expects follow `local/expect-style` (grouped in `Promise.all` with `expect.soft`, last expect hard).
 
 ---
 
@@ -129,7 +157,7 @@ PORTFOLIO_URL=http://localhost:5173 npx playwright test --project=portfolio
 
 | Data file | Produced by | Command |
 |---|---|---|
-| `web/src/data/ci-results.json` | Playwright JSON reporter, summarized | `npx playwright test && npm run report:summarize` |
+| `web/src/data/ci-results.json` | Playwright JSON reporter, summarized. Published twice a day (06:00 and 18:00 UTC) to the `ci-data` branch by the Scheduled Run workflow; `/reports` reads it live and falls back to the bundled copy | `npx playwright test && npm run report:summarize` |
 | `web/src/data/eval-results.json` | LLM eval harness | `ANTHROPIC_API_KEY=... npm run eval` |
 
 ### LLM evals

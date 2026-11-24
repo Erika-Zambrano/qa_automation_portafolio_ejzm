@@ -184,9 +184,15 @@ Branch: `feat/qa-playground-4-e2e-ui`
 
 Branch: `feat/qa-playground-5-ci-reports`
 
-- Workflow de CI levantando `npm run dev:api` antes de los tests.
-- Resultados del playground en el dashboard `/reports`.
-- Actualizar README y `DESIGN.md` si aplica.
+- CI: el `webServer` de Playwright levanta la API (`npm run dev:api`) y Vite; el workflow instala las dependencias de `web/` (corregido en la fase 4). Se verificó en el run del MR.
+- Dashboard `/reports`: el resumen (`scripts/summarize-playwright.ts`) añade `projects` (totales por proyecto de Playwright) y `ReportsDashboard` los muestra en "Por proyecto". Las suites del playground aparecen también en la tabla por archivo.
+- Corrida programada (`.github/workflows/scheduled-run.yml`): cron `0 6,18 * * *` (UTC) y disparo manual. Corre la suite completa, resume los resultados (con `trigger` y `runUrl`) y los publica en la rama `ci-data` como `ci-results.json`, sin ensuciar `main` ni redesplegar el sitio. El job queda en rojo si algún test falla, pero publica igual.
+- `/reports` lee ese JSON desde `raw.githubusercontent.com/.../ci-data/ci-results.json` al cargar y, si falla la petición, usa el JSON empaquetado en el sitio. Muestra la última corrida (fecha, disparador, commit y enlace al run) y la próxima corrida programada.
+- `web/src/data/ci-results.json` regenerado con la suite completa (respaldo empaquetado).
+- Tests de la API pública de terceros (`tests/api/public-api.spec.ts`): `api.restful-api.dev` limita a 50 peticiones por día por IP y responde 405 al agotarse. Ahora los tests se omiten (`test.skip` condicional) en ese caso, en vez de fallar; ESLint permite `skip` condicional.
+- Notas: GitHub puede retrasar el cron y lo desactiva tras 60 días sin actividad en el repo, por eso queda el disparo manual. El repo debe ser público para que la página lea el JSON.
+- README: estructura, comandos por proyecto, sección QA Playground y estilo de tests.
+- `DESIGN.md` no existe en el repo, no aplica.
 
 | Commit | Mensaje |
 |---|---|
@@ -199,5 +205,5 @@ Branch: `feat/qa-playground-5-ci-reports`
 | 1 | `feat/qa-playground-1-backend` | Hecha | MR #4 (`678e73a`) |
 | 2 | `feat/qa-playground-2-frontend` | Hecha | MR #5 (`62cc4e7`) |
 | 3 | `feat/qa-playground-3-api-tests` | Hecha | MR #6 (`762e250`) |
-| 4 | `feat/qa-playground-4-e2e-ui` | En curso | |
-| 5 | `feat/qa-playground-5-ci-reports` | Pendiente | |
+| 4 | `feat/qa-playground-4-e2e-ui` | Hecha | MR #7 (`387d050`) |
+| 5 | `feat/qa-playground-5-ci-reports` | En curso | |
