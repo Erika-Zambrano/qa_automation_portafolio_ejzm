@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
 export class PortfolioBasePage {
   readonly topbar: Locator;
@@ -37,7 +37,7 @@ export class PortfolioBasePage {
   async switchLangViaUI(lang: 'es' | 'en'): Promise<void> {
     await this.langBtn.click();
     await (lang === 'en' ? this.langOptionEn : this.langOptionEs).click();
-    await this.page.waitForFunction((l) => document.documentElement.lang === l, lang);
+    await expect(this.page.locator('html')).toHaveAttribute('lang', lang);
   }
 
   async getCurrentLang(): Promise<string> {
