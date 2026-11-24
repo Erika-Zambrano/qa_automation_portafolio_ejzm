@@ -1,4 +1,6 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { type Page, type Locator, expect } from '@playwright/test';
+
+export type Lang = 'es' | 'en';
 
 export class PortfolioBasePage {
   readonly topbar: Locator;
@@ -11,7 +13,10 @@ export class PortfolioBasePage {
   readonly langOptionEs: Locator;
   readonly langOptionEn: Locator;
 
-  constructor(protected readonly page: Page) {
+  constructor(
+    protected readonly page: Page,
+    protected readonly lang: Lang = 'es',
+  ) {
     this.topbar = page.getByTestId('topbar');
     this.navHome = page.getByTestId('nav-home');
     this.navCv = page.getByTestId('nav-cv');
@@ -28,13 +33,13 @@ export class PortfolioBasePage {
     await this.topbar.waitFor({ state: 'visible' });
   }
 
-  async setLang(lang: 'es' | 'en'): Promise<void> {
+  async setLang(lang: Lang): Promise<void> {
     await this.page.evaluate((l) => localStorage.setItem('cv-lang', l), lang);
     await this.page.goto(this.page.url().split('?')[0] + `?lang=${lang}`);
     await this.topbar.waitFor({ state: 'visible' });
   }
 
-  async switchLangViaUI(lang: 'es' | 'en'): Promise<void> {
+  async switchLangViaUI(lang: Lang): Promise<void> {
     await this.langBtn.click();
     await (lang === 'en' ? this.langOptionEn : this.langOptionEs).click();
     await expect(this.page.locator('html')).toHaveAttribute('lang', lang);
