@@ -7,6 +7,7 @@ import {
   Code,
   Heading,
   HStack,
+  Link,
   Progress,
   SimpleGrid,
   Span,
@@ -30,10 +31,11 @@ export type EvalData = {
   cases: EvalCase[];
 };
 
-type CiRun = { generatedAt: string; commit: string | null; total: number; passed: number; failed: number; flaky: number; skipped: number; wallDuration: number };
+type CiRun = { generatedAt: string; commit: string | null; trigger?: string; runUrl?: string | null; total: number; passed: number; failed: number; flaky: number; skipped: number; wallDuration: number };
 type CiFile = { file: string; total: number; passed: number; failed: number; flaky: number; duration: number; tags: string[] };
 type CiTest = { file: string; title: string; project: string; status: string; duration: number; tags: string[] };
-export type CiData = { latest: CiRun; files: CiFile[]; tests: CiTest[]; history: CiRun[] };
+type CiProject = { name: string; total: number; passed: number; failed: number; flaky: number; duration: number };
+export type CiData = { latest: CiRun; projects?: CiProject[]; files: CiFile[]; tests: CiTest[]; history: CiRun[] };
 
 type Props = { lang: 'es' | 'en'; evalData: EvalData | null; ciData: CiData | null };
 
@@ -67,6 +69,14 @@ const copy = {
     status: 'Estado',
     test: 'Test',
     project: 'Proyecto',
+    byProject: 'Por proyecto',
+    lastRun: 'Última corrida',
+    nextRun: 'Próxima corrida programada',
+    scheduleNote: 'Corre automáticamente dos veces al día (06:00 y 18:00 UTC) en GitHub Actions.',
+    viewRun: 'Ver corrida en GitHub',
+    triggerSchedule: 'programada',
+    triggerManual: 'manual',
+    triggerOther: 'automática',
     tags: 'Tags',
     failing: 'Tests que fallan',
     noFailing: 'Ningún test falla en la última ejecución.',
@@ -101,6 +111,14 @@ const copy = {
     status: 'Status',
     test: 'Test',
     project: 'Project',
+    byProject: 'By project',
+    lastRun: 'Last run',
+    nextRun: 'Next scheduled run',
+    scheduleNote: 'Runs automatically twice a day (06:00 and 18:00 UTC) on GitHub Actions.',
+    viewRun: 'View run on GitHub',
+    triggerSchedule: 'scheduled',
+    triggerManual: 'manual',
+    triggerOther: 'automatic',
     tags: 'Tags',
     failing: 'Failing tests',
     noFailing: 'No tests failing in the latest run.',
@@ -197,6 +215,18 @@ function EvalPanel({ data, t, lang }: { data: EvalData | null; t: Copy; lang: st
   );
 }
 
+const SCHEDULE_HOURS_UTC = [6, 18];
+
+function nextScheduledRun(from: Date): Date {
+  for (let dayOffset = 0; dayOffset < 2; dayOffset += 1) {
+    for (const hour of SCHEDULE_HOURS_UTC) {
+      const candidate = new Date(Date.UTC(from.getUTCFullYear(), from.getUTCMonth(), from.getUTCDate() + dayOffset, hour));
+      if (candidate > from) return candidate;
+    }
+  }
+  return from;
+}
+
 function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string }) {
   if (!data) {
     return (
@@ -219,7 +249,45 @@ function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string
         <Kpi label={t.flaky} value={String(l.flaky)} />
         <Kpi label={t.duration} value={secs(l.wallDuration)} />
       </SimpleGrid>
-      <Text fontSize="sm" color="gray.600">{t.generated}: {new Date(l.generatedAt).toLocaleString(lang)}{l.commit ? ` · ${l.commit}` : ''}</Text>
+      <Box bg="white" borderWidth="1px" borderRadius="md" px="4" py="3">
+        <Stack gap="1" fontSize="sm">
+          <HStack gap="2" wrap="wrap">
+            <Text fontWeight="semibold">{t.lastRun}:</Text>
+            <Text>{new Date(l.generatedAt).toLocaleString(lang)}</Text>
+            {l.trigger && <Badge variant="subtle">{l.trigger === 'schedule' ? t.triggerSchedule : l.trigger === 'workflow_dispatch' ? t.triggerManual : t.triggerOther}</Badge>}
+            {l.commit && <Code>{l.commit}</Code>}
+            {l.runUrl && <Link href={l.runUrl} target="_blank" rel="noreferrer">{t.viewRun}</Link>}
+          </HStack>
+          <HStack gap="2" wrap="wrap">
+            <Text fontWeight="semibold">{t.nextRun}:</Text>
+            <Text>{nextScheduledRun(new Date()).toLocaleString(lang)}</Text>
+          </HStack>
+          <Text color="gray.600">{t.scheduleNote}</Text>
+        </Stack>
+      </Box>
+
+      {data.projects && data.projects.length > 0 && (
+        <Box>
+          <Heading size="md" mb="2">{t.byProject}</Heading>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="3">
+            {data.projects.map((p) => {
+              const r = p.total ? p.passed / p.total : 0;
+              return (
+                <Box key={p.name} bg="white" borderWidth="1px" borderRadius="md" px="4" py="3">
+                  <HStack justify="space-between">
+                    <Code>{p.name}</Code>
+                    <Text fontSize="sm" color="gray.600">{secs(p.duration)}</Text>
+                  </HStack>
+                  <Progress.Root value={r * 100} colorPalette={palette(r)} size="sm" mt="2">
+                    <Progress.Track><Progress.Range /></Progress.Track>
+                  </Progress.Root>
+                  <Text fontSize="xs" color="gray.600">{p.passed}/{p.total}{p.failed ? ` · ${p.failed} ${t.failed.toLowerCase()}` : ''}{p.flaky ? ` · ${p.flaky} ${t.flaky.toLowerCase()}` : ''}</Text>
+                </Box>
+              );
+            })}
+          </SimpleGrid>
+        </Box>
+      )}
 
       <Box bg="white" borderWidth="1px" borderRadius="md" overflowX="auto">
         <Table.Root size="sm">
