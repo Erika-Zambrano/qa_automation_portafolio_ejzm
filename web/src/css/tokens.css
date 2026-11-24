@@ -1,4 +1,8 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@layer site-reset, reset, base, tokens, recipes, utilities;
+
+@layer site-reset {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+}
 
 :root {
   --font-display: 'Instrument Serif', Georgia, serif;
@@ -17,7 +21,7 @@
   --max-width: 800px;
 }
 
-html { font-size: 16px; }
+html { font-size: 16px; background: var(--bg); }
 
 body {
   font-family: var(--font-body);

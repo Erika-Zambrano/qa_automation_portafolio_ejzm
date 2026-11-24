@@ -48,7 +48,7 @@ test.describe('CV page', () => {
     await Promise.all([
       expect.soft(cvPage.sectionProfile).toContainText('Professional Profile'),
       expect.soft(cvPage.sectionExperience).toContainText('Professional Experience'),
-      expect.soft(cvPage.sectionProjects).toContainText('Personal Projects'),
+      expect.soft(cvPage.sectionProjects).toContainText('Selected AI Project'),
       expect.soft(cvPage.sectionSkills).toContainText('Technical Skills'),
       expect.soft(cvPage.sectionEducation).toContainText('Education'),
       expect.soft(cvPage.sectionLanguages).toContainText('Languages'),
@@ -58,7 +58,7 @@ test.describe('CV page', () => {
   test('@regression language persists after page reload', async ({ page }) => {
     await cvPage.switchLangViaUI('en');
     await page.reload();
-    await page.waitForLoadState('networkidle');
+    await expect(cvPage.topbar).toBeVisible();
 
     await Promise.all([
       expect.soft(cvPage.langBtn).toContainText('EN'),

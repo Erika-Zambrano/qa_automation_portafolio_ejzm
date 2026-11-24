@@ -6,11 +6,17 @@
     "test:smoke": "playwright test --grep @smoke",
     "test:sanity": "playwright test --grep @sanity",
     "test:regression": "playwright test --grep @regression",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "eval": "tsx evals/run.ts",
+    "report:summarize": "tsx scripts/summarize-playwright.ts"
   },
   "devDependencies": {
     "@playwright/test": "latest",
     "@types/node": "latest",
+    "tsx": "^4.23.15",
     "typescript": "latest"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.13.0"
   }
 }

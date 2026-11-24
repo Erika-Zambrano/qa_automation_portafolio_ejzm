@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
 export class PortfolioBasePage {
   readonly topbar: Locator;
@@ -25,19 +25,19 @@ export class PortfolioBasePage {
 
   async navigate(path: string): Promise<void> {
     await this.page.goto(path);
-    await this.page.waitForLoadState('networkidle');
+    await this.topbar.waitFor({ state: 'visible' });
   }
 
   async setLang(lang: 'es' | 'en'): Promise<void> {
     await this.page.evaluate((l) => localStorage.setItem('cv-lang', l), lang);
     await this.page.goto(this.page.url().split('?')[0] + `?lang=${lang}`);
-    await this.page.waitForLoadState('networkidle');
+    await this.topbar.waitFor({ state: 'visible' });
   }
 
   async switchLangViaUI(lang: 'es' | 'en'): Promise<void> {
     await this.langBtn.click();
     await (lang === 'en' ? this.langOptionEn : this.langOptionEs).click();
-    await this.page.waitForLoadState('networkidle');
+    await expect(this.page.locator('html')).toHaveAttribute('lang', lang);
   }
 
   async getCurrentLang(): Promise<string> {

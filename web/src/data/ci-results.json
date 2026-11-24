@@ -1,0 +1,233 @@
+{
+  "latest": {
+    "generatedAt": "2026-11-24T13:56:33.435Z",
+    "commit": null,
+    "total": 17,
+    "passed": 17,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "wallDuration": 11734
+  },
+  "files": [
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 8107,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 6554,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 3399,
+      "tags": [
+        "@sanity"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "topbar and all 4 nav links are visible",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1128,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "all 6 CV sections are visible in Spanish",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1157,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "nav links navigate to correct pages",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 2008,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "language switches to English via UI",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1221,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "language persists after page reload",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1437,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "html lang attribute updates when language changes",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1156,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "homepage loads with title and topbar",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 725,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "topbar shows all 4 nav links on every page",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1430,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "/cv loads with profile section visible",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 927,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "/contact loads with form visible",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 659,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "/reports loads with a heading visible",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 763,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "active nav link reflects the current page",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1191,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "lang switcher is visible and shows current language",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 859,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "title": "GET /objects returns 200 with a non-empty array",
+      "project": "api",
+      "status": "passed",
+      "duration": 453,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "title": "GET /objects/:id returns 200 with id and name fields",
+      "project": "api",
+      "status": "passed",
+      "duration": 2292,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "title": "POST /objects creates an object with the sent name",
+      "project": "api",
+      "status": "passed",
+      "duration": 380,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "title": "GET /objects with multiple ids returns exactly 3 items",
+      "project": "api",
+      "status": "passed",
+      "duration": 274,
+      "tags": [
+        "@sanity"
+      ]
+    }
+  ],
+  "history": [
+    {
+      "generatedAt": "2026-11-24T13:56:33.435Z",
+      "commit": null,
+      "total": 17,
+      "passed": 17,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "wallDuration": 11734
+    }
+  ]
+}

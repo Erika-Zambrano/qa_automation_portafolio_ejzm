@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout code
@@ -29,10 +29,50 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
+      - name: Summarize results for the portfolio dashboard
+        if: always() && hashFiles('playwright-results.json') != ''
+        run: npm run report:summarize
+
+      - name: Upload dashboard data
+        uses: actions/upload-artifact@v4
+        if: always() && hashFiles('web/src/data/ci-results.json') != ''
+        with:
+          name: ci-results
+          path: web/src/data/ci-results.json
+          retention-days: 30
+
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
           path: playwright-report/
+          retention-days: 30
+
+  llm-eval:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run LLM evals
+        run: npm run eval
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Upload eval results
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: web/src/data/eval-results.json
           retention-days: 30

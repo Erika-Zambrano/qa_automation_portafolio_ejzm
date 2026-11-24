@@ -15,7 +15,6 @@ export type Translations = {
   'card1-title': string;
   'card2-title': string;
   'card3-title': string;
-  'card4-title': string;
   'ci-label': string;
   'ci-title': string;
   'ci-desc': string;
@@ -110,9 +109,8 @@ export const translations: Record<Lang, Translations> = {
     'suites-label': 'Suites de tests',
     'suites-title': 'Qué se testea',
     'card1-title':  'Navegación',
-    'card2-title':  'Formularios & Validación',
-    'card3-title':  'Accesibilidad',
-    'card4-title':  'API Pública',
+    'card2-title':  'CV e idioma',
+    'card3-title':  'API Pública',
     'ci-label':     'Pipeline CI/CD',
     'ci-title':     'Automatizado en cada push',
     'ci-desc':      'Los tests se ejecutan automáticamente en cada push a <code>main</code> vía GitHub Actions. El reporte HTML completo de Playwright se almacena como artefacto de build por 30 días, así los resultados están siempre a un clic después de cada ejecución.',
@@ -146,8 +144,8 @@ export const translations: Record<Lang, Translations> = {
 
     /* Reports */
     'reports-label': 'Reportes',
-    'reports-title': 'Próximamente',
-    'reports-desc':  'Esta sección está en construcción.',
+    'reports-title': 'Calidad medible',
+    'reports-desc':  'Evaluación de un LLM con checks deterministas y juez LLM, más el estado de la suite de Playwright. Todo versionado en el repo.',
 
     /* CV */
     'location':           '📍 València, España',
@@ -219,9 +217,8 @@ export const translations: Record<Lang, Translations> = {
     'suites-label': 'Test suites',
     'suites-title': "What's tested",
     'card1-title':  'Navigation',
-    'card2-title':  'Forms & Validation',
-    'card3-title':  'Accessibility',
-    'card4-title':  'Public API',
+    'card2-title':  'CV & language',
+    'card3-title':  'Public API',
     'ci-label':     'CI/CD Pipeline',
     'ci-title':     'Automated on every push',
     'ci-desc':      'Tests run automatically on every push to <code>main</code> via GitHub Actions. The full Playwright HTML report is stored as a build artifact for 30 days, so results are always one click away after any run.',
@@ -255,8 +252,8 @@ export const translations: Record<Lang, Translations> = {
 
     /* Reports */
     'reports-label': 'Reports',
-    'reports-title': 'Coming soon',
-    'reports-desc':  'This section is under construction.',
+    'reports-title': 'Measurable quality',
+    'reports-desc':  'LLM evaluation with deterministic checks and an LLM judge, plus the state of the Playwright suite. All versioned in the repo.',
 
     /* CV */
     'location':           '📍 Valencia, Spain',

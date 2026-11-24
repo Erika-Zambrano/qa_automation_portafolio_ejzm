@@ -1,5 +1,7 @@
 # Guía completa del proyecto — QA Automation Portfolio
 
+> **Nota:** esta guía describe la primera versión del proyecto, que probaba `practicesoftwaretesting.com`. Esos tests (`navigation`, `forms`, `accessibility`) y los Page Objects `BasePage`/`HomePage` ya se eliminaron. Los conceptos siguen siendo válidos; las suites actuales están en el README.
+
 Esta guía explica **qué hace cada parte del proyecto, por qué se tomó cada decisión y cómo explicarlo en una entrevista**. Léela de arriba a abajo la primera vez; después úsala como referencia rápida.
 
 ---

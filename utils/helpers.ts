@@ -1,9 +1,5 @@
 import { Page, Locator } from '@playwright/test';
 
-export async function waitForNetworkIdle(page: Page, timeout = 5_000): Promise<void> {
-  await page.waitForLoadState('networkidle', { timeout });
-}
-
 export async function getTextContent(locator: Locator): Promise<string> {
   const text = await locator.textContent();
   return text?.trim() ?? '';
