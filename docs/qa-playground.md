@@ -196,7 +196,9 @@ Branch: `feat/qa-playground-5-ci-reports`
 
 | Commit | Mensaje |
 |---|---|
-| | |
+| `019545a` | test(api): skip public API tests when its daily quota is exhausted |
+| `26a39e8` | feat(reports): add scheduled runs and show last and next run with per-project results |
+| `7aee3ad` | docs: update README, plan and recorded results for phase 5 |
 
 ## Estado
 
