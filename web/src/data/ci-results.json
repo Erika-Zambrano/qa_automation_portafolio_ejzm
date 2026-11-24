@@ -1,0 +1,376 @@
+{
+  "latest": {
+    "generatedAt": "2026-11-24T12:55:20.355Z",
+    "commit": null,
+    "total": 28,
+    "passed": 22,
+    "failed": 6,
+    "flaky": 0,
+    "skipped": 0,
+    "wallDuration": 83969
+  },
+  "files": [
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "total": 6,
+      "passed": 5,
+      "failed": 1,
+      "flaky": 0,
+      "duration": 31007,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 12756,
+      "tags": [
+        "@smoke",
+        "@regression"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "flaky": 0,
+      "duration": 1667,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "ui/accessibility.spec.ts",
+      "total": 3,
+      "passed": 0,
+      "failed": 3,
+      "flaky": 0,
+      "duration": 92849,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/forms.spec.ts",
+      "total": 4,
+      "passed": 3,
+      "failed": 1,
+      "flaky": 0,
+      "duration": 40865,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/navigation.spec.ts",
+      "total": 4,
+      "passed": 3,
+      "failed": 1,
+      "flaky": 0,
+      "duration": 38266,
+      "tags": [
+        "@smoke"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "topbar and all 4 nav links are visible",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 4269,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "all 6 CV sections are visible in Spanish",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 4283,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "nav links navigate to correct pages",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 6166,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "language switches to English via UI",
+      "project": "portfolio",
+      "status": "failed",
+      "duration": 10660,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "language persists after page reload",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 3174,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/cv.spec.ts",
+      "title": "html lang attribute updates when language changes",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 2455,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "homepage loads with title and topbar",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1322,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "topbar shows all 4 nav links on every page",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 3550,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "/cv loads with profile section visible",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1235,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "/contact loads with form visible",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1399,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "/reports loads with a heading visible",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1360,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "active nav link reflects the current page",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 2641,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/portfolio/navigation.spec.ts",
+      "title": "lang switcher is visible and shows current language",
+      "project": "portfolio",
+      "status": "passed",
+      "duration": 1249,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "title": "GET /objects returns 200 with a non-empty array",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 386,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "title": "GET /objects/:id returns 200 with id and name fields",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 348,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "title": "POST /objects creates an object with the sent name",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 580,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "api/public-api.spec.ts",
+      "title": "GET /objects with multiple ids returns exactly 3 items",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 353,
+      "tags": [
+        "@sanity"
+      ]
+    },
+    {
+      "file": "ui/accessibility.spec.ts",
+      "title": "All images on the homepage have an alt attribute",
+      "project": "chromium",
+      "status": "failed",
+      "duration": 31209,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/accessibility.spec.ts",
+      "title": "Action buttons have accessible text or aria-label",
+      "project": "chromium",
+      "status": "failed",
+      "duration": 31126,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/accessibility.spec.ts",
+      "title": "Login form inputs have accessible labels",
+      "project": "chromium",
+      "status": "failed",
+      "duration": 30514,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/forms.spec.ts",
+      "title": "Login with invalid credentials shows an error",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 3726,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/forms.spec.ts",
+      "title": "Login form contains required email and password fields",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 2420,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/forms.spec.ts",
+      "title": "Email field rejects an invalid format",
+      "project": "chromium",
+      "status": "failed",
+      "duration": 30354,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/forms.spec.ts",
+      "title": "Search returns results for a valid query",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 4365,
+      "tags": [
+        "@regression"
+      ]
+    },
+    {
+      "file": "ui/navigation.spec.ts",
+      "title": "Verify homepage loads correctly",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 3070,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/navigation.spec.ts",
+      "title": "Product catalog shows at least one product",
+      "project": "chromium",
+      "status": "failed",
+      "duration": 30366,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/navigation.spec.ts",
+      "title": "Navigation menu contains expected links",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 2460,
+      "tags": [
+        "@smoke"
+      ]
+    },
+    {
+      "file": "ui/navigation.spec.ts",
+      "title": "Contact page is accessible",
+      "project": "chromium",
+      "status": "passed",
+      "duration": 2370,
+      "tags": [
+        "@smoke"
+      ]
+    }
+  ],
+  "history": [
+    {
+      "generatedAt": "2026-11-24T12:55:20.355Z",
+      "commit": null,
+      "total": 28,
+      "passed": 22,
+      "failed": 6,
+      "flaky": 0,
+      "skipped": 0,
+      "wallDuration": 83969
+    }
+  ]
+}

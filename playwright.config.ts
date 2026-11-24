@@ -10,8 +10,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI
-    ? [['github'], ['html', { outputFolder: 'playwright-report', open: 'never' }]]
-    : [['html', { outputFolder: 'playwright-report', open: 'never' }], ['list']],
+    ? [['github'], ['html', { outputFolder: 'playwright-report', open: 'never' }], ['json', { outputFile: 'playwright-results.json' }]]
+    : [['html', { outputFolder: 'playwright-report', open: 'never' }], ['json', { outputFile: 'playwright-results.json' }], ['list']],
   use: {
     baseURL: 'https://practicesoftwaretesting.com',
     testIdAttribute: 'data-test',
@@ -25,7 +25,7 @@ export default defineConfig({
       testMatch: ['tests/ui/portfolio/**/*.spec.ts'],
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: 'https://qa-automation-portafolio-ejzm.vercel.app',
+        baseURL: process.env.PORTFOLIO_URL ?? 'https://qa-automation-portafolio-ejzm.vercel.app',
         testIdAttribute: 'data-testid',
       },
     },

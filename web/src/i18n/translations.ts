@@ -146,8 +146,8 @@ export const translations: Record<Lang, Translations> = {
 
     /* Reports */
     'reports-label': 'Reportes',
-    'reports-title': 'Próximamente',
-    'reports-desc':  'Esta sección está en construcción.',
+    'reports-title': 'Calidad medible',
+    'reports-desc':  'Evaluación de un LLM con checks deterministas y juez LLM, más el estado de la suite de Playwright. Todo versionado en el repo.',
 
     /* CV */
     'location':           '📍 València, España',
@@ -255,8 +255,8 @@ export const translations: Record<Lang, Translations> = {
 
     /* Reports */
     'reports-label': 'Reports',
-    'reports-title': 'Coming soon',
-    'reports-desc':  'This section is under construction.',
+    'reports-title': 'Measurable quality',
+    'reports-desc':  'LLM evaluation with deterministic checks and an LLM judge, plus the state of the Playwright suite. All versioned in the repo.',
 
     /* CV */
     'location':           '📍 Valencia, Spain',
