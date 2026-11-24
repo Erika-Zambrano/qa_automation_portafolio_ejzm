@@ -1,7 +1,7 @@
-import { ApiError } from '../_lib/errors';
-import { route } from '../_lib/http';
-import { requireAuth } from '../_lib/jwt';
-import { decodeOrderId } from '../_lib/orders';
+import { ApiError } from '../../_lib/errors';
+import { route } from '../../_lib/http';
+import { requireAuth } from '../../_lib/jwt';
+import { decodeOrderId } from '../../_lib/orders';
 
 export default route({
   GET: (ctx) => {

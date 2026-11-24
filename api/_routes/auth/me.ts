@@ -1,5 +1,5 @@
-import { route } from '../_lib/http';
-import { requireAuth } from '../_lib/jwt';
+import { route } from '../../_lib/http';
+import { requireAuth } from '../../_lib/jwt';
 
 export default route({
   GET: (ctx) => {

@@ -1,8 +1,8 @@
 import { randomUUID } from 'node:crypto';
-import { COUNTRIES, GENDERS, INTERESTS } from '../_lib/data';
-import { Issues } from '../_lib/errors';
-import { route } from '../_lib/http';
-import { EMAIL_PATTERN, asObject, bool, int, isObj, rejectUnknown, str } from '../_lib/validate';
+import { COUNTRIES, GENDERS, INTERESTS } from '../../_lib/data';
+import { Issues } from '../../_lib/errors';
+import { route } from '../../_lib/http';
+import { EMAIL_PATTERN, asObject, bool, int, isObj, rejectUnknown, str } from '../../_lib/validate';
 
 const ATTACHMENT_TYPES = ['image/png', 'image/jpeg', 'application/pdf'] as const;
 const MAX_ATTACHMENT_BYTES = 2 * 1024 * 1024;

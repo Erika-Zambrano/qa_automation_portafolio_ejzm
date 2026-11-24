@@ -1,9 +1,9 @@
-import { USERS, userId } from '../_lib/data';
-import { ApiError, Issues } from '../_lib/errors';
-import { route } from '../_lib/http';
-import { DEFAULT_TTL_SECONDS, signToken } from '../_lib/jwt';
-import { rateLimit } from '../_lib/ratelimit';
-import { EMAIL_PATTERN, asObject, bool, rejectUnknown, str } from '../_lib/validate';
+import { USERS, userId } from '../../_lib/data';
+import { ApiError, Issues } from '../../_lib/errors';
+import { route } from '../../_lib/http';
+import { DEFAULT_TTL_SECONDS, signToken } from '../../_lib/jwt';
+import { rateLimit } from '../../_lib/ratelimit';
+import { EMAIL_PATTERN, asObject, bool, rejectUnknown, str } from '../../_lib/validate';
 
 const PASSWORD_RULES: Array<[RegExp, string]> = [
   [/[a-z]/, 'a lowercase letter'],

@@ -1,4 +1,4 @@
-import { route } from './_lib/http';
+import { route } from '../_lib/http';
 
 export default route({
   GET: () => ({

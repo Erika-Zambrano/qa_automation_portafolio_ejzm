@@ -1,9 +1,9 @@
-import { USERS } from '../_lib/data';
-import { ApiError, Issues } from '../_lib/errors';
-import { route } from '../_lib/http';
-import { DEFAULT_TTL_SECONDS, signToken } from '../_lib/jwt';
-import { rateLimit } from '../_lib/ratelimit';
-import { asObject, int, rejectUnknown, str } from '../_lib/validate';
+import { USERS } from '../../_lib/data';
+import { ApiError, Issues } from '../../_lib/errors';
+import { route } from '../../_lib/http';
+import { DEFAULT_TTL_SECONDS, signToken } from '../../_lib/jwt';
+import { rateLimit } from '../../_lib/ratelimit';
+import { asObject, int, rejectUnknown, str } from '../../_lib/validate';
 
 export default route({
   POST: (ctx) => {

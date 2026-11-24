@@ -14,6 +14,7 @@ Base: `/api`. Local: `npm run dev:api` (`http://localhost:3100`). Todos los impo
 | Cache | `Cache-Control: no-store` |
 | CORS | `Access-Control-Allow-Origin: *`, preflight `OPTIONS` con 204 |
 | Rate limit | Cabeceras `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `Retry-After` (en 429). La clave es la IP o la cabecera `X-RateLimit-Key` |
+| Despliegue | Una sola función serverless (`api/[...path].ts`) despacha todas las rutas, por el límite de 12 funciones del plan Hobby de Vercel. Los handlers viven en `api/_routes/` |
 | Estado | Sin base de datos. Contadores, claves de idempotencia e inventario viven en memoria por instancia (en Vercel puede variar entre instancias; en local es determinista) |
 
 ## Usuarios semilla

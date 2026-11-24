@@ -1,8 +1,8 @@
-import { CATEGORIES, type Product } from '../_lib/data';
-import { listProducts } from '../_lib/inventory';
-import { Issues } from '../_lib/errors';
-import { route } from '../_lib/http';
-import { queryInt } from '../_lib/validate';
+import { CATEGORIES, type Product } from '../../_lib/data';
+import { listProducts } from '../../_lib/inventory';
+import { Issues } from '../../_lib/errors';
+import { route } from '../../_lib/http';
+import { queryInt } from '../../_lib/validate';
 
 const SORTS: Record<string, (a: Product, b: Product) => number> = {
   price: (a, b) => a.price - b.price,

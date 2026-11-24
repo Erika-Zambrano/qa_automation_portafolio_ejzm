@@ -1,6 +1,6 @@
-import { ApiError, Issues } from './_lib/errors';
-import { type Ctx, route } from './_lib/http';
-import { queryInt } from './_lib/validate';
+import { ApiError, Issues } from '../_lib/errors';
+import { type Ctx, route } from '../_lib/http';
+import { queryInt } from '../_lib/validate';
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 

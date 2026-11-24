@@ -1,6 +1,6 @@
-import { ApiError } from '../_lib/errors';
-import { route } from '../_lib/http';
-import { findProduct } from '../_lib/inventory';
+import { ApiError } from '../../_lib/errors';
+import { route } from '../../_lib/http';
+import { findProduct } from '../../_lib/inventory';
 
 export default route({
   GET: (ctx) => {
