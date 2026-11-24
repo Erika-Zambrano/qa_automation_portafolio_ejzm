@@ -26,15 +26,12 @@ qa-automation-portfolio/
 ├── .github/workflows/
 │   └── playwright.yml        CI pipeline (GitHub Actions)
 ├── tests/
-│   ├── ui/
-│   │   ├── navigation.spec.ts    @smoke — homepage, catalog, nav links
-│   │   ├── forms.spec.ts         @regression — login validation, search
-│   │   └── accessibility.spec.ts @regression — alt text, labels, buttons
+│   ├── ui/portfolio/
+│   │   ├── navigation.spec.ts    @smoke/@regression — topbar, routes, active link, lang switcher
+│   │   └── cv.spec.ts            @smoke/@regression — CV sections, language switch and persistence
 │   └── api/
 │       └── public-api.spec.ts    @sanity — REST API GET/POST tests
-├── pages/
-│   ├── BasePage.ts           navigate, waitForLoad, getTitle
-│   └── HomePage.ts           logo, navMenu, searchProduct, getProductCount
+├── pages/portfolio/          Page Objects for the portfolio site
 ├── utils/
 │   └── helpers.ts            reusable utilities
 ├── evals/
@@ -86,9 +83,8 @@ npx playwright show-report
 
 | Suite | File | Type | Tag |
 |---|---|---|---|
-| Navigation | `tests/ui/navigation.spec.ts` | UI | `@smoke` |
-| Forms & Validation | `tests/ui/forms.spec.ts` | UI | `@regression` |
-| Accessibility | `tests/ui/accessibility.spec.ts` | UI | `@regression` |
+| Portfolio navigation | `tests/ui/portfolio/navigation.spec.ts` | UI | `@smoke`, `@regression` |
+| CV & language | `tests/ui/portfolio/cv.spec.ts` | UI | `@smoke`, `@regression` |
 | Public API | `tests/api/public-api.spec.ts` | API | `@sanity` |
 
 ---

@@ -14,8 +14,6 @@ export default defineConfig({
     ? [['github'], ['html', { outputFolder: 'playwright-report', open: 'never' }], ['json', { outputFile: 'playwright-results.json' }]]
     : [['html', { outputFolder: 'playwright-report', open: 'never' }], ['json', { outputFile: 'playwright-results.json' }], ['list']],
   use: {
-    baseURL: 'https://practicesoftwaretesting.com',
-    testIdAttribute: 'data-test',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on-first-retry',
@@ -31,9 +29,8 @@ export default defineConfig({
       },
     },
     {
-      name: 'chromium',
-      testIgnore: ['tests/ui/portfolio/**/*.spec.ts'],
-      use: { ...devices['Desktop Chrome'] },
+      name: 'api',
+      testMatch: ['tests/api/**/*.spec.ts'],
     },
   ],
 });

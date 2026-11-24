@@ -6,10 +6,9 @@ import type { Translations } from '../i18n/translations';
 import '../css/home.css';
 
 const suites: Array<{ key: keyof Translations; type: string; tag: string; file: string }> = [
-  { key: 'card1-title', type: 'UI', tag: '@smoke', file: 'tests/ui/navigation.spec.ts' },
-  { key: 'card2-title', type: 'UI', tag: '@regression', file: 'tests/ui/forms.spec.ts' },
-  { key: 'card3-title', type: 'UI', tag: '@regression', file: 'tests/ui/accessibility.spec.ts' },
-  { key: 'card4-title', type: 'API', tag: '@sanity', file: 'tests/api/public-api.spec.ts' },
+  { key: 'card1-title', type: 'UI', tag: '@smoke', file: 'tests/ui/portfolio/navigation.spec.ts' },
+  { key: 'card2-title', type: 'UI', tag: '@regression', file: 'tests/ui/portfolio/cv.spec.ts' },
+  { key: 'card3-title', type: 'API', tag: '@sanity', file: 'tests/api/public-api.spec.ts' },
 ];
 
 const stack: Array<{ name: string; key?: keyof Translations; text?: string }> = [
