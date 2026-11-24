@@ -188,7 +188,8 @@ Branch: `feat/qa-playground-5-ci-reports`
 - Dashboard `/reports`: el resumen (`scripts/summarize-playwright.ts`) añade `projects` (totales por proyecto de Playwright) y `ReportsDashboard` los muestra en "Por proyecto". Las suites del playground aparecen también en la tabla por archivo.
 - Corrida programada (`.github/workflows/scheduled-run.yml`): cron `0 6,18 * * *` (UTC) y disparo manual. Corre la suite completa, resume los resultados (con `trigger` y `runUrl`) y los publica en la rama `ci-data` como `ci-results.json`, sin ensuciar `main` ni redesplegar el sitio. El job queda en rojo si algún test falla, pero publica igual.
 - `/reports` lee ese JSON desde `raw.githubusercontent.com/.../ci-data/ci-results.json` al cargar y, si falla la petición, usa el JSON empaquetado en el sitio. Muestra la última corrida (fecha, disparador, commit y enlace al run) y la próxima corrida programada.
-- `web/src/data/ci-results.json` regenerado con la suite completa (respaldo empaquetado).
+- Sección "Todos los tests" en la pestaña de CI: los 683 tests agrupados por archivo (desplegables), con buscador por nombre y filtros por proyecto y estado. La tabla por archivo de arriba agrupa por suite (17 archivos).
+- `web/src/data/ci-results.json` regenerado con la suite completa (respaldo empaquetado). Importante: pasar `--reporter=dot,json` (o no pasar `--reporter`) al regenerarlo, porque `--reporter=dot` solo reemplaza los reporters del config y deja el JSON sin actualizar.
 - Tests de la API pública de terceros (`tests/api/public-api.spec.ts`): `api.restful-api.dev` limita a 50 peticiones por día por IP y responde 405 al agotarse. Ahora los tests se omiten (`test.skip` condicional) en ese caso, en vez de fallar; ESLint permite `skip` condicional.
 - Notas: GitHub puede retrasar el cron y lo desactiva tras 60 días sin actividad en el repo, por eso queda el disparo manual. El repo debe ser público para que la página lea el JSON.
 - README: estructura, comandos por proyecto, sección QA Playground y estilo de tests.
@@ -199,6 +200,7 @@ Branch: `feat/qa-playground-5-ci-reports`
 | `019545a` | test(api): skip public API tests when its daily quota is exhausted |
 | `26a39e8` | feat(reports): add scheduled runs and show last and next run with per-project results |
 | `7aee3ad` | docs: update README, plan and recorded results for phase 5 |
+| `22eff96` | feat(reports): list every test with search and project and status filters |
 
 ## Estado
 
@@ -208,4 +210,4 @@ Branch: `feat/qa-playground-5-ci-reports`
 | 2 | `feat/qa-playground-2-frontend` | Hecha | MR #5 (`62cc4e7`) |
 | 3 | `feat/qa-playground-3-api-tests` | Hecha | MR #6 (`762e250`) |
 | 4 | `feat/qa-playground-4-e2e-ui` | Hecha | MR #7 (`387d050`) |
-| 5 | `feat/qa-playground-5-ci-reports` | En curso | |
+| 5 | `feat/qa-playground-5-ci-reports` | Hecha | MR #8 (`8b5c9ba`) |
