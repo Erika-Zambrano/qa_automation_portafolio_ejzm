@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const PLAYGROUND_WEB_URL = process.env.PLAYGROUND_WEB_URL ?? 'http://localhost:5173';
 const PLAYGROUND_API_URL = process.env.PLAYGROUND_API_URL ?? 'http://localhost:3100';
 
 export default defineConfig({
@@ -31,6 +32,15 @@ export default defineConfig({
       },
     },
     {
+      name: 'playground',
+      testMatch: ['tests/ui/playground/**/*.spec.ts'],
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: PLAYGROUND_WEB_URL,
+        testIdAttribute: 'data-testid',
+      },
+    },
+    {
       name: 'api',
       testMatch: ['tests/api/**/*.spec.ts'],
     },
@@ -48,12 +58,26 @@ export default defineConfig({
       use: { baseURL: PLAYGROUND_API_URL },
     },
   ],
-  webServer: process.env.PLAYGROUND_API_URL
-    ? undefined
-    : {
-        command: 'npm run dev:api',
-        url: `${PLAYGROUND_API_URL}/api/health`,
-        reuseExistingServer: !process.env.CI,
-        timeout: 30_000,
-      },
+  webServer: [
+    ...(process.env.PLAYGROUND_API_URL
+      ? []
+      : [
+          {
+            command: 'npm run dev:api',
+            url: `${PLAYGROUND_API_URL}/api/health`,
+            reuseExistingServer: !process.env.CI,
+            timeout: 30_000,
+          },
+        ]),
+    ...(process.env.PLAYGROUND_WEB_URL
+      ? []
+      : [
+          {
+            command: 'npm --prefix web run dev -- --port 5173 --strictPort',
+            url: PLAYGROUND_WEB_URL,
+            reuseExistingServer: !process.env.CI,
+            timeout: 60_000,
+          },
+        ]),
+  ],
 });
