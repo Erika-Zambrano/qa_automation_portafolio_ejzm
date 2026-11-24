@@ -142,6 +142,9 @@ Branch: `feat/qa-playground-3-api-tests`
 - Script `npm run test:playground-api`.
 - Tags `@smoke`, `@sanity`, `@regression`.
 - Corrección de backend que salió de los tests: un body de más de 100 KB cortaba la conexión en vez de responder 413.
+- ESLint (`eslint.config.mjs`): reglas con tipos (`typescript-eslint` type-checked), `eslint-plugin-playwright` y reglas propias (`no-floating-promises`, `no-explicit-any`, `consistent-type-imports`, `expect-expect`, `no-wait-for-timeout`, `valid-title`). Scripts `npm run lint` y `npm run typecheck`, ambos en CI con `--max-warnings 0`.
+- `PomBuilder` (`tests/ui/fixtures/pomBuilder.ts`): fixture `pom` con carga lazy de page objects y opción `lang`. Los specs de portafolio migraron a él y a los títulos `Should …` con `tag`.
+- La regla de títulos `Should …` solo aplica a `tests/ui/`.
 
 | Commit | Mensaje |
 |---|---|
