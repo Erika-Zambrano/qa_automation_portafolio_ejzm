@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
 type PwTest = { status: string; results: Array<{ duration: number; status: string }>; projectName: string };
-type PwSpec = { title: string; tests: PwTest[] };
+type PwSpec = { title: string; tags?: string[]; tests: PwTest[] };
 type PwSuite = { title: string; file?: string; specs?: PwSpec[]; suites?: PwSuite[] };
 
 const INPUT = resolve(__dirname, '../playwright-results.json');
@@ -30,7 +30,7 @@ function walk(suite: PwSuite, file: string): void {
         project: test.projectName,
         status: test.status === 'expected' ? 'passed' : test.status === 'flaky' ? 'flaky' : test.status === 'skipped' ? 'skipped' : 'failed',
         duration: last?.duration ?? 0,
-        tags: spec.title.match(/@\w+/g) ?? [],
+        tags: [...new Set([...(spec.title.match(/@\w+/g) ?? []), ...(spec.tags ?? []).map((tag) => (tag.startsWith('@') ? tag : `@${tag}`))])],
       });
     }
   }
@@ -66,7 +66,7 @@ const run = {
 
 let history: typeof run[] = [];
 if (existsSync(OUTPUT)) {
-  history = (JSON.parse(readFileSync(OUTPUT, 'utf8')).history ?? []) as typeof run[];
+  history = ((JSON.parse(readFileSync(OUTPUT, 'utf8')) as { history?: unknown[] }).history ?? []) as typeof run[];
 }
 history = [...history, run].slice(-HISTORY_LIMIT);
 

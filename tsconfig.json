@@ -13,6 +13,7 @@
     "pages/**/*",
     "utils/**/*",
     "evals/**/*",
-    "scripts/**/*"
+    "scripts/**/*",
+    "playwright.config.ts"
   ]
 }

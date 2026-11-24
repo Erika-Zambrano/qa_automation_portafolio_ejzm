@@ -15,7 +15,7 @@ const tokens = (text: string): string[] =>
 const countHits = (words: string[], dictionary: string[]): number =>
   words.filter((w) => dictionary.includes(w)).length;
 
-export function extractJson(raw: string): unknown | null {
+export function extractJson(raw: string): unknown {
   const start = raw.indexOf('{');
   const end = raw.lastIndexOf('}');
   if (start === -1 || end <= start) return null;

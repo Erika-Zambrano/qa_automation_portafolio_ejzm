@@ -1,75 +1,71 @@
-import { test, expect } from '@playwright/test';
-import { CvPage } from '../../../pages/portfolio/CvPage';
+import { test, expect } from '../fixtures/pomBuilder';
 
 test.describe('CV page', () => {
-  let cvPage: CvPage;
-
-  test.beforeEach(async ({ page }) => {
-    cvPage = new CvPage(page);
-    await cvPage.goto('es');
+  test.beforeEach(async ({ pom }) => {
+    await pom.cv.goto();
   });
 
-  // ── Smoke ─────────────────────────────────────────────────────────────────
+  test('Should display the topbar and all 4 nav links', { tag: '@smoke' }, async ({ pom }) => {
+    const { cv } = pom;
 
-  test('@smoke topbar and all 4 nav links are visible', async () => {
     await Promise.all([
-      expect.soft(cvPage.topbar).toBeVisible(),
-      expect.soft(cvPage.navHome).toBeVisible(),
-      expect.soft(cvPage.navCv).toBeVisible(),
-      expect.soft(cvPage.navContact).toBeVisible(),
-      expect.soft(cvPage.navReports).toBeVisible(),
+      expect.soft(cv.topbar).toBeVisible(),
+      expect.soft(cv.navHome).toBeVisible(),
+      expect.soft(cv.navCv).toBeVisible(),
+      expect.soft(cv.navContact).toBeVisible(),
+      expect.soft(cv.navReports).toBeVisible(),
     ]);
   });
 
-  test('@smoke all 6 CV sections are visible in Spanish', async () => {
-    await Promise.all(
-      cvPage.allSections.map(s => expect.soft(s).toBeVisible())
-    );
+  test('Should display all 6 CV sections in Spanish', { tag: '@smoke' }, async ({ pom }) => {
+    await Promise.all(pom.cv.allSections.map((section) => expect.soft(section).toBeVisible()));
   });
 
-  test('@smoke nav links navigate to correct pages', async ({ page }) => {
-    await cvPage.navContact.click();
+  test('Should navigate to the right page from each nav link', { tag: '@smoke' }, async ({ page, pom }) => {
+    const { cv } = pom;
+
+    await cv.navContact.click();
     await expect(page).toHaveURL(/\/contact/);
 
-    await cvPage.goto('es');
-    await cvPage.navReports.click();
+    await cv.goto();
+    await cv.navReports.click();
     await expect(page).toHaveURL(/\/reports/);
 
-    await cvPage.goto('es');
-    await cvPage.navHome.click();
+    await cv.goto();
+    await cv.navHome.click();
     await expect(page).toHaveURL(/\/$|\/\?/);
   });
 
-  // ── Regression ────────────────────────────────────────────────────────────
-
-  test('@regression language switches to English via UI', async () => {
-    await cvPage.switchLangViaUI('en');
+  test('Should switch the language to English via the UI', { tag: '@regression' }, async ({ pom }) => {
+    const { cv } = pom;
+    await cv.switchLangViaUI('en');
 
     await Promise.all([
-      expect.soft(cvPage.sectionProfile).toContainText('Professional Profile'),
-      expect.soft(cvPage.sectionExperience).toContainText('Professional Experience'),
-      expect.soft(cvPage.sectionProjects).toContainText('Selected AI Project'),
-      expect.soft(cvPage.sectionSkills).toContainText('Technical Skills'),
-      expect.soft(cvPage.sectionEducation).toContainText('Education'),
-      expect.soft(cvPage.sectionLanguages).toContainText('Languages'),
+      expect.soft(cv.sectionProfile).toContainText('Professional Profile'),
+      expect.soft(cv.sectionExperience).toContainText('Professional Experience'),
+      expect.soft(cv.sectionProjects).toContainText('Selected AI Project'),
+      expect.soft(cv.sectionSkills).toContainText('Technical Skills'),
+      expect.soft(cv.sectionEducation).toContainText('Education'),
+      expect.soft(cv.sectionLanguages).toContainText('Languages'),
     ]);
   });
 
-  test('@regression language persists after page reload', async ({ page }) => {
-    await cvPage.switchLangViaUI('en');
+  test('Should validate that the language persists after a page reload', { tag: '@regression' }, async ({ page, pom }) => {
+    const { cv } = pom;
+    await cv.switchLangViaUI('en');
     await page.reload();
-    await expect(cvPage.topbar).toBeVisible();
+    await expect(cv.topbar).toBeVisible();
 
     await Promise.all([
-      expect.soft(cvPage.langBtn).toContainText('EN'),
-      expect.soft(cvPage.sectionProfile).toContainText('Professional Profile'),
-      expect.soft(cvPage.sectionExperience).toContainText('Professional Experience'),
+      expect.soft(cv.langBtn).toContainText('EN'),
+      expect.soft(cv.sectionProfile).toContainText('Professional Profile'),
+      expect.soft(cv.sectionExperience).toContainText('Professional Experience'),
     ]);
   });
 
-  test('@regression html lang attribute updates when language changes', async ({ page }) => {
+  test('Should validate that the html lang attribute follows the selected language', { tag: '@regression' }, async ({ page, pom }) => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-    await cvPage.switchLangViaUI('en');
+    await pom.cv.switchLangViaUI('en');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   });
 });

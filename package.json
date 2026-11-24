@@ -6,17 +6,26 @@
     "test:smoke": "playwright test --grep @smoke",
     "test:sanity": "playwright test --grep @sanity",
     "test:regression": "playwright test --grep @regression",
+    "test:playground-api": "playwright test --project=api-playground --project=api-playground-stateful",
     "report": "playwright show-report",
     "eval": "tsx evals/run.ts",
     "report:summarize": "tsx scripts/summarize-playwright.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
     "dev": "tsx scripts/dev.ts",
     "dev:api": "tsx scripts/dev-api.ts"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "latest",
     "@types/node": "latest",
+    "eslint": "^10.15.0",
+    "eslint-plugin-playwright": "^2.12.2",
+    "globals": "^17.14.0",
     "tsx": "^4.23.15",
-    "typescript": "latest"
+    "typescript": "latest",
+    "typescript-eslint": "^8.74.0"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.13.0"

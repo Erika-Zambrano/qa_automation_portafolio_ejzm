@@ -1,5 +1,5 @@
-import { Page, Locator } from '@playwright/test';
-import { PortfolioBasePage } from './PortfolioBasePage';
+import { type Page, type Locator } from '@playwright/test';
+import { PortfolioBasePage, type Lang } from './PortfolioBasePage';
 
 export class CvPage extends PortfolioBasePage {
   readonly sectionProfile: Locator;
@@ -9,8 +9,8 @@ export class CvPage extends PortfolioBasePage {
   readonly sectionEducation: Locator;
   readonly sectionLanguages: Locator;
 
-  constructor(page: Page) {
-    super(page);
+  constructor(page: Page, lang: Lang = 'es') {
+    super(page, lang);
     this.sectionProfile = page.getByTestId('section-profile');
     this.sectionExperience = page.getByTestId('section-experience');
     this.sectionProjects = page.getByTestId('section-projects');
@@ -19,7 +19,7 @@ export class CvPage extends PortfolioBasePage {
     this.sectionLanguages = page.getByTestId('section-languages');
   }
 
-  async goto(lang: 'es' | 'en' = 'es'): Promise<void> {
+  async goto(lang: Lang = this.lang): Promise<void> {
     await this.navigate(`/cv?lang=${lang}`);
   }
 

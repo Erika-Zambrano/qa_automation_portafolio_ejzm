@@ -1,4 +1,4 @@
-import { Issues } from './errors';
+import { type Issues } from './errors';
 
 export type Obj = Record<string, unknown>;
 

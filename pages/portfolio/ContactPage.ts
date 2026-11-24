@@ -1,5 +1,5 @@
-import { Page, Locator } from '@playwright/test';
-import { PortfolioBasePage } from './PortfolioBasePage';
+import { type Page, type Locator } from '@playwright/test';
+import { PortfolioBasePage, type Lang } from './PortfolioBasePage';
 
 export class ContactPage extends PortfolioBasePage {
   readonly nameInput: Locator;
@@ -11,8 +11,8 @@ export class ContactPage extends PortfolioBasePage {
   readonly errorEmail: Locator;
   readonly errorMessage: Locator;
 
-  constructor(page: Page) {
-    super(page);
+  constructor(page: Page, lang: Lang = 'es') {
+    super(page, lang);
     this.nameInput = page.locator('#name');
     this.emailInput = page.locator('#email');
     this.messageInput = page.locator('#message');
@@ -23,7 +23,7 @@ export class ContactPage extends PortfolioBasePage {
     this.errorMessage = page.locator('#error-message');
   }
 
-  async goto(lang: 'es' | 'en' = 'es'): Promise<void> {
+  async goto(lang: Lang = this.lang): Promise<void> {
     await this.navigate(`/contact?lang=${lang}`);
   }
 
