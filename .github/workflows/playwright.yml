@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout code
@@ -30,12 +30,12 @@ jobs:
         run: npx playwright test
 
       - name: Summarize results for the portfolio dashboard
-        if: always()
+        if: always() && hashFiles('playwright-results.json') != ''
         run: npm run report:summarize
 
       - name: Upload dashboard data
         uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && hashFiles('web/src/data/ci-results.json') != ''
         with:
           name: ci-results
           path: web/src/data/ci-results.json
@@ -51,7 +51,7 @@ jobs:
 
   llm-eval:
     if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout code
