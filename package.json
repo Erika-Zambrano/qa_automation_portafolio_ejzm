@@ -8,7 +8,8 @@
     "test:regression": "playwright test --grep @regression",
     "report": "playwright show-report",
     "eval": "tsx evals/run.ts",
-    "report:summarize": "tsx scripts/summarize-playwright.ts"
+    "report:summarize": "tsx scripts/summarize-playwright.ts",
+    "dev:api": "tsx scripts/dev-api.ts"
   },
   "devDependencies": {
     "@playwright/test": "latest",
