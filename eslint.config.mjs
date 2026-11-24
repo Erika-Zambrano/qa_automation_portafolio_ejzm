@@ -50,7 +50,7 @@ export default tseslint.config(
       ...playwright.configs['flat/recommended'].rules,
       'playwright/expect-expect': ['error', { assertFunctionNames: ['expect', 'expectError', 'expectFieldError', 'expectOk'] }],
       'playwright/no-focused-test': 'error',
-      'playwright/no-skipped-test': 'error',
+      'playwright/no-skipped-test': ['error', { allowConditional: true }],
       'playwright/no-wait-for-timeout': 'error',
       'playwright/no-networkidle': 'error',
       'playwright/no-force-option': 'error',
