@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: isFile ? './' : '/',
     plugins: [react(), ...(isFile ? [classicScripts()] : [])],
+    server: { proxy: { '/api': 'http://localhost:3100' } },
     build: isFile
       ? {
           outDir: 'dist-file',

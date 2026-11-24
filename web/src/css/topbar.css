@@ -114,6 +114,50 @@
     font-weight: 600;
   }
 
+  .nav-menu { position: relative; }
+
+  .nav-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+
+  .nav-menu-btn svg { width: 12px; height: 12px; transition: transform 0.15s; }
+  .nav-menu-btn.open svg { transform: rotate(180deg); }
+
+  .nav-menu-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 6px);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    min-width: 200px;
+    z-index: 200;
+  }
+
+  .nav-menu-list.open { display: block; }
+
+  .nav-menu-item {
+    display: block;
+    padding: 9px 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: background 0.1s, color 0.1s;
+  }
+
+  .nav-menu-item:hover { background: var(--bg); color: var(--accent); text-decoration: none; }
+  .nav-menu-item.active { color: var(--accent); font-weight: 600; }
+
 @media print {
   .topbar { display: none; }
 }

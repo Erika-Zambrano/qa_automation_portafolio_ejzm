@@ -9,6 +9,7 @@
     "report": "playwright show-report",
     "eval": "tsx evals/run.ts",
     "report:summarize": "tsx scripts/summarize-playwright.ts",
+    "dev": "tsx scripts/dev.ts",
     "dev:api": "tsx scripts/dev-api.ts"
   },
   "devDependencies": {
