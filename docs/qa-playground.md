@@ -176,7 +176,9 @@ Branch: `feat/qa-playground-4-e2e-ui`
 
 | Commit | Mensaje |
 |---|---|
-| | |
+| `d1b5474` | chore(lint): add expect-style rule for soft and grouped expects in UI tests |
+| `fffb7cd` | test(ui): add QA playground E2E specs, page objects and guest/customer fixtures |
+| `26a2a36` | docs: record phase 3 as done and describe phase 4 in the QA playground plan |
 
 ### Fase 5: CI y reports
 
