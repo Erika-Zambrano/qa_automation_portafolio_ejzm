@@ -1,0 +1,75 @@
+name: Scheduled Run
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install web dependencies
+        run: npm ci --prefix web
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Load previous results
+        run: |
+          git fetch origin ci-data || true
+          mkdir -p web/src/data
+          git show origin/ci-data:ci-results.json > web/src/data/ci-results.json || rm -f web/src/data/ci-results.json
+
+      - name: Run Playwright tests
+        id: tests
+        continue-on-error: true
+        run: npx playwright test
+
+      - name: Summarize results
+        if: always() && hashFiles('playwright-results.json') != ''
+        run: npm run report:summarize
+
+      - name: Publish results to the ci-data branch
+        if: always() && hashFiles('web/src/data/ci-results.json') != ''
+        run: |
+          cp web/src/data/ci-results.json "$RUNNER_TEMP/ci-results.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git rev-parse --verify origin/ci-data >/dev/null 2>&1; then
+            git checkout -f -B ci-data origin/ci-data
+          else
+            git checkout -f --orphan ci-data
+            git rm -rf --quiet . || true
+          fi
+          cp "$RUNNER_TEMP/ci-results.json" ci-results.json
+          git add ci-results.json
+          git commit -m "chore: scheduled test results ${GITHUB_RUN_ID}" || echo "nothing to commit"
+          git push origin ci-data
+
+      - name: Upload Playwright HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Fail when tests failed
+        if: steps.tests.outcome == 'failure'
+        run: exit 1

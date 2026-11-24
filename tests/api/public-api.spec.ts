@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type APIResponse } from '@playwright/test';
 
 interface ApiObject {
   id: string;
@@ -10,9 +10,15 @@ interface ApiObject {
 
 const API_BASE = 'https://api.restful-api.dev';
 
+async function skipWhenQuotaExhausted(response: APIResponse): Promise<void> {
+  const quotaExhausted = response.status() === 405 && (await response.text()).includes('daily request limit');
+  test.skip(quotaExhausted, 'The public API allows 50 requests per day per IP and the quota is exhausted');
+}
+
 test.describe('Public REST API', () => {
   test('@sanity GET /objects returns 200 with a non-empty array', async ({ request }) => {
     const response = await request.get(`${API_BASE}/objects`);
+    await skipWhenQuotaExhausted(response);
     expect(response.status()).toBe(200);
 
     const body = (await response.json()) as ApiObject[];
@@ -22,6 +28,7 @@ test.describe('Public REST API', () => {
 
   test('@sanity GET /objects/:id returns 200 with id and name fields', async ({ request }) => {
     const response = await request.get(`${API_BASE}/objects/7`);
+    await skipWhenQuotaExhausted(response);
     expect(response.status()).toBe(200);
 
     const body = (await response.json()) as ApiObject;
@@ -38,6 +45,7 @@ test.describe('Public REST API', () => {
     };
 
     const response = await request.post(`${API_BASE}/objects`, { data: payload });
+    await skipWhenQuotaExhausted(response);
     expect(response.status()).toBe(200);
 
     const body = (await response.json()) as ApiObject;
@@ -47,6 +55,7 @@ test.describe('Public REST API', () => {
 
   test('@sanity GET /objects with multiple ids returns exactly 3 items', async ({ request }) => {
     const response = await request.get(`${API_BASE}/objects?id=3&id=5&id=10`);
+    await skipWhenQuotaExhausted(response);
     expect(response.status()).toBe(200);
 
     const body = (await response.json()) as ApiObject[];

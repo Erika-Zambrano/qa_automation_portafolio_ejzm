@@ -53,9 +53,23 @@ const files = [...new Set(rows.map((r) => r.file))].map((file) => {
   };
 });
 
+const projects = [...new Set(rows.map((r) => r.project))].map((name) => {
+  const own = rows.filter((r) => r.project === name);
+  return {
+    name,
+    total: own.length,
+    passed: own.filter((r) => r.status === 'passed').length,
+    failed: own.filter((r) => r.status === 'failed').length,
+    flaky: own.filter((r) => r.status === 'flaky').length,
+    duration: own.reduce((sum, r) => sum + r.duration, 0),
+  };
+});
+
 const run = {
   generatedAt: new Date().toISOString(),
   commit: process.env.GITHUB_SHA?.slice(0, 7) ?? null,
+  trigger: process.env.GITHUB_EVENT_NAME ?? 'local',
+  runUrl: process.env.GITHUB_RUN_ID ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}` : null,
   total: rows.length,
   passed: count('passed'),
   failed: count('failed'),
@@ -71,5 +85,5 @@ if (existsSync(OUTPUT)) {
 history = [...history, run].slice(-HISTORY_LIMIT);
 
 mkdirSync(dirname(OUTPUT), { recursive: true });
-writeFileSync(OUTPUT, JSON.stringify({ latest: run, files, tests: rows, history }, null, 2));
+writeFileSync(OUTPUT, JSON.stringify({ latest: run, projects, files, tests: rows, history }, null, 2));
 console.log(`Resumen guardado: ${run.passed}/${run.total} passed, ${run.failed} failed, ${run.flaky} flaky`);

@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import {
   Accordion,
   Alert,
@@ -7,6 +8,8 @@ import {
   Code,
   Heading,
   HStack,
+  Input,
+  Link,
   Progress,
   SimpleGrid,
   Span,
@@ -30,10 +33,11 @@ export type EvalData = {
   cases: EvalCase[];
 };
 
-type CiRun = { generatedAt: string; commit: string | null; total: number; passed: number; failed: number; flaky: number; skipped: number; wallDuration: number };
+type CiRun = { generatedAt: string; commit: string | null; trigger?: string; runUrl?: string | null; total: number; passed: number; failed: number; flaky: number; skipped: number; wallDuration: number };
 type CiFile = { file: string; total: number; passed: number; failed: number; flaky: number; duration: number; tags: string[] };
 type CiTest = { file: string; title: string; project: string; status: string; duration: number; tags: string[] };
-export type CiData = { latest: CiRun; files: CiFile[]; tests: CiTest[]; history: CiRun[] };
+type CiProject = { name: string; total: number; passed: number; failed: number; flaky: number; duration: number };
+export type CiData = { latest: CiRun; projects?: CiProject[]; files: CiFile[]; tests: CiTest[]; history: CiRun[] };
 
 type Props = { lang: 'es' | 'en'; evalData: EvalData | null; ciData: CiData | null };
 
@@ -67,6 +71,21 @@ const copy = {
     status: 'Estado',
     test: 'Test',
     project: 'Proyecto',
+    byProject: 'Por proyecto',
+    allTests: 'Todos los tests',
+    searchTests: 'Buscar por nombre…',
+    allProjects: 'Todos los proyectos',
+    allStatuses: 'Todos los estados',
+    showing: 'Mostrando',
+    of: 'de',
+    noMatches: 'Ningún test coincide con los filtros.',
+    lastRun: 'Última corrida',
+    nextRun: 'Próxima corrida programada',
+    scheduleNote: 'Corre automáticamente dos veces al día (06:00 y 18:00 UTC) en GitHub Actions.',
+    viewRun: 'Ver corrida en GitHub',
+    triggerSchedule: 'programada',
+    triggerManual: 'manual',
+    triggerOther: 'automática',
     tags: 'Tags',
     failing: 'Tests que fallan',
     noFailing: 'Ningún test falla en la última ejecución.',
@@ -101,6 +120,21 @@ const copy = {
     status: 'Status',
     test: 'Test',
     project: 'Project',
+    byProject: 'By project',
+    allTests: 'All tests',
+    searchTests: 'Search by name…',
+    allProjects: 'All projects',
+    allStatuses: 'All statuses',
+    showing: 'Showing',
+    of: 'of',
+    noMatches: 'No tests match the filters.',
+    lastRun: 'Last run',
+    nextRun: 'Next scheduled run',
+    scheduleNote: 'Runs automatically twice a day (06:00 and 18:00 UTC) on GitHub Actions.',
+    viewRun: 'View run on GitHub',
+    triggerSchedule: 'scheduled',
+    triggerManual: 'manual',
+    triggerOther: 'automatic',
     tags: 'Tags',
     failing: 'Failing tests',
     noFailing: 'No tests failing in the latest run.',
@@ -197,6 +231,87 @@ function EvalPanel({ data, t, lang }: { data: EvalData | null; t: Copy; lang: st
   );
 }
 
+const SCHEDULE_HOURS_UTC = [6, 18];
+
+function nextScheduledRun(from: Date): Date {
+  for (let dayOffset = 0; dayOffset < 2; dayOffset += 1) {
+    for (const hour of SCHEDULE_HOURS_UTC) {
+      const candidate = new Date(Date.UTC(from.getUTCFullYear(), from.getUTCMonth(), from.getUTCDate() + dayOffset, hour));
+      if (candidate > from) return candidate;
+    }
+  }
+  return from;
+}
+
+const STATUS_COLOR: Record<string, string> = { passed: 'green', failed: 'red', flaky: 'orange', skipped: 'gray' };
+
+function AllTests({ tests, t }: { tests: CiTest[]; t: Copy }) {
+  const [query, setQuery] = useState('');
+  const [project, setProject] = useState('');
+  const [status, setStatus] = useState('');
+  const projects = useMemo(() => [...new Set(tests.map((x) => x.project))].sort(), [tests]);
+  const statuses = useMemo(() => [...new Set(tests.map((x) => x.status))].sort(), [tests]);
+  const filtered = useMemo(() => {
+    const needle = query.trim().toLowerCase();
+    return tests.filter((x) => (!project || x.project === project) && (!status || x.status === status) && (!needle || x.title.toLowerCase().includes(needle)));
+  }, [tests, query, project, status]);
+  const byFile = useMemo(() => {
+    const groups = new Map<string, CiTest[]>();
+    for (const test of filtered) groups.set(test.file, [...(groups.get(test.file) ?? []), test]);
+    return [...groups.entries()];
+  }, [filtered]);
+
+  return (
+    <Box data-testid="all-tests">
+      <Heading size="md" mb="2">{t.allTests}</Heading>
+      <HStack gap="2" wrap="wrap" mb="3">
+        <Input bg="white" maxW="280px" size="sm" placeholder={t.searchTests} value={query} data-testid="all-tests-search" onChange={(event) => setQuery(event.target.value)} />
+        <select className="reports-select" value={project} data-testid="all-tests-project" onChange={(event) => setProject(event.target.value)}>
+          <option value="">{t.allProjects}</option>
+          {projects.map((name) => <option key={name} value={name}>{name}</option>)}
+        </select>
+        <select className="reports-select" value={status} data-testid="all-tests-status" onChange={(event) => setStatus(event.target.value)}>
+          <option value="">{t.allStatuses}</option>
+          {statuses.map((name) => <option key={name} value={name}>{name}</option>)}
+        </select>
+        <Text fontSize="sm" color="gray.600" data-testid="all-tests-count">{t.showing} {filtered.length} {t.of} {tests.length}</Text>
+      </HStack>
+      {byFile.length === 0 ? (
+        <Text color="gray.600">{t.noMatches}</Text>
+      ) : (
+        <Accordion.Root collapsible multiple lazyMount unmountOnExit>
+          {byFile.map(([file, own]) => (
+            <Accordion.Item key={file} value={file} bg="white" borderWidth="1px" borderRadius="md" mb="2">
+              <Accordion.ItemTrigger px="4" py="2">
+                <HStack flex="1" gap="3" wrap="wrap">
+                  <Code>{file}</Code>
+                  <Text fontSize="sm" color="gray.600">{own.filter((x) => x.status === 'passed').length}/{own.length}</Text>
+                </HStack>
+                <Accordion.ItemIndicator />
+              </Accordion.ItemTrigger>
+              <Accordion.ItemContent>
+                <Accordion.ItemBody px="4" pb="3">
+                  <Stack gap="1">
+                    {own.map((x, index) => (
+                      <HStack key={`${x.title}:${x.project}:${index}`} gap="3" wrap="wrap">
+                        <Badge colorPalette={STATUS_COLOR[x.status] ?? 'gray'}>{x.status}</Badge>
+                        <Text fontSize="sm" flex="1" minW="200px">{x.title}</Text>
+                        {x.tags.map((tag) => <Badge key={tag} variant="subtle">{tag}</Badge>)}
+                        <Code fontSize="xs">{x.project}</Code>
+                        <Text fontSize="xs" color="gray.600">{secs(x.duration)}</Text>
+                      </HStack>
+                    ))}
+                  </Stack>
+                </Accordion.ItemBody>
+              </Accordion.ItemContent>
+            </Accordion.Item>
+          ))}
+        </Accordion.Root>
+      )}
+    </Box>
+  );
+}
+
 function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string }) {
   if (!data) {
     return (
@@ -219,7 +334,45 @@ function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string
         <Kpi label={t.flaky} value={String(l.flaky)} />
         <Kpi label={t.duration} value={secs(l.wallDuration)} />
       </SimpleGrid>
-      <Text fontSize="sm" color="gray.600">{t.generated}: {new Date(l.generatedAt).toLocaleString(lang)}{l.commit ? ` · ${l.commit}` : ''}</Text>
+      <Box bg="white" borderWidth="1px" borderRadius="md" px="4" py="3">
+        <Stack gap="1" fontSize="sm">
+          <HStack gap="2" wrap="wrap">
+            <Text fontWeight="semibold">{t.lastRun}:</Text>
+            <Text>{new Date(l.generatedAt).toLocaleString(lang)}</Text>
+            {l.trigger && <Badge variant="subtle">{l.trigger === 'schedule' ? t.triggerSchedule : l.trigger === 'workflow_dispatch' ? t.triggerManual : t.triggerOther}</Badge>}
+            {l.commit && <Code>{l.commit}</Code>}
+            {l.runUrl && <Link href={l.runUrl} target="_blank" rel="noreferrer">{t.viewRun}</Link>}
+          </HStack>
+          <HStack gap="2" wrap="wrap">
+            <Text fontWeight="semibold">{t.nextRun}:</Text>
+            <Text>{nextScheduledRun(new Date()).toLocaleString(lang)}</Text>
+          </HStack>
+          <Text color="gray.600">{t.scheduleNote}</Text>
+        </Stack>
+      </Box>
+
+      {data.projects && data.projects.length > 0 && (
+        <Box>
+          <Heading size="md" mb="2">{t.byProject}</Heading>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="3">
+            {data.projects.map((p) => {
+              const r = p.total ? p.passed / p.total : 0;
+              return (
+                <Box key={p.name} bg="white" borderWidth="1px" borderRadius="md" px="4" py="3">
+                  <HStack justify="space-between">
+                    <Code>{p.name}</Code>
+                    <Text fontSize="sm" color="gray.600">{secs(p.duration)}</Text>
+                  </HStack>
+                  <Progress.Root value={r * 100} colorPalette={palette(r)} size="sm" mt="2">
+                    <Progress.Track><Progress.Range /></Progress.Track>
+                  </Progress.Root>
+                  <Text fontSize="xs" color="gray.600">{p.passed}/{p.total}{p.failed ? ` · ${p.failed} ${t.failed.toLowerCase()}` : ''}{p.flaky ? ` · ${p.flaky} ${t.flaky.toLowerCase()}` : ''}</Text>
+                </Box>
+              );
+            })}
+          </SimpleGrid>
+        </Box>
+      )}
 
       <Box bg="white" borderWidth="1px" borderRadius="md" overflowX="auto">
         <Table.Root size="sm">
@@ -253,6 +406,8 @@ function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string
           </Table.Body>
         </Table.Root>
       </Box>
+
+      <AllTests tests={data.tests} t={t} />
 
       <Box>
         <Heading size="md" mb="2">{t.failing}</Heading>
