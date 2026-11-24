@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import {
   Accordion,
   Alert,
@@ -7,6 +8,7 @@ import {
   Code,
   Heading,
   HStack,
+  Input,
   Link,
   Progress,
   SimpleGrid,
@@ -70,6 +72,13 @@ const copy = {
     test: 'Test',
     project: 'Proyecto',
     byProject: 'Por proyecto',
+    allTests: 'Todos los tests',
+    searchTests: 'Buscar por nombre…',
+    allProjects: 'Todos los proyectos',
+    allStatuses: 'Todos los estados',
+    showing: 'Mostrando',
+    of: 'de',
+    noMatches: 'Ningún test coincide con los filtros.',
     lastRun: 'Última corrida',
     nextRun: 'Próxima corrida programada',
     scheduleNote: 'Corre automáticamente dos veces al día (06:00 y 18:00 UTC) en GitHub Actions.',
@@ -112,6 +121,13 @@ const copy = {
     test: 'Test',
     project: 'Project',
     byProject: 'By project',
+    allTests: 'All tests',
+    searchTests: 'Search by name…',
+    allProjects: 'All projects',
+    allStatuses: 'All statuses',
+    showing: 'Showing',
+    of: 'of',
+    noMatches: 'No tests match the filters.',
     lastRun: 'Last run',
     nextRun: 'Next scheduled run',
     scheduleNote: 'Runs automatically twice a day (06:00 and 18:00 UTC) on GitHub Actions.',
@@ -227,6 +243,75 @@ function nextScheduledRun(from: Date): Date {
   return from;
 }
 
+const STATUS_COLOR: Record<string, string> = { passed: 'green', failed: 'red', flaky: 'orange', skipped: 'gray' };
+
+function AllTests({ tests, t }: { tests: CiTest[]; t: Copy }) {
+  const [query, setQuery] = useState('');
+  const [project, setProject] = useState('');
+  const [status, setStatus] = useState('');
+  const projects = useMemo(() => [...new Set(tests.map((x) => x.project))].sort(), [tests]);
+  const statuses = useMemo(() => [...new Set(tests.map((x) => x.status))].sort(), [tests]);
+  const filtered = useMemo(() => {
+    const needle = query.trim().toLowerCase();
+    return tests.filter((x) => (!project || x.project === project) && (!status || x.status === status) && (!needle || x.title.toLowerCase().includes(needle)));
+  }, [tests, query, project, status]);
+  const byFile = useMemo(() => {
+    const groups = new Map<string, CiTest[]>();
+    for (const test of filtered) groups.set(test.file, [...(groups.get(test.file) ?? []), test]);
+    return [...groups.entries()];
+  }, [filtered]);
+
+  return (
+    <Box data-testid="all-tests">
+      <Heading size="md" mb="2">{t.allTests}</Heading>
+      <HStack gap="2" wrap="wrap" mb="3">
+        <Input bg="white" maxW="280px" size="sm" placeholder={t.searchTests} value={query} data-testid="all-tests-search" onChange={(event) => setQuery(event.target.value)} />
+        <select className="reports-select" value={project} data-testid="all-tests-project" onChange={(event) => setProject(event.target.value)}>
+          <option value="">{t.allProjects}</option>
+          {projects.map((name) => <option key={name} value={name}>{name}</option>)}
+        </select>
+        <select className="reports-select" value={status} data-testid="all-tests-status" onChange={(event) => setStatus(event.target.value)}>
+          <option value="">{t.allStatuses}</option>
+          {statuses.map((name) => <option key={name} value={name}>{name}</option>)}
+        </select>
+        <Text fontSize="sm" color="gray.600" data-testid="all-tests-count">{t.showing} {filtered.length} {t.of} {tests.length}</Text>
+      </HStack>
+      {byFile.length === 0 ? (
+        <Text color="gray.600">{t.noMatches}</Text>
+      ) : (
+        <Accordion.Root collapsible multiple lazyMount unmountOnExit>
+          {byFile.map(([file, own]) => (
+            <Accordion.Item key={file} value={file} bg="white" borderWidth="1px" borderRadius="md" mb="2">
+              <Accordion.ItemTrigger px="4" py="2">
+                <HStack flex="1" gap="3" wrap="wrap">
+                  <Code>{file}</Code>
+                  <Text fontSize="sm" color="gray.600">{own.filter((x) => x.status === 'passed').length}/{own.length}</Text>
+                </HStack>
+                <Accordion.ItemIndicator />
+              </Accordion.ItemTrigger>
+              <Accordion.ItemContent>
+                <Accordion.ItemBody px="4" pb="3">
+                  <Stack gap="1">
+                    {own.map((x, index) => (
+                      <HStack key={`${x.title}:${x.project}:${index}`} gap="3" wrap="wrap">
+                        <Badge colorPalette={STATUS_COLOR[x.status] ?? 'gray'}>{x.status}</Badge>
+                        <Text fontSize="sm" flex="1" minW="200px">{x.title}</Text>
+                        {x.tags.map((tag) => <Badge key={tag} variant="subtle">{tag}</Badge>)}
+                        <Code fontSize="xs">{x.project}</Code>
+                        <Text fontSize="xs" color="gray.600">{secs(x.duration)}</Text>
+                      </HStack>
+                    ))}
+                  </Stack>
+                </Accordion.ItemBody>
+              </Accordion.ItemContent>
+            </Accordion.Item>
+          ))}
+        </Accordion.Root>
+      )}
+    </Box>
+  );
+}
+
 function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string }) {
   if (!data) {
     return (
@@ -321,6 +406,8 @@ function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string
           </Table.Body>
         </Table.Root>
       </Box>
+
+      <AllTests tests={data.tests} t={t} />
 
       <Box>
         <Heading size="md" mb="2">{t.failing}</Heading>
