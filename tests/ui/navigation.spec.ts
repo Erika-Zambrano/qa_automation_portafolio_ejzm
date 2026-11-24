@@ -31,7 +31,6 @@ test.describe('Navigation', () => {
 
   test('@smoke Contact page is accessible', async ({ page }) => {
     await page.goto('/contact');
-    await page.waitForLoadState('networkidle');
     await expect(page).toHaveURL(/contact/);
     await expect(page.getByRole('heading').first()).toBeVisible();
   });

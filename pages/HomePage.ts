@@ -11,6 +11,10 @@ export class HomePage extends BasePage {
     this.navMenu = page.getByRole('navigation').first();
   }
 
+  async waitForLoad(): Promise<void> {
+    await this.logo.waitFor({ state: 'visible' });
+  }
+
   async searchProduct(query: string): Promise<void> {
     await this.page.getByTestId('search-query').fill(query);
     await this.page.getByTestId('search-query').press('Enter');

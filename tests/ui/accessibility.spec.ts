@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Accessibility', () => {
   test('@regression All images on the homepage have an alt attribute', async ({ page }) => {
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await expect(page.getByTestId('product-name').first()).toBeVisible();
 
     const imagesWithoutAlt = await page.evaluate(() =>
       Array.from(document.querySelectorAll('img'))
@@ -15,7 +15,7 @@ test.describe('Accessibility', () => {
 
   test('@regression Action buttons have accessible text or aria-label', async ({ page }) => {
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await expect(page.getByRole('button').first()).toBeVisible();
 
     const buttons = page.getByRole('button');
     const count = await buttons.count();
@@ -33,7 +33,7 @@ test.describe('Accessibility', () => {
 
   test('@regression Login form inputs have accessible labels', async ({ page }) => {
     await page.goto('/auth/login');
-    await page.waitForLoadState('networkidle');
+    await expect(page.getByTestId('email')).toBeVisible();
 
     const results = await page.evaluate(() => {
       const inputs = document.querySelectorAll<HTMLInputElement>(

@@ -4,7 +4,7 @@ import { HomePage } from '../../pages/HomePage';
 test.describe('Forms & Validation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/auth/login');
-    await page.waitForLoadState('networkidle');
+    await expect(page.getByTestId('email')).toBeVisible();
   });
 
   test('@regression Login with invalid credentials shows an error', async ({ page }) => {
@@ -36,7 +36,6 @@ test.describe('Forms & Validation', () => {
     await home.navigate('/');
     await home.waitForLoad();
     await home.searchProduct('hammer');
-    await page.waitForLoadState('networkidle');
 
     const results = page.getByTestId('product-name');
     await expect(results.first()).toBeVisible({ timeout: 10_000 });

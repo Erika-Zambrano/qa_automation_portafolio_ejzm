@@ -58,7 +58,7 @@ test.describe('CV page', () => {
   test('@regression language persists after page reload', async ({ page }) => {
     await cvPage.switchLangViaUI('en');
     await page.reload();
-    await page.waitForLoadState('networkidle');
+    await expect(cvPage.topbar).toBeVisible();
 
     await Promise.all([
       expect.soft(cvPage.langBtn).toContainText('EN'),
