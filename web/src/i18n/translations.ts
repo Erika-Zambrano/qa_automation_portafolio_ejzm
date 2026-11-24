@@ -1,6 +1,8 @@
+import { pgEn, pgEs, type PgKey } from './playground';
+
 export type Lang = 'es' | 'en';
 
-export type Translations = {
+export type Translations = Record<PgKey, string> & {
   /* Topbar */
   'nav-home': string;
   'nav-contact': string;
@@ -97,6 +99,7 @@ export type Translations = {
 
 export const translations: Record<Lang, Translations> = {
   es: {
+    ...pgEs,
     /* Topbar */
     'nav-home':    'Inicio',
     'nav-contact': 'Contacto',
@@ -205,6 +208,7 @@ export const translations: Record<Lang, Translations> = {
   },
 
   en: {
+    ...pgEn,
     /* Topbar */
     'nav-home':    'Home',
     'nav-contact': 'Contact',

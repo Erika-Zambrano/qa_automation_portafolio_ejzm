@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LangContext';
 import type { Lang } from '../i18n/translations';
 import '../css/topbar.css';
@@ -11,6 +11,15 @@ const links = [
   { to: '/reports', id: 'nav-reports', key: 'nav-reports' as const },
 ];
 
+const playgroundLinks = [
+  { to: '/playground', id: 'home', key: 'pg-nav-home' as const },
+  { to: '/playground/shop', id: 'shop', key: 'pg-nav-shop' as const },
+  { to: '/playground/checkout', id: 'checkout', key: 'pg-nav-checkout' as const },
+  { to: '/playground/forms', id: 'forms', key: 'pg-nav-forms' as const },
+  { to: '/playground/login', id: 'login', key: 'pg-nav-login' as const },
+  { to: '/playground/signup', id: 'signup', key: 'pg-nav-signup' as const },
+];
+
 const options: Array<{ lang: Lang; label: string }> = [
   { lang: 'es', label: 'ES — Español' },
   { lang: 'en', label: 'EN — English' },
@@ -20,6 +29,27 @@ export function Topbar() {
   const { lang, setLang, t, withLang } = useLang();
   const [open, setOpen] = useState(false);
   const switcherRef = useRef<HTMLDivElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const { pathname } = useLocation();
+  const inPlayground = pathname.startsWith('/playground');
+
+  useEffect(() => setMenuOpen(false), [pathname]);
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      if (!menuRef.current?.contains(event.target as Node)) setMenuOpen(false);
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+    document.addEventListener('click', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('click', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, []);
 
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
@@ -43,6 +73,36 @@ export function Topbar() {
             {link.key ? t(link.key) : 'CV'}
           </NavLink>
         ))}
+        <div className="nav-menu" data-testid="nav-playground-menu" ref={menuRef}>
+          <button
+            type="button"
+            className={`topbar-link nav-menu-btn${inPlayground ? ' active' : ''}${menuOpen ? ' open' : ''}`}
+            aria-haspopup="menu"
+            aria-expanded={menuOpen}
+            aria-controls="nav-playground-list"
+            data-testid="nav-playground"
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            {t('pg-nav')}
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <path d="M2 4l4 4 4-4" />
+            </svg>
+          </button>
+          <div className={`nav-menu-list${menuOpen ? ' open' : ''}`} id="nav-playground-list" role="menu" data-testid="nav-playground-list">
+            {playgroundLinks.map((link) => (
+              <NavLink
+                key={link.id}
+                to={withLang(link.to)}
+                end={link.to === '/playground'}
+                role="menuitem"
+                className={({ isActive }) => `nav-menu-item${isActive ? ' active' : ''}`}
+                data-testid={`nav-playground-${link.id}`}
+              >
+                {t(link.key)}
+              </NavLink>
+            ))}
+          </div>
+        </div>
         <div className="topbar-spacer" />
         <div className="lang-switcher" data-testid="lang-switcher" ref={switcherRef}>
           <button
