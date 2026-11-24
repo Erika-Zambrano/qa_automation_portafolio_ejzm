@@ -6,6 +6,7 @@
     "test:smoke": "playwright test --grep @smoke",
     "test:sanity": "playwright test --grep @sanity",
     "test:regression": "playwright test --grep @regression",
+    "test:playground-api": "playwright test --project=api-playground --project=api-playground-stateful",
     "report": "playwright show-report",
     "eval": "tsx evals/run.ts",
     "report:summarize": "tsx scripts/summarize-playwright.ts",

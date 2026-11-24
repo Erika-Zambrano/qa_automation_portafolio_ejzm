@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const PLAYGROUND_API_URL = process.env.PLAYGROUND_API_URL ?? 'http://localhost:3100';
+
 export default defineConfig({
   testDir: './tests',
   timeout: 30_000,
@@ -32,5 +34,26 @@ export default defineConfig({
       name: 'api',
       testMatch: ['tests/api/**/*.spec.ts'],
     },
+    {
+      name: 'api-playground',
+      testMatch: ['tests/playground-api/**/*.spec.ts'],
+      testIgnore: ['tests/playground-api/stateful/**'],
+      use: { baseURL: PLAYGROUND_API_URL },
+    },
+    {
+      name: 'api-playground-stateful',
+      testMatch: ['tests/playground-api/stateful/**/*.spec.ts'],
+      dependencies: ['api-playground'],
+      fullyParallel: false,
+      use: { baseURL: PLAYGROUND_API_URL },
+    },
   ],
+  webServer: process.env.PLAYGROUND_API_URL
+    ? undefined
+    : {
+        command: 'npm run dev:api',
+        url: `${PLAYGROUND_API_URL}/api/health`,
+        reuseExistingServer: !process.env.CI,
+        timeout: 30_000,
+      },
 });

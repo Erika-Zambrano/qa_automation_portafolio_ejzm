@@ -28,6 +28,9 @@ Todo el playground gira en torno a una galería que vende reproducciones de obra
 | Tests de API | Locales contra `npm run dev:api` (servidor Node que monta los mismos handlers de `/api`, sin login ni link a Vercel; determinista, también en CI) |
 | i18n | ES y EN, igual que el resto del sitio |
 | Selectores | `data-testid` consistente en todos los componentes |
+| Lint | ESLint con reglas de tipo (type-aware) y `eslint-plugin-playwright`, para reglas obligatorias que se amplían con el tiempo. Rama previa `chore/eslint` |
+| Page objects | `PomBuilder` como fixture de Playwright en `tests/ui/fixtures/`, solo para UI. Rama previa `refactor/pom-builder` |
+| Títulos de tests | `Should validate`, `create`, `navigate`, `display` o `switch`, en inglés, con ID y etiquetas en `tag`. Se exige desde la fase 4 (los tests de API de la fase 3 conservan su formato) |
 
 ## Estrategia de branches
 
@@ -115,18 +118,30 @@ Branch: `feat/qa-playground-2-frontend`
 - Página índice con guía de DevTools (Network, Console, Storage, `X-Request-Id`).
 - Proxy de `/api` hacia `localhost:3100` en `web/vite.config.ts` para desarrollo local.
 - Campos del formulario alineados con la galería: `interests` (`information`, `appraisal`, `commission`, `framing`, `shipping`), `collectingYears` y `message`. Ya vienen en `main`.
+- `npm run dev` en la raíz levanta la API y la web juntas.
+
+MR: [#5](https://github.com/Erika-Zambrano/qa_automation_portafolio_ejzm/pull/5)
 
 | Commit | Mensaje |
 |---|---|
-| | |
+| `c0a00b9` | docs: add QA playground plan and phases |
+| `ed5407d` | feat(web): add QA playground with gallery, checkout, forms, login and signup pages |
+| `638ce75` | chore: add npm run dev to start the API and web together |
+| `62cc4e7` | Merge pull request #5 from Erika-Zambrano/feat/qa-playground-2-frontend |
 
 ### Fase 3: Tests de API
 
 Branch: `feat/qa-playground-3-api-tests`
 
-- Proyecto `api-playground` en `playwright.config.ts` con `webServer` sobre `npm run dev:api`.
-- Suites por área: auth, products, cart, checkout, forms, chaos, seguridad, headers.
+- Proyectos de Playwright en `playwright.config.ts`, con `webServer` sobre `npm run dev:api` (o `PLAYGROUND_API_URL` para apuntar a otro servidor):
+  - `api-playground`: suites sin estado compartido, en paralelo.
+  - `api-playground-stateful`: depende del anterior y corre en serie, porque cambia el stock y las claves de idempotencia.
+- Suites en `tests/playground-api/`: convenciones (headers, CORS, 405, 415, 413, JSON inválido), auth (login, JWT manipulado, `alg=none`, expiración, rate limit), productos (paginación, filtros, orden), precios del carrito (matriz de totales y cupones), validación de checkout, formularios y adjuntos, chaos, seguridad (inyecciones, prototype pollution, mass assignment) y, en `stateful/`, checkout con stock, concurrencia, idempotencia y control de acceso a órdenes.
+- Utilidades en `utils/playground-api.ts` (login, tokens falsificados, cuerpos válidos, aserciones de error).
+- Aislamiento: el rate limit se separa por test con la cabecera `X-RateLimit-Key` y el stock se restaura con `POST /api/reset`.
+- Script `npm run test:playground-api`.
 - Tags `@smoke`, `@sanity`, `@regression`.
+- Corrección de backend que salió de los tests: un body de más de 100 KB cortaba la conexión en vez de responder 413.
 
 | Commit | Mensaje |
 |---|---|
@@ -136,7 +151,8 @@ Branch: `feat/qa-playground-3-api-tests`
 
 Branch: `feat/qa-playground-4-e2e-tests`
 
-- Page objects en `pages/playground/`.
+- Page objects en `pages/playground/`, registrados en el `PomBuilder`.
+- Títulos con el vocabulario `Should …`, validado por ESLint (`valid-title` con `mustMatch`).
 - Specs: shop y checkout, forms, login, signup con términos.
 - Híbridos: login por API, `page.route` para errores 500, latencia y respuestas malformadas.
 
@@ -161,7 +177,7 @@ Branch: `feat/qa-playground-5-ci-reports`
 | Fase | Branch | Estado | Merge |
 |---|---|---|---|
 | 1 | `feat/qa-playground-1-backend` | Hecha | MR #4 (`678e73a`) |
-| 2 | `feat/qa-playground-2-frontend` | En curso | |
-| 3 | `feat/qa-playground-3-api-tests` | Pendiente | |
+| 2 | `feat/qa-playground-2-frontend` | Hecha | MR #5 (`62cc4e7`) |
+| 3 | `feat/qa-playground-3-api-tests` | En curso | |
 | 4 | `feat/qa-playground-4-e2e-tests` | Pendiente | |
 | 5 | `feat/qa-playground-5-ci-reports` | Pendiente | |
