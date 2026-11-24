@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { bearer, expectError, expectFieldError, formBody, isolate, login } from '../../utils/playground-api';
+import { bearer, expectError, expectFieldError, formBody, isolate, json, login, type ApiErrorBody, type Pricing } from '../../utils/playground-api';
 
 const INJECTIONS = ["' OR '1'='1", '"; DROP TABLE products; --', '<script>alert(1)</script>', '${7*7}', '{{constructor.constructor("return 1")()}}', '../../../etc/passwd', '%00', '\\u0000', 'A'.repeat(2000)];
 
@@ -8,7 +8,7 @@ test.describe('Security: input handling', () => {
     test(`@regression q=${payload.slice(0, 24)} is harmless in the catalog search`, async ({ request }) => {
       const response = await request.get(`/api/products?q=${encodeURIComponent(payload)}`);
       expect(response.status()).toBe(200);
-      expect((await response.json()).meta.total).toBe(0);
+      expect((await json<{ meta: { total: number } }>(response)).meta.total).toBe(0);
     });
 
     test(`@regression artist=${payload.slice(0, 24)} is harmless in the catalog filter`, async ({ request }) => {
@@ -20,7 +20,7 @@ test.describe('Security: input handling', () => {
     test(`@regression a hostile product id (${id.slice(0, 20)}) never yields a server error`, async ({ request }) => {
       const response = await request.get(`/api/products/${id}`);
       expect([400, 404]).toContain(response.status());
-      expect((await response.json()).error.code).toMatch(/INVALID_ID|PRODUCT_NOT_FOUND|NOT_FOUND/);
+      expect((await json<ApiErrorBody>(response)).error.code).toMatch(/INVALID_ID|PRODUCT_NOT_FOUND|NOT_FOUND/);
     });
   }
 
@@ -59,7 +59,7 @@ test.describe('Security: input handling', () => {
     const raw = `${'{"a":'.repeat(depth)}1${'}'.repeat(depth)}`;
     const response = await request.post('/api/forms/submit', { headers: { 'Content-Type': 'application/json' }, data: Buffer.from(raw) });
     expect([400, 422]).toContain(response.status());
-    expect(['INVALID_JSON', 'VALIDATION_ERROR']).toContain((await response.json()).error.code);
+    expect(['INVALID_JSON', 'VALIDATION_ERROR']).toContain((await json<ApiErrorBody>(response)).error.code);
   });
 
   test('@regression a very long string value is handled', async ({ request }) => {
@@ -71,7 +71,7 @@ test.describe('Security: input handling', () => {
 test.describe('Security: mass assignment and prototype pollution', () => {
   for (const key of ['__proto__', 'constructor', 'prototype', 'isAdmin', 'role']) {
     test(`@regression forms reject the ${key} key`, async ({ request }) => {
-      const data = JSON.parse(JSON.stringify(formBody()));
+      const data: Record<string, unknown> = { ...formBody() };
       Object.defineProperty(data, key, { value: { polluted: true }, enumerable: true, configurable: true, writable: true });
       const response = await request.post('/api/forms/submit', { data });
       await expectFieldError(response, 422, key, 'UNKNOWN_FIELD');
@@ -91,21 +91,21 @@ test.describe('Security: mass assignment and prototype pollution', () => {
       headers: isolate(),
       data: { name: 'Mallory', email: 'mallory@x.co', password: 'Abcdef1!', confirmPassword: 'Abcdef1!', acceptTerms: true },
     });
-    expect((await response.json()).user.role).toBe('user');
+    expect((await json<{ user: { role: string } }>(response)).user.role).toBe('user');
   });
 
   test('@regression the cart price cannot be overridden by the client', async ({ request }) => {
     const response = await request.post('/api/cart/price', { data: { items: [{ productId: 1, quantity: 1, unitPrice: 1, lineTotal: 1 }] } });
     expect(response.status()).toBe(200);
-    const result = await response.json();
+    const result = await json<Pricing>(response);
     expect(result.subtotal).toBe(4500);
     expect(result.lines[0].unitPrice).toBe(4500);
   });
 
   test('@regression a polluted request does not change later behaviour', async ({ request }) => {
-    const polluted = JSON.parse('{"items":[{"productId":1,"quantity":1}],"__proto__":{"coupon":"SAVE10"}}');
+    const polluted = JSON.parse('{"items":[{"productId":1,"quantity":1}],"__proto__":{"coupon":"SAVE10"}}') as Record<string, unknown>;
     await request.post('/api/cart/price', { data: polluted });
-    const clean = await (await request.post('/api/cart/price', { data: { items: [{ productId: 1, quantity: 1 }] } })).json();
+    const clean = await json<Pricing>(await request.post('/api/cart/price', { data: { items: [{ productId: 1, quantity: 1 }] } }));
     expect(clean.coupon).toBeNull();
     expect(clean.discount).toBe(0);
   });

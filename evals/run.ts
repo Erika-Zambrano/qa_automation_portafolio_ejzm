@@ -35,7 +35,7 @@ async function judge(testCase: EvalCase, output: string): Promise<Judge> {
   const prompt = `Rubric:\n${testCase.rubric}\n\nLearner input:\n${testCase.input}\n\nTutor output:\n${output}`;
   const raw = await ask(JUDGE_MODEL, system, prompt, 200);
   try {
-    const parsed = JSON.parse(raw.slice(raw.indexOf('{'), raw.lastIndexOf('}') + 1));
+    const parsed = JSON.parse(raw.slice(raw.indexOf('{'), raw.lastIndexOf('}') + 1)) as { score: unknown; reason: unknown };
     return { score: Number(parsed.score), reason: String(parsed.reason) };
   } catch {
     return { score: 1, reason: 'Respuesta del juez no parseable' };

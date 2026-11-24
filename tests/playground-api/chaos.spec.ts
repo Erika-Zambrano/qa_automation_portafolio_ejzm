@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
-import { expectError, expectFieldError } from '../../utils/playground-api';
+import { expectError, expectFieldError, json } from '../../utils/playground-api';
 
 test.describe('Chaos endpoint', () => {
   test('@smoke the default response is 200 with an echo payload', async ({ request }) => {
     const response = await request.get('/api/chaos');
     expect(response.status()).toBe(200);
-    expect(await response.json()).toEqual({ status: 200, delay: 0, method: 'GET', body: null });
+    expect(await json<unknown>(response)).toEqual({ status: 200, delay: 0, method: 'GET', body: null });
   });
 
   const statuses = [200, 201, 202, 400, 401, 403, 404, 409, 418, 422, 429, 500, 502, 503, 504, 599];
@@ -13,10 +13,10 @@ test.describe('Chaos endpoint', () => {
     test(`@regression status=${status} returns exactly that status`, async ({ request }) => {
       const response = await request.get(`/api/chaos?status=${status}`);
       expect(response.status()).toBe(status);
-      const body = await response.json();
+      const body = await json<{ status?: number; error?: { code: string; message: string; requestId: string } }>(response);
       if (status >= 400) {
         expect(body.error).toMatchObject({ code: 'CHAOS_REQUESTED', message: `Requested status ${status}` });
-        expect(body.error.requestId).toBe(response.headers()['x-request-id']);
+        expect(body.error?.requestId).toBe(response.headers()['x-request-id']);
       } else {
         expect(body.status).toBe(status);
       }
@@ -53,7 +53,7 @@ test.describe('Chaos endpoint', () => {
     expect(response.status()).toBe(200);
     expect(elapsed).toBeGreaterThanOrEqual(380);
     expect(elapsed).toBeLessThan(3000);
-    expect((await response.json()).delay).toBe(400);
+    expect((await json<{ delay: number }>(response)).delay).toBe(400);
   });
 
   test('@regression no delay answers quickly', async ({ request }) => {
@@ -81,20 +81,24 @@ test.describe('Chaos endpoint', () => {
     expect(response.headers()['content-type']).toContain('application/json');
     const text = await response.text();
     expect(text).toBe('{"data": [1, 2,');
-    expect(() => JSON.parse(text)).toThrow();
+    expect(() => {
+      JSON.parse(text);
+    }).toThrow();
   });
 
   test('@regression malformed combines with a status code', async ({ request }) => {
     const response = await request.get('/api/chaos?malformed=true&status=500');
     expect(response.status()).toBe(500);
     const text = await response.text();
-    expect(() => JSON.parse(text)).toThrow();
+    expect(() => {
+      JSON.parse(text);
+    }).toThrow();
   });
 
   test('@regression malformed values other than true are ignored', async ({ request }) => {
     const response = await request.get('/api/chaos?malformed=1');
     expect(response.status()).toBe(200);
-    expect(await response.json()).toMatchObject({ status: 200 });
+    expect(await json<unknown>(response)).toMatchObject({ status: 200 });
   });
 
   test('@regression failRate=1 always fails with 503 CHAOS_FAILURE', async ({ request }) => {
@@ -126,7 +130,7 @@ test.describe('Chaos endpoint', () => {
     for (const method of ['POST', 'PUT', 'PATCH', 'DELETE'] as const) {
       const response = await request.fetch('/api/chaos', { method, data: payload });
       expect(response.status()).toBe(200);
-      expect(await response.json()).toMatchObject({ method, body: payload });
+      expect(await json<unknown>(response)).toMatchObject({ method, body: payload });
     }
   });
 

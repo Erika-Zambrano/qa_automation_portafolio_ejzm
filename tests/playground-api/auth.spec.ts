@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { USERS, bearer, credentials, decodeJwt, expectError, expectFieldError, isolate, login, signJwt } from '../../utils/playground-api';
+import { USERS, bearer, json, type ApiErrorBody, credentials, decodeJwt, expectError, expectFieldError, isolate, login, signJwt } from '../../utils/playground-api';
 
 test.describe('Auth: login', () => {
   test('@smoke valid credentials return a token and the user', async ({ request }) => {
@@ -87,7 +87,7 @@ test.describe('Auth: login', () => {
     ['ttl float', { email: 'user@qa.test', password: 'x', ttl: 1.5 }, 'ttl', 'INVALID_TYPE'],
     ['ttl string', { email: 'user@qa.test', password: 'x', ttl: '60' }, 'ttl', 'INVALID_TYPE'],
     ['unknown field', { email: 'user@qa.test', password: 'x', admin: true }, 'admin', 'UNKNOWN_FIELD'],
-    ['__proto__ field', JSON.parse('{"email":"user@qa.test","password":"x","__proto__":{"role":"admin"}}'), '__proto__', 'UNKNOWN_FIELD'],
+    ['__proto__ field', JSON.parse('{"email":"user@qa.test","password":"x","__proto__":{"role":"admin"}}') as Record<string, unknown>, '__proto__', 'UNKNOWN_FIELD'],
   ];
 
   for (const [label, data, field, code] of invalid) {
@@ -171,14 +171,14 @@ test.describe('Auth: sessions and tokens', () => {
     const { token, user } = await login(request, 'user');
     const response = await request.get('/api/auth/me', { headers: bearer(token) });
     expect(response.status()).toBe(200);
-    const body = await response.json();
+    const body = await json<{ user: unknown; expiresAt: string }>(response);
     expect(body.user).toEqual(user);
     expect(new Date(body.expiresAt).getTime()).toBeGreaterThan(Date.now());
   });
 
   test('@regression expiresAt matches the token ttl', async ({ request }) => {
     const { token } = await login(request, 'user', 600);
-    const body = await (await request.get('/api/auth/me', { headers: bearer(token) })).json();
+    const body = await json<{ expiresAt: string }>(await request.get('/api/auth/me', { headers: bearer(token) }));
     const remaining = (new Date(body.expiresAt).getTime() - Date.now()) / 1000;
     expect(remaining).toBeGreaterThan(590);
     expect(remaining).toBeLessThanOrEqual(600);
@@ -200,7 +200,7 @@ test.describe('Auth: sessions and tokens', () => {
     test(`@regression Authorization with ${label} returns 401`, async ({ request }) => {
       const response = await request.get('/api/auth/me', { headers: { Authorization: value } });
       expect(response.status()).toBe(401);
-      expect((await response.json()).error.code).toBe('UNAUTHORIZED');
+      expect((await json<ApiErrorBody>(response)).error.code).toBe('UNAUTHORIZED');
     });
   }
 

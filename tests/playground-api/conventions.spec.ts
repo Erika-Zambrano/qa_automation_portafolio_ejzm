@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { expectError, isolate } from '../../utils/playground-api';
+import { expectError, isolate, json } from '../../utils/playground-api';
 
 const ENDPOINTS: Array<{ path: string; methods: string[] }> = [
   { path: '/api/health', methods: ['GET'] },
@@ -23,7 +23,7 @@ test.describe('API conventions', () => {
   test('@smoke GET /api/health returns status ok', async ({ request }) => {
     const response = await request.get('/api/health');
     expect(response.status()).toBe(200);
-    const body = await response.json();
+    const body = await json<{ time: string }>(response);
     expect(body).toMatchObject({ status: 'ok', service: 'qa-playground' });
     expect(new Date(body.time).toString()).not.toBe('Invalid Date');
   });
@@ -154,7 +154,7 @@ test.describe('API conventions', () => {
       await request.post('/api/auth/login', { headers: isolate(), data: {} }),
     ];
     for (const response of responses) {
-      const body = await response.json();
+      const body = await json<{ error: Record<string, unknown> }>(response);
       expect(Object.keys(body)).toEqual(['error']);
       expect(Object.keys(body.error)).toEqual(expect.arrayContaining(['code', 'message', 'requestId']));
     }

@@ -1,5 +1,5 @@
 import { test, expect, type APIRequestContext } from '@playwright/test';
-import { expectError, expectFieldError, formBody, without } from '../../utils/playground-api';
+import { expectError, expectFieldError, formBody, json, without, type FormReceipt } from '../../utils/playground-api';
 
 const submit = (request: APIRequestContext, data: unknown) => request.post('/api/forms/submit', { data });
 
@@ -14,13 +14,13 @@ test.describe('Forms: successful submission', () => {
   test('@smoke a complete request is accepted with 201', async ({ request }) => {
     const response = await submit(request, formBody());
     expect(response.status()).toBe(201);
-    const body = await response.json();
+    const body = await json<FormReceipt>(response);
     expect(body.id).toMatch(/^sub_[0-9a-f]{8}$/);
     expect(new Date(body.receivedAt).getTime()).toBeLessThanOrEqual(Date.now() + 1000);
   });
 
   test('@sanity the response echoes the normalized data', async ({ request }) => {
-    const body = await (await submit(request, formBody())).json();
+    const body = await json<FormReceipt>(await submit(request, formBody()));
     expect(body.data).toEqual({
       fullName: 'Ada Lovelace',
       email: 'ada@example.com',
@@ -37,23 +37,23 @@ test.describe('Forms: successful submission', () => {
 
   test('@regression optional fields get their defaults', async ({ request }) => {
     const data = without(without(formBody(), 'message'), 'newsletter');
-    const body = await (await submit(request, data)).json();
+    const body = await json<FormReceipt>(await submit(request, data));
     expect(body.data).toMatchObject({ message: null, newsletter: false, attachment: null });
   });
 
   test('@regression every submission gets a different id', async ({ request }) => {
-    const ids = await Promise.all([1, 2, 3, 4].map(async () => (await (await submit(request, formBody())).json()).id));
+    const ids = await Promise.all([1, 2, 3, 4].map(async () => (await json<FormReceipt>(await submit(request, formBody()))).id));
     expect(new Set(ids).size).toBe(4);
   });
 
   test('@regression names are trimmed', async ({ request }) => {
-    const body = await (await submit(request, formBody({ fullName: '   Ada Lovelace  ' }))).json();
+    const body = await json<FormReceipt>(await submit(request, formBody({ fullName: '   Ada Lovelace  ' })));
     expect(body.data.fullName).toBe('Ada Lovelace');
   });
 
   for (const name of ['José Ángel Núñez', '李小龍', 'Zoë 🎨 Ñandú', 'O\'Brien-Smith']) {
     test(`@regression unicode names are accepted: ${name}`, async ({ request }) => {
-      const body = await (await submit(request, formBody({ fullName: name }))).json();
+      const body = await json<FormReceipt>(await submit(request, formBody({ fullName: name })));
       expect(body.data.fullName).toBe(name);
     });
   }
@@ -68,7 +68,7 @@ test.describe('Forms: successful submission', () => {
       const response = await submit(request, formBody({ message: value }));
       expect(response.status()).toBe(201);
       expect(response.headers()['content-type']).toContain('application/json');
-      expect((await response.json()).data.message).toBe(value);
+      expect((await json<FormReceipt>(response)).data.message).toBe(value);
     });
   }
 
@@ -182,7 +182,7 @@ test.describe('Forms: validation', () => {
   });
 
   test('@regression a rejected submission does not return an id', async ({ request }) => {
-    const body = await (await submit(request, formBody({ acceptTerms: false }))).json();
+    const body = await json<{ id?: string; error: { code: string } }>(await submit(request, formBody({ acceptTerms: false })));
     expect(body.id).toBeUndefined();
     expect(body.error.code).toBe('VALIDATION_ERROR');
   });
@@ -200,7 +200,7 @@ test.describe('Forms: attachment', () => {
     test(`@regression a ${type} attachment is accepted and echoed`, async ({ request }) => {
       const response = await submit(request, formBody({ attachment: file({ type }) }));
       expect(response.status()).toBe(201);
-      expect((await response.json()).data.attachment).toEqual(file({ type }));
+      expect((await json<FormReceipt>(response)).data.attachment).toEqual(file({ type }));
     });
   }
 

@@ -1,15 +1,12 @@
-import { test, expect } from '@playwright/test';
-import { PRICES, expectError, expectFieldError } from '../../utils/playground-api';
-
-type Product = { id: number; sku: string; name: string; artist: string; year: number; category: string; price: number; stock: number; rating: number };
-type Listing = { data: Product[]; meta: { page: number; pageSize: number; total: number; totalPages: number } };
+import { test, expect, type APIRequestContext } from '@playwright/test';
+import { PRICES, expectError, expectFieldError, json, type Listing, type Product } from '../../utils/playground-api';
 
 const CATEGORIES = ['impressionism', 'post-impressionism', 'expressionism', 'surrealism', 'cubism', 'baroque', 'abstract', 'historical', 'kinetic'];
 
-async function list(request: import('@playwright/test').APIRequestContext, query = ''): Promise<Listing> {
+async function list(request: APIRequestContext, query = ''): Promise<Listing> {
   const response = await request.get(`/api/products${query}`);
   expect(response.status(), await response.text()).toBe(200);
-  return response.json();
+  return json<Listing>(response);
 }
 
 test.describe('Products: listing', () => {
@@ -218,7 +215,7 @@ test.describe('Products: filtering and sorting', () => {
     test(`@regression sort=${sort} orders ${direction}ending`, async ({ request }) => {
       const { data } = await list(request, `?sort=${sort}&pageSize=50`);
       const values = data.map(pick);
-      const expected = [...values].sort((a, b) => (typeof a === 'string' ? a.localeCompare(b as string) : (a as number) - (b as number)));
+      const expected = [...values].sort((a, b) => (typeof a === 'string' ? a.localeCompare(b as string) : (a) - (b as number)));
       if (direction === 'desc') expected.reverse();
       expect(values).toEqual(expected);
     });
@@ -234,14 +231,14 @@ test.describe('Products: detail', () => {
   test('@smoke GET /products/:id returns the artwork', async ({ request }) => {
     const response = await request.get('/api/products/3');
     expect(response.status()).toBe(200);
-    const { data } = await response.json();
+    const { data } = await json<{ data: Product }>(response);
     expect(data).toMatchObject({ id: 3, sku: 'AR-003', name: 'El grito', artist: 'Edvard Munch', year: 1893, category: 'expressionism', price: 5200 });
   });
 
   test('@regression the detail matches the listing entry', async ({ request }) => {
     const { data: all } = await list(request, '?pageSize=50');
     for (const product of all) {
-      const { data } = await (await request.get(`/api/products/${product.id}`)).json();
+      const { data } = await json<{ data: Product }>(await request.get(`/api/products/${product.id}`));
       expect(data).toEqual(product);
     }
   });

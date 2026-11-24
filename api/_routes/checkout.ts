@@ -12,7 +12,7 @@ const DECLINED = '4000000000000002';
 const NO_FUNDS = '4000000000009995';
 
 export default route({
-  POST: (ctx) => {
+  POST: (ctx): Result => {
     const auth = requireAuth(ctx);
     const key = ctx.header('idempotency-key');
     if (!key || !/^[\w-]{8,64}$/.test(key)) {
@@ -60,7 +60,7 @@ export default route({
     const scopeKey = `${auth.sub}:${key}`;
     const requestFingerprint = fingerprint(body);
     const replay = lookup(scopeKey, requestFingerprint);
-    if (replay) return { status: 200, body: replay.body, headers: { 'Idempotent-Replayed': 'true' } } as Result;
+    if (replay) return { status: 200, body: replay.body, headers: { 'Idempotent-Replayed': 'true' } };
 
     const pricing = price(items, coupon, method);
     if (cardNumber === DECLINED) throw new ApiError(402, 'CARD_DECLINED', 'The card was declined');

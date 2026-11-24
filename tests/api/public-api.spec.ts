@@ -15,7 +15,7 @@ test.describe('Public REST API', () => {
     const response = await request.get(`${API_BASE}/objects`);
     expect(response.status()).toBe(200);
 
-    const body: ApiObject[] = await response.json();
+    const body = (await response.json()) as ApiObject[];
     expect(Array.isArray(body)).toBe(true);
     expect(body.length).toBeGreaterThan(0);
   });
@@ -24,7 +24,7 @@ test.describe('Public REST API', () => {
     const response = await request.get(`${API_BASE}/objects/7`);
     expect(response.status()).toBe(200);
 
-    const body: ApiObject = await response.json();
+    const body = (await response.json()) as ApiObject;
     expect(body).toHaveProperty('id');
     expect(body).toHaveProperty('name');
     expect(typeof body.id).toBe('string');
@@ -40,7 +40,7 @@ test.describe('Public REST API', () => {
     const response = await request.post(`${API_BASE}/objects`, { data: payload });
     expect(response.status()).toBe(200);
 
-    const body: ApiObject = await response.json();
+    const body = (await response.json()) as ApiObject;
     expect(body).toHaveProperty('id');
     expect(body.name).toBe(payload.name);
   });
@@ -49,7 +49,7 @@ test.describe('Public REST API', () => {
     const response = await request.get(`${API_BASE}/objects?id=3&id=5&id=10`);
     expect(response.status()).toBe(200);
 
-    const body: ApiObject[] = await response.json();
+    const body = (await response.json()) as ApiObject[];
     expect(Array.isArray(body)).toBe(true);
     expect(body).toHaveLength(3);
   });

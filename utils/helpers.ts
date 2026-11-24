@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { type Page, type Locator } from '@playwright/test';
 
 export async function getTextContent(locator: Locator): Promise<string> {
   const text = await locator.textContent();

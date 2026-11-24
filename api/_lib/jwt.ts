@@ -33,7 +33,7 @@ export function verifyToken(token: string): TokenPayload {
   const [header, payload, signature] = parts;
   let parsedHeader: { alg?: string };
   try {
-    parsedHeader = JSON.parse(Buffer.from(header, 'base64url').toString('utf8'));
+    parsedHeader = JSON.parse(Buffer.from(header, 'base64url').toString('utf8')) as { alg?: string };
   } catch {
     throw new ApiError(401, 'TOKEN_INVALID', 'Malformed token');
   }
@@ -45,7 +45,7 @@ export function verifyToken(token: string): TokenPayload {
   }
   let data: TokenPayload;
   try {
-    data = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+    data = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8')) as TokenPayload;
   } catch {
     throw new ApiError(401, 'TOKEN_INVALID', 'Malformed token');
   }

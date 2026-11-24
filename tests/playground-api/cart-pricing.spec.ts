@@ -1,24 +1,13 @@
 import { test, expect, type APIRequestContext } from '@playwright/test';
-import { PRICES, expectError, expectFieldError } from '../../utils/playground-api';
+import { PRICES, expectError, expectFieldError, json, stockOf, type Pricing } from '../../utils/playground-api';
 
 type Item = { productId: number; quantity: number };
-type Pricing = {
-  lines: Array<{ productId: number; sku: string; name: string; artist: string; unitPrice: number; quantity: number; lineTotal: number }>;
-  coupon: string | null;
-  subtotal: number;
-  discount: number;
-  shipping: number;
-  tax: number;
-  total: number;
-  currency: string;
-};
-
 const price = (request: APIRequestContext, data: Record<string, unknown>) => request.post('/api/cart/price', { data });
 
 async function priced(request: APIRequestContext, data: Record<string, unknown>): Promise<Pricing> {
   const response = await price(request, data);
   expect(response.status(), await response.text()).toBe(200);
-  return response.json();
+  return json<Pricing>(response);
 }
 
 test.describe('Cart pricing: math', () => {
@@ -219,9 +208,9 @@ test.describe('Cart pricing: items validation', () => {
   });
 
   test('@regression pricing a cart never changes the stock', async ({ request }) => {
-    const before = (await (await request.get('/api/products/3')).json()).data.stock;
+    const before = await stockOf(request, 3);
     await priced(request, { items: [{ productId: 3, quantity: 3 }] });
-    const after = (await (await request.get('/api/products/3')).json()).data.stock;
+    const after = await stockOf(request, 3);
     expect(after).toBe(before);
   });
 

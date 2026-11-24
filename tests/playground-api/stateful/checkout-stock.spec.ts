@@ -1,16 +1,5 @@
 import { test, expect, type APIRequestContext } from '@playwright/test';
-import { CARDS, address, bearer, checkout, checkoutBody, credentials, expectError, isolate, login, newKey, payment, stockOf } from '../../../utils/playground-api';
-
-type Order = {
-  id: string;
-  status: string;
-  createdAt: string;
-  shippingMethod: string;
-  shippingAddress: Record<string, string>;
-  cardLast4: string;
-  pricing: { lines: Array<{ productId: number; quantity: number }>; coupon: string | null; subtotal: number; discount: number; shipping: number; tax: number; total: number };
-  userId?: string;
-};
+import { CARDS, address, bearer, checkout, checkoutBody, credentials, expectError, isolate, json, login, newKey, payment, stockOf, type Order, type Pricing, type Product } from '../../../utils/playground-api';
 
 const reset = async (request: APIRequestContext) => {
   const response = await request.post('/api/reset');
@@ -25,7 +14,7 @@ async function registerOther(request: APIRequestContext) {
     data: { name: 'Other Collector', email: 'other@qa.test', password: 'Abcdef1!', confirmPassword: 'Abcdef1!', acceptTerms: true },
   });
   expect(response.status()).toBe(201);
-  return (await response.json()).token as string;
+  return (await json<{ token: string }>(response)).token;
 }
 
 let user = '';
@@ -39,6 +28,7 @@ test.beforeAll(async ({ playwright, baseURL }) => {
 });
 
 test.beforeEach(async ({ request }) => reset(request));
+
 test.afterAll(async ({ playwright, baseURL }) => {
   const request = await playwright.request.newContext({ baseURL });
   await reset(request);
@@ -49,7 +39,7 @@ test.describe('Checkout: successful orders', () => {
   test('@smoke a valid checkout creates a confirmed order', async ({ request }) => {
     const response = await checkout(request, user, buy(1, 1));
     expect(response.status(), await response.text()).toBe(201);
-    const { data } = (await response.json()) as { data: Order };
+    const { data } = await json<{ data: Order }>(response);
     expect(data.id).toMatch(/^ord_[A-Za-z0-9_-]+\.[A-Za-z0-9_-]{16}$/);
     expect(data).toMatchObject({ status: 'confirmed', shippingMethod: 'standard', cardLast4: '4242' });
     expect(data.shippingAddress).toEqual(address());
@@ -59,14 +49,14 @@ test.describe('Checkout: successful orders', () => {
 
   test('@sanity the order total matches the cart pricing endpoint', async ({ request }) => {
     const items = [{ productId: 2, quantity: 2 }, { productId: 5, quantity: 1 }];
-    const quote = await (await request.post('/api/cart/price', { data: { items, coupon: 'SAVE10', shippingMethod: 'express' } })).json();
-    const { data } = await (await checkout(request, user, checkoutBody({ items, coupon: 'SAVE10', shippingMethod: 'express' }))).json();
+    const quote = await json<Pricing>(await request.post('/api/cart/price', { data: { items, coupon: 'SAVE10', shippingMethod: 'express' } }));
+    const { data } = await json<{ data: Order }>(await checkout(request, user, checkoutBody({ items, coupon: 'SAVE10', shippingMethod: 'express' })));
     expect(data.pricing).toEqual(quote);
   });
 
   for (const [coupon, shippingMethod] of [[undefined, 'standard'], ['SAVE10', 'standard'], ['FIXED5', 'express'], ['FREESHIP', 'express']] as const) {
     test(`@regression the order stores coupon=${coupon ?? 'none'} shipping=${shippingMethod}`, async ({ request }) => {
-      const { data } = (await (await checkout(request, user, buy(1, 1, { ...(coupon ? { coupon } : {}), shippingMethod }))).json()) as { data: Order };
+      const { data } = await json<{ data: Order }>(await checkout(request, user, buy(1, 1, { ...(coupon ? { coupon } : {}), shippingMethod })));
       expect(data.pricing.coupon).toBe(coupon ?? null);
       expect(data.shippingMethod).toBe(shippingMethod);
     });
@@ -82,7 +72,7 @@ test.describe('Checkout: successful orders', () => {
   });
 
   test('@regression the last four digits of other cards are stored', async ({ request }) => {
-    const { data } = (await (await checkout(request, user, buy(1, 1, { payment: payment({ cardNumber: '4012888888881881' }) }))).json()) as { data: Order };
+    const { data } = await json<{ data: Order }>(await checkout(request, user, buy(1, 1, { payment: payment({ cardNumber: '4012888888881881' }) })));
     expect(data.cardLast4).toBe('1881');
   });
 
@@ -107,10 +97,10 @@ test.describe('Checkout: stock', () => {
 
   test('@regression the new stock is visible in the listing and in the detail', async ({ request }) => {
     await checkout(request, user, buy(1, 4));
-    const detail = (await (await request.get('/api/products/1')).json()).data;
-    const listing = (await (await request.get('/api/products?pageSize=50')).json()).data.find((p: { id: number }) => p.id === 1);
+    const detail = (await json<{ data: Product }>(await request.get('/api/products/1'))).data;
+    const listing = (await json<{ data: Product[] }>(await request.get('/api/products?pageSize=50'))).data.find((p) => p.id === 1);
     expect(detail.stock).toBe(36);
-    expect(listing.stock).toBe(36);
+    expect(listing?.stock).toBe(36);
   });
 
   test('@regression other artworks are not affected', async ({ request }) => {
@@ -138,8 +128,8 @@ test.describe('Checkout: stock', () => {
 
   test('@regression a sold out artwork disappears from inStock=true and shows in inStock=false', async ({ request }) => {
     await checkout(request, user, buy(3, 3));
-    const inStock = (await (await request.get('/api/products?inStock=true&pageSize=50')).json()).data.map((p: { id: number }) => p.id);
-    const soldOut = (await (await request.get('/api/products?inStock=false&pageSize=50')).json()).data.map((p: { id: number }) => p.id);
+    const inStock = (await json<{ data: Product[] }>(await request.get('/api/products?inStock=true&pageSize=50'))).data.map((p) => p.id);
+    const soldOut = (await json<{ data: Product[] }>(await request.get('/api/products?inStock=false&pageSize=50'))).data.map((p) => p.id);
     expect(inStock).not.toContain(3);
     expect(soldOut.sort()).toEqual([3, 7]);
   });
@@ -201,7 +191,7 @@ test.describe('Checkout: concurrency', () => {
     const statuses = responses.map((r) => r.status()).sort();
     expect(statuses).toEqual([200, 200, 200, 200, 201]);
     expect(await stockOf(request, 1)).toBe(before - 1);
-    const ids = await Promise.all(responses.map(async (r) => (await r.json()).data.id));
+    const ids = await Promise.all(responses.map(async (r) => (await json<{ data: Order }>(r)).data.id));
     expect(new Set(ids).size).toBe(1);
   });
 
@@ -226,7 +216,7 @@ test.describe('Checkout: idempotency', () => {
     expect(second.status()).toBe(200);
     expect(second.headers()['idempotent-replayed']).toBe('true');
     expect(first.headers()['idempotent-replayed']).toBeUndefined();
-    expect(await second.json()).toEqual(await first.json());
+    expect(await json<unknown>(second)).toEqual(await json<unknown>(first));
   });
 
   test('@regression a replay does not reduce the stock again', async ({ request }) => {
@@ -260,8 +250,8 @@ test.describe('Checkout: idempotency', () => {
   });
 
   test('@regression different keys create different orders', async ({ request }) => {
-    const a = await (await checkout(request, user, buy(1, 1))).json();
-    const b = await (await checkout(request, user, buy(1, 1))).json();
+    const a = await json<{ data: Order }>(await checkout(request, user, buy(1, 1)));
+    const b = await json<{ data: Order }>(await checkout(request, user, buy(1, 1)));
     expect(a.data.id).not.toBe(b.data.id);
   });
 
@@ -288,21 +278,21 @@ test.describe('Checkout: idempotency', () => {
 
 test.describe('Orders: retrieval and access control', () => {
   async function place(request: APIRequestContext, token = user) {
-    return ((await (await checkout(request, token, buy(1, 1))).json()) as { data: Order }).data;
+    return (await json<{ data: Order }>(await checkout(request, token, buy(1, 1)))).data;
   }
 
   test('@smoke the owner can read the order', async ({ request }) => {
     const order = await place(request);
     const response = await request.get(`/api/orders/${order.id}`, { headers: bearer(user) });
     expect(response.status()).toBe(200);
-    expect((await response.json()).data).toEqual(order);
+    expect((await json<{ data: Order }>(response)).data).toEqual(order);
   });
 
   test('@sanity an admin can read any order', async ({ request }) => {
     const order = await place(request);
     const response = await request.get(`/api/orders/${order.id}`, { headers: bearer(admin) });
     expect(response.status()).toBe(200);
-    expect((await response.json()).data.id).toBe(order.id);
+    expect((await json<{ data: Order }>(response)).data.id).toBe(order.id);
   });
 
   test('@sanity another user cannot read the order', async ({ request }) => {
@@ -334,7 +324,7 @@ test.describe('Orders: retrieval and access control', () => {
   test('@regression an order for a forged owner cannot be created by editing the payload', async ({ request }) => {
     const order = await place(request);
     const [payload, signature] = order.id.slice(4).split('.');
-    const decoded = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+    const decoded = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8')) as Record<string, unknown>;
     decoded.userId = 'usr_attacker';
     const forged = `ord_${Buffer.from(JSON.stringify(decoded)).toString('base64url')}.${signature}`;
     await expectError(await request.get(`/api/orders/${forged}`, { headers: bearer(admin) }), 404, 'ORDER_NOT_FOUND');

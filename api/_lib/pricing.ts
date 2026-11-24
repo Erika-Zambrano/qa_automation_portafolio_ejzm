@@ -1,4 +1,4 @@
-import { ApiError, Issues } from './errors';
+import { ApiError, type Issues } from './errors';
 import { COUPONS, SHIPPING_METHODS } from './data';
 import { findProduct } from './inventory';
 import { type Obj, isObj, str } from './validate';
@@ -37,7 +37,7 @@ export function parseItems(raw: unknown, issues: Issues): Array<{ productId: num
       issues.add(`items[${index}]`, 'INVALID_TYPE', 'Item must be an object');
       return;
     }
-    const { productId, quantity } = entry as Obj;
+    const { productId, quantity } = entry;
     if (typeof productId !== 'number' || !Number.isInteger(productId)) {
       issues.add(`${prefix}productId`, 'INVALID_TYPE', 'productId must be an integer');
       return;

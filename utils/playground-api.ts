@@ -24,12 +24,38 @@ export const newKey = () => randomUUID();
 export const isolate = (extra: Record<string, string> = {}) => ({ 'X-RateLimit-Key': randomUUID(), ...extra });
 export const bearer = (token: string) => ({ Authorization: `Bearer ${token}` });
 
+export type Product = { id: number; sku: string; name: string; artist: string; year: number; category: string; price: number; stock: number; rating: number };
+export type Listing = { data: Product[]; meta: { page: number; pageSize: number; total: number; totalPages: number } };
+export type Pricing = {
+  lines: Array<{ productId: number; sku: string; name: string; artist: string; unitPrice: number; quantity: number; lineTotal: number }>;
+  coupon: string | null;
+  subtotal: number;
+  discount: number;
+  shipping: number;
+  tax: number;
+  total: number;
+  currency: string;
+};
+export type Order = {
+  id: string;
+  status: string;
+  createdAt: string;
+  shippingMethod: string;
+  shippingAddress: Record<string, string>;
+  cardLast4: string;
+  pricing: Pricing;
+};
+export type FormReceipt = { id: string; receivedAt: string; data: Record<string, unknown> };
 export type ApiErrorBody = { error: { code: string; message: string; details?: Array<{ field: string; code: string; message: string }>; requestId: string } };
+
+export async function json<T>(response: APIResponse): Promise<T> {
+  return (await response.json()) as T;
+}
 
 export async function expectError(response: APIResponse, status: number, code: string) {
   expect(response.status(), await response.text()).toBe(status);
   expect(response.headers()['content-type']).toContain('application/json');
-  const body = (await response.json()) as ApiErrorBody;
+  const body = await json<ApiErrorBody>(response);
   expect(body.error.code).toBe(code);
   expect(typeof body.error.message).toBe('string');
   expect(body.error.requestId).toBeTruthy();
@@ -51,8 +77,7 @@ export async function login(request: APIRequestContext, who: keyof typeof USERS 
     data: { email, password, ...(ttl !== undefined ? { ttl } : {}) },
   });
   expect(response.status(), await response.text()).toBe(200);
-  const body = (await response.json()) as { token: string; expiresIn: number; user: { id: string; email: string; name: string; role: string } };
-  return body;
+  return json<{ token: string; expiresIn: number; user: { id: string; email: string; name: string; role: string } }>(response);
 }
 
 export const decodeJwt = (token: string) => ({
@@ -120,5 +145,5 @@ export async function checkout(request: APIRequestContext, token: string, body: 
 
 export async function stockOf(request: APIRequestContext, id: number): Promise<number> {
   const response = await request.get(`/api/products/${id}`);
-  return ((await response.json()) as { data: { stock: number } }).data.stock;
+  return (await json<{ data: { stock: number } }>(response)).data.stock;
 }
