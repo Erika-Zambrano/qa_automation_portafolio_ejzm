@@ -51,6 +51,8 @@
     background: inherit; color: inherit;
   }
   .tab svg { width: 12px; height: 12px; }
+  .tab.docked:hover { background: #365360; color: #fff; }
+  .folder-3:focus-visible { outline-color: var(--ink); }
   .tab.docked { position: fixed; top: 12px; z-index: 150; background: #2b424c; color: #d5e0e4; }
 
   .front-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: end; }
@@ -96,6 +98,7 @@
 
   .close { background: var(--ink); color: #fff; padding: clamp(72px, 10vw, 160px) max(var(--pad), calc((100% - var(--frame)) / 2)); scroll-margin-top: 72px; }
   .close-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.6rem, 7vw, 7rem); line-height: 1; letter-spacing: -0.025em; max-width: 20ch; text-wrap: balance; }
+  .close-line { margin-top: 20px; font-size: var(--step-lead); color: #dbe5e9; }
   .close-row { margin-top: clamp(28px, 4vw, 48px); display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
   .close-mail { color: #fff; font-size: var(--step-lead); font-weight: 600; min-height: 52px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 6px; }
   .close-mail:hover { color: #cfe9ec; }
@@ -105,7 +108,7 @@
   .back { background: var(--ink-deep); color: #c7d4d9; padding: clamp(40px, 6vw, 72px) max(var(--pad), calc((100% - var(--frame)) / 2)) 32px; overflow: hidden; }
   .back-name { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.5rem, 12.5vw, 12rem); line-height: 0.9; letter-spacing: -0.03em; color: #fff; white-space: nowrap; }
   .footer-inner { margin-top: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; }
-  .footer-copy { font-size: var(--step-small); }
+  .footer-copy { font-size: var(--step-body); color: #dbe5e9; max-width: 52ch; }
   .footer-links { display: flex; gap: 8px; }
   .footer-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: #fff; font-size: var(--step-small); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
   .footer-links a:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }

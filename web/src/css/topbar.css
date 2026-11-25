@@ -195,6 +195,7 @@
 .lang-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .lang-dropdown, .nav-menu-list { border-color: transparent; box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
 .nav-menu-list { top: 100%; }
+.nav-menu-item { min-height: 44px; display: flex; align-items: center; }
 .topbar.is-home .topbar-link:not(.active), .topbar.is-home .nav-menu-btn { opacity: 0; pointer-events: none; }
 .topbar.is-home .topbar-link:focus-visible, .topbar.is-home .nav-menu-btn:focus-visible { opacity: 1; pointer-events: auto; }
 @media (max-width: 600px) {

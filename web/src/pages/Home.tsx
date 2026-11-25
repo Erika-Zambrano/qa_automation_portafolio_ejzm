@@ -44,7 +44,7 @@ export function Home() {
   const folders = [
     { to: '/cv', result: 'ES / EN', line: t('proof-cv-desc'), vt: 'cv', tab: 'CV' },
     { to: '/playground', result: `${pgApi} API + ${pgE2e} E2E`, line: t('folder-pg-line'), vt: 'playground', tab: t('pg-nav') },
-    { to: '/contact', result: 'erikajzm@gmail.com', line: t('folder-contact-line'), vt: 'contact', tab: t('nav-contact') },
+    { to: '/contact', result: t('folder-contact-result'), line: t('folder-contact-line'), vt: 'contact', tab: t('nav-contact') },
   ];
 
   useEffect(() => {
@@ -118,7 +118,8 @@ export function Home() {
           <strong>{t('header-role')}.</strong> <Html as="span" k="about-text" />
         </p>
         <div className="cta-row reveal">
-          <Link className="btn-primary" to={withLang('/contact')}>{t('home-cta')}</Link>
+          <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
+          <Link className="btn-link light" to={withLang('/contact')}>{t('home-cta')}</Link>
         </div>
 
         <div className="stack">
@@ -187,10 +188,10 @@ export function Home() {
 
       <section className="close" id="contact" aria-labelledby="close-heading">
         <h2 id="close-heading" className="close-title reveal">{t('close-title')}</h2>
+        <p className="close-line reveal">{t('close-line')}</p>
         <div className="close-row reveal">
+          <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
           <a className="close-mail" href="mailto:erikajzm@gmail.com">erikajzm@gmail.com</a>
-          <Link className="btn-primary" to={withLang('/contact')}>{t('close-cta')}</Link>
-          <Link className="btn-link light" to={withLang('/cv')}>{t('home-cv')}</Link>
         </div>
       </section>
 

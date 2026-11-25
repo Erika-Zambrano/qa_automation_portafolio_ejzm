@@ -45,7 +45,9 @@ export type Translations = Record<PgKey, string> & {
   'front-desc': string;
   'front-link': string;
   'close-title': string;
-  'close-cta': string;
+  'cta-cv': string;
+  'close-line': string;
+  'folder-contact-result': string;
   'alt-reports': string;
   'alt-shop': string;
   'alt-eval': string;
@@ -125,7 +127,7 @@ export const translations: Record<Lang, Translations> = {
     /* Topbar */
     'nav-home':    'Inicio',
     'nav-contact': 'Contacto',
-    'nav-reports': 'Reportes',
+    'nav-reports': 'Resultados',
 
     /* Index */
     'header-role':  'QA Automation Engineer',
@@ -160,11 +162,13 @@ export const translations: Record<Lang, Translations> = {
     'proof-cv-title': 'CV',
     'proof-cv-desc': 'Experiencia, proyectos y herramientas, en español e inglés.',
     'folder-pg-line': 'Tienda, carrito, checkout y login para practicar E2E y API.',
-    'folder-contact-line': 'Cuéntame qué producto quieres probar.',
+    'folder-contact-line': 'Agenda una conversación o escríbeme directo.',
     'front-desc': '{failed} fallan, {skipped} omitidos. Resultados grabados de la última ejecución.',
     'front-link': 'Ver reporte completo →',
-    'close-title': '¿Qué producto quieres que pruebe?',
-    'close-cta': 'Escríbeme →',
+    'close-title': '¿Buscas QA Automation? Hablemos.',
+    'cta-cv': 'Ver CV →',
+    'close-line': 'Disponible para entrevistas.',
+    'folder-contact-result': 'Disponible',
     'alt-reports': 'Panel de reportes con la última ejecución de CI',
     'alt-shop': 'Tienda del QA Playground con filtros y tarjetas de obras',
     'alt-eval': 'Panel de reportes en la pestaña de evaluación de IA',
@@ -256,7 +260,7 @@ export const translations: Record<Lang, Translations> = {
     /* Topbar */
     'nav-home':    'Home',
     'nav-contact': 'Contact',
-    'nav-reports': 'Reports',
+    'nav-reports': 'Results',
 
     /* Index */
     'header-role':  'QA Automation Engineer',
@@ -291,11 +295,13 @@ export const translations: Record<Lang, Translations> = {
     'proof-cv-title': 'CV',
     'proof-cv-desc': 'Experience, projects and tools, in Spanish and English.',
     'folder-pg-line': 'Shop, cart, checkout and login to practice E2E and API.',
-    'folder-contact-line': 'Tell me which product you want tested.',
+    'folder-contact-line': 'Book a conversation or write to me directly.',
     'front-desc': '{failed} failed, {skipped} skipped. Recorded results from the latest run.',
     'front-link': 'See the full report →',
-    'close-title': 'What product should I test?',
-    'close-cta': 'Write to me →',
+    'close-title': 'Hiring for QA automation? Let\'s talk.',
+    'cta-cv': 'View CV →',
+    'close-line': 'Open to interviews.',
+    'folder-contact-result': 'Available',
     'alt-reports': 'Reports dashboard with the latest CI run',
     'alt-shop': 'QA Playground shop with filters and artwork cards',
     'alt-eval': 'Reports dashboard on the AI evaluation tab',

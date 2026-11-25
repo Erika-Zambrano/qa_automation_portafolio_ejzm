@@ -43,7 +43,10 @@ export function Topbar() {
       if (!menuRef.current?.contains(event.target as Node)) setMenuOpen(false);
     };
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false);
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        setOpen(false);
+      }
     };
     document.addEventListener('click', onClick);
     document.addEventListener('keydown', onKey);
@@ -61,8 +64,10 @@ export function Topbar() {
     return () => document.removeEventListener('click', onClick);
   }, []);
 
+  const ghost = isHome ? ({ inert: true } as Record<string, unknown>) : {};
   const renderLink = (link: (typeof links)[number]) => (
     <NavLink
+      {...(link.to === '/' ? {} : ghost)}
       key={link.id}
       to={withLang(link.to)}
       end={link.to === '/'}
@@ -82,6 +87,7 @@ export function Topbar() {
           <button
             type="button"
             className={`topbar-link nav-menu-btn${inPlayground ? ' active' : ''}${menuOpen ? ' open' : ''}`}
+            {...ghost}
             aria-haspopup="menu"
             aria-expanded={menuOpen}
             aria-controls="nav-playground-list"
