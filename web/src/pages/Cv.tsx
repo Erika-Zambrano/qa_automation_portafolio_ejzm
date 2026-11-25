@@ -1,3 +1,4 @@
+import { FolderHead } from '../components/FolderHead';
 import { Html, HtmlList } from '../components/Html';
 import { useLang } from '../context/LangContext';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -58,6 +59,10 @@ export function Cv() {
 
   return (
     <div className="cv-page">
+      <FolderHead width={800}>
+        <p className="page-title">{t('proof-cv-title')}</p>
+        <p className="page-desc">{t('proof-cv-desc')}</p>
+      </FolderHead>
       <div className="page">
         <header className="cv-header">
           <h1 className="cv-name">Erika Zambrano</h1>

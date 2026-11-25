@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Alert, Box, Button, Field, Input, Stack, Textarea } from '@chakra-ui/react';
+import { FolderHead } from '../components/FolderHead';
 import { Html } from '../components/Html';
 import { useLang } from '../context/LangContext';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -60,10 +61,11 @@ export function Contact() {
 
   return (
     <div className="contact-page">
-      <div className="contact-wrapper">
-        <Html as="p" k="contact-label" className="page-label" />
+      <FolderHead width={560}>
         <Html as="h1" k="contact-title" className="page-title" />
         <Html as="p" k="contact-desc" className="page-desc" />
+      </FolderHead>
+      <div className="contact-wrapper">
 
         <Box className="chakra-scope">
           <form id="contact-form" onSubmit={onSubmit} noValidate>

@@ -175,3 +175,37 @@
 @media print {
   .topbar { display: none; }
 }
+
+/* folder-tab bar */
+.topbar { background: var(--ink-deep); border-bottom: none; }
+.topbar-inner { height: 56px; align-items: flex-end; gap: 6px; padding-top: 12px; max-width: 1200px; }
+.topbar-link, .nav-menu-btn {
+  height: 44px; min-height: 44px; padding: 0 26px 0 22px; border-radius: 0; font-size: 1rem; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px; background: #2b424c; color: #d5e0e4; white-space: nowrap;
+  clip-path: polygon(0 100%, 8% 0, 92% 0, 100% 100%);
+  transition: background 0.15s, color 0.15s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
+}
+.topbar-link:hover, .nav-menu-btn:hover { background: #365360; color: #fff; text-decoration: none; }
+.topbar-link.active, .nav-menu-btn.active { background: var(--ink); color: #fff; }
+.topbar-link:focus-visible, .nav-menu-btn:focus-visible { outline: 3px solid #fff; outline-offset: -4px; clip-path: none; }
+.lang-switcher { align-self: center; }
+.lang-btn { background: rgba(255,255,255,0.1); border-color: transparent; color: #fff; }
+.lang-btn:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+.lang-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.lang-dropdown, .nav-menu-list { border-color: transparent; box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+.nav-menu-list { top: 100%; }
+.topbar.is-home .topbar-link:not(.active), .topbar.is-home .nav-menu-btn { opacity: 0; pointer-events: none; }
+.topbar.is-home .topbar-link:focus-visible, .topbar.is-home .nav-menu-btn:focus-visible { opacity: 1; pointer-events: auto; }
+@media (max-width: 600px) {
+  .topbar-inner { flex-wrap: nowrap; height: 52px; padding: 8px 6px 0; gap: 2px; }
+  .topbar-link, .nav-menu-btn { height: 44px; padding: 0 9px 0 8px; font-size: 0.78rem; gap: 0; }
+  .nav-menu-btn svg, .lang-btn svg { display: none; }
+  .lang-btn { padding: 0 6px; font-size: 0.75rem; min-height: 44px; }
+  .topbar-spacer { display: none; }
+  .lang-switcher { margin-left: auto; }
+  .topbar-spacer { display: block; flex: 1; }
+  .lang-switcher { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar-link, .nav-menu-btn { transition: none; }
+}

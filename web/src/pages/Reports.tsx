@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FolderHead } from '../components/FolderHead';
 import { Html } from '../components/Html';
 import ReportsDashboard, { type CiData, type EvalData } from '../components/reports/ReportsDashboard';
 import { useLang } from '../context/LangContext';
@@ -30,10 +31,11 @@ export function Reports() {
 
   return (
     <div className="reports-page">
-      <div className="container">
-        <Html as="p" k="reports-label" className="page-label" />
+      <FolderHead width={1000}>
         <Html as="h1" k="reports-title" className="page-title" />
         <Html as="p" k="reports-desc" className="page-desc" />
+      </FolderHead>
+      <div className="container">
         <ReportsDashboard lang={lang} evalData={evalData} ciData={ciData} />
       </div>
     </div>

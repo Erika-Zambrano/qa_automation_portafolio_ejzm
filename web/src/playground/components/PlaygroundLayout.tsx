@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Box } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { FolderHead } from '../../components/FolderHead';
 import { useLang } from '../../context/LangContext';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import type { Translations } from '../../i18n/translations';
@@ -18,6 +19,10 @@ export function PlaygroundLayout({ title, desc, testId, wide, children }: Props)
 
   return (
     <div className="pg-page" data-testid={testId}>
+      <FolderHead width={wide ? 1040 : 640}>
+        <h1 className="page-title" data-testid="page-title">{t(title)}</h1>
+        {desc && <p className="page-desc">{t(desc)}</p>}
+      </FolderHead>
       <div className={`pg-wrapper${wide ? ' wide' : ''}`}>
         <div className="pg-session" data-testid="session-bar">
           <span className="pg-session-user" data-testid="session-user">
@@ -38,9 +43,6 @@ export function PlaygroundLayout({ title, desc, testId, wide, children }: Props)
             )}
           </span>
         </div>
-        <p className="page-label">{t('pg-label')}</p>
-        <h1 className="page-title" data-testid="page-title">{t(title)}</h1>
-        {desc && <p className="page-desc">{t(desc)}</p>}
         <Box className="chakra-scope">{children}</Box>
       </div>
     </div>

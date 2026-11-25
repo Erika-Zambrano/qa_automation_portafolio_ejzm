@@ -33,6 +33,8 @@ export function Topbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
   const inPlayground = pathname.startsWith('/playground');
+  const isHome = pathname === '/';
+  const tabName = (id: string) => (isHome ? undefined : { viewTransitionName: `tab-${id}` });
 
   useEffect(() => setMenuOpen(false), [pathname]);
 
@@ -59,20 +61,23 @@ export function Topbar() {
     return () => document.removeEventListener('click', onClick);
   }, []);
 
+  const renderLink = (link: (typeof links)[number]) => (
+    <NavLink
+      key={link.id}
+      to={withLang(link.to)}
+      end={link.to === '/'}
+      className={({ isActive }) => `topbar-link${isActive ? ' active' : ''}`}
+      data-testid={link.id}
+      style={tabName(link.id.replace('nav-', ''))}
+    >
+      {link.key ? t(link.key) : 'CV'}
+    </NavLink>
+  );
+
   return (
-    <nav className="topbar" aria-label="Main navigation" data-testid="topbar">
+    <nav className={`topbar${isHome ? ' is-home' : ''}`} aria-label="Main navigation" data-testid="topbar">
       <div className="topbar-inner">
-        {links.map((link) => (
-          <NavLink
-            key={link.id}
-            to={withLang(link.to)}
-            end={link.to === '/'}
-            className={({ isActive }) => `topbar-link${isActive ? ' active' : ''}`}
-            data-testid={link.id}
-          >
-            {link.key ? t(link.key) : 'CV'}
-          </NavLink>
-        ))}
+        {links.slice(0, 2).map(renderLink)}
         <div className="nav-menu" data-testid="nav-playground-menu" ref={menuRef}>
           <button
             type="button"
@@ -81,6 +86,7 @@ export function Topbar() {
             aria-expanded={menuOpen}
             aria-controls="nav-playground-list"
             data-testid="nav-playground"
+            style={tabName('playground')}
             onClick={() => setMenuOpen((v) => !v)}
           >
             {t('pg-nav')}
@@ -103,6 +109,7 @@ export function Topbar() {
             ))}
           </div>
         </div>
+        {links.slice(2).map(renderLink)}
         <div className="topbar-spacer" />
         <div className="lang-switcher" data-testid="lang-switcher" ref={switcherRef}>
           <button

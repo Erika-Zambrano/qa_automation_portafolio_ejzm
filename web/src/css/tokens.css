@@ -5,23 +5,30 @@
 }
 
 :root {
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
-  --accent: #01696f;
-  --accent-light: rgba(1, 105, 111, 0.1);
-  --bg: #f7f6f2;
+  --font-display: 'Erode', Georgia, serif;
+  --font-body: 'Erode', Georgia, serif;
+  --ink: #1f3038;
+  --ink-deep: #16242a;
+  --accent: #0d7480;
+  --accent-light: rgba(13, 116, 128, 0.12);
+  --bg: #f7f9fa;
+  --surface: #ecf0f2;
   --white: #ffffff;
-  --text: #3a3a3a;
-  --heading: #1a1a1a;
-  --muted: #5f5e5a;
-  --border: #e8e7e3;
-  --divider: #dcd9d5;
-  --text-faint: #6b6a65;
-  --chip-bg: #f0f0ee;
-  --chip-text: #555;
-  --border-strong: #d4d4d8;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --text: #1f3038;
+  --heading: #1f3038;
+  --muted: #4d5c63;
+  --border: #d3dde1;
+  --divider: #c3d0d5;
+  --text-faint: #566870;
+  --chip-bg: #e3eaed;
+  --chip-text: #2f424a;
+  --border-strong: #b5c4ca;
+  --shadow: none;
   --max-width: 800px;
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
 }
 
 html { font-size: 16px; background: var(--bg); overflow-y: scroll; scrollbar-gutter: stable; }
@@ -30,7 +37,8 @@ body {
   font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: var(--step-body);
   -webkit-font-smoothing: antialiased;
 }
 
