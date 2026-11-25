@@ -42,9 +42,9 @@ export function Home() {
   ];
   const front = { result: `${passed}/${total}`, desc: fill(t('front-desc'), { failed, skipped }), shot: `/shots/reports-${lang}.jpg`, alt: t('alt-reports') };
   const folders = [
-    { to: '/cv', result: 'ES / EN', line: t('proof-cv-desc'), vt: 'cv', tab: 'CV' },
-    { to: '/playground', result: `${pgApi} API + ${pgE2e} E2E`, line: t('folder-pg-line'), vt: 'playground', tab: t('pg-nav') },
-    { to: '/contact', result: t('folder-contact-result'), line: t('folder-contact-line'), vt: 'contact', tab: t('nav-contact') },
+    { to: '/cv', result: 'ES / EN', line: t('proof-cv-desc'), vt: 'cv', tab: 'CV', peek: [t('peek-cv-1'), t('peek-cv-2')], shot: `/shots/cv-${lang}.jpg`, alt: t('alt-cv') },
+    { to: '/playground', result: `${pgApi} API + ${pgE2e} E2E`, line: t('folder-pg-line'), vt: 'playground', tab: t('pg-nav'), peek: [fill(t('peek-pg-1'), { api: pgApi, e2e: pgE2e }), t('peek-pg-2')], shot: `/shots/shop-${lang}.jpg`, alt: t('alt-shop') },
+    { to: '/contact', result: t('folder-contact-result'), line: t('folder-contact-line'), vt: 'contact', tab: t('nav-contact'), peek: [t('peek-ct-1'), t('peek-ct-2')], shot: `/shots/contact-${lang}.jpg`, alt: t('alt-contact') },
   ];
 
   useEffect(() => {
@@ -110,6 +110,39 @@ export function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const stack = rootRef.current?.querySelector<HTMLElement>('.stack');
+    if (!stack) return;
+    const folders = Array.from(stack.querySelectorAll<HTMLElement>('.folder-1, .folder-2, .folder-3'));
+    let current = -1;
+    const open = (index: number) => {
+      current = index;
+      folders.forEach((f, i) => f.classList.toggle('is-open', i === index));
+    };
+    const onMove = (event: PointerEvent) => {
+      if (event.pointerType === 'touch') return;
+      if (current >= 0) {
+        const r = folders[current].getBoundingClientRect();
+        const peek = folders[current].querySelector<HTMLElement>('.peek');
+        const top = r.top - 44 - (peek?.offsetHeight ?? 0);
+        if (event.clientY >= top && event.clientY <= r.bottom) return;
+      }
+      let hit = -1;
+      folders.forEach((f, i) => {
+        const r = f.getBoundingClientRect();
+        if (event.clientY >= r.top - 44 && event.clientY <= r.bottom) hit = i;
+      });
+      if (hit !== current) open(hit);
+    };
+    const onLeave = () => open(-1);
+    stack.addEventListener('pointermove', onMove);
+    stack.addEventListener('pointerleave', onLeave);
+    return () => {
+      stack.removeEventListener('pointermove', onMove);
+      stack.removeEventListener('pointerleave', onLeave);
+    };
+  }, []);
+
   return (
     <div className={`home-page${ready ? ' rv' : ''}`} ref={rootRef}>
       <section className="hero" aria-labelledby="home-title">
@@ -135,6 +168,13 @@ export function Home() {
               <span className="tab" data-vt={f.vt}>{f.tab}{f.vt === 'playground' && <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 4l4 4 4-4" /></svg>}</span>
               <span className="folder-line">{f.line}</span>
               <span className="folder-result">{f.result}</span>
+              <span className="peek" aria-hidden="true">
+                <span className="peek-text">
+                  <span className="peek-lead">{f.peek[0]}</span>
+                  <span className="peek-sub">{f.peek[1]}</span>
+                </span>
+                <span className="peek-shot"><img src={f.shot} alt="" loading="lazy" width="1280" height="800" /></span>
+              </span>
             </FolderLink>
           ))}
           <div className="folder folder-front">

@@ -58,6 +58,27 @@
     clip-path: polygon(0 100%, 8% 0, 92% 0, 100% 100%);
     background: inherit; color: inherit;
   }
+  .peek {
+    position: absolute; left: 0; right: 0; bottom: 100%; z-index: 6; height: 300px; padding: 28px 32px;
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; align-items: stretch;
+    background: inherit; color: var(--ink); text-align: left; cursor: pointer;
+    clip-path: inset(100% 0 0 0); visibility: hidden;
+    transition: clip-path 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.5s;
+  }
+  .folder.is-open .peek, .folder:focus-visible .peek { clip-path: inset(0); visibility: visible; transition-delay: 0s; }
+  .peek-text { display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+  .peek-lead { font-size: var(--step-head); line-height: 1.02; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance; }
+  .peek-sub { font-size: var(--step-body); line-height: 1.4; max-width: 38ch; }
+  .peek-lead, .peek-sub { opacity: 0; transform: translateY(16px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+  .folder.is-open .peek-lead, .folder:focus-visible .peek-lead { opacity: 1; transform: none; transition-delay: 0.12s; }
+  .folder.is-open .peek-sub, .folder:focus-visible .peek-sub { opacity: 1; transform: none; transition-delay: 0.24s; }
+  .peek-shot { display: block; overflow: hidden; border-radius: 4px; background: var(--bg); }
+  .peek-shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 0%; transition: object-position 5s ease-in-out; }
+  .folder.is-open .peek-shot img, .folder:focus-visible .peek-shot img { object-position: center 55%; }
+  .folder-1.is-open .tab:not(.docked), .folder-2.is-open .tab:not(.docked), .folder-3.is-open .tab:not(.docked),
+  .folder-1:focus-visible .tab:not(.docked), .folder-2:focus-visible .tab:not(.docked), .folder-3:focus-visible .tab:not(.docked) { top: -344px; }
+  .tab { transition: top 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+  @media (hover: none), (max-width: 760px) { .peek { display: none; } }
   .tab svg { width: 12px; height: 12px; }
   .tab.docked:hover { background: #747371; color: #fff; }
   .tab.docked { position: fixed; top: 12px; z-index: 150; background: var(--dark-soft); color: #fff; }
@@ -156,5 +177,6 @@
   @media (prefers-reduced-motion: reduce) {
     &.rv .reveal { opacity: 1; transform: none; transition: none; }
     .btn-primary, .index-row, .frame-img { transition: none; }
+    .peek, .peek-lead, .peek-sub, .peek-shot img, .tab { transition: none; }
   }
 }

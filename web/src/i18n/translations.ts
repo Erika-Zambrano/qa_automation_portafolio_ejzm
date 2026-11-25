@@ -53,6 +53,13 @@ export type Translations = Record<PgKey, string> & {
   'alt-eval': string;
   'alt-cv': string;
   'hero-art-alt': string;
+  'peek-cv-1': string;
+  'peek-cv-2': string;
+  'peek-pg-1': string;
+  'peek-pg-2': string;
+  'peek-ct-1': string;
+  'peek-ct-2': string;
+  'alt-contact': string;
 
   /* Contact */
   'contact-label': string;
@@ -175,6 +182,13 @@ export const translations: Record<Lang, Translations> = {
     'alt-eval': 'Panel de reportes en la pestaña de evaluación de IA',
     'alt-cv': 'Página del CV',
     'hero-art-alt': 'Archivador de oficina de los años 80 con cajones de CV, laboratorio, contacto y resultados; el monitor de encima muestra cuántos tests pasan.',
+    'peek-cv-1': 'Quality Engineer con casi 7 años en productos SaaS.',
+    'peek-cv-2': 'Playwright · TypeScript · API testing · CI/CD',
+    'peek-pg-1': '{api} casos de API y {e2e} tests E2E sobre una tienda real.',
+    'peek-pg-2': 'Carrito, cupones, stock, login y un endpoint de caos.',
+    'peek-ct-1': 'Disponible para entrevistas.',
+    'peek-ct-2': 'Escríbeme en español o en inglés.',
+    'alt-contact': 'Página de contacto con el formulario',
 
     /* Contact */
     'contact-label':            'Contacto',
@@ -309,6 +323,13 @@ export const translations: Record<Lang, Translations> = {
     'alt-eval': 'Reports dashboard on the AI evaluation tab',
     'alt-cv': 'Curriculum vitae page',
     'hero-art-alt': '1980s office filing cabinet with drawers for CV, test lab, contact and results; the monitor on top shows how many tests pass.',
+    'peek-cv-1': 'Quality Engineer with nearly 7 years on SaaS products.',
+    'peek-cv-2': 'Playwright · TypeScript · API testing · CI/CD',
+    'peek-pg-1': '{api} API cases and {e2e} E2E tests on a working shop.',
+    'peek-pg-2': 'Cart, coupons, stock, login and a chaos endpoint.',
+    'peek-ct-1': 'Open to interviews.',
+    'peek-ct-2': 'Write to me in Spanish or English.',
+    'alt-contact': 'Contact page with the form',
 
     /* Contact */
     'contact-label':            'Contact',
