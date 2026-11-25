@@ -64,10 +64,8 @@ export function Topbar() {
     return () => document.removeEventListener('click', onClick);
   }, []);
 
-  const ghost = isHome ? ({ inert: true } as Record<string, unknown>) : {};
   const renderLink = (link: (typeof links)[number]) => (
     <NavLink
-      {...(link.to === '/' ? {} : ghost)}
       key={link.id}
       to={withLang(link.to)}
       end={link.to === '/'}
@@ -87,7 +85,6 @@ export function Topbar() {
           <button
             type="button"
             className={`topbar-link nav-menu-btn${inPlayground ? ' active' : ''}${menuOpen ? ' open' : ''}`}
-            {...ghost}
             aria-haspopup="menu"
             aria-expanded={menuOpen}
             aria-controls="nav-playground-list"

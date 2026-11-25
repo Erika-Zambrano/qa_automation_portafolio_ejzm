@@ -53,6 +53,9 @@ export type Translations = Record<PgKey, string> & {
   'alt-eval': string;
   'alt-cv': string;
   'hero-art-alt': string;
+  'chip-tests': string;
+  'chip-evals': string;
+  'hero-chips-label': string;
   'peek-cv-1': string;
   'peek-cv-2': string;
   'peek-pg-1': string;
@@ -140,7 +143,7 @@ export const translations: Record<Lang, Translations> = {
     /* Index */
     'header-role':  'QA Automation Engineer',
     'about-label':  'Sobre este portfolio',
-    'about-text':   'Calidad de IA conversacional y automatización QA con evidencia que se puede verificar: cada afirmación de este sitio enlaza a algo que corre.',
+    'about-text':   'Calidad de IA conversacional y pruebas automatizadas. Todo lo que ves enlaza a algo que corre.',
     'suites-label': 'Suites de tests',
     'suites-title': 'Qué se testea',
     'card1-title':  'Navegación',
@@ -182,6 +185,9 @@ export const translations: Record<Lang, Translations> = {
     'alt-eval': 'Panel de reportes en la pestaña de evaluación de IA',
     'alt-cv': 'Página del CV',
     'hero-art-alt': 'Archivador de oficina de los años 80 con cajones de CV, laboratorio, contacto y resultados; el monitor de encima muestra cuántos tests pasan.',
+    'chip-tests': '{n} tests',
+    'chip-evals': '{n} evals de IA',
+    'hero-chips-label': 'Evidencia en cifras',
     'peek-cv-1': 'Quality Engineer con casi 7 años en productos SaaS.',
     'peek-cv-2': 'Playwright · TypeScript · API testing · CI/CD',
     'peek-pg-1': '{api} casos de API, {e2e} E2E y {evals} casos de evaluación de IA.',
@@ -281,7 +287,7 @@ export const translations: Record<Lang, Translations> = {
     /* Index */
     'header-role':  'QA Automation Engineer',
     'about-label':  'About this portfolio',
-    'about-text':   'Conversational AI quality and QA automation with evidence you can verify: every claim on this site links to something that runs.',
+    'about-text':   'Conversational AI quality and test automation. Everything you see links to something that runs.',
     'suites-label': 'Test suites',
     'suites-title': "What's tested",
     'card1-title':  'Navigation',
@@ -323,6 +329,9 @@ export const translations: Record<Lang, Translations> = {
     'alt-eval': 'Reports dashboard on the AI evaluation tab',
     'alt-cv': 'Curriculum vitae page',
     'hero-art-alt': '1980s office filing cabinet with drawers for CV, test lab, contact and results; the monitor on top shows how many tests pass.',
+    'chip-tests': '{n} tests',
+    'chip-evals': '{n} AI evals',
+    'hero-chips-label': 'Evidence in numbers',
     'peek-cv-1': 'Quality Engineer with nearly 7 years on SaaS products.',
     'peek-cv-2': 'Playwright · TypeScript · API testing · CI/CD',
     'peek-pg-1': '{api} API cases, {e2e} E2E and {evals} AI evaluation cases.',

@@ -197,8 +197,8 @@
 .lang-dropdown, .nav-menu-list { border-color: transparent; box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
 .nav-menu-list { top: 100%; }
 .nav-menu-item { min-height: 44px; display: flex; align-items: center; }
-.topbar.is-home .topbar-link:not(.active), .topbar.is-home .nav-menu-btn { opacity: 0; pointer-events: none; }
-.topbar.is-home .topbar-link:focus-visible, .topbar.is-home .nav-menu-btn:focus-visible { opacity: 1; pointer-events: auto; }
+.topbar.is-home .topbar-link:not(.active), .topbar.is-home .nav-menu-btn { opacity: 0.5; }
+.topbar.is-home .topbar-link:not(.active):hover, .topbar.is-home .nav-menu-btn:hover, .topbar.is-home .topbar-link:focus-visible, .topbar.is-home .nav-menu-btn:focus-visible { opacity: 1; }
 @media (max-width: 600px) {
   .topbar-inner { flex-wrap: nowrap; height: 52px; padding: 8px 6px 0; gap: 2px; }
   .topbar-link, .nav-menu-btn { height: 44px; min-width: 44px; justify-content: center; padding: 0 9px 0 8px; font-size: 0.78rem; gap: 0; }

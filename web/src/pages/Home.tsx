@@ -10,7 +10,7 @@ const evalFiles = import.meta.glob<{ summary: { cases: number } }>('../data/eval
 const EVAL_CASES = Object.values(evalFiles)[0]?.summary.cases ?? 35;
 import '../css/home.css';
 
-const fill = (text: string, values: Record<string, number>) =>
+const fill = (text: string, values: Record<string, number | string>) =>
   text.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ''));
 
 function FolderLink({ to, className, children }: { to: string; className: string; children: React.ReactNode }) {
@@ -33,6 +33,7 @@ export function Home() {
   const [active, setActive] = useState(0);
   const [ready, setReady] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   usePageTitle('Erika Zambrano — QA Automation Portfolio');
   const { passed, total, failed, skipped } = ciData.latest;
 
@@ -105,11 +106,54 @@ export function Home() {
     };
     layout();
     document.fonts?.ready.then(layout);
+    const observer = new ResizeObserver(() => layout());
+    observer.observe(home);
+    tabs.forEach((tab) => observer.observe(tab));
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', layout);
     return () => {
+      observer.disconnect();
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', layout);
+    };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const bg = video?.parentElement;
+    if (!video || !bg) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.pause();
+      return;
+    }
+    const onTime = () => bg.classList.toggle('fade', video.duration - video.currentTime < 0.9);
+    const onEnded = () => {
+      video.currentTime = 0;
+      void video.play();
+      window.setTimeout(() => bg.classList.remove('fade'), 60);
+    };
+    video.addEventListener('timeupdate', onTime);
+    video.addEventListener('ended', onEnded);
+    return () => {
+      video.removeEventListener('timeupdate', onTime);
+      video.removeEventListener('ended', onEnded);
+    };
+  }, []);
+
+  useEffect(() => {
+    const hero = rootRef.current?.querySelector<HTMLElement>('.hero');
+    if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        if (window.scrollY < window.innerHeight * 1.4) hero.style.setProperty('--sy', String(window.scrollY));
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -149,22 +193,26 @@ export function Home() {
   return (
     <div className={`home-page${ready ? ' rv' : ''}`} ref={rootRef}>
       <section className="hero" aria-labelledby="home-title">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <h1 id="home-title" className="hero-name reveal">Erika Zambrano</h1>
-            <p className="hero-sub reveal">
-              <strong>{t('header-role')}.</strong> <Html as="span" k="about-text" />
-            </p>
-            <div className="cta-row reveal">
-              <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
-              <Link className="btn-link light" to={withLang('/contact')}>{t('home-cta')}</Link>
-            </div>
-          </div>
-          <div className="hero-art reveal">
-            <img src="/hero-archivero.webp" alt={t('hero-art-alt')} width="760" height="1087" fetchPriority="high" />
-          </div>
+        <div className="hero-bg" aria-hidden="true">
+          <video ref={videoRef} muted playsInline autoPlay preload="auto" poster="/hero-folders-poster.webp">
+            <source src="/hero-folders.mp4" type="video/mp4" />
+          </video>
         </div>
+        <div className="hero-copy">
+          <h1 id="home-title" className="hero-name reveal">Erika Zambrano</h1>
+          <p className="hero-sub reveal">
+            <strong>{t('header-role')}.</strong> <Html as="span" k="about-text" />
+          </p>
+          <div className="cta-row reveal">
+            <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
+          </div>
+          <Link className="hero-proof reveal" to={withLang('/reports')}>
+            {fill(t('chip-tests'), { n: `${passed}/${total}` })} + {fill(t('chip-evals'), { n: EVAL_CASES })}
+          </Link>
+        </div>
+      </section>
 
+      <section className="stack-section" aria-label={t('proof-title')}>
         <div className="stack">
           {folders.map((f, i) => (
             <FolderLink key={f.vt} className={`folder folder-${i + 1}`} to={withLang(f.to)}>
