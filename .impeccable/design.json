@@ -1,97 +1,215 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-25T00:00:00.000Z",
+  "generatedAt": "2026-11-25T00:00:00Z",
   "title": "Design System: QA Automation Portfolio",
   "extensions": {
     "colorMeta": {
-      "teal-ink": { "role": "primary", "displayName": "Teal Ink", "canonical": "#01696f", "tonalRamp": ["#012f32", "#014a4e", "#01696f", "#2b8388", "#5a9fa3", "#8fbcbf", "#c4dcde", "#e6f0f1"] },
-      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f7f6f2", "tonalRamp": ["#3a3a36", "#66655f", "#8f8e87", "#b5b4ad", "#d3d2cb", "#e8e7e1", "#f2f1ec", "#f7f6f2"] },
-      "ink-black": { "role": "neutral", "displayName": "Ink Black", "canonical": "#1a1a1a", "tonalRamp": ["#1a1a1a", "#3a3a3a", "#4a4a47", "#5f5e5a", "#6b6a65", "#b0afaa", "#dcd9d5", "#e8e7e3"] }
+      "teal-ink": {
+        "role": "primary",
+        "displayName": "Teal Ink",
+        "canonical": "#0d7480",
+        "tonalRamp": [
+          "#06292d",
+          "#0a4047",
+          "#0a5c66",
+          "#0d7480",
+          "#3a929b",
+          "#6fb0b7",
+          "#a9d0d4",
+          "#dceced"
+        ]
+      },
+      "case-slate": {
+        "role": "neutral",
+        "displayName": "Case Slate",
+        "canonical": "#1f3038",
+        "tonalRamp": [
+          "#0e171b",
+          "#16242a",
+          "#1f3038",
+          "#2b424c",
+          "#365360",
+          "#5d7a86",
+          "#a9bcc4",
+          "#dbe5e9"
+        ]
+      },
+      "frost": {
+        "role": "neutral",
+        "displayName": "Frost",
+        "canonical": "#f7f9fa",
+        "tonalRamp": [
+          "#b5c4ca",
+          "#c3d0d5",
+          "#d3dde1",
+          "#e3eaed",
+          "#ecf0f2",
+          "#f2f5f6",
+          "#f7f9fa",
+          "#ffffff"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The name in the home header." },
-      "headline": { "displayName": "Headline", "purpose": "Page titles on Contact and Reports." },
-      "title": { "displayName": "Title", "purpose": "Section titles." },
-      "body": { "displayName": "Body", "purpose": "Paragraphs." },
-      "label": { "displayName": "Label", "purpose": "Uppercase teal section and page labels." },
-      "mono": { "displayName": "Mono", "purpose": "Test file paths on cards." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name and the closing line."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles, section titles and the big CI figure."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Supporting sentence, index row names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tabs and buttons."
+      }
     },
     "shadows": [
-      { "name": "card-hairline", "value": "0 1px 3px rgba(0, 0, 0, 0.08)", "purpose": "Resting cards." },
-      { "name": "menu-lift", "value": "0 4px 12px rgba(0, 0, 0, 0.08)", "purpose": "Dropdown menus." }
+      {
+        "name": "menu-lift",
+        "value": "0 4px 12px rgba(0,0,0,0.18)",
+        "purpose": "Language and Playground dropdowns only."
+      }
     ],
     "motion": [
-      { "name": "state-fast", "value": "0.15s", "purpose": "Color, background and chevron rotation on nav and language controls." },
-      { "name": "menu-item", "value": "0.1s", "purpose": "Menu item hover." }
+      {
+        "name": "reveal",
+        "value": "0.6s ease-out",
+        "purpose": "Entrance of section parts, 24px rise, 70ms stagger."
+      },
+      {
+        "name": "folder-open",
+        "value": "0.55s cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "View transition from a folder to its page."
+      },
+      {
+        "name": "preview-crossfade",
+        "value": "0.24s",
+        "purpose": "Evidence index screenshot swap."
+      }
     ],
     "breakpoints": [
-      { "name": "mobile", "value": "600px" }
+      {
+        "name": "phone",
+        "value": "600px"
+      },
+      {
+        "name": "stack",
+        "value": "760px"
+      }
     ]
   },
   "components": [
     {
-      "name": "Card",
-      "kind": "card",
-      "refersTo": "card",
-      "description": "Test suite card with badges and mono file path.",
-      "html": "<div class=\"ds-card\"><div class=\"ds-card-header\"><span class=\"ds-card-title\">Playground E2E</span><span class=\"ds-badges\"><span class=\"ds-badge-type\">UI</span><span class=\"ds-badge-tag\">@smoke</span></span></div><div class=\"ds-card-file\">tests/ui/playground/*.spec.ts</div></div>",
-      "css": ".ds-card{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:20px 24px;font-family:Inter,'Helvetica Neue',sans-serif}.ds-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.ds-card-title{font-size:.975rem;font-weight:600;color:#1a1a1a}.ds-badges{display:flex;gap:6px}.ds-badge-type,.ds-badge-tag{font-size:.72rem;font-weight:500;padding:2px 8px;border-radius:99px}.ds-badge-type{background:#f0f0ee;color:#555}.ds-badge-tag{background:rgba(1,105,111,.1);color:#01696f}.ds-card-file{font-family:SFMono-Regular,Consolas,Menlo,monospace;font-size:.78rem;color:var(--muted,#5f5e5a);margin-top:4px}"
-    },
-    {
-      "name": "Topbar Link",
+      "name": "Nav Tab",
       "kind": "nav",
-      "refersTo": "topbar-link",
-      "description": "Navigation link with active state.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-link\" href=\"#\">Home</a><a class=\"ds-link ds-active\" href=\"#\">Reports</a></nav>",
-      "css": ".ds-nav{display:flex;gap:4px;background:#fff;border-bottom:1px solid #e8e7e3;padding:0 12px;height:48px;align-items:center;font-family:Inter,sans-serif}.ds-link{font-size:.875rem;font-weight:500;color:var(--muted,#5f5e5a);padding:6px 12px;border-radius:6px;text-decoration:none;transition:color .15s,background .15s}.ds-link:hover,.ds-link:focus-visible,.ds-active{color:#01696f;background:rgba(1,105,111,.1)}.ds-link:focus-visible{outline:2px solid #01696f;outline-offset:2px}"
+      "refersTo": "tab",
+      "description": "Folder tab used as navigation; active tab matches the head band.",
+      "html": "<div class=\"ds-tabs\"><a class=\"ds-tab\">Inicio</a><a class=\"ds-tab ds-tab-on\">CV</a><a class=\"ds-tab\">Playground</a></div>",
+      "css": ".ds-tabs{display:flex;gap:6px;background:#16242a;padding:12px 24px 0;align-items:flex-end}.ds-tab{display:inline-flex;align-items:center;height:44px;padding:0 26px 0 22px;background:#2b424c;color:#dbe5e9;font:600 1rem Erode,Georgia,serif;clip-path:polygon(0 100%,8% 0,92% 0,100% 100%);cursor:pointer;transition:background .15s,color .15s}.ds-tab:hover{background:#365360;color:#fff}.ds-tab-on{background:#1f3038;color:#fff}.ds-tab:focus-visible{outline:3px solid #fff;outline-offset:-4px}"
     },
     {
-      "name": "Language Button",
+      "name": "Primary Button",
       "kind": "button",
-      "refersTo": "lang-button",
-      "description": "Bordered control with chevron for the language switcher.",
-      "html": "<button class=\"ds-lang\">ES <svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M2 4l4 4 4-4\"/></svg></button>",
-      "css": ".ds-lang{display:inline-flex;align-items:center;gap:6px;font:600 .8rem Inter,sans-serif;letter-spacing:.04em;color:var(--muted,#5f5e5a);padding:5px 10px;border-radius:6px;border:1px solid #e8e7e3;background:#fff;cursor:pointer;transition:color .15s,border-color .15s}.ds-lang:hover,.ds-lang:focus-visible{color:#01696f;border-color:#01696f}"
+      "refersTo": "button-primary",
+      "description": "The single action; trapezoid top corners.",
+      "html": "<button class=\"ds-btn\">Hablemos →</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border:0;background:#0d7480;color:#fff;font:600 1.0625rem Erode,Georgia,serif;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 100%,0 100%);cursor:pointer;transition:background .15s,transform .15s}.ds-btn:hover{background:#0a5c66;transform:translateY(-2px)}.ds-btn:focus-visible{outline:3px solid #0d7480;outline-offset:3px}"
     },
     {
-      "name": "Section Label",
+      "name": "Folder Band",
+      "kind": "card",
+      "refersTo": "folder-band",
+      "description": "Back folder in the home stack: tab, band, result.",
+      "html": "<div class=\"ds-folder\"><span class=\"ds-folder-tab\">CV</span><span class=\"ds-folder-result\">ES / EN</span></div>",
+      "css": ".ds-folder{position:relative;margin-top:44px;height:72px;padding:0 28px;display:flex;align-items:center;justify-content:flex-end;background:#2b424c;color:#fff;font-family:Erode,Georgia,serif}.ds-folder-tab{position:absolute;top:-44px;left:24px;height:44px;padding:0 26px 0 22px;display:flex;align-items:center;background:#2b424c;font-weight:600;clip-path:polygon(0 100%,8% 0,92% 0,100% 100%)}.ds-folder-result{font-size:1.625rem;font-weight:600}.ds-folder:hover,.ds-folder:hover .ds-folder-tab{background:#33505b}"
+    },
+    {
+      "name": "Folder Head",
       "kind": "custom",
-      "refersTo": "label",
-      "description": "Uppercase teal micro-label with serif page title.",
-      "html": "<div class=\"ds-label\">Reports</div><h2 class=\"ds-title\">CI results</h2>",
-      "css": ".ds-label{font:600 .75rem Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#01696f;margin-bottom:16px}.ds-title{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:2.5rem;color:#1a1a1a;margin:0}"
+      "refersTo": "folder-head",
+      "description": "Dark band under the nav carrying the page title and one sentence.",
+      "html": "<header class=\"ds-head\"><h1>Calidad medible</h1><p>Evaluación de un LLM con checks deterministas y juez LLM.</p></header>",
+      "css": ".ds-head{background:#1f3038;color:#fff;padding:36px 24px 44px;font-family:Erode,Georgia,serif}.ds-head h1{margin:0;font-weight:500;font-size:clamp(2rem,1.3rem+3.2vw,4rem);line-height:1;letter-spacing:-.025em}.ds-head p{margin:20px 0 0;max-width:46ch;font-size:1.4rem;line-height:1.4;color:#dbe5e9}"
+    },
+    {
+      "name": "Index Row",
+      "kind": "custom",
+      "refersTo": "index-row-active",
+      "description": "Evidence row: result, name, one line; active row on Mist.",
+      "html": "<a class=\"ds-row\"><span class=\"ds-row-r\">679/683</span><span><b>Suite en CI</b><br><span class=\"ds-row-d\">679 de 683 tests pasan.</span></span></a>",
+      "css": ".ds-row{display:grid;grid-template-columns:9rem 1fr;gap:24px;padding:24px 12px;background:#ecf0f2;color:#1f3038;font-family:Erode,Georgia,serif;text-decoration:none}.ds-row-r{font-size:1.4rem;font-weight:600}.ds-row b{font-size:1.4rem;color:#0d7480}.ds-row-d{color:#4d5c63}"
     }
   ],
   "narrative": {
-    "northStar": "The Test Report",
-    "overview": "The portfolio reads like a well-typeset test report: warm paper, white sheets laid on it, a serif voice for names and page titles, and a single teal accent that marks what is navigable or verified. Evidence leads; the interface steps back. Sober, editorial, trustworthy: credibility comes from clarity and restraint, not decoration.",
+    "northStar": "The Case File",
+    "overview": "**Creative North Star: \"The Case File\"**\n\nThe portfolio is a case file: a stack of folders, each one a piece of evidence that can be opened. The dark slate ground is the cabinet, the frost sheets are the papers inside, and the single teal accent marks what can be acted on. Every proof (CI results, the playground, the CV, contact) is a folder with a tab; as the visitor scrolls, the tabs climb to the top and dock into the nav bar, so the stack the page opened with becomes the navigation that stays. Evidence leads and the interface steps back.\n\nThe voice is sober, editorial and trustworthy. One serif, Erode, carries every size; scale does the work that weight, rules and ornament do elsewhere. Density is calm: wide margins, one dominant thing per screen, a small number of large real pictures (screenshots of the site's own pages). The one live thing is the folder stack itself, driven by real CI numbers.",
     "keyCharacteristics": [
-      "Warm off-white paper (paper) with pure white sheets on top.",
-      "Serif display for names and page titles, sans for everything else.",
-      "One accent (teal-ink) carries links, active nav, labels and bullets.",
-      "Flat by default; one hairline shadow on cards.",
-      "Uppercase, letter-spaced micro-labels introduce each section."
+      "Dark slate cabinet (`case-slate`) with frost sheets (`frost`) laid on it.",
+      "Trapezoid folder tabs are the signature shape: they are the nav, the folder labels and the primary button's silhouette.",
+      "One typeface (Erode), tight tracking at display sizes, five size steps.",
+      "One accent (`teal-ink`), used for the primary action and links.",
+      "Flat: no gradients, no shadows at rest; depth comes from tone steps between slate and frost.",
+      "Same nav tabs, same order, same positions on every page."
     ],
     "rules": [
-      { "name": "The One Voice Rule", "body": "Teal is the only chromatic color. It marks interaction and verification; it is never used as a surface fill beyond its 10% wash.", "section": "colors" },
-      { "name": "The AA Floor Rule", "body": "Every text color holds at least 4.5:1 on both Paper and Sheet White. Secondary text never goes lighter than Faint Stone (#6b6a65).", "section": "colors" },
-      { "name": "The Serif Is a Name Rule", "body": "Instrument Serif is for the person's name and page titles only. Section titles, UI and data stay in Inter.", "section": "typography" },
-      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Only floating menus get a real lift; hover changes color, not elevation.", "section": "elevation" }
+      {
+        "name": "The One Voice Rule",
+        "body": "Teal is the only chromatic color in the interface. It marks the action and verification; it is never a surface fill beyond its wash. (The playground shop's per-category art gradients are the one exception, as before.)",
+        "section": "design"
+      },
+      {
+        "name": "The Cabinet and Sheet Rule",
+        "body": "Dark slate is for structure (nav, hero, folder bands, heads, closing, footer); frost and white are for reading. Never set long text on a dark band.",
+        "section": "design"
+      },
+      {
+        "name": "The Tab Colour Rule",
+        "body": "A resting tab is `folder-slate`; the active tab is `case-slate`, the same tone as the head band below it, so the active tab and its page read as one folder.",
+        "section": "design"
+      },
+      {
+        "name": "The One Face Rule",
+        "body": "Erode for everything; two or three sizes do the visible work, one very large and one small. Never a second family, never monospace.",
+        "section": "design"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "No small uppercase label above a heading. The folder tab is the label.",
+        "section": "design"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest; hover changes colour, never elevation.",
+        "section": "design"
+      }
     ],
     "dos": [
-      "Do keep teal (#01696f) as the only chromatic color, on interaction and verification.",
-      "Do separate sections with 1px Hairline rules and 56px padding rather than boxes.",
-      "Do introduce each section with the uppercase 0.75rem teal label.",
-      "Do put new text in web/src/i18n/translations.ts; es and en stay equal.",
-      "Do give every interactive element a visible focus state and full keyboard operation (WCAG AA).",
-      "Do draw colors from the CSS variables in web/src/css/tokens.css."
+      "keep the tab set, order and x positions identical on every page.",
+      "build every new proof as a folder: a tab, a band, one real number or picture.",
+      "use real screenshots of this site for imagery; they live in `web/public/shots/`.",
+      "use Teal Ink for the one action and verification only.",
+      "set running text in Case Slate on frost and keep every text colour AA on its ground.",
+      "put new text in `web/src/i18n/translations.ts`; es and en stay equal.",
+      "keep a visible focus state and full keyboard operation on every control.",
+      "draw colours from the variables in `web/src/css/tokens.css`."
     ],
     "donts": [
-      "Don't introduce text lighter than Faint Stone (#6b6a65).",
-      "Don't add gradients, glass or colored shadows to UI chrome, and never a second accent color. The one exception is the QA Playground shop art gradients.",
-      "Don't use Instrument Serif for UI, data or section titles.",
-      "Don't raise cards on hover; change color, not elevation.",
-      "Don't hardcode hex values in components."
+      "add a second typeface or any monospace.",
+      "add gradients, glass or shadows at rest to the interface.",
+      "put an eyebrow label above a heading; the tab is the label.",
+      "separate sections with hairlines or outlined boxes; use space or a tone step.",
+      "set long text on a dark band or text below AA on any ground.",
+      "give the same tab different positions or colours on different pages.",
+      "hardcode hex values in components; use the tokens."
     ]
   }
 }
