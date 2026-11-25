@@ -28,6 +28,18 @@ export type Translations = Record<PgKey, string> & {
   'stack-pom': string;
   'stack-api': string;
   'footer-copy': string;
+  'home-cta': string;
+  'hero-proof': string;
+  'home-cv': string;
+  'proof-title': string;
+  'proof-ci-title': string;
+  'proof-ci-desc': string;
+  'proof-pg-title': string;
+  'proof-pg-desc': string;
+  'proof-eval-title': string;
+  'proof-eval-desc': string;
+  'proof-cv-title': string;
+  'proof-cv-desc': string;
 
   /* Contact */
   'contact-label': string;
@@ -108,7 +120,7 @@ export const translations: Record<Lang, Translations> = {
     /* Index */
     'header-role':  'QA Automation Engineer',
     'about-label':  'Sobre este portfolio',
-    'about-text':   'Este repositorio demuestra habilidades reales de automatización QA usando Playwright y TypeScript, incluyendo testing de UI, testing de API, Page Object Model e integración continua con GitHub Actions.',
+    'about-text':   'Calidad de IA conversacional y automatización QA con evidencia que se puede verificar: cada afirmación de este sitio enlaza a algo que corre.',
     'suites-label': 'Suites de tests',
     'suites-title': 'Qué se testea',
     'card1-title':  'Navegación',
@@ -125,6 +137,18 @@ export const translations: Record<Lang, Translations> = {
     'stack-pom':    'Abstracción mantenible de UI',
     'stack-api':    'Playwright request context',
     'footer-copy':  'Hecho por Erika Zambrano usando Claude Code como herramienta · 2026',
+    'home-cta': 'Hablemos →',
+    'hero-proof': '{passed}/{total} tests pasan en CI →',
+    'home-cv': 'Ver CV',
+    'proof-title': 'Evidencia ejecutable',
+    'proof-ci-title': 'Suite en CI',
+    'proof-ci-desc': '{passed} de {total} tests pasan, {failed} fallan, {skipped} omitidos. Resultados grabados de la última ejecución.',
+    'proof-pg-title': 'QA Playground',
+    'proof-pg-desc': 'App propia con tienda, carrito, checkout, login y un endpoint de caos para practicar E2E, API y DevTools.',
+    'proof-eval-title': 'Arnés de evaluación de IA',
+    'proof-eval-desc': 'Casos golden, checks deterministas y un juez LLM sobre un tutor conversacional.',
+    'proof-cv-title': 'CV',
+    'proof-cv-desc': 'Experiencia, proyectos y herramientas, en español e inglés.',
 
     /* Contact */
     'contact-label':            'Contacto',
@@ -217,7 +241,7 @@ export const translations: Record<Lang, Translations> = {
     /* Index */
     'header-role':  'QA Automation Engineer',
     'about-label':  'About this portfolio',
-    'about-text':   'This repository demonstrates real-world QA automation skills using Playwright and TypeScript, including UI testing, API testing, Page Object Model, and CI/CD integration via GitHub Actions.',
+    'about-text':   'Conversational AI quality and QA automation with evidence you can verify: every claim on this site links to something that runs.',
     'suites-label': 'Test suites',
     'suites-title': "What's tested",
     'card1-title':  'Navigation',
@@ -234,6 +258,18 @@ export const translations: Record<Lang, Translations> = {
     'stack-pom':    'Maintainable UI abstraction',
     'stack-api':    'Playwright request context',
     'footer-copy':  'Built by Erika Zambrano using Claude Code as a tool · 2026',
+    'home-cta': 'Let\'s talk →',
+    'hero-proof': '{passed}/{total} tests passing in CI →',
+    'home-cv': 'View CV',
+    'proof-title': 'Executable evidence',
+    'proof-ci-title': 'CI suite',
+    'proof-ci-desc': '{passed} of {total} tests pass, {failed} fail, {skipped} skipped. Recorded results from the latest run.',
+    'proof-pg-title': 'QA Playground',
+    'proof-pg-desc': 'A purpose-built app with shop, cart, checkout, login and a chaos endpoint to practice E2E, API and DevTools.',
+    'proof-eval-title': 'AI evaluation harness',
+    'proof-eval-desc': 'Golden cases, deterministic checks and an LLM judge over a conversational tutor.',
+    'proof-cv-title': 'CV',
+    'proof-cv-desc': 'Experience, projects and tools, in Spanish and English.',
 
     /* Contact */
     'contact-label':            'Contact',

@@ -7,6 +7,7 @@
 
 .pg-session { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 0.8rem; color: var(--muted); padding-bottom: 12px; margin-bottom: 28px; border-bottom: 1px solid var(--border); }
 .pg-session-actions { display: inline-flex; gap: 16px; align-items: center; }
+.pg-session-actions a { display: inline-flex; align-items: center; min-height: 44px; }
 .pg-session-cart { color: var(--text); }
 .pg-badge { display: inline-block; min-width: 20px; padding: 0 6px; border-radius: 10px; background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 600; text-align: center; line-height: 20px; }
 
@@ -57,12 +58,12 @@
 .pg-meta { font-size: 0.75rem; color: var(--muted); }
 .pg-price { font-weight: 600; color: var(--heading); margin-top: 6px; }
 .pg-stock { font-size: 0.75rem; color: var(--accent); margin-bottom: 8px; }
-.pg-stock.low { color: #b7791f; }
+.pg-stock.low { color: #8a5a00; }
 .pg-stock.out { color: #c53030; }
 .pg-card .pg-btn { margin-top: auto; }
 
-.pg-art { height: 110px; display: flex; align-items: flex-end; padding: 10px 14px; color: rgba(255,255,255,0.85); font: 1.4rem var(--font-display); background: linear-gradient(135deg, #6b7a8f, #2c3e50); }
-.pg-art.cat-impressionism { background: linear-gradient(135deg, #8fc1d4, #e8c07d); }
+.pg-art { height: 110px; display: flex; align-items: flex-end; padding: 10px 14px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.55); font: 1.4rem var(--font-display); background: linear-gradient(135deg, #6b7a8f, #2c3e50); }
+.pg-art.cat-impressionism { background: linear-gradient(135deg, #4f8aa0, #a8782f); }
 .pg-art.cat-post-impressionism { background: linear-gradient(135deg, #1e3a8a, #f2c94c); }
 .pg-art.cat-expressionism { background: linear-gradient(135deg, #c0392b, #f39c12); }
 .pg-art.cat-surrealism { background: linear-gradient(135deg, #2f6f5e, #c9a227); }

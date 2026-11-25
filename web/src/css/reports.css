@@ -32,7 +32,7 @@
 
 .reports-select {
   background: #fff;
-  border: 1px solid #d4d4d8;
+  border: 1px solid var(--border-strong);
   border-radius: 6px;
   font-size: 0.875rem;
   padding: 0.3rem 0.5rem;

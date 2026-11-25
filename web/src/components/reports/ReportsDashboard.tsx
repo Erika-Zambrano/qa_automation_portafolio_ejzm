@@ -58,8 +58,8 @@ const copy = {
     input: 'Entrada',
     output: 'Salida del modelo',
     verdict: 'Veredicto del juez',
-    emptyEvalTitle: 'Aún no hay una ejecución registrada',
-    emptyEvalDesc: 'Ejecuta npm run eval con ANTHROPIC_API_KEY para generar web/src/data/eval-results.json.',
+    emptyEvalTitle: 'Resultados de evaluación próximamente',
+    emptyEvalDesc: 'El arnés evalúa un tutor conversacional con casos golden, checks deterministas y un juez LLM. El código está en la carpeta evals/ del repositorio; los resultados aparecerán aquí cuando se grabe una ejecución.',
     emptyCi: 'Aún no hay resultados de CI. Ejecuta npx playwright test y npm run report:summarize.',
     total: 'Total',
     passed: 'Pasaron',
@@ -107,8 +107,8 @@ const copy = {
     input: 'Input',
     output: 'Model output',
     verdict: 'Judge verdict',
-    emptyEvalTitle: 'No recorded run yet',
-    emptyEvalDesc: 'Run npm run eval with ANTHROPIC_API_KEY to generate web/src/data/eval-results.json.',
+    emptyEvalTitle: 'Evaluation results coming soon',
+    emptyEvalDesc: 'The harness evaluates a conversational tutor with golden cases, deterministic checks and an LLM judge. The code lives in the repository evals/ folder; results will appear here once a run is recorded.',
     emptyCi: 'No CI results yet. Run npx playwright test and npm run report:summarize.',
     total: 'Total',
     passed: 'Passed',
@@ -165,8 +165,7 @@ function Kpi({ label, value, help, color }: { label: string; value: string; help
 function EvalPanel({ data, t, lang }: { data: EvalData | null; t: Copy; lang: string }) {
   if (!data) {
     return (
-      <Alert.Root status="info" mt="4">
-        <Alert.Indicator />
+      <Alert.Root status="neutral" variant="surface" mt="4">
         <Alert.Content>
           <Alert.Title>{t.emptyEvalTitle}</Alert.Title>
           <Alert.Description>{t.emptyEvalDesc}</Alert.Description>
@@ -315,8 +314,7 @@ function AllTests({ tests, t }: { tests: CiTest[]; t: Copy }) {
 function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string }) {
   if (!data) {
     return (
-      <Alert.Root status="info" mt="4">
-        <Alert.Indicator />
+      <Alert.Root status="neutral" variant="surface" mt="4">
         <Alert.Content>
           <Alert.Description>{t.emptyCi}</Alert.Description>
         </Alert.Content>
@@ -440,10 +438,19 @@ export default function ReportsDashboard({ lang, evalData, ciData }: Props) {
             <Alert.Description>{t.recordedDesc}</Alert.Description>
           </Alert.Content>
         </Alert.Root>
-        <Tabs.Root defaultValue="eval" variant="line" colorPalette="teal">
+        <Tabs.Root defaultValue={evalData ? 'eval' : 'ci'} variant="line" colorPalette="teal">
           <Tabs.List>
-            <Tabs.Trigger value="eval" data-testid="tab-eval">{t.tabEval}</Tabs.Trigger>
-            <Tabs.Trigger value="ci" data-testid="tab-ci">{t.tabCi}</Tabs.Trigger>
+            {evalData ? (
+              <>
+                <Tabs.Trigger value="eval" data-testid="tab-eval">{t.tabEval}</Tabs.Trigger>
+                <Tabs.Trigger value="ci" data-testid="tab-ci">{t.tabCi}</Tabs.Trigger>
+              </>
+            ) : (
+              <>
+                <Tabs.Trigger value="ci" data-testid="tab-ci">{t.tabCi}</Tabs.Trigger>
+                <Tabs.Trigger value="eval" data-testid="tab-eval">{t.tabEval}</Tabs.Trigger>
+              </>
+            )}
           </Tabs.List>
           <Tabs.Content value="eval"><EvalPanel data={evalData} t={t} lang={lang} /></Tabs.Content>
           <Tabs.Content value="ci"><CiPanel data={ciData} t={t} lang={lang} /></Tabs.Content>

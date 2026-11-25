@@ -13,10 +13,13 @@
   --white: #ffffff;
   --text: #3a3a3a;
   --heading: #1a1a1a;
-  --muted: #777;
+  --muted: #5f5e5a;
   --border: #e8e7e3;
   --divider: #dcd9d5;
-  --text-faint: #bab9b4;
+  --text-faint: #6b6a65;
+  --chip-bg: #f0f0ee;
+  --chip-text: #555;
+  --border-strong: #d4d4d8;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   --max-width: 800px;
 }

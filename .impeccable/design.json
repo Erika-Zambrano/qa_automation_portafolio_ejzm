@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-25T00:00:00.000Z",
+  "title": "Design System: QA Automation Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "teal-ink": { "role": "primary", "displayName": "Teal Ink", "canonical": "#01696f", "tonalRamp": ["#012f32", "#014a4e", "#01696f", "#2b8388", "#5a9fa3", "#8fbcbf", "#c4dcde", "#e6f0f1"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f7f6f2", "tonalRamp": ["#3a3a36", "#66655f", "#8f8e87", "#b5b4ad", "#d3d2cb", "#e8e7e1", "#f2f1ec", "#f7f6f2"] },
+      "ink-black": { "role": "neutral", "displayName": "Ink Black", "canonical": "#1a1a1a", "tonalRamp": ["#1a1a1a", "#3a3a3a", "#4a4a47", "#5f5e5a", "#6b6a65", "#b0afaa", "#dcd9d5", "#e8e7e3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The name in the home header." },
+      "headline": { "displayName": "Headline", "purpose": "Page titles on Contact and Reports." },
+      "title": { "displayName": "Title", "purpose": "Section titles." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs." },
+      "label": { "displayName": "Label", "purpose": "Uppercase teal section and page labels." },
+      "mono": { "displayName": "Mono", "purpose": "Test file paths on cards." }
+    },
+    "shadows": [
+      { "name": "card-hairline", "value": "0 1px 3px rgba(0, 0, 0, 0.08)", "purpose": "Resting cards." },
+      { "name": "menu-lift", "value": "0 4px 12px rgba(0, 0, 0, 0.08)", "purpose": "Dropdown menus." }
+    ],
+    "motion": [
+      { "name": "state-fast", "value": "0.15s", "purpose": "Color, background and chevron rotation on nav and language controls." },
+      { "name": "menu-item", "value": "0.1s", "purpose": "Menu item hover." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "600px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Test suite card with badges and mono file path.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-header\"><span class=\"ds-card-title\">Playground E2E</span><span class=\"ds-badges\"><span class=\"ds-badge-type\">UI</span><span class=\"ds-badge-tag\">@smoke</span></span></div><div class=\"ds-card-file\">tests/ui/playground/*.spec.ts</div></div>",
+      "css": ".ds-card{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:20px 24px;font-family:Inter,'Helvetica Neue',sans-serif}.ds-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.ds-card-title{font-size:.975rem;font-weight:600;color:#1a1a1a}.ds-badges{display:flex;gap:6px}.ds-badge-type,.ds-badge-tag{font-size:.72rem;font-weight:500;padding:2px 8px;border-radius:99px}.ds-badge-type{background:#f0f0ee;color:#555}.ds-badge-tag{background:rgba(1,105,111,.1);color:#01696f}.ds-card-file{font-family:SFMono-Regular,Consolas,Menlo,monospace;font-size:.78rem;color:var(--muted,#5f5e5a);margin-top:4px}"
+    },
+    {
+      "name": "Topbar Link",
+      "kind": "nav",
+      "refersTo": "topbar-link",
+      "description": "Navigation link with active state.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-link\" href=\"#\">Home</a><a class=\"ds-link ds-active\" href=\"#\">Reports</a></nav>",
+      "css": ".ds-nav{display:flex;gap:4px;background:#fff;border-bottom:1px solid #e8e7e3;padding:0 12px;height:48px;align-items:center;font-family:Inter,sans-serif}.ds-link{font-size:.875rem;font-weight:500;color:var(--muted,#5f5e5a);padding:6px 12px;border-radius:6px;text-decoration:none;transition:color .15s,background .15s}.ds-link:hover,.ds-link:focus-visible,.ds-active{color:#01696f;background:rgba(1,105,111,.1)}.ds-link:focus-visible{outline:2px solid #01696f;outline-offset:2px}"
+    },
+    {
+      "name": "Language Button",
+      "kind": "button",
+      "refersTo": "lang-button",
+      "description": "Bordered control with chevron for the language switcher.",
+      "html": "<button class=\"ds-lang\">ES <svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M2 4l4 4 4-4\"/></svg></button>",
+      "css": ".ds-lang{display:inline-flex;align-items:center;gap:6px;font:600 .8rem Inter,sans-serif;letter-spacing:.04em;color:var(--muted,#5f5e5a);padding:5px 10px;border-radius:6px;border:1px solid #e8e7e3;background:#fff;cursor:pointer;transition:color .15s,border-color .15s}.ds-lang:hover,.ds-lang:focus-visible{color:#01696f;border-color:#01696f}"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Uppercase teal micro-label with serif page title.",
+      "html": "<div class=\"ds-label\">Reports</div><h2 class=\"ds-title\">CI results</h2>",
+      "css": ".ds-label{font:600 .75rem Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#01696f;margin-bottom:16px}.ds-title{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:2.5rem;color:#1a1a1a;margin:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Test Report",
+    "overview": "The portfolio reads like a well-typeset test report: warm paper, white sheets laid on it, a serif voice for names and page titles, and a single teal accent that marks what is navigable or verified. Evidence leads; the interface steps back. Sober, editorial, trustworthy: credibility comes from clarity and restraint, not decoration.",
+    "keyCharacteristics": [
+      "Warm off-white paper (paper) with pure white sheets on top.",
+      "Serif display for names and page titles, sans for everything else.",
+      "One accent (teal-ink) carries links, active nav, labels and bullets.",
+      "Flat by default; one hairline shadow on cards.",
+      "Uppercase, letter-spaced micro-labels introduce each section."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Teal is the only chromatic color. It marks interaction and verification; it is never used as a surface fill beyond its 10% wash.", "section": "colors" },
+      { "name": "The AA Floor Rule", "body": "Every text color holds at least 4.5:1 on both Paper and Sheet White. Secondary text never goes lighter than Faint Stone (#6b6a65).", "section": "colors" },
+      { "name": "The Serif Is a Name Rule", "body": "Instrument Serif is for the person's name and page titles only. Section titles, UI and data stay in Inter.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Only floating menus get a real lift; hover changes color, not elevation.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep teal (#01696f) as the only chromatic color, on interaction and verification.",
+      "Do separate sections with 1px Hairline rules and 56px padding rather than boxes.",
+      "Do introduce each section with the uppercase 0.75rem teal label.",
+      "Do put new text in web/src/i18n/translations.ts; es and en stay equal.",
+      "Do give every interactive element a visible focus state and full keyboard operation (WCAG AA).",
+      "Do draw colors from the CSS variables in web/src/css/tokens.css."
+    ],
+    "donts": [
+      "Don't introduce text lighter than Faint Stone (#6b6a65).",
+      "Don't add gradients, glass or colored shadows to UI chrome, and never a second accent color. The one exception is the QA Playground shop art gradients.",
+      "Don't use Instrument Serif for UI, data or section titles.",
+      "Don't raise cards on hover; change color, not elevation.",
+      "Don't hardcode hex values in components."
+    ]
+  }
+}

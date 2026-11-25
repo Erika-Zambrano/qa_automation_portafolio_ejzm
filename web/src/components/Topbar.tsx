@@ -25,6 +25,8 @@ const options: Array<{ lang: Lang; label: string }> = [
   { lang: 'en', label: 'EN — English' },
 ];
 
+const widths: Record<string, number> = { '/': 800, '/cv': 800, '/contact': 560, '/reports': 1000, '/playground/shop': 1040, '/playground/checkout': 1040 };
+
 export function Topbar() {
   const { lang, setLang, t, withLang } = useLang();
   const [open, setOpen] = useState(false);
@@ -61,7 +63,7 @@ export function Topbar() {
 
   return (
     <nav className="topbar" aria-label="Main navigation" data-testid="topbar">
-      <div className="topbar-inner">
+      <div className="topbar-inner" style={{ maxWidth: widths[pathname] ?? 640 }}>
         {links.map((link) => (
           <NavLink
             key={link.id}
