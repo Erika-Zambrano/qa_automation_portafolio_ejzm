@@ -25,6 +25,12 @@
   --border-strong: #b5c4ca;
   --shadow: none;
   --max-width: 800px;
+  --rule: #e3eaed;
+  --negative: #c4242a;
+  --negative-bg: #ffedea;
+  --negative-ink: #831c1e;
+  --warn-bg: #fffbeb;
+  --warn-ink: #92400e;
   --pad: clamp(16px, 4vw, 40px);
   --frame: 1200px;
   --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
