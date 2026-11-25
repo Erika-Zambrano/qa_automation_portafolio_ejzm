@@ -38,7 +38,7 @@
 
 .rp-legend { display: flex; gap: 20px; flex-wrap: wrap; margin: 0 0 10px; font-size: 0.8125rem; color: var(--muted); }
 .rp-legend span { display: inline-flex; align-items: center; gap: 8px; }
-.rp-legend .dot, .rp-bar .seg.pass { background: var(--accent); }
+.rp-legend .dot, .rp-bar .seg.pass { background: var(--pass); }
 .rp-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
 .rp-legend .dot.skip, .rp-bar .seg.skip { background: var(--border-strong); }
 .rp-legend .dot.flaky, .rp-bar .seg.flaky { background: var(--warn-ink); }

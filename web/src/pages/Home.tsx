@@ -212,6 +212,7 @@ export function Home() {
           </nav>
         </div>
       </footer>
+      <div className="relief" aria-hidden="true" />
     </div>
   );
 }

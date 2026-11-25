@@ -8,10 +8,10 @@ export const system = createSystem(
       semanticTokens: {
         colors: {
           teal: {
-            solid: { value: '#01696f' },
-            contrast: { value: '#ffffff' },
-            fg: { value: '#01696f' },
-            focusRing: { value: '#01696f' },
+            solid: { value: '#fb631b' },
+            contrast: { value: '#181818' },
+            fg: { value: '#c2410c' },
+            focusRing: { value: '#fb631b' },
           },
         },
       },

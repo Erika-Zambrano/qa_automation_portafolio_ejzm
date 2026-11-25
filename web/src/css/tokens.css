@@ -7,30 +7,40 @@
 :root {
   --font-display: 'Erode', Georgia, serif;
   --font-body: 'Erode', Georgia, serif;
-  --ink: #1f3038;
-  --ink-deep: #16242a;
-  --accent: #0d7480;
-  --accent-light: rgba(13, 116, 128, 0.12);
-  --bg: #f7f9fa;
-  --surface: #ecf0f2;
+  --ink: #181818;
+  --dark: #434343;
+  --dark-soft: #5c5b59;
+  --dark-deep: #2e2e2e;
+  --action: #fb631b;
+  --action-hover: #f4793f;
+  --action-ink: #181818;
+  --accent: #c2410c;
+  --accent-light: rgba(251, 99, 27, 0.12);
+  --sky: #6fa2e8;
+  --sky-deep: #548fd1;
+  --sky-glow: #dff1ff;
+  --peach: #fcddcf;
+  --notice: #e9f0f5;
+  --card-earth: #a8a497;
+  --card-blue: #8fb6cc;
+  --card-green: #5fa96c;
+  --bg: #ffffff;
+  --surface: #f6f6f6;
+  --stage: #ebe9e3;
   --white: #ffffff;
-  --text: #1f3038;
-  --heading: #1f3038;
-  --muted: #4d5c63;
-  --border: #d3dde1;
-  --divider: #c3d0d5;
-  --text-faint: #566870;
-  --chip-bg: #e3eaed;
-  --chip-text: #2f424a;
-  --border-strong: #b5c4ca;
+  --text: #181818;
+  --heading: #181818;
+  --muted: #5c5b59;
+  --text-faint: #6b6a66;
+  --border: #e5e5e5;
+  --divider: #d6d6d6;
+  --chip-bg: #eeeeee;
+  --chip-text: #434343;
+  --border-strong: #bdbbb6;
   --shadow: none;
   --max-width: 800px;
-  --folder-slate: #2b424c;
-  --folder-slate-mid: #365360;
-  --folder-frost: #cfdde2;
-  --steel-side: #a9bcc4;
-  --ink-deep-token: #16242a;
-  --rule: #e3eaed;
+  --rule: #eeeeee;
+  --pass: #3f8f55;
   --negative: #c4242a;
   --negative-bg: #ffedea;
   --negative-ink: #831c1e;
@@ -60,3 +70,5 @@ a:hover { text-decoration: underline; }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 ::selection { background: var(--accent); color: #fff; }
+
+.reports-page, .pg-page, .contact-page, .cv-page { background: var(--surface); min-height: calc(100vh - 56px); }
