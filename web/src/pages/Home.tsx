@@ -5,6 +5,9 @@ import { Html } from '../components/Html';
 import { useLang } from '../context/LangContext';
 import { usePageTitle } from '../hooks/usePageTitle';
 import ciData from '../data/ci-results.json';
+
+const evalFiles = import.meta.glob<{ summary: { cases: number } }>('../data/eval-results.json', { eager: true, import: 'default' });
+const EVAL_CASES = Object.values(evalFiles)[0]?.summary.cases ?? 35;
 import '../css/home.css';
 
 const fill = (text: string, values: Record<string, number>) =>
@@ -43,7 +46,7 @@ export function Home() {
   const front = { result: `${passed}/${total}`, desc: fill(t('front-desc'), { failed, skipped }), shot: `/shots/reports-${lang}.jpg`, alt: t('alt-reports') };
   const folders = [
     { to: '/cv', result: 'ES / EN', line: t('proof-cv-desc'), vt: 'cv', tab: 'CV', peek: [t('peek-cv-1'), t('peek-cv-2')], shot: `/shots/cv-${lang}.jpg`, alt: t('alt-cv') },
-    { to: '/playground', result: `${pgApi} API + ${pgE2e} E2E`, line: t('folder-pg-line'), vt: 'playground', tab: t('pg-nav'), peek: [fill(t('peek-pg-1'), { api: pgApi, e2e: pgE2e }), t('peek-pg-2')], shot: `/shots/shop-${lang}.jpg`, alt: t('alt-shop') },
+    { to: '/playground', result: `${pgApi} API + ${pgE2e} E2E + ${EVAL_CASES} evals`, line: t('folder-pg-line'), vt: 'playground', tab: t('pg-nav'), peek: [fill(t('peek-pg-1'), { api: pgApi, e2e: pgE2e, evals: EVAL_CASES }), t('peek-pg-2')], shot: `/shots/shop-${lang}.jpg`, alt: t('alt-shop') },
     { to: '/contact', result: t('folder-contact-result'), line: t('folder-contact-line'), vt: 'contact', tab: t('nav-contact'), peek: [t('peek-ct-1'), t('peek-ct-2')], shot: `/shots/contact-${lang}.jpg`, alt: t('alt-contact') },
   ];
 
@@ -240,19 +243,15 @@ export function Home() {
           <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
           <a className="close-mail" href="mailto:erikajzm@gmail.com">erikajzm@gmail.com</a>
         </div>
-      </section>
-
-      <footer className="back">
-        <p className="back-name reveal">Erika Zambrano</p>
-        <div className="footer-inner">
+        <footer className="close-foot">
           <span className="footer-copy">{t('footer-copy')}</span>
           <nav className="footer-links" aria-label="Footer links">
             <a href="https://www.linkedin.com/in/erikazambrano/" target="_blank" rel="noopener">LinkedIn</a>
             <a href="https://github.com/Erika-Zambrano" target="_blank" rel="noopener">GitHub</a>
           </nav>
-        </div>
-      </footer>
-      <div className="relief" aria-hidden="true" />
+        </footer>
+      </section>
+
     </div>
   );
 }
