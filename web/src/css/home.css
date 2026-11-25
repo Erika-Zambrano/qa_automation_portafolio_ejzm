@@ -57,6 +57,10 @@
   .front-copy { padding-bottom: clamp(24px, 4vw, 48px); }
   .front-result { font-size: var(--step-head); line-height: 1; font-weight: 500; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; color: var(--ink); }
   .front-desc { margin-top: 16px; max-width: 38ch; font-size: var(--step-body); line-height: 1.5; }
+  .front-shot-link { display: block; align-self: end; }
+  .front-shot-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .tab:focus-visible { outline: 3px solid #fff; outline-offset: -4px; clip-path: none; }
+  .folder-front .tab:focus-visible { outline-color: var(--accent); }
   .front-shot { display: block; width: 100%; height: auto; align-self: end; }
 
   .cta-row { display: flex; align-items: center; gap: 24px; margin-top: 28px; flex-wrap: wrap; }
@@ -108,7 +112,6 @@
 
   &.rv .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
   &.rv .reveal.in { opacity: 1; transform: none; }
-  &.rv .folder.reveal { transform: none; }
   &.rv .index-list li:nth-child(2).reveal { transition-delay: 70ms; }
   &.rv .index-list li:nth-child(3).reveal { transition-delay: 140ms; }
   &.rv .index-list li:nth-child(4).reveal { transition-delay: 210ms; }

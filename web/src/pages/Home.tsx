@@ -123,21 +123,24 @@ export function Home() {
 
         <div className="stack">
           {folders.map((f, i) => (
-            <FolderLink key={f.vt} className={`folder folder-${i + 1} reveal`} to={withLang(f.to)}>
+            <FolderLink key={f.vt} className={`folder folder-${i + 1}`} to={withLang(f.to)}>
               <span className="tab" data-vt={f.vt}>{f.tab}{f.vt === 'playground' && <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 4l4 4 4-4" /></svg>}</span>
               <span className="folder-line">{f.line}</span>
               <span className="folder-result">{f.result}</span>
             </FolderLink>
           ))}
-          <div className="folder folder-front reveal">
-            <h2 className="tab">{t('nav-reports')}</h2>
+          <div className="folder folder-front">
+            <Link className="tab" to={withLang('/reports')}>{t('nav-reports')}</Link>
+            <h2 className="sr-only">{t('proof-ci-title')}</h2>
             <div className="front-grid">
               <div className="front-copy">
-                <p className="front-result">{front.result}</p>
-                <p className="front-desc">{front.desc}</p>
+                <p className="front-result reveal">{front.result}</p>
+                <p className="front-desc reveal">{front.desc}</p>
                 <Link className="btn-link" to={withLang('/reports')}>{t('front-link')}</Link>
               </div>
-              <img className="front-shot reveal" src={front.shot} alt={front.alt} width="1280" height="800" />
+              <Link className="front-shot-link" to={withLang('/reports')}>
+                <img className="front-shot reveal" src={front.shot} alt={front.alt} width="1280" height="800" />
+              </Link>
             </div>
           </div>
         </div>
