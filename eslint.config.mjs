@@ -8,7 +8,7 @@ const TITLE_VERBS = 'validate|create|navigate|display|switch';
 
 export default tseslint.config(
   {
-    ignores: ['node_modules/**', 'playwright-report/**', 'test-results/**', 'web/**', 'docs/**', '**/dist/**', '.vercel/**'],
+    ignores: ['node_modules/**', 'playwright-report/**', 'test-results/**', 'web/**', 'docs/**', 'perf/**', '**/dist/**', '.vercel/**'],
   },
 
   js.configs.recommended,

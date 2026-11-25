@@ -162,9 +162,35 @@ PORTFOLIO_URL=http://localhost:5173 npx playwright test --project=portfolio
 
 ### LLM evals
 
-`npm run eval` sends 6 golden cases (past tense, articles, Spanish interference, already-correct sentence, prompt injection, off-topic) to an English-tutor system prompt, 3 runs each. Each run is scored by deterministic checks and an LLM judge (pass = all checks pass and judge score >= 4).
+`npm run eval` sends 35 golden cases (corrections, Spanish interference and false friends, already-correct sentences, guardrails: prompt injection, role change, prompt leak, off-topic, harmful requests, PII) to an English-tutor system prompt, 3 runs each. Each run is scored by deterministic checks and an LLM judge (pass = all checks pass and judge score >= 4).
 
 Models can be overridden with `EVAL_SUBJECT_MODEL`, `EVAL_JUDGE_MODEL` and `EVAL_RUNS`. In CI, the `llm-eval` job runs on manual dispatch and needs the `ANTHROPIC_API_KEY` secret.
+
+### Load test (k6)
+
+`perf/playground.k6.js` ramps the playground API from 10 to 100 virtual users against `GET /api/products`, `GET /api/products/:id` and `GET /api/health`. Thresholds: error rate < 1%, p95 < 500 ms, p99 < 1 s (list p95 < 400 ms, detail p95 < 300 ms).
+
+```bash
+npm run dev:api
+k6 run perf/playground.k6.js
+BASE_URL=https://<deploy> k6 run perf/playground.k6.js
+```
+
+Method and how to read the results: [docs/perf-k6.md](docs/perf-k6.md). Only run it against your own deployment.
+
+---
+
+## Decisions
+
+| Decision | Why | What I would do differently |
+|---|---|---|
+| Playwright for UI and API in one runner | One config, one report, shared fixtures and auth state; the app has multiple browser contexts (cart, session) | Add contract checks generated from an OpenAPI schema instead of hand-written assertions |
+| Playground API with deterministic seed data and a reset endpoint | Tests never depend on third-party sites; stateful specs run serially and isolate state | Split stateful and stateless specs into separate CI jobs to shorten the critical path |
+| Negative and boundary cases first | Happy paths are cheap; validation, auth, stock and chaos behavior are where bugs live | Track mutation score to prove the negative cases actually fail when code breaks |
+| Evals with deterministic checks plus an LLM judge | Checks catch structure, language and level regressions for free; the judge covers meaning | Calibrate the judge against human-labeled cases and report agreement |
+| Eval pass = every check passes AND judge >= 4, 3 runs per case | A single sample hides nondeterminism; pass rate per case shows flakiness | Raise runs on failing cases only and add a cost report |
+| CI results published to a `ci-data` branch | The dashboard reads live data without redeploying the site | Add trend lines across runs instead of the latest snapshot |
+| Load test thresholds as pass/fail | A load test without thresholds is a demo, not a gate | Run it nightly and chart p95 over time |
 
 ---
 
