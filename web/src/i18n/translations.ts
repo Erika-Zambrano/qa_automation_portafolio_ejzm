@@ -40,6 +40,16 @@ export type Translations = Record<PgKey, string> & {
   'proof-eval-desc': string;
   'proof-cv-title': string;
   'proof-cv-desc': string;
+  'folder-pg-line': string;
+  'folder-contact-line': string;
+  'front-desc': string;
+  'front-link': string;
+  'close-title': string;
+  'close-cta': string;
+  'alt-reports': string;
+  'alt-shop': string;
+  'alt-eval': string;
+  'alt-cv': string;
 
   /* Contact */
   'contact-label': string;
@@ -149,6 +159,16 @@ export const translations: Record<Lang, Translations> = {
     'proof-eval-desc': 'Casos golden, checks deterministas y un juez LLM sobre un tutor conversacional.',
     'proof-cv-title': 'CV',
     'proof-cv-desc': 'Experiencia, proyectos y herramientas, en español e inglés.',
+    'folder-pg-line': 'Tienda, carrito, checkout y login para practicar E2E y API.',
+    'folder-contact-line': 'Cuéntame qué producto quieres probar.',
+    'front-desc': '{failed} fallan, {skipped} omitidos. Resultados grabados de la última ejecución.',
+    'front-link': 'Ver reporte completo →',
+    'close-title': '¿Qué producto quieres que pruebe?',
+    'close-cta': 'Escríbeme →',
+    'alt-reports': 'Panel de reportes con la última ejecución de CI',
+    'alt-shop': 'Tienda del QA Playground con filtros y tarjetas de obras',
+    'alt-eval': 'Panel de reportes en la pestaña de evaluación de IA',
+    'alt-cv': 'Página del CV',
 
     /* Contact */
     'contact-label':            'Contacto',
@@ -270,6 +290,16 @@ export const translations: Record<Lang, Translations> = {
     'proof-eval-desc': 'Golden cases, deterministic checks and an LLM judge over a conversational tutor.',
     'proof-cv-title': 'CV',
     'proof-cv-desc': 'Experience, projects and tools, in Spanish and English.',
+    'folder-pg-line': 'Shop, cart, checkout and login to practice E2E and API.',
+    'folder-contact-line': 'Tell me which product you want tested.',
+    'front-desc': '{failed} failed, {skipped} skipped. Recorded results from the latest run.',
+    'front-link': 'See the full report →',
+    'close-title': 'What product should I test?',
+    'close-cta': 'Write to me →',
+    'alt-reports': 'Reports dashboard with the latest CI run',
+    'alt-shop': 'QA Playground shop with filters and artwork cards',
+    'alt-eval': 'Reports dashboard on the AI evaluation tab',
+    'alt-cv': 'Curriculum vitae page',
 
     /* Contact */
     'contact-label':            'Contact',

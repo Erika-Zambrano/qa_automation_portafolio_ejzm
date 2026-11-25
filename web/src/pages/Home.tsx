@@ -26,26 +26,26 @@ function FolderLink({ to, className, children }: { to: string; className: string
 }
 
 export function Home() {
-  const { t, withLang } = useLang();
+  const { t, withLang, lang } = useLang();
   const [active, setActive] = useState(0);
   const [ready, setReady] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   usePageTitle('Erika Zambrano — QA Automation Portfolio');
   const { passed, total, failed, skipped } = ciData.latest;
-  const ciDesc = fill(t('proof-ci-desc'), { passed, total, failed, skipped });
 
+  const pgApi = ciData.projects.filter((p) => p.name.startsWith('api-playground')).reduce((n, p) => n + p.total, 0);
+  const pgE2e = ciData.projects.find((p) => p.name === 'playground')?.total ?? 0;
   const proof = [
-    { to: '/reports', result: `${passed}/${total}`, title: t('proof-ci-title'), desc: ciDesc, shot: '/shots/reports.jpg', alt: 'Reports dashboard with the latest CI run' },
-    { to: '/playground', result: 'E2E / API', title: t('proof-pg-title'), desc: t('proof-pg-desc'), shot: '/shots/shop.jpg', alt: 'QA Playground shop with filters and product cards' },
-    { to: '/reports', result: 'LLM', title: t('proof-eval-title'), desc: t('proof-eval-desc'), shot: '/shots/reports.jpg', alt: 'Reports dashboard with the AI evaluation tab' },
-    { to: '/cv', result: 'ES / EN', title: t('proof-cv-title'), desc: t('proof-cv-desc'), shot: '/shots/cv.jpg', alt: 'Curriculum vitae page' },
+    { to: '/playground', result: `${pgApi} API + ${pgE2e} E2E`, title: t('proof-pg-title'), desc: t('proof-pg-desc'), shot: `/shots/shop-${lang}.jpg`, alt: t('alt-shop') },
+    { to: '/reports', result: 'LLM', title: t('proof-eval-title'), desc: t('proof-eval-desc'), shot: `/shots/eval-${lang}.jpg`, alt: t('alt-eval') },
+    { to: '/cv', result: 'ES / EN', title: t('proof-cv-title'), desc: t('proof-cv-desc'), shot: `/shots/cv-${lang}.jpg`, alt: t('alt-cv') },
   ];
+  const front = { result: `${passed}/${total}`, desc: fill(t('front-desc'), { failed, skipped }), shot: `/shots/reports-${lang}.jpg`, alt: t('alt-reports') };
   const folders = [
-    { to: '/cv', result: proof[3].result, vt: 'cv', tab: 'CV' },
-    { to: '/playground', result: proof[1].result, vt: 'playground', tab: t('pg-nav') },
-    { to: '/contact', result: t('home-cta'), vt: 'contact', tab: t('nav-contact') },
+    { to: '/cv', result: 'ES / EN', line: t('proof-cv-desc'), vt: 'cv', tab: 'CV' },
+    { to: '/playground', result: `${pgApi} API + ${pgE2e} E2E`, line: t('folder-pg-line'), vt: 'playground', tab: t('pg-nav') },
+    { to: '/contact', result: 'erikajzm@gmail.com', line: t('folder-contact-line'), vt: 'contact', tab: t('nav-contact') },
   ];
-  const front = proof[0];
 
   useEffect(() => {
     setReady(true);
@@ -125,6 +125,7 @@ export function Home() {
           {folders.map((f, i) => (
             <FolderLink key={f.vt} className={`folder folder-${i + 1} reveal`} to={withLang(f.to)}>
               <span className="tab" data-vt={f.vt}>{f.tab}{f.vt === 'playground' && <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M2 4l4 4 4-4" /></svg>}</span>
+              <span className="folder-line">{f.line}</span>
               <span className="folder-result">{f.result}</span>
             </FolderLink>
           ))}
@@ -134,9 +135,9 @@ export function Home() {
               <div className="front-copy">
                 <p className="front-result">{front.result}</p>
                 <p className="front-desc">{front.desc}</p>
-                <Link className="btn-link" to={withLang('/reports')}>{fill(t('hero-proof'), { passed, total })}</Link>
+                <Link className="btn-link" to={withLang('/reports')}>{t('front-link')}</Link>
               </div>
-              <img className="front-shot reveal" src="/shots/reports.jpg" alt={front.alt} width="1280" height="800" />
+              <img className="front-shot reveal" src={front.shot} alt={front.alt} width="1280" height="800" />
             </div>
           </div>
         </div>
@@ -144,6 +145,7 @@ export function Home() {
 
       <section className="index" id="proof" aria-labelledby="proof-heading">
         <h2 id="proof-heading" className="index-title reveal">{t('proof-title')}</h2>
+        <p className="sr-only" aria-live="polite">{proof[active].title}</p>
         <div className="index-grid">
           <ul className="index-list">
             {proof.map((item, i) => (
@@ -181,10 +183,10 @@ export function Home() {
       </section>
 
       <section className="close" id="contact" aria-labelledby="close-heading">
-        <h2 id="close-heading" className="close-title reveal">{t('home-cta')}</h2>
+        <h2 id="close-heading" className="close-title reveal">{t('close-title')}</h2>
         <div className="close-row reveal">
           <a className="close-mail" href="mailto:erikajzm@gmail.com">erikajzm@gmail.com</a>
-          <Link className="btn-primary" to={withLang('/contact')}>{t('home-cta')}</Link>
+          <Link className="btn-primary" to={withLang('/contact')}>{t('close-cta')}</Link>
           <Link className="btn-link light" to={withLang('/cv')}>{t('home-cv')}</Link>
         </div>
       </section>
