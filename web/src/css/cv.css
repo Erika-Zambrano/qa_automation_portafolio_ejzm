@@ -106,8 +106,8 @@
     margin-bottom: 1rem;
     padding: 0.75rem 1rem;
     background: var(--bg);
-    border-left: 2px solid var(--accent);
-    border-radius: 0 4px 4px 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
   }
 
   .cv-project-header {

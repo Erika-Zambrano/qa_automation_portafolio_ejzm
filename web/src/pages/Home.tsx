@@ -1,27 +1,25 @@
-import { Badge, Card } from '@chakra-ui/react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Html } from '../components/Html';
 import { useLang } from '../context/LangContext';
 import { usePageTitle } from '../hooks/usePageTitle';
-import type { Translations } from '../i18n/translations';
+import ciData from '../data/ci-results.json';
 import '../css/home.css';
 
-const suites: Array<{ key: keyof Translations; type: string; tag: string; file: string }> = [
-  { key: 'card1-title', type: 'UI', tag: '@smoke', file: 'tests/ui/portfolio/navigation.spec.ts' },
-  { key: 'card2-title', type: 'UI', tag: '@regression', file: 'tests/ui/portfolio/cv.spec.ts' },
-  { key: 'card3-title', type: 'API', tag: '@sanity', file: 'tests/api/public-api.spec.ts' },
-];
-
-const stack: Array<{ name: string; key?: keyof Translations; text?: string }> = [
-  { name: 'Playwright', key: 'stack-pw' },
-  { name: 'TypeScript', key: 'stack-ts' },
-  { name: 'GitHub Actions', text: 'CI/CD' },
-  { name: 'Page Object Model', key: 'stack-pom' },
-  { name: 'REST API Testing', key: 'stack-api' },
-];
+const fill = (text: string, values: Record<string, number>) =>
+  text.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ''));
 
 export function Home() {
-  const { t } = useLang();
+  const { t, withLang } = useLang();
+  const [badgeOk, setBadgeOk] = useState(true);
   usePageTitle('Erika Zambrano — QA Automation Portfolio');
+  const { passed, total, failed, skipped } = ciData.latest;
+  const proof = [
+    { to: '/reports', result: `${passed}/${total}`, title: t('proof-ci-title'), desc: fill(t('proof-ci-desc'), { passed, total, failed, skipped }) },
+    { to: '/playground', result: 'E2E · API', title: t('proof-pg-title'), desc: t('proof-pg-desc') },
+    { to: '/reports', result: 'LLM', title: t('proof-eval-title'), desc: t('proof-eval-desc') },
+    { to: '/cv', result: 'ES · EN', title: t('proof-cv-title'), desc: t('proof-cv-desc') },
+  ];
 
   return (
     <div className="home-page">
@@ -29,6 +27,9 @@ export function Home() {
         <div className="container">
           <h1 className="header-name">Erika Zambrano</h1>
           <Html as="p" k="header-role" className="header-role" />
+          <Link className="hero-proof" to={withLang('/reports')}>
+            {fill(t('hero-proof'), { passed, total })}
+          </Link>
           <nav className="header-links" aria-label="Contact links">
             <a href="https://www.linkedin.com/in/erikazambrano/" target="_blank" rel="noopener">LinkedIn</a>
             <a href="https://github.com/Erika-Zambrano" target="_blank" rel="noopener">GitHub</a>
@@ -39,64 +40,51 @@ export function Home() {
 
       <section id="about">
         <div className="container">
-          <Html as="p" k="about-label" className="section-label" />
-          <Html as="p" k="about-text" />
+          <Html as="p" k="about-text" className="about-text" />
+          <div className="cta-row">
+            <Link className="btn-primary" to={withLang('/contact')}>{t('home-cta')}</Link>
+            <Link className="btn-link" to={withLang('/cv')}>{t('home-cv')}</Link>
+          </div>
         </div>
       </section>
 
-      <section id="suites">
+      <section id="proof">
         <div className="container">
-          <Html as="p" k="suites-label" className="section-label" />
-          <Html as="h2" k="suites-title" className="section-title" />
-          <div className="cards">
-            {suites.map((suite) => (
-              <Card.Root key={suite.file} variant="elevated" bg="white">
-                <Card.Body gap="1" p="5">
-                  <div className="card-header">
-                    <span className="card-title">{t(suite.key)}</span>
-                    <div className="badges">
-                      <Badge variant="subtle">{suite.type}</Badge>
-                      <Badge colorPalette="teal" variant="subtle">{suite.tag}</Badge>
-                    </div>
-                  </div>
-                  <p className="card-file">{suite.file}</p>
-                </Card.Body>
-              </Card.Root>
+          <h2 className="section-title">{t('proof-title')}</h2>
+          <ul className="proof-list">
+            {proof.map((item) => (
+              <li key={item.to}>
+                <Link className="proof-row" to={withLang(item.to)}>
+                  <span className="proof-result">{item.result}</span>
+                  <span className="proof-body">
+                    <span className="proof-title">{item.title}</span>
+                    <span className="proof-desc">{item.desc}</span>
+                  </span>
+                  <span className="proof-arrow" aria-hidden="true">→</span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       <section id="ci">
         <div className="container">
-          <Html as="p" k="ci-label" className="section-label" />
           <Html as="h2" k="ci-title" className="section-title" />
           <Html as="p" k="ci-desc" className="ci-description" />
           <div className="ci-badge-row">
-            <img
-              src="https://github.com/Erika-Zambrano/qa-automation-portfolio/actions/workflows/playwright.yml/badge.svg"
-              alt="CI status badge"
-              height="20"
-            />
+            {badgeOk && (
+              <img
+                src="https://github.com/Erika-Zambrano/qa-automation-portfolio/actions/workflows/playwright.yml/badge.svg"
+                alt="CI status badge"
+                height="20"
+                onError={() => setBadgeOk(false)}
+              />
+            )}
             <a href="https://github.com/Erika-Zambrano/qa-automation-portfolio" target="_blank" rel="noopener">
               {t('ci-link')}
             </a>
           </div>
-        </div>
-      </section>
-
-      <section id="stack">
-        <div className="container">
-          <Html as="p" k="stack-label" className="section-label" />
-          <Html as="h2" k="stack-title" className="section-title" />
-          <ul className="stack-list">
-            {stack.map((item) => (
-              <li key={item.name} className="stack-item">
-                <span className="stack-name">{item.name}</span>
-                <span className="stack-desc">{item.key ? t(item.key) : item.text}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

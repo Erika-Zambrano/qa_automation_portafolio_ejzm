@@ -158,6 +158,20 @@
   .nav-menu-item:hover { background: var(--bg); color: var(--accent); text-decoration: none; }
   .nav-menu-item.active { color: var(--accent); font-weight: 600; }
 
+@media (max-width: 600px) {
+  .topbar-inner { flex-wrap: wrap; height: auto; padding: 0 12px; gap: 0; }
+  .topbar-link { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 6px; font-size: 0.8125rem; }
+  .nav-menu-btn { gap: 3px; }
+  .nav-menu-btn svg, .lang-btn svg { display: none; }
+  .lang-btn { padding: 5px 8px; }
+  .topbar-spacer { display: none; }
+  .lang-switcher { margin-left: auto; }
+  .lang-btn { min-height: 44px; }
+  .nav-menu { position: static; }
+  .nav-menu-list { left: 12px; right: 12px; top: 100%; min-width: 0; }
+  .nav-menu-item, .lang-option { min-height: 44px; display: flex; align-items: center; }
+}
+
 @media print {
   .topbar { display: none; }
 }
