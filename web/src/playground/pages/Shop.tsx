@@ -8,6 +8,7 @@ import { CartSummary } from '../components/CartSummary';
 import { FormStatus } from '../components/FormStatus';
 import { Pagination } from '../components/Pagination';
 import { PlaygroundLayout } from '../components/PlaygroundLayout';
+import { ART } from '../art';
 import { ProductCard } from '../components/ProductCard';
 import { CATEGORIES, type Product } from '../types';
 
@@ -160,6 +161,17 @@ export function Shop() {
         </div>
         <CartSummary showCheckout />
       </div>
+      <details className="pg-credits">
+        <summary>{t('pg-art-credits')}</summary>
+        <p>{t('pg-art-note')}</p>
+        <ul>
+          {Object.values(ART).map((art) => (
+            <li key={art.src}>
+              <a href={art.page} target="_blank" rel="noopener">{art.title}</a>, {art.creator}
+            </li>
+          ))}
+        </ul>
+      </details>
     </PlaygroundLayout>
   );
 }

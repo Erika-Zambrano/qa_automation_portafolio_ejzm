@@ -113,13 +113,20 @@ export function Home() {
   return (
     <div className={`home-page${ready ? ' rv' : ''}`} ref={rootRef}>
       <section className="hero" aria-labelledby="home-title">
-        <h1 id="home-title" className="hero-name reveal">Erika Zambrano</h1>
-        <p className="hero-sub reveal">
-          <strong>{t('header-role')}.</strong> <Html as="span" k="about-text" />
-        </p>
-        <div className="cta-row reveal">
-          <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
-          <Link className="btn-link light" to={withLang('/contact')}>{t('home-cta')}</Link>
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <h1 id="home-title" className="hero-name reveal">Erika Zambrano</h1>
+            <p className="hero-sub reveal">
+              <strong>{t('header-role')}.</strong> <Html as="span" k="about-text" />
+            </p>
+            <div className="cta-row reveal">
+              <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
+              <Link className="btn-link light" to={withLang('/contact')}>{t('home-cta')}</Link>
+            </div>
+          </div>
+          <div className="hero-art reveal">
+            <img src="/hero-archivero.webp" alt={t('hero-art-alt')} width="760" height="1087" fetchPriority="high" />
+          </div>
         </div>
 
         <div className="stack">

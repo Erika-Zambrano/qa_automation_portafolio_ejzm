@@ -62,7 +62,10 @@
 .pg-stock.out { color: #c53030; }
 .pg-card .pg-btn { margin-top: auto; }
 
-.pg-art { height: 110px; display: flex; align-items: flex-end; padding: 10px 14px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.55); font: 1.4rem var(--font-display); background: linear-gradient(135deg, #6b7a8f, #2c3e50); }
+.pg-art { height: 180px; display: flex; align-items: flex-end; padding: 10px 14px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.55); font: 1.4rem var(--font-display); background: linear-gradient(135deg, #6b7a8f, #2c3e50); }
+.pg-art.has-img { position: relative; height: 180px; padding: 0; background: var(--surface); text-shadow: none; }
+.pg-art.has-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+.pg-art.has-img span { position: absolute; left: 0; bottom: 0; padding: 3px 12px; background: var(--ink); color: #fff; font: 600 0.9rem var(--font-body); }
 .pg-art.cat-impressionism { background: linear-gradient(135deg, #4f8aa0, #a8782f); }
 .pg-art.cat-post-impressionism { background: linear-gradient(135deg, #1e3a8a, #f2c94c); }
 .pg-art.cat-expressionism { background: linear-gradient(135deg, #c0392b, #f39c12); }
@@ -102,3 +105,8 @@
 .pg-data dd { color: var(--muted); }
 .pg-tips { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 0.875rem; }
 .pg-confirmation { display: flex; flex-direction: column; gap: 16px; }
+
+.pg-credits { margin-top: 32px; font-size: 0.875rem; color: var(--muted); }
+.pg-credits summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; color: var(--text); }
+.pg-credits ul { margin: 8px 0 0; padding-left: 18px; }
+.pg-credits li { margin-bottom: 4px; }

@@ -52,6 +52,7 @@ export type Translations = Record<PgKey, string> & {
   'alt-shop': string;
   'alt-eval': string;
   'alt-cv': string;
+  'hero-art-alt': string;
 
   /* Contact */
   'contact-label': string;
@@ -173,6 +174,7 @@ export const translations: Record<Lang, Translations> = {
     'alt-shop': 'Tienda del QA Playground con filtros y tarjetas de obras',
     'alt-eval': 'Panel de reportes en la pestaña de evaluación de IA',
     'alt-cv': 'Página del CV',
+    'hero-art-alt': 'Archivador de oficina de los años 80 con cajones de CV, laboratorio, contacto y resultados; el monitor de encima muestra cuántos tests pasan.',
 
     /* Contact */
     'contact-label':            'Contacto',
@@ -306,6 +308,7 @@ export const translations: Record<Lang, Translations> = {
     'alt-shop': 'QA Playground shop with filters and artwork cards',
     'alt-eval': 'Reports dashboard on the AI evaluation tab',
     'alt-cv': 'Curriculum vitae page',
+    'hero-art-alt': '1980s office filing cabinet with drawers for CV, test lab, contact and results; the monitor on top shows how many tests pass.',
 
     /* Contact */
     'contact-label':            'Contact',
