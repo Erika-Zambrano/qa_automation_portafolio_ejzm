@@ -92,16 +92,7 @@
   .folder-front .tab:focus-visible { outline-color: var(--accent); }
   .front-shot { display: block; width: 100%; height: auto; align-self: end; }
 
-  .cta-row { display: flex; align-items: center; gap: 24px; margin-top: 28px; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px;
-    background: var(--action); color: var(--action-ink); font-weight: 500; font-size: var(--step-body);
-    clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 100%, 0 100%);
-    transition: transform 0.15s, background 0.15s;
-  }
-  .btn-primary:hover { background: var(--action-hover); text-decoration: none; transform: translateY(-2px); }
-  .btn-primary:active { transform: translateY(0); }
-  .btn-primary:focus-visible, .btn-link:focus-visible, .index-row:focus-visible, .close-mail:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .index-row:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
   .btn-link { display: inline-flex; align-items: center; min-height: 52px; font-weight: 600; font-size: var(--step-body); color: var(--accent); }
   .btn-link.light { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
   .close .btn-primary:focus-visible, .close .btn-link:focus-visible, .close .close-mail:focus-visible { outline-color: var(--ink); }
@@ -126,8 +117,6 @@
   .close { background: linear-gradient(90deg, rgba(223, 241, 255, 0.55) 0%, rgba(223, 241, 255, 0.5) 56%, rgba(223, 241, 255, 0) 88%), url('/closing-folders-d.webp') left center / cover no-repeat, var(--sky-deep); color: var(--ink); padding: clamp(72px, 10vw, 160px) max(var(--pad), calc((100% - var(--frame)) / 2)); scroll-margin-top: 72px; }
   .close-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(2rem, 7vw, 7rem); line-height: 1; letter-spacing: -0.025em; max-width: 20ch; text-wrap: balance; }
   .close-line { margin-top: 20px; font-size: var(--step-lead); color: var(--ink); }
-  .close-row { margin-top: clamp(28px, 4vw, 48px); display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-  .close-mail { color: var(--ink); font-size: var(--step-lead); font-weight: 600; min-height: 52px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 6px; }
   .close-mail:hover { color: var(--dark); }
 
   .close-foot { margin-top: clamp(48px, 7vw, 104px); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; }

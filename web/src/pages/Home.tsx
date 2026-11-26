@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { flushSync } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
+import { ButtonBar } from '../components/ButtonBar';
 import { Html } from '../components/Html';
 import { useLang } from '../context/LangContext';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -9,6 +10,7 @@ import ciData from '../data/ci-results.json';
 const evalFiles = import.meta.glob<{ summary: { cases: number } }>('../data/eval-results.json', { eager: true, import: 'default' });
 const EVAL_CASES = Object.values(evalFiles)[0]?.summary.cases ?? 35;
 import '../css/home.css';
+import '../css/buttons.css';
 
 const fill = (text: string, values: Record<string, number | string>) =>
   text.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ''));
@@ -203,9 +205,7 @@ export function Home() {
           <p className="hero-sub reveal">
             <strong>{t('header-role')}.</strong> <Html as="span" k="about-text" />
           </p>
-          <div className="cta-row reveal">
-            <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
-          </div>
+          <ButtonBar className="reveal" primary={{ label: t('cta-cv'), to: withLang('/cv') }} />
           <Link className="hero-proof reveal" to={withLang('/reports')}>
             {fill(t('chip-tests'), { n: `${passed}/${total}` })} + {fill(t('chip-evals'), { n: EVAL_CASES })}
           </Link>
@@ -287,10 +287,9 @@ export function Home() {
       <section className="close" id="contact" aria-labelledby="close-heading">
         <h2 id="close-heading" className="close-title reveal">{t('close-title')}</h2>
         <p className="close-line reveal">{t('close-line')}</p>
-        <div className="close-row reveal">
-          <Link className="btn-primary" to={withLang('/cv')}>{t('cta-cv')}</Link>
+        <ButtonBar variant="close" className="reveal" primary={{ label: t('cta-cv'), to: withLang('/cv') }}>
           <a className="close-mail" href="mailto:erikajzm@gmail.com">erikajzm@gmail.com</a>
-        </div>
+        </ButtonBar>
         <footer className="close-foot">
           <span className="footer-copy">{t('footer-copy')}</span>
           <nav className="footer-links" aria-label="Footer links">
