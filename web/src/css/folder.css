@@ -1,0 +1,11 @@
+.folder-head { view-transition-name: folder-open; background: var(--sky); }
+.folder-head .fh-in { max-width: var(--fh-w, 800px); margin: 0 auto; padding: 0 24px; }
+.folder-head .fh-band { background: radial-gradient(90% 150% at 88% 130%, var(--sky-glow) 0%, rgba(223, 241, 255, 0) 62%), var(--sky); padding: clamp(20px, 3vw, 36px) 0 clamp(24px, 4vw, 44px); }
+.folder-head .fh-band .page-title { font-family: var(--font-display); font-weight: 500; font-size: var(--step-head); line-height: 1; letter-spacing: -0.025em; color: var(--ink); margin: 0; }
+.folder-head .fh-band .page-desc { margin: 20px 0 0; max-width: 46ch; font-size: var(--step-lead); line-height: 1.4; color: var(--ink); }
+::view-transition-group(folder-open) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.35s; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+@media print { .folder-head { display: none; } }

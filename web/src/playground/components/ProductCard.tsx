@@ -1,6 +1,7 @@
 import { useLang } from '../../context/LangContext';
 import type { Translations } from '../../i18n/translations';
 import { formatMoney } from '../api';
+import { ART } from '../art';
 import type { Product } from '../types';
 
 type Props = { product: Product; inCart: number; onAdd: (product: Product) => void };
@@ -13,9 +14,16 @@ export function ProductCard({ product, inCart, onAdd }: Props) {
 
   return (
     <article className="pg-card" aria-label={product.name} data-testid={`product-card-${product.id}`}>
-      <div className={`pg-art cat-${product.category}`} aria-hidden="true">
-        <span>{product.year}</span>
-      </div>
+      {ART[product.id] ? (
+        <div className="pg-art has-img">
+          <img src={ART[product.id].src} alt={ART[product.id].alt ?? `${product.name}, ${product.artist}`} loading="lazy" width="560" height="420" />
+          <span>{product.year}</span>
+        </div>
+      ) : (
+        <div className={`pg-art cat-${product.category}`} aria-hidden="true">
+          <span>{product.year}</span>
+        </div>
+      )}
       <div className="pg-card-body">
         <h3 data-testid={`product-name-${product.id}`}>{product.name}</h3>
         <p className="pg-artist" data-testid={`product-artist-${product.id}`}>{product.artist}</p>

@@ -1,216 +1,235 @@
 ---
 name: QA Automation Portfolio
-description: Warm-paper, serif-led report aesthetic with a single deep-teal accent for a bilingual QA portfolio.
+description: A slate-and-frost case file where every proof is a folder tab that docks into the nav bar, in a single teal accent and one serif.
 colors:
-  teal-ink: "#01696f"
-  teal-wash: "rgba(1, 105, 111, 0.1)"
-  paper: "#f7f6f2"
+  teal-ink: "#0d7480"
+  teal-wash: "rgba(13, 116, 128, 0.12)"
+  case-slate: "#1f3038"
+  case-slate-deep: "#16242a"
+  folder-slate: "#2b424c"
+  folder-slate-mid: "#365360"
+  folder-frost: "#cfdde2"
+  frost: "#f7f9fa"
+  mist: "#ecf0f2"
   sheet-white: "#ffffff"
-  ink-black: "#1a1a1a"
-  body-graphite: "#3a3a3a"
-  muted-gray: "#5f5e5a"
-  faint-stone: "#6b6a65"
-  hairline: "#e8e7e3"
-  divider-stone: "#dcd9d5"
-  chip-gray: "#f0f0ee"
+  muted-slate: "#4d5c63"
+  faint-slate: "#566870"
+  rule-frost: "#d3dde1"
+  rule-frost-strong: "#b5c4ca"
+  chip-mist: "#e3eaed"
+  chip-ink: "#2f424a"
+  ink-on-dark: "#dbe5e9"
 typography:
   display:
-    fontFamily: "'Instrument Serif', Georgia, serif"
-    fontSize: "clamp(2rem, 6vw, 3rem)"
-    fontWeight: 400
-    lineHeight: 1.15
-    letterSpacing: "0em"
+    fontFamily: "Erode, Georgia, serif"
+    fontSize: "clamp(3.4rem, 10vw, 10rem)"
+    fontWeight: 500
+    lineHeight: 0.95
+    letterSpacing: "-0.025em"
   headline:
-    fontFamily: "'Instrument Serif', Georgia, serif"
-    fontSize: "clamp(1.8rem, 5vw, 2.5rem)"
-    fontWeight: 400
-    lineHeight: 1.15
+    fontFamily: "Erode, Georgia, serif"
+    fontSize: "clamp(2rem, 1.3rem + 3.2vw, 4rem)"
+    fontWeight: 500
+    lineHeight: 1
+    letterSpacing: "-0.025em"
   title:
-    fontFamily: "Inter, 'Helvetica Neue', sans-serif"
-    fontSize: "1.35rem"
+    fontFamily: "Erode, Georgia, serif"
+    fontSize: "clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem)"
     fontWeight: 600
-    lineHeight: 1.6
+    lineHeight: 1.15
   body:
-    fontFamily: "Inter, 'Helvetica Neue', sans-serif"
-    fontSize: "0.975rem"
+    fontFamily: "Erode, Georgia, serif"
+    fontSize: "clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem)"
     fontWeight: 400
-    lineHeight: 1.75
+    lineHeight: 1.5
   label:
-    fontFamily: "Inter, 'Helvetica Neue', sans-serif"
-    fontSize: "0.75rem"
+    fontFamily: "Erode, Georgia, serif"
+    fontSize: "1rem"
     fontWeight: 600
-    lineHeight: 1.6
-    letterSpacing: "0.1em"
-  mono:
-    fontFamily: "SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace"
-    fontSize: "0.78rem"
-    fontWeight: 400
-    lineHeight: 1.6
+    lineHeight: 1.5
 rounded:
   sm: "6px"
-  md: "8px"
-  pill: "99px"
+  none: "0px"
 spacing:
-  xs: "4px"
-  sm: "8px"
-  md: "16px"
-  lg: "24px"
-  xl: "56px"
+  tab-gap: "6px"
+  page-pad: "clamp(16px, 4vw, 40px)"
+  band-strip: "72px"
+  section: "clamp(80px, 12vw, 200px)"
 components:
-  card:
-    backgroundColor: "{colors.sheet-white}"
-    rounded: "{rounded.md}"
-    padding: "20px 24px"
-  badge-type:
-    backgroundColor: "{colors.chip-gray}"
-    textColor: "#555555"
-    rounded: "{rounded.pill}"
-    padding: "2px 8px"
-  badge-tag:
-    backgroundColor: "{colors.teal-wash}"
-    textColor: "{colors.teal-ink}"
-    rounded: "{rounded.pill}"
-    padding: "2px 8px"
-  topbar-link:
-    textColor: "{colors.muted-gray}"
-    rounded: "{rounded.sm}"
-    padding: "6px 12px"
-  topbar-link-active:
-    backgroundColor: "{colors.teal-wash}"
-    textColor: "{colors.teal-ink}"
-  lang-button:
-    backgroundColor: "{colors.sheet-white}"
-    textColor: "{colors.muted-gray}"
-    rounded: "{rounded.sm}"
-    padding: "5px 10px"
-  menu-item:
-    textColor: "{colors.muted-gray}"
-    padding: "9px 16px"
-  menu-item-hover:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.teal-ink}"
+  tab:
+    backgroundColor: "{colors.folder-slate}"
+    textColor: "{colors.ink-on-dark}"
+    height: "44px"
+    padding: "0 26px 0 22px"
+  tab-active:
+    backgroundColor: "{colors.case-slate}"
+    textColor: "{colors.sheet-white}"
+  tab-hover:
+    backgroundColor: "{colors.folder-slate-mid}"
+    textColor: "{colors.sheet-white}"
+  button-primary:
+    backgroundColor: "{colors.teal-ink}"
+    textColor: "{colors.sheet-white}"
+    height: "52px"
+    padding: "0 28px"
+  folder-band:
+    backgroundColor: "{colors.folder-slate}"
+    textColor: "{colors.sheet-white}"
+    height: "72px"
+    padding: "0 28px"
+  folder-front:
+    backgroundColor: "{colors.frost}"
+    textColor: "{colors.case-slate}"
+    padding: "48px 48px 0"
+  folder-head:
+    backgroundColor: "{colors.case-slate}"
+    textColor: "{colors.sheet-white}"
+  index-row-active:
+    backgroundColor: "{colors.mist}"
+    textColor: "{colors.case-slate}"
 ---
 
 # Design System: QA Automation Portfolio
 
 ## Overview
 
-**Creative North Star: "The Test Report"**
+**Creative North Star: "The Case File"**
 
-The portfolio reads like a well-typeset test report: warm paper, white sheets laid on it, a serif voice for names and page titles, and a single teal accent that marks what is navigable or verified. Evidence leads; the interface steps back. Sober, editorial, trustworthy: credibility comes from clarity and restraint, not decoration.
+The portfolio is a case file: a stack of folders, each one a piece of evidence that can be opened. The dark slate ground is the cabinet, the frost sheets are the papers inside, and the single teal accent marks what can be acted on. Every proof (CI results, the playground, the CV, contact) is a folder with a tab; as the visitor scrolls, the tabs climb to the top and dock into the nav bar, so the stack the page opened with becomes the navigation that stays. Evidence leads and the interface steps back.
 
-Density is calm and document-like. Content sits in a narrow column (800px; 1000px for the reports dashboard), sections are separated by hairlines rather than boxes, and the only containers are small white cards. There is no gradient, no imagery-led hero, and no motion beyond 0.1-0.15s state transitions.
+The voice is sober, editorial and trustworthy. One serif, Erode, carries every size; scale does the work that weight, rules and ornament do elsewhere. Density is calm: wide margins, one dominant thing per screen, a small number of large real pictures (screenshots of the site's own pages). The one live thing is the folder stack itself, driven by real CI numbers.
 
 **Key Characteristics:**
-- Warm off-white paper (`paper`) with pure white sheets on top.
-- Serif display for names and page titles, sans for everything else.
-- One accent (`teal-ink`) carries links, active nav, labels and bullets.
-- Flat by default; one hairline shadow on cards.
-- Uppercase, letter-spaced micro-labels introduce each section.
+- Dark slate cabinet (`case-slate`) with frost sheets (`frost`) laid on it.
+- Trapezoid folder tabs are the signature shape: they are the nav, the folder labels and the primary button's silhouette.
+- One typeface (Erode), tight tracking at display sizes, five size steps.
+- One accent (`teal-ink`), used for the primary action and links.
+- Flat: no gradients, no shadows at rest; depth comes from tone steps between slate and frost.
+- Same nav tabs, same order, same positions on every page.
 
 ## Colors
 
-A near-monochrome warm neutral palette with one deep teal.
+A cold slate-and-frost palette with one teal accent. Two or three flat tones carry every screen.
 
 ### Primary
-- **Teal Ink** (#01696f): links, active navigation, section labels, role line, list bullets, hover and focus borders. Its tint **Teal Wash** (rgba(1,105,111,0.1)) backs active nav items and tag badges.
+- **Teal Ink** (#0d7480): the primary button, links on frost, the selected index row title. Its 12% tint **Teal Wash** (rgba(13,116,128,0.12)) backs focused and tagged items.
 
 ### Neutral
-- **Paper** (#f7f6f2): page background and hover fill for menu items.
-- **Sheet White** (#ffffff): topbar, header band, cards, CV page, inputs.
-- **Ink Black** (#1a1a1a): headings and card titles.
-- **Body Graphite** (#3a3a3a): running text.
-- **Muted Gray** (#5f5e5a): secondary text, nav links at rest, footer (6.0:1 on Paper).
-- **Faint Stone** (#6b6a65): tertiary text such as CV dates and locations (5.0:1 on Paper).
-- **Hairline** (#e8e7e3): section dividers, card and topbar borders.
-- **Divider Stone** (#dcd9d5): stronger rules inside the CV.
-- **Chip Gray** (#f0f0ee): neutral badge fill.
+- **Case Slate** (#1f3038): the hero, the folder head, the active tab, the closing band, and all running text on frost.
+- **Case Slate Deep** (#16242a): the nav bar ground and the page footer, one step darker than the cabinet so tabs read as sitting in it.
+- **Folder Slate** (#2b424c): resting nav tabs, the first back folder.
+- **Folder Slate Mid** (#365360): the hovered tab, the second back folder.
+- **Folder Frost** (#cfdde2): the third back folder, a light band between dark ones.
+- **Frost** (#f7f9fa): the page background below the hero and the front folder sheet.
+- **Mist** (#ecf0f2): the active index row and the preview frame behind screenshots.
+- **Sheet White** (#ffffff): cards, inputs and the CV sheet.
+- **Muted Slate** (#4d5c63): secondary text on frost.
+- **Faint Slate** (#566870): tertiary text such as CV dates.
+- **Rule Frost** (#d3dde1) and **Rule Frost Strong** (#b5c4ca): borders on real tables, form fields and dashboard cards only.
+- **Ink on Dark** (#dbe5e9): body and supporting text on slate.
+- **Chip Mist** (#e3eaed) with **Chip Ink** (#2f424a): neutral badges.
 
 ### Named Rules
-**The One Voice Rule.** Teal is the only chromatic color. It marks interaction and verification; it is never used as a surface fill beyond its 10% wash.
+**The One Voice Rule.** Teal is the only chromatic color in the interface. It marks the action and verification; it is never a surface fill beyond its wash. (The playground shop's per-category art gradients are the one exception, as before.)
 
-**The AA Floor Rule.** Every text color holds at least 4.5:1 on both Paper and Sheet White. Secondary text never goes lighter than Faint Stone (#6b6a65).
+**The Cabinet and Sheet Rule.** Dark slate is for structure (nav, hero, folder bands, heads, closing, footer); frost and white are for reading. Never set long text on a dark band.
+
+**The Tab Colour Rule.** A resting tab is `folder-slate`; the active tab is `case-slate`, the same tone as the head band below it, so the active tab and its page read as one folder.
 
 ## Typography
 
-**Display Font:** Instrument Serif (with Georgia, serif)
-**Body Font:** Inter (with Helvetica Neue, sans-serif)
-**Label/Mono Font:** system monospace stack for file paths only
+**Display Font:** Erode (with Georgia, serif)
+**Body Font:** Erode (with Georgia, serif)
+**Label/Mono Font:** none; there is no monospace
 
-**Character:** An editorial serif for the person's name and page titles over a neutral, legible sans; the pairing signals craft without ornament.
+**Character:** A chiselled serif with wedge serifs, sharp at display size and firm in text. One face for everything keeps the page editorial and lets scale carry hierarchy.
 
 ### Hierarchy
-- **Display** (400, clamp(2rem, 6vw, 3rem), 1.15): the name in the home header.
-- **Headline** (400, clamp(1.8rem, 5vw, 2.5rem), 1.15): page titles on Contact and Reports; CV name uses a similar serif at up to 32pt.
-- **Title** (600, 1.35rem): section titles; card titles are 600 at 0.975rem.
-- **Body** (400, 0.975rem, 1.75): paragraphs; keep lines near 65-75ch inside the 800px column.
-- **Label** (600, 0.75rem, 0.1em tracking, uppercase, teal): section and page labels. The home role line is the same treatment at 1rem/500.
-- **Mono** (400, 0.78rem): test file paths on cards.
+- **Display** (500, clamp(3.4rem, 10vw, 10rem), 0.95, -0.025em): the name on the home hero and the closing line. One line at desktop, two on a phone.
+- **Headline** (500, clamp(2rem, 1.3rem + 3.2vw, 4rem), 1, -0.025em): page titles in the folder head, section titles, the big CI figure.
+- **Title** (600, clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem), 1.15): the supporting sentence under the name, index row names and results.
+- **Body** (400, clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem), 1.5): paragraphs; keep lines near 46ch for statements and 65-75ch for reading.
+- **Label** (600, 1rem): tabs and buttons.
 
 ### Named Rules
-**The Serif Is a Name Rule.** Instrument Serif is for the person's name and page titles only. Section titles, UI and data stay in Inter.
+**The One Face Rule.** Erode for everything; two or three sizes do the visible work, one very large and one small. Never a second family, never monospace.
+
+**The No Eyebrow Rule.** No small uppercase label above a heading. The folder tab is the label.
 
 ## Layout
 
-Single centered column: `max-width` 800px with 24px side padding (reports dashboard 1000px, contact form 560px). The topbar is sticky and 48px tall. Sections use 56px vertical padding (40px at 600px and below) separated by 1px hairlines. Cards flow in an auto-fill grid with a 340px minimum and 16px gaps, collapsing to one column at 600px. The CV is a white A4-style sheet inside the column (40px 48px padding) with print styles that hide the topbar. Spacing rhythm is 4 / 8 / 16 / 24 / 56.
+The page is a full-bleed cabinet. Content sits inside one pair of equal outer margins (`clamp(16px, 4vw, 40px)`); the folder stack is 1200px wide and the nav bar aligns to the same 1200px frame. Inner pages use a folder head (dark band with the page title) at 560px (contact), 640px (playground), 800px (CV), 1000px (reports) or 1040px (shop and checkout), followed by a frost sheet with the content. Sections are 80-200px apart. The home runs: hero with the stack, the evidence index (a two-column list with a sticky preview frame, inline screenshots on phones), the closing band, and a footer where the name returns at full width.
+
+The stack: three back folders as 72px-tall bands (`CV`, `Playground`, `Contacto`), each offset 44px below the previous with its tab rising above its left edge; the front folder (`Reportes`) is open, runs into the hero's bottom edge and carries the CI figure, one line and a screenshot.
+
+The tab bar: Inicio, CV, Playground, Contacto, Reportes, in that order and at the same x on every page. On the home only Inicio is visible at the top; each folder tab docks to its slot to the right of the previous one as it reaches the bar, at the exact x it had in the stack. At 600px and below the bar is a single 52px row with smaller tabs.
 
 ## Elevation & Depth
 
-Mostly flat and tonal: depth comes from white sheets on warm paper and 1px hairlines, not from shadows.
+Flat. Depth is conveyed by stepping tone: `case-slate-deep` under `case-slate` under the lighter folder bands, `frost` sheets on slate, `mist` for the active row. Nothing has a shadow at rest.
 
 ### Shadow Vocabulary
-- **Card hairline** (`box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08)`): resting cards.
-- **Menu lift** (`box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08)`): language and navigation dropdowns only.
+- **Menu lift** (`box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18)`): the language and Playground dropdowns only.
 
 ### Named Rules
-**The Flat-By-Default Rule.** Surfaces are flat at rest. Only floating menus get a real lift; hover changes color, not elevation.
+**The Flat-By-Default Rule.** Surfaces are flat at rest; hover changes colour, never elevation.
 
 ## Shapes
 
-Gently rounded and quiet. Controls and nav links use 6px, cards and dropdowns 8px, badges are full pills (99px). Borders are 1px hairlines; the one heavy rule is the 2px graphite line under the CV header. Bullets are 6px teal dots.
+Hard-edged with one signature silhouette. Tabs and the primary button are trapezoids cut with `clip-path` (tabs: `polygon(0 100%, 8% 0, 92% 0, 100% 100%)`; button: both top corners cut 14px). Folder bands, heads, sheets and screenshots are square. Real form fields, dashboard cards and the language button keep a 6px radius, and borders appear only there and in tables. There are no thin rules between sections.
 
 ## Components
 
-### Buttons and Nav Links
-- **Shape:** 6px radius, 6px 12px padding, 0.875rem/500.
-- **Rest:** Muted Gray text, transparent.
-- **Hover / Active:** Teal Ink text on Teal Wash, 0.15s color and background transition.
-- **Language button:** white, 1px Hairline border, 0.8rem/600 with 0.04em tracking; hover turns text and border teal; chevron rotates 180deg when open.
+### Tabs (nav and folder labels)
+- **Shape:** trapezoid, 44px tall, padding 0 26px 0 22px, 6px gap between neighbours (2px on a phone).
+- **Rest:** Folder Slate with Ink on Dark text, 1rem/600.
+- **Hover:** Folder Slate Mid with white text, 0.15s.
+- **Active:** Case Slate with white text, the same tone as the head band beneath.
+- **Docked (home):** fixed to the bar, same size, colour and x as the page-bar version.
+- **Focus:** 3px white outline inside the shape.
 
-### Cards / Containers
-- **Corner Style:** 8px.
-- **Background:** Sheet White on Paper.
-- **Shadow Strategy:** Card hairline only.
-- **Internal Padding:** 20px 24px.
-- **Content:** title (600) with right-aligned badges, a mono file path in Muted Gray below.
+### Buttons
+- **Primary:** Teal Ink fill, white text, 52px minimum height, trapezoid top corners; hover darkens to #0a5c66 and lifts 2px, 0.15s. On the dark closing band the button inverts to white with slate text.
+- **Link button:** Teal Ink text, 600, 52px target; on dark it is white.
+- Focus: 3px outline (teal on frost, white on slate), 3px offset.
 
-### Badges
-- **Type badge:** Chip Gray fill, #555 text, pill, 0.72rem/500.
-- **Tag badge:** Teal Wash fill, Teal Ink text, same shape.
+### Folder bands (home stack)
+- Back folders are 72px bands: result right-aligned at 1.625rem/600, tab above the left edge. Whole band is the link. Hover steps the tone, it does not lift.
+- The front folder is Frost with 48px padding, a 5/7 copy-to-screenshot grid, and no bottom padding so the screenshot runs off the edge.
+
+### Folder head (inner pages)
+- A Case Slate band directly under the bar: page title at Headline size in white, one supporting sentence at Title size in Ink on Dark, max 46ch. It carries the shared `folder-open` transition name.
+
+### Evidence index
+- Rows of result, name and one line; the active row has a Mist fill and a Teal Ink name; pointing or focusing a row crossfades its screenshot (240ms) in a sticky frame, which drifts 4% over 8s. On phones each row shows its screenshot inline.
+
+### Forms and dashboard
+- Contact fields and the Chakra reports dashboard sit on the frost sheet: white inputs, 1px Rule Frost border, 6px radius, Teal Ink focus. The Chakra `teal` palette is remapped to #0d7480 in `web/src/theme.ts`.
 
 ### Navigation
-- Sticky white topbar, 48px, bottom hairline. Links left, spacer, language switcher right. Dropdown menus (Playground, language) are white with a Hairline border, 8px radius and Menu lift; items are 0.85rem/500 with Paper hover fill and teal text; the active item is 600.
-- Mobile (600px and below): the bar wraps to two rows, links and the language button keep 44px targets, the language switcher stays right-aligned and visible, and the Playground menu spans the bar width.
+- See Tabs. Dropdowns (Playground, language) are white with Menu lift. The language switcher is a translucent white button at the right of the bar.
 
-### Dashboard (Chakra UI)
-The reports dashboard uses Chakra primitives on top of the same tokens (fonts mapped to `--font-body` and `--font-display`; preflight scoped to `.chakra-scope`). Native selects are white with a 1px strong border (#d4d4d8, `--border-strong`) and 6px radius.
+### Motion
+- Entrance: parts of each section rise 24px and fade, 0.6s ease-out, staggered 70ms; folders only fade.
+- Folder to page: View Transition 0.55s `cubic-bezier(0.22, 1, 0.36, 1)`; the clicked folder becomes the head band and the tabs travel to their bar slots. Everything stops under `prefers-reduced-motion`.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep teal (#01696f) as the only chromatic color, on interaction and verification.
-- **Do** separate sections with 1px Hairline rules and 56px padding rather than boxes.
-- **Do** introduce each section with the uppercase 0.75rem teal label.
+- **Do** keep the tab set, order and x positions identical on every page.
+- **Do** build every new proof as a folder: a tab, a band, one real number or picture.
+- **Do** use real screenshots of this site for imagery; they live in `web/public/shots/`.
+- **Do** use Teal Ink for the one action and verification only.
+- **Do** set running text in Case Slate on frost and keep every text colour AA on its ground.
 - **Do** put new text in `web/src/i18n/translations.ts`; es and en stay equal.
-- **Do** give every interactive element a visible focus state and full keyboard operation (WCAG AA).
-- **Do** draw colors from the CSS variables in `web/src/css/tokens.css`.
-- **Do** use one solid button style: Teal Ink fill, white text, 6px radius, 44px minimum height. Chakra's `teal` palette is remapped to `#01696f` in `web/src/theme.ts`.
-- **Do** let the home page carry proof, not description: a ledger of verifiable rows (result in mono, title, one line) that link to the evidence.
+- **Do** keep a visible focus state and full keyboard operation on every control.
+- **Do** draw colours from the variables in `web/src/css/tokens.css`.
 
 ### Don't:
-- **Don't** introduce text lighter than Faint Stone (#6b6a65).
-- **Don't** add gradients, glass or colored shadows to UI chrome, and never a second accent color. The one exception is the QA Playground shop: its per-category art gradients are the gallery's identity.
-- **Don't** place text on an art gradient below 3:1; labels there are white with a dark text-shadow.
-- **Don't** use Instrument Serif for UI, data or section titles.
-- **Don't** raise cards on hover; change color, not elevation.
-- **Don't** hardcode hex values in components; use the tokens in `web/src/css/tokens.css` (`--chip-bg`, `--chip-text`, `--border-strong` included).
+- **Don't** add a second typeface or any monospace.
+- **Don't** add gradients, glass or shadows at rest to the interface.
+- **Don't** put an eyebrow label above a heading; the tab is the label.
+- **Don't** separate sections with hairlines or outlined boxes; use space or a tone step.
+- **Don't** set long text on a dark band or text below AA on any ground.
+- **Don't** give the same tab different positions or colours on different pages.
+- **Don't** hardcode hex values in components; use the tokens.

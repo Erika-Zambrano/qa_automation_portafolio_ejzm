@@ -1,24 +1,4 @@
-import { useMemo, useState } from 'react';
-import {
-  Accordion,
-  Alert,
-  Badge,
-  Box,
-  Card,
-  Code,
-  Heading,
-  HStack,
-  Input,
-  Link,
-  Progress,
-  SimpleGrid,
-  Span,
-  Stack,
-  Stat,
-  Table,
-  Tabs,
-  Text,
-} from '@chakra-ui/react';
+import { useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 
 type CheckResult = { id: string; pass: boolean; detail: string };
 type EvalRun = { output: string; checks: CheckResult[]; judge: { score: number; reason: string }; pass: boolean };
@@ -45,12 +25,36 @@ const copy = {
   es: {
     tabEval: 'Evaluación de IA',
     tabCi: 'Tests en CI',
-    recorded: 'Resultados grabados',
-    recordedDesc: 'Las ejecuciones se corren en CI o en local y se guardan como JSON versionado. Esta página solo los lee: sin llamadas a la API en vivo.',
-    passRate: 'Pass rate',
+    passing: 'Pasan',
+    failed: 'Fallan',
+    flaky: 'Flaky',
+    skipped: 'Omitidos',
+    duration: 'Duración',
+    ofSuite: 'de la suite',
+    lastRun: 'Última corrida',
+    nextRun: 'Próxima',
+    scheduleNote: 'Dos veces al día (06:00 y 18:00 UTC) en GitHub Actions. Esta página solo lee resultados grabados.',
+    viewRun: 'Ver corrida en GitHub',
+    triggerSchedule: 'programada',
+    triggerManual: 'manual',
+    triggerOther: 'automática',
+    byProject: 'Por proyecto',
+    project: 'Proyecto',
+    tests: 'Tests',
+    allTests: 'Todos los tests',
+    searchTests: 'Buscar por nombre',
+    allProjects: 'Todos los proyectos',
+    allStatuses: 'Todos los estados',
+    showing: 'Mostrando',
+    of: 'de',
+    noMatches: 'Ningún test coincide con los filtros.',
+    failing: 'Tests que fallan',
+    noFailing: 'Ningún test falla en la última corrida.',
+    emptyCi: 'Aún no hay resultados de CI. Ejecuta npx playwright test y npm run report:summarize.',
+    status: { passed: 'Pasa', failed: 'Falla', flaky: 'Flaky', skipped: 'Omitido' } as Record<string, string>,
     judge: 'Puntaje del juez',
     cases: 'Casos',
-    runs: 'Ejecuciones',
+    runs: 'ejecuciones',
     checks: 'Checks deterministas',
     subject: 'Modelo evaluado',
     judgeModel: 'Modelo juez',
@@ -60,46 +64,43 @@ const copy = {
     verdict: 'Veredicto del juez',
     emptyEvalTitle: 'Resultados de evaluación próximamente',
     emptyEvalDesc: 'El arnés evalúa un tutor conversacional con casos golden, checks deterministas y un juez LLM. El código está en la carpeta evals/ del repositorio; los resultados aparecerán aquí cuando se grabe una ejecución.',
-    emptyCi: 'Aún no hay resultados de CI. Ejecuta npx playwright test y npm run report:summarize.',
-    total: 'Total',
-    passed: 'Pasaron',
-    failed: 'Fallaron',
-    flaky: 'Flaky',
-    duration: 'Duración',
-    suite: 'Suite',
-    tests: 'Tests',
-    status: 'Estado',
-    test: 'Test',
-    project: 'Proyecto',
-    byProject: 'Por proyecto',
-    allTests: 'Todos los tests',
-    searchTests: 'Buscar por nombre…',
-    allProjects: 'Todos los proyectos',
-    allStatuses: 'Todos los estados',
-    showing: 'Mostrando',
-    of: 'de',
-    noMatches: 'Ningún test coincide con los filtros.',
-    lastRun: 'Última corrida',
-    nextRun: 'Próxima corrida programada',
-    scheduleNote: 'Corre automáticamente dos veces al día (06:00 y 18:00 UTC) en GitHub Actions.',
-    viewRun: 'Ver corrida en GitHub',
-    triggerSchedule: 'programada',
-    triggerManual: 'manual',
-    triggerOther: 'automática',
-    tags: 'Tags',
-    failing: 'Tests que fallan',
-    noFailing: 'Ningún test falla en la última ejecución.',
     category: { correction: 'Corrección', 'no-op': 'Sin error', interference: 'Interferencia', guardrail: 'Guardarraíl' } as Record<string, string>,
+    seconds: 's',
+    minutes: 'min',
   },
   en: {
     tabEval: 'AI evaluation',
     tabCi: 'CI tests',
-    recorded: 'Recorded results',
-    recordedDesc: 'Runs happen in CI or locally and are saved as versioned JSON. This page only reads them: no live API calls.',
-    passRate: 'Pass rate',
+    passing: 'Passing',
+    failed: 'Failed',
+    flaky: 'Flaky',
+    skipped: 'Skipped',
+    duration: 'Duration',
+    ofSuite: 'of the suite',
+    lastRun: 'Last run',
+    nextRun: 'Next',
+    scheduleNote: 'Twice a day (06:00 and 18:00 UTC) on GitHub Actions. This page only reads recorded results.',
+    viewRun: 'View run on GitHub',
+    triggerSchedule: 'scheduled',
+    triggerManual: 'manual',
+    triggerOther: 'automatic',
+    byProject: 'By project',
+    project: 'Project',
+    tests: 'Tests',
+    allTests: 'All tests',
+    searchTests: 'Search by name',
+    allProjects: 'All projects',
+    allStatuses: 'All statuses',
+    showing: 'Showing',
+    of: 'of',
+    noMatches: 'No tests match the filters.',
+    failing: 'Failing tests',
+    noFailing: 'No tests failing in the latest run.',
+    emptyCi: 'No CI results yet. Run npx playwright test and npm run report:summarize.',
+    status: { passed: 'Pass', failed: 'Fail', flaky: 'Flaky', skipped: 'Skipped' } as Record<string, string>,
     judge: 'Judge score',
     cases: 'Cases',
-    runs: 'Runs',
+    runs: 'runs',
     checks: 'Deterministic checks',
     subject: 'Evaluated model',
     judgeModel: 'Judge model',
@@ -109,126 +110,13 @@ const copy = {
     verdict: 'Judge verdict',
     emptyEvalTitle: 'Evaluation results coming soon',
     emptyEvalDesc: 'The harness evaluates a conversational tutor with golden cases, deterministic checks and an LLM judge. The code lives in the repository evals/ folder; results will appear here once a run is recorded.',
-    emptyCi: 'No CI results yet. Run npx playwright test and npm run report:summarize.',
-    total: 'Total',
-    passed: 'Passed',
-    failed: 'Failed',
-    flaky: 'Flaky',
-    duration: 'Duration',
-    suite: 'Suite',
-    tests: 'Tests',
-    status: 'Status',
-    test: 'Test',
-    project: 'Project',
-    byProject: 'By project',
-    allTests: 'All tests',
-    searchTests: 'Search by name…',
-    allProjects: 'All projects',
-    allStatuses: 'All statuses',
-    showing: 'Showing',
-    of: 'of',
-    noMatches: 'No tests match the filters.',
-    lastRun: 'Last run',
-    nextRun: 'Next scheduled run',
-    scheduleNote: 'Runs automatically twice a day (06:00 and 18:00 UTC) on GitHub Actions.',
-    viewRun: 'View run on GitHub',
-    triggerSchedule: 'scheduled',
-    triggerManual: 'manual',
-    triggerOther: 'automatic',
-    tags: 'Tags',
-    failing: 'Failing tests',
-    noFailing: 'No tests failing in the latest run.',
     category: { correction: 'Correction', 'no-op': 'No error', interference: 'Interference', guardrail: 'Guardrail' } as Record<string, string>,
+    seconds: 's',
+    minutes: 'min',
   },
 };
 
 type Copy = typeof copy.es;
-
-const pct = (n: number): string => `${Math.round(n * 100)}%`;
-const secs = (ms: number): string => `${(ms / 1000).toFixed(1)}s`;
-const palette = (rate: number): string => (rate >= 0.9 ? 'green' : rate >= 0.6 ? 'orange' : 'red');
-
-function Kpi({ label, value, help, color }: { label: string; value: string; help?: string; color?: string }) {
-  return (
-    <Card.Root variant="outline" bg="white">
-      <Card.Body p="4">
-        <Stat.Root>
-          <Stat.Label>{label}</Stat.Label>
-          <Stat.ValueText color={color}>{value}</Stat.ValueText>
-          {help ? <Stat.HelpText>{help}</Stat.HelpText> : null}
-        </Stat.Root>
-      </Card.Body>
-    </Card.Root>
-  );
-}
-
-function EvalPanel({ data, t, lang }: { data: EvalData | null; t: Copy; lang: string }) {
-  if (!data) {
-    return (
-      <Alert.Root status="neutral" variant="surface" mt="4">
-        <Alert.Content>
-          <Alert.Title>{t.emptyEvalTitle}</Alert.Title>
-          <Alert.Description>{t.emptyEvalDesc}</Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
-    );
-  }
-  const s = data.summary;
-  return (
-    <Stack gap="6" mt="4">
-      <SimpleGrid columns={{ base: 2, md: 4 }} gap="3">
-        <Kpi label={t.passRate} value={pct(s.passRate)} color={`${palette(s.passRate)}.600`} />
-        <Kpi label={t.judge} value={`${s.avgJudge.toFixed(1)} / 5`} />
-        <Kpi label={t.cases} value={String(s.cases)} help={`${s.totalRuns} ${t.runs.toLowerCase()}`} />
-        <Kpi label={t.checks} value={`${s.deterministicPassed}/${s.deterministicChecks}`} />
-      </SimpleGrid>
-      <HStack gap="2" wrap="wrap" fontSize="sm" color="gray.600">
-        <Span>{t.subject}: <Code>{data.subjectModel}</Code></Span>
-        <Span>· {t.judgeModel}: <Code>{data.judgeModel}</Code></Span>
-        <Span>· {t.generated}: {new Date(data.generatedAt).toLocaleString(lang)}</Span>
-      </HStack>
-      <Accordion.Root collapsible multiple>
-        {data.cases.map((c) => (
-          <Accordion.Item key={c.id} value={c.id} bg="white" borderWidth="1px" borderRadius="md" mb="2">
-            <Accordion.ItemTrigger px="4" py="3">
-              <HStack flex="1" gap="3" wrap="wrap">
-                <Text fontWeight="600">{c.title}</Text>
-                <Badge variant="subtle">{t.category[c.category] ?? c.category}</Badge>
-                <Badge colorPalette={palette(c.passRate)}>{pct(c.passRate)}</Badge>
-                <Text fontSize="sm" color="gray.500">{t.judge}: {c.avgJudge.toFixed(1)}</Text>
-              </HStack>
-              <Accordion.ItemIndicator />
-            </Accordion.ItemTrigger>
-            <Accordion.ItemContent>
-              <Accordion.ItemBody px="4" pb="4">
-                <Stack gap="4">
-                  <Box>
-                    <Text fontSize="xs" textTransform="uppercase" color="gray.500">{t.input}</Text>
-                    <Code>{c.input}</Code>
-                  </Box>
-                  {c.runs.map((r, i) => (
-                    <Box key={i} borderWidth="1px" borderRadius="md" p="3">
-                      <HStack mb="2" gap="2" wrap="wrap">
-                        <Badge colorPalette={r.pass ? 'green' : 'red'}>{r.pass ? 'PASS' : 'FAIL'}</Badge>
-                        <Text fontSize="sm">#{i + 1}</Text>
-                        {r.checks.map((ch) => (
-                          <Badge key={ch.id} colorPalette={ch.pass ? 'green' : 'red'} variant="outline" title={ch.detail}>{ch.id}</Badge>
-                        ))}
-                      </HStack>
-                      <Text fontSize="xs" textTransform="uppercase" color="gray.500">{t.output}</Text>
-                      <Code display="block" whiteSpace="pre-wrap" p="2" mb="2">{r.output}</Code>
-                      <Text fontSize="sm"><b>{t.verdict}:</b> {r.judge.score}/5 — {r.judge.reason}</Text>
-                    </Box>
-                  ))}
-                </Stack>
-              </Accordion.ItemBody>
-            </Accordion.ItemContent>
-          </Accordion.Item>
-        ))}
-      </Accordion.Root>
-    </Stack>
-  );
-}
 
 const SCHEDULE_HOURS_UTC = [6, 18];
 
@@ -242,9 +130,119 @@ function nextScheduledRun(from: Date): Date {
   return from;
 }
 
-const STATUS_COLOR: Record<string, string> = { passed: 'green', failed: 'red', flaky: 'orange', skipped: 'gray' };
+const num = (n: number, lang: string, digits = 0): string => n.toLocaleString(lang, { minimumFractionDigits: digits, maximumFractionDigits: digits });
+const stamp = (date: Date, lang: string): string => date.toLocaleString(lang, { dateStyle: 'medium', timeStyle: 'short' });
+const dur = (ms: number, t: Copy, lang: string): string =>
+  ms < 50 ? `<${num(0.1, lang, 1)} ${t.seconds}` : ms >= 60000 ? `${Math.floor(ms / 60000)} ${t.minutes} ${Math.round((ms % 60000) / 1000)} ${t.seconds}` : `${num(ms / 1000, lang, 1)} ${t.seconds}`;
 
-function AllTests({ tests, t }: { tests: CiTest[]; t: Copy }) {
+function Kpis({ cells }: { cells: Array<{ label: string; value: string; unit?: string; help?: string; lead?: boolean; bad?: boolean }> }) {
+  return (
+    <dl className="rp-kpis">
+      {cells.map((cell) => (
+        <div key={cell.label} className={`rp-kpi${cell.lead ? ' lead' : ''}`}>
+          <dt>{cell.label}</dt>
+          <dd className={cell.bad ? 'bad' : undefined}>
+            {cell.value}
+            {cell.unit && <span className="unit">{cell.unit}</span>}
+          </dd>
+          {cell.help && <p className="help">{cell.help}</p>}
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+function StatusMark({ status, t }: { status: string; t: Copy }) {
+  const label = t.status[status] ?? status;
+  return <span className={`rp-status ${status}`}>{label}</span>;
+}
+
+function EvalPanel({ data, t, lang }: { data: EvalData | null; t: Copy; lang: string }) {
+  if (!data) {
+    return (
+      <section className="rp-section">
+        <h2>{t.emptyEvalTitle}</h2>
+        <p className="rp-empty">{t.emptyEvalDesc}</p>
+      </section>
+    );
+  }
+  const s = data.summary;
+  return (
+    <>
+      <Kpis
+        cells={[
+          { label: t.passing, value: num(s.passRate * 100, lang, 1), unit: '%', lead: true, help: `${s.cases} ${t.cases.toLowerCase()} · ${s.totalRuns} ${t.runs}` },
+          { label: t.judge, value: num(s.avgJudge, lang, 1), unit: '/ 5' },
+          { label: t.cases, value: num(s.cases, lang) },
+          { label: t.checks, value: `${num(s.deterministicPassed, lang)}`, unit: `/ ${num(s.deterministicChecks, lang)}` },
+        ]}
+      />
+      <p className="rp-stamp">
+        {t.subject}: {data.subjectModel} · {t.judgeModel}: {data.judgeModel} · {t.generated}: {stamp(new Date(data.generatedAt), lang)}
+      </p>
+      <section className="rp-section">
+        <h2>{t.cases}</h2>
+        <div className="rp-list">
+          {data.cases.map((c) => (
+            <details key={c.id} className="rp-row">
+              <summary>
+                <span className="name">{c.title}</span>
+                <span className="meta">{t.category[c.category] ?? c.category}</span>
+                <span className="fig">{num(c.passRate * 100, lang)} %</span>
+                <span className="fig muted">{num(c.avgJudge, lang, 1)} / 5</span>
+              </summary>
+              <div className="rp-detail">
+                <p className="rp-label">{t.input}</p>
+                <p className="rp-well">{c.input}</p>
+                {c.runs.map((r, i) => (
+                  <div key={i} className="rp-run">
+                    <p className="rp-runhead">
+                      <StatusMark status={r.pass ? 'passed' : 'failed'} t={t} />
+                      <span className="muted">#{i + 1}</span>
+                      {r.checks.map((ch) => (
+                        <span key={ch.id} className={`rp-check${ch.pass ? '' : ' bad'}`} title={ch.detail}>{ch.id}</span>
+                      ))}
+                    </p>
+                    <p className="rp-label">{t.output}</p>
+                    <p className="rp-well pre">{r.output}</p>
+                    <p className="rp-verdict"><b>{t.verdict}:</b> {r.judge.score}/5 — {r.judge.reason}</p>
+                  </div>
+                ))}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+function SuiteBar({ data, t, lang }: { data: CiData; t: Copy; lang: string }) {
+  const l = data.latest;
+  const projects = data.projects ?? [];
+  const total = l.total || 1;
+  const parts = projects.length ? projects.filter((p) => p.passed > 0) : [{ name: t.passing, passed: l.passed }];
+  return (
+    <>
+    <p className="rp-legend">
+      <span><i className="dot pass" />{t.passing} {num(l.passed, lang)}</span>
+      {l.flaky > 0 && <span><i className="dot flaky" />{t.flaky} {num(l.flaky, lang)}</span>}
+      {l.failed > 0 && <span><i className="dot fail" />{t.failed} {num(l.failed, lang)}</span>}
+      {l.skipped > 0 && <span><i className="dot skip" />{t.skipped} {num(l.skipped, lang)}</span>}
+    </p>
+    <div className="rp-bar" role="img" aria-label={`${t.passing} ${l.passed}, ${t.skipped} ${l.skipped}`}>
+      {parts.map((p) => (
+        <span key={p.name} className="seg pass" style={{ flexGrow: p.passed }} title={`${p.name}: ${num(p.passed, lang)}`} />
+      ))}
+      {l.flaky > 0 && <span className="seg flaky" style={{ flexGrow: l.flaky }} title={`${t.flaky}: ${l.flaky}`} />}
+      {l.failed > 0 && <span className="seg fail" style={{ flexGrow: l.failed }} title={`${t.failed}: ${l.failed}`} />}
+      {l.skipped > 0 && <span className="seg skip" style={{ flexGrow: l.skipped, minWidth: `${Math.max((l.skipped / total) * 100, 0.6)}%` }} title={`${t.skipped}: ${l.skipped}`} />}
+    </div>
+    </>
+  );
+}
+
+function AllTests({ tests, files, t, lang }: { tests: CiTest[]; files: CiFile[]; t: Copy; lang: string }) {
   const [query, setQuery] = useState('');
   const [project, setProject] = useState('');
   const [status, setStatus] = useState('');
@@ -259,202 +257,185 @@ function AllTests({ tests, t }: { tests: CiTest[]; t: Copy }) {
     for (const test of filtered) groups.set(test.file, [...(groups.get(test.file) ?? []), test]);
     return [...groups.entries()];
   }, [filtered]);
+  const fileInfo = useMemo(() => new Map(files.map((f) => [f.file, f])), [files]);
 
   return (
-    <Box data-testid="all-tests">
-      <Heading size="md" mb="2">{t.allTests}</Heading>
-      <HStack gap="2" wrap="wrap" mb="3">
-        <Input bg="white" maxW="280px" size="sm" placeholder={t.searchTests} value={query} data-testid="all-tests-search" onChange={(event) => setQuery(event.target.value)} />
-        <select className="reports-select" value={project} data-testid="all-tests-project" onChange={(event) => setProject(event.target.value)}>
+    <section className="rp-section" data-testid="all-tests">
+      <h2>{t.allTests}</h2>
+      <div className="rp-toolbar">
+        <input className="rp-input" type="search" placeholder={t.searchTests} aria-label={t.searchTests} value={query} data-testid="all-tests-search" onChange={(event) => setQuery(event.target.value)} />
+        <select className="reports-select" value={project} aria-label={t.project} data-testid="all-tests-project" onChange={(event) => setProject(event.target.value)}>
           <option value="">{t.allProjects}</option>
           {projects.map((name) => <option key={name} value={name}>{name}</option>)}
         </select>
-        <select className="reports-select" value={status} data-testid="all-tests-status" onChange={(event) => setStatus(event.target.value)}>
+        <select className="reports-select" value={status} aria-label={t.status.passed} data-testid="all-tests-status" onChange={(event) => setStatus(event.target.value)}>
           <option value="">{t.allStatuses}</option>
-          {statuses.map((name) => <option key={name} value={name}>{name}</option>)}
+          {statuses.map((name) => <option key={name} value={name}>{t.status[name] ?? name}</option>)}
         </select>
-        <Text fontSize="sm" color="gray.600" data-testid="all-tests-count">{t.showing} {filtered.length} {t.of} {tests.length}</Text>
-      </HStack>
+        <p className="rp-count" data-testid="all-tests-count">{t.showing} {filtered.length} {t.of} {tests.length}</p>
+      </div>
       {byFile.length === 0 ? (
-        <Text color="gray.600">{t.noMatches}</Text>
+        <p className="rp-empty">{t.noMatches}</p>
       ) : (
-        <Accordion.Root collapsible multiple lazyMount unmountOnExit>
-          {byFile.map(([file, own]) => (
-            <Accordion.Item key={file} value={file} bg="white" borderWidth="1px" borderRadius="md" mb="2">
-              <Accordion.ItemTrigger px="4" py="2">
-                <HStack flex="1" gap="3" wrap="wrap">
-                  <Code>{file}</Code>
-                  <Text fontSize="sm" color="gray.600">{own.filter((x) => x.status === 'passed').length}/{own.length}</Text>
-                </HStack>
-                <Accordion.ItemIndicator />
-              </Accordion.ItemTrigger>
-              <Accordion.ItemContent>
-                <Accordion.ItemBody px="4" pb="3">
-                  <Stack gap="1">
-                    {own.map((x, index) => (
-                      <HStack key={`${x.title}:${x.project}:${index}`} gap="3" wrap="wrap">
-                        <Badge colorPalette={STATUS_COLOR[x.status] ?? 'gray'}>{x.status}</Badge>
-                        <Text fontSize="sm" flex="1" minW="200px">{x.title}</Text>
-                        {x.tags.map((tag) => <Badge key={tag} variant="subtle">{tag}</Badge>)}
-                        <Code fontSize="xs">{x.project}</Code>
-                        <Text fontSize="xs" color="gray.600">{secs(x.duration)}</Text>
-                      </HStack>
-                    ))}
-                  </Stack>
-                </Accordion.ItemBody>
-              </Accordion.ItemContent>
-            </Accordion.Item>
-          ))}
-        </Accordion.Root>
+        <div className="rp-list">
+          {byFile.map(([file, own]) => {
+            const info = fileInfo.get(file);
+            return (
+              <details key={file} className="rp-row">
+                <summary>
+                  <span className="name">{file}</span>
+                  <span className="meta">{info?.tags.join(' ')}</span>
+                  <span className="fig">{own.filter((x) => x.status === 'passed').length}/{own.length}</span>
+                  <span className="fig muted">{info ? dur(info.duration, t, lang) : ''}</span>
+                </summary>
+                <ul className="rp-tests">
+                  {own.map((x, index) => (
+                    <li key={`${x.title}:${x.project}:${index}`}>
+                      <StatusMark status={x.status} t={t} />
+                      <span className="title">{x.title}</span>
+                      <span className="meta">{x.project}</span>
+                      <span className="fig muted">{dur(x.duration, t, lang)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            );
+          })}
+        </div>
       )}
-    </Box>
+    </section>
   );
 }
 
 function CiPanel({ data, t, lang }: { data: CiData | null; t: Copy; lang: string }) {
   if (!data) {
     return (
-      <Alert.Root status="neutral" variant="surface" mt="4">
-        <Alert.Content>
-          <Alert.Description>{t.emptyCi}</Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+      <section className="rp-section">
+        <p className="rp-empty">{t.emptyCi}</p>
+      </section>
     );
   }
   const l = data.latest;
-  const rate = l.total ? l.passed / l.total : 0;
+  const rate = l.total ? (l.passed / l.total) * 100 : 0;
   const failing = data.tests.filter((x) => x.status === 'failed');
+  const trigger = l.trigger === 'schedule' ? t.triggerSchedule : l.trigger === 'workflow_dispatch' ? t.triggerManual : t.triggerOther;
   return (
-    <Stack gap="6" mt="4">
-      <SimpleGrid columns={{ base: 2, md: 4 }} gap="3">
-        <Kpi label={t.passRate} value={pct(rate)} color={`${palette(rate)}.600`} help={`${l.passed}/${l.total}`} />
-        <Kpi label={t.failed} value={String(l.failed)} color={l.failed ? 'red.600' : 'green.600'} />
-        <Kpi label={t.flaky} value={String(l.flaky)} />
-        <Kpi label={t.duration} value={secs(l.wallDuration)} />
-      </SimpleGrid>
-      <Box bg="white" borderWidth="1px" borderRadius="md" px="4" py="3">
-        <Stack gap="1" fontSize="sm">
-          <HStack gap="2" wrap="wrap">
-            <Text fontWeight="semibold">{t.lastRun}:</Text>
-            <Text>{new Date(l.generatedAt).toLocaleString(lang)}</Text>
-            {l.trigger && <Badge variant="subtle">{l.trigger === 'schedule' ? t.triggerSchedule : l.trigger === 'workflow_dispatch' ? t.triggerManual : t.triggerOther}</Badge>}
-            {l.commit && <Code>{l.commit}</Code>}
-            {l.runUrl && <Link href={l.runUrl} target="_blank" rel="noreferrer">{t.viewRun}</Link>}
-          </HStack>
-          <HStack gap="2" wrap="wrap">
-            <Text fontWeight="semibold">{t.nextRun}:</Text>
-            <Text>{nextScheduledRun(new Date()).toLocaleString(lang)}</Text>
-          </HStack>
-          <Text color="gray.600">{t.scheduleNote}</Text>
-        </Stack>
-      </Box>
+    <>
+      <Kpis
+        cells={[
+          { label: t.passing, value: num(l.passed, lang), unit: `/ ${num(l.total, lang)}`, lead: true, help: `${num(rate, lang, 1)} % ${t.ofSuite}` },
+          { label: t.failed, value: num(l.failed, lang), bad: l.failed > 0 },
+          { label: t.flaky, value: num(l.flaky, lang) },
+          { label: t.skipped, value: num(l.skipped, lang) },
+          { label: t.duration, value: dur(l.wallDuration, t, lang) },
+        ]}
+      />
+      <p className="rp-stamp">
+        {t.lastRun}: {stamp(new Date(l.generatedAt), lang)} · {trigger}
+        {l.commit ? ` · ${l.commit}` : ''}
+        {l.runUrl && <> · <a href={l.runUrl} target="_blank" rel="noreferrer">{t.viewRun}</a></>}
+        <br />
+        {t.nextRun}: {stamp(nextScheduledRun(new Date()), lang)} · {t.scheduleNote}
+      </p>
 
       {data.projects && data.projects.length > 0 && (
-        <Box>
-          <Heading size="md" mb="2">{t.byProject}</Heading>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="3">
-            {data.projects.map((p) => {
-              const r = p.total ? p.passed / p.total : 0;
-              return (
-                <Box key={p.name} bg="white" borderWidth="1px" borderRadius="md" px="4" py="3">
-                  <HStack justify="space-between">
-                    <Code>{p.name}</Code>
-                    <Text fontSize="sm" color="gray.600">{secs(p.duration)}</Text>
-                  </HStack>
-                  <Progress.Root value={r * 100} colorPalette={palette(r)} size="sm" mt="2">
-                    <Progress.Track><Progress.Range /></Progress.Track>
-                  </Progress.Root>
-                  <Text fontSize="xs" color="gray.600">{p.passed}/{p.total}{p.failed ? ` · ${p.failed} ${t.failed.toLowerCase()}` : ''}{p.flaky ? ` · ${p.flaky} ${t.flaky.toLowerCase()}` : ''}</Text>
-                </Box>
-              );
-            })}
-          </SimpleGrid>
-        </Box>
+        <section className="rp-section">
+          <h2>{t.byProject}</h2>
+          <SuiteBar data={data} t={t} lang={lang} />
+          <table className="rp-table">
+            <thead>
+              <tr>
+                <th scope="col">{t.project}</th>
+                <th scope="col" className="num">{t.passing}</th>
+                <th scope="col" className="num">{t.duration}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.projects.map((p) => {
+                const skipped = p.total - p.passed - p.failed - p.flaky;
+                return (
+                  <tr key={p.name}>
+                    <th scope="row">
+                      {p.name}
+                      {(skipped > 0 || p.failed > 0 || p.flaky > 0) && (
+                        <span className="sub">
+                          {[p.failed ? `${p.failed} ${t.failed.toLowerCase()}` : '', p.flaky ? `${p.flaky} ${t.flaky.toLowerCase()}` : '', skipped ? `${skipped} ${t.skipped.toLowerCase()}` : ''].filter(Boolean).join(' · ')}
+                        </span>
+                      )}
+                    </th>
+                    <td className="num">{num(p.passed, lang)}/{num(p.total, lang)}</td>
+                    <td className="num muted">{dur(p.duration, t, lang)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </section>
       )}
 
-      <Box bg="white" borderWidth="1px" borderRadius="md" overflowX="auto">
-        <Table.Root size="sm">
-          <Table.Header>
-            <Table.Row>
-              <Table.ColumnHeader>{t.suite}</Table.ColumnHeader>
-              <Table.ColumnHeader>{t.tags}</Table.ColumnHeader>
-              <Table.ColumnHeader minW="140px">{t.tests}</Table.ColumnHeader>
-              <Table.ColumnHeader textAlign="end">{t.duration}</Table.ColumnHeader>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {data.files.map((f) => {
-              const r = f.total ? f.passed / f.total : 0;
-              return (
-                <Table.Row key={f.file}>
-                  <Table.Cell><Code>{f.file}</Code></Table.Cell>
-                  <Table.Cell>
-                    <HStack gap="1" wrap="wrap">{f.tags.map((tag) => <Badge key={tag} variant="subtle">{tag}</Badge>)}</HStack>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Progress.Root value={r * 100} colorPalette={palette(r)} size="sm">
-                      <Progress.Track><Progress.Range /></Progress.Track>
-                    </Progress.Root>
-                    <Text fontSize="xs" color="gray.600">{f.passed}/{f.total}</Text>
-                  </Table.Cell>
-                  <Table.Cell textAlign="end">{secs(f.duration)}</Table.Cell>
-                </Table.Row>
-              );
-            })}
-          </Table.Body>
-        </Table.Root>
-      </Box>
+      <AllTests tests={data.tests} files={data.files} t={t} lang={lang} />
 
-      <AllTests tests={data.tests} t={t} />
-
-      <Box>
-        <Heading size="md" mb="2">{t.failing}</Heading>
-        {failing.length === 0 ? (
-          <Text color="gray.600">{t.noFailing}</Text>
-        ) : (
-          <Stack gap="2">
+      {failing.length > 0 && (
+        <section className="rp-section">
+          <h2>{t.failing}</h2>
+          <ul className="rp-tests">
             {failing.map((x) => (
-              <HStack key={`${x.file}:${x.title}`} bg="white" borderWidth="1px" borderRadius="md" px="3" py="2" gap="3" wrap="wrap">
-                <Badge colorPalette="red">{x.project}</Badge>
-                <Text fontSize="sm" flex="1">{x.title}</Text>
-                <Code fontSize="xs">{x.file}</Code>
-              </HStack>
+              <li key={`${x.file}:${x.title}`}>
+                <StatusMark status="failed" t={t} />
+                <span className="title">{x.title}</span>
+                <span className="meta">{x.project}</span>
+                <span className="fig muted">{x.file}</span>
+              </li>
             ))}
-          </Stack>
-        )}
-      </Box>
-    </Stack>
+          </ul>
+        </section>
+      )}
+    </>
   );
 }
 
 export default function ReportsDashboard({ lang, evalData, ciData }: Props) {
   const t = copy[lang];
+  const base = useId();
+  const order = evalData ? (['eval', 'ci'] as const) : (['ci', 'eval'] as const);
+  const [tab, setTab] = useState<'eval' | 'ci'>(order[0]);
+  const refs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const label = { eval: t.tabEval, ci: t.tabCi };
+
+  const onKey = (event: KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft' && event.key !== 'Home' && event.key !== 'End') return;
+    event.preventDefault();
+    const index = order.indexOf(tab);
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? order.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + order.length) % order.length;
+    setTab(order[next]);
+    refs.current[order[next]]?.focus();
+  };
+
   return (
-      <Box className="chakra-scope" data-testid="reports-dashboard">
-        <Alert.Root status="neutral" variant="surface" mb="6">
-          <Alert.Indicator />
-          <Alert.Content>
-            <Alert.Title>{t.recorded}</Alert.Title>
-            <Alert.Description>{t.recordedDesc}</Alert.Description>
-          </Alert.Content>
-        </Alert.Root>
-        <Tabs.Root defaultValue={evalData ? 'eval' : 'ci'} variant="line" colorPalette="teal">
-          <Tabs.List>
-            {evalData ? (
-              <>
-                <Tabs.Trigger value="eval" data-testid="tab-eval">{t.tabEval}</Tabs.Trigger>
-                <Tabs.Trigger value="ci" data-testid="tab-ci">{t.tabCi}</Tabs.Trigger>
-              </>
-            ) : (
-              <>
-                <Tabs.Trigger value="ci" data-testid="tab-ci">{t.tabCi}</Tabs.Trigger>
-                <Tabs.Trigger value="eval" data-testid="tab-eval">{t.tabEval}</Tabs.Trigger>
-              </>
-            )}
-          </Tabs.List>
-          <Tabs.Content value="eval"><EvalPanel data={evalData} t={t} lang={lang} /></Tabs.Content>
-          <Tabs.Content value="ci"><CiPanel data={ciData} t={t} lang={lang} /></Tabs.Content>
-        </Tabs.Root>
-      </Box>
+    <div className="rp" data-testid="reports-dashboard">
+      <div className="rp-tabs" role="tablist">
+        {order.map((key) => (
+          <button
+            key={key}
+            ref={(el) => { refs.current[key] = el; }}
+            type="button"
+            role="tab"
+            id={`${base}-${key}-tab`}
+            aria-selected={tab === key}
+            aria-controls={`${base}-${key}-panel`}
+            tabIndex={tab === key ? 0 : -1}
+            data-testid={`tab-${key}`}
+            className="rp-tab"
+            onClick={() => setTab(key)}
+            onKeyDown={onKey}
+          >
+            {label[key]}
+          </button>
+        ))}
+      </div>
+      <div role="tabpanel" id={`${base}-${tab}-panel`} aria-labelledby={`${base}-${tab}-tab`} className="rp-panel">
+        {tab === 'eval' ? <EvalPanel data={evalData} t={t} lang={lang} /> : <CiPanel data={ciData} t={t} lang={lang} />}
+      </div>
+    </div>
   );
 }

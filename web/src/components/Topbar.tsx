@@ -25,8 +25,6 @@ const options: Array<{ lang: Lang; label: string }> = [
   { lang: 'en', label: 'EN — English' },
 ];
 
-const widths: Record<string, number> = { '/': 800, '/cv': 800, '/contact': 560, '/reports': 1000, '/playground/shop': 1040, '/playground/checkout': 1040 };
-
 export function Topbar() {
   const { lang, setLang, t, withLang } = useLang();
   const [open, setOpen] = useState(false);
@@ -35,6 +33,8 @@ export function Topbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
   const inPlayground = pathname.startsWith('/playground');
+  const isHome = pathname === '/';
+  const tabName = (id: string) => (isHome ? undefined : { viewTransitionName: `tab-${id}` });
 
   useEffect(() => setMenuOpen(false), [pathname]);
 
@@ -43,7 +43,10 @@ export function Topbar() {
       if (!menuRef.current?.contains(event.target as Node)) setMenuOpen(false);
     };
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false);
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        setOpen(false);
+      }
     };
     document.addEventListener('click', onClick);
     document.addEventListener('keydown', onKey);
@@ -61,20 +64,23 @@ export function Topbar() {
     return () => document.removeEventListener('click', onClick);
   }, []);
 
+  const renderLink = (link: (typeof links)[number]) => (
+    <NavLink
+      key={link.id}
+      to={withLang(link.to)}
+      end={link.to === '/'}
+      className={({ isActive }) => `topbar-link${isActive ? ' active' : ''}`}
+      data-testid={link.id}
+      style={tabName(link.id.replace('nav-', ''))}
+    >
+      {link.key ? t(link.key) : 'CV'}
+    </NavLink>
+  );
+
   return (
-    <nav className="topbar" aria-label="Main navigation" data-testid="topbar">
-      <div className="topbar-inner" style={{ maxWidth: widths[pathname] ?? 640 }}>
-        {links.map((link) => (
-          <NavLink
-            key={link.id}
-            to={withLang(link.to)}
-            end={link.to === '/'}
-            className={({ isActive }) => `topbar-link${isActive ? ' active' : ''}`}
-            data-testid={link.id}
-          >
-            {link.key ? t(link.key) : 'CV'}
-          </NavLink>
-        ))}
+    <nav className={`topbar${isHome ? ' is-home' : ''}`} aria-label="Main navigation" data-testid="topbar">
+      <div className="topbar-inner">
+        {links.slice(0, 2).map(renderLink)}
         <div className="nav-menu" data-testid="nav-playground-menu" ref={menuRef}>
           <button
             type="button"
@@ -83,6 +89,7 @@ export function Topbar() {
             aria-expanded={menuOpen}
             aria-controls="nav-playground-list"
             data-testid="nav-playground"
+            style={tabName('playground')}
             onClick={() => setMenuOpen((v) => !v)}
           >
             {t('pg-nav')}
@@ -105,6 +112,7 @@ export function Topbar() {
             ))}
           </div>
         </div>
+        {links.slice(2).map(renderLink)}
         <div className="topbar-spacer" />
         <div className="lang-switcher" data-testid="lang-switcher" ref={switcherRef}>
           <button

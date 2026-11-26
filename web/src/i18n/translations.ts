@@ -40,6 +40,29 @@ export type Translations = Record<PgKey, string> & {
   'proof-eval-desc': string;
   'proof-cv-title': string;
   'proof-cv-desc': string;
+  'folder-pg-line': string;
+  'folder-contact-line': string;
+  'front-desc': string;
+  'front-link': string;
+  'close-title': string;
+  'cta-cv': string;
+  'close-line': string;
+  'folder-contact-result': string;
+  'alt-reports': string;
+  'alt-shop': string;
+  'alt-eval': string;
+  'alt-cv': string;
+  'hero-art-alt': string;
+  'chip-tests': string;
+  'chip-evals': string;
+  'hero-chips-label': string;
+  'peek-cv-1': string;
+  'peek-cv-2': string;
+  'peek-pg-1': string;
+  'peek-pg-2': string;
+  'peek-ct-1': string;
+  'peek-ct-2': string;
+  'alt-contact': string;
 
   /* Contact */
   'contact-label': string;
@@ -115,12 +138,12 @@ export const translations: Record<Lang, Translations> = {
     /* Topbar */
     'nav-home':    'Inicio',
     'nav-contact': 'Contacto',
-    'nav-reports': 'Reportes',
+    'nav-reports': 'Resultados',
 
     /* Index */
     'header-role':  'QA Automation Engineer',
     'about-label':  'Sobre este portfolio',
-    'about-text':   'Calidad de IA conversacional y automatización QA con evidencia que se puede verificar: cada afirmación de este sitio enlaza a algo que corre.',
+    'about-text':   'Calidad de IA conversacional y pruebas automatizadas. Todo lo que ves enlaza a algo que corre.',
     'suites-label': 'Suites de tests',
     'suites-title': 'Qué se testea',
     'card1-title':  'Navegación',
@@ -136,7 +159,7 @@ export const translations: Record<Lang, Translations> = {
     'stack-ts':     'Tipado estricto',
     'stack-pom':    'Abstracción mantenible de UI',
     'stack-api':    'Playwright request context',
-    'footer-copy':  'Hecho por Erika Zambrano usando Claude Code como herramienta · 2026',
+    'footer-copy':  'Hecho por Erika Zambrano · 2026',
     'home-cta': 'Hablemos →',
     'hero-proof': '{passed}/{total} tests pasan en CI →',
     'home-cv': 'Ver CV',
@@ -149,6 +172,29 @@ export const translations: Record<Lang, Translations> = {
     'proof-eval-desc': 'Casos golden, checks deterministas y un juez LLM sobre un tutor conversacional.',
     'proof-cv-title': 'CV',
     'proof-cv-desc': 'Experiencia, proyectos y herramientas, en español e inglés.',
+    'folder-pg-line': 'Tienda E2E y API, más el arnés de evaluación de IA.',
+    'folder-contact-line': 'Agenda una conversación o escríbeme directo.',
+    'front-desc': '{failed} fallan, {skipped} omitidos. Resultados grabados de la última ejecución.',
+    'front-link': 'Ver reporte completo →',
+    'close-title': '¿Buscas QA Automation? Hablemos.',
+    'cta-cv': 'Ver CV →',
+    'close-line': 'Disponible para entrevistas.',
+    'folder-contact-result': 'Disponible',
+    'alt-reports': 'Panel de reportes con la última ejecución de CI',
+    'alt-shop': 'Tienda del QA Playground con filtros y tarjetas de obras',
+    'alt-eval': 'Panel de reportes en la pestaña de evaluación de IA',
+    'alt-cv': 'Página del CV',
+    'hero-art-alt': 'Archivador de oficina de los años 80 con cajones de CV, laboratorio, contacto y resultados; el monitor de encima muestra cuántos tests pasan.',
+    'chip-tests': '{n} tests',
+    'chip-evals': '{n} evals de IA',
+    'hero-chips-label': 'Evidencia en cifras',
+    'peek-cv-1': 'Quality Engineer con casi 7 años en productos SaaS.',
+    'peek-cv-2': 'Playwright · TypeScript · API testing · CI/CD',
+    'peek-pg-1': '{api} casos de API, {e2e} E2E y {evals} casos de evaluación de IA.',
+    'peek-pg-2': 'Una tienda real con carrito y checkout, y un arnés con juez LLM para un tutor conversacional.',
+    'peek-ct-1': 'Disponible para entrevistas.',
+    'peek-ct-2': 'Escríbeme en español o en inglés.',
+    'alt-contact': 'Página de contacto con el formulario',
 
     /* Contact */
     'contact-label':            'Contacto',
@@ -236,12 +282,12 @@ export const translations: Record<Lang, Translations> = {
     /* Topbar */
     'nav-home':    'Home',
     'nav-contact': 'Contact',
-    'nav-reports': 'Reports',
+    'nav-reports': 'Results',
 
     /* Index */
     'header-role':  'QA Automation Engineer',
     'about-label':  'About this portfolio',
-    'about-text':   'Conversational AI quality and QA automation with evidence you can verify: every claim on this site links to something that runs.',
+    'about-text':   'Conversational AI quality and test automation. Everything you see links to something that runs.',
     'suites-label': 'Test suites',
     'suites-title': "What's tested",
     'card1-title':  'Navigation',
@@ -257,7 +303,7 @@ export const translations: Record<Lang, Translations> = {
     'stack-ts':     'Strict-mode type safety',
     'stack-pom':    'Maintainable UI abstraction',
     'stack-api':    'Playwright request context',
-    'footer-copy':  'Built by Erika Zambrano using Claude Code as a tool · 2026',
+    'footer-copy':  'Built by Erika Zambrano · 2026',
     'home-cta': 'Let\'s talk →',
     'hero-proof': '{passed}/{total} tests passing in CI →',
     'home-cv': 'View CV',
@@ -270,6 +316,29 @@ export const translations: Record<Lang, Translations> = {
     'proof-eval-desc': 'Golden cases, deterministic checks and an LLM judge over a conversational tutor.',
     'proof-cv-title': 'CV',
     'proof-cv-desc': 'Experience, projects and tools, in Spanish and English.',
+    'folder-pg-line': 'E2E and API shop, plus the AI evaluation harness.',
+    'folder-contact-line': 'Book a conversation or write to me directly.',
+    'front-desc': '{failed} failed, {skipped} skipped. Recorded results from the latest run.',
+    'front-link': 'See the full report →',
+    'close-title': 'Hiring for QA automation? Let\'s talk.',
+    'cta-cv': 'View CV →',
+    'close-line': 'Open to interviews.',
+    'folder-contact-result': 'Available',
+    'alt-reports': 'Reports dashboard with the latest CI run',
+    'alt-shop': 'QA Playground shop with filters and artwork cards',
+    'alt-eval': 'Reports dashboard on the AI evaluation tab',
+    'alt-cv': 'Curriculum vitae page',
+    'hero-art-alt': '1980s office filing cabinet with drawers for CV, test lab, contact and results; the monitor on top shows how many tests pass.',
+    'chip-tests': '{n} tests',
+    'chip-evals': '{n} AI evals',
+    'hero-chips-label': 'Evidence in numbers',
+    'peek-cv-1': 'Quality Engineer with nearly 7 years on SaaS products.',
+    'peek-cv-2': 'Playwright · TypeScript · API testing · CI/CD',
+    'peek-pg-1': '{api} API cases, {e2e} E2E and {evals} AI evaluation cases.',
+    'peek-pg-2': 'A working shop with cart and checkout, and a harness with an LLM judge for a conversational tutor.',
+    'peek-ct-1': 'Open to interviews.',
+    'peek-ct-2': 'Write to me in Spanish or English.',
+    'alt-contact': 'Contact page with the form',
 
     /* Contact */
     'contact-label':            'Contact',

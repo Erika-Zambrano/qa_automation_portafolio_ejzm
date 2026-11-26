@@ -1,13 +1,15 @@
 const dict = {
-  'pg-nav': ['Playground', 'Playground'],
+  'pg-nav': ['Laboratorio', 'Test lab'],
   'pg-nav-home': ['Inicio del playground', 'Playground home'],
-  'pg-nav-shop': ['Galería', 'Gallery'],
+  'pg-nav-shop': ['Tienda', 'Shop'],
   'pg-nav-checkout': ['Checkout', 'Checkout'],
-  'pg-nav-forms': ['Solicitudes', 'Requests'],
+  'pg-nav-forms': ['API', 'API'],
   'pg-nav-login': ['Iniciar sesión', 'Log in'],
   'pg-nav-signup': ['Crear cuenta', 'Sign up'],
 
   'pg-label': ['QA Playground', 'QA Playground'],
+  'pg-art-credits': ['Créditos de las imágenes', 'Image credits'],
+  'pg-art-note': ['Imágenes de Wikimedia Commons y Wikipedia. Varias obras siguen protegidas por derechos de autor y se muestran solo en este ejercicio de portafolio sin fines comerciales.', 'Images from Wikimedia Commons and Wikipedia. Several works are still under copyright and are shown only in this non-commercial portfolio exercise.'],
   'pg-session-guest': ['Invitado', 'Guest'],
   'pg-session-as': ['Sesión', 'Signed in'],
   'pg-login-link': ['Entrar', 'Log in'],

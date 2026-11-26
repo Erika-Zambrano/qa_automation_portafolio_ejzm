@@ -16,9 +16,9 @@
 .pg-h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--heading); margin: 32px 0 12px; }
 .pg-error { color: #c53030; font-size: 0.85rem; margin-top: 6px; }
 
-.pg-btn { display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: #fff; font: 600 0.85rem var(--font-body); cursor: pointer; text-decoration: none; transition: opacity 0.15s; }
+.pg-btn { display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; border-radius: 6px; border: 1px solid var(--action); background: var(--action); color: var(--action-ink); font: 600 0.85rem var(--font-body); cursor: pointer; text-decoration: none; transition: opacity 0.15s; }
 .pg-btn:hover { opacity: 0.9; text-decoration: none; }
-.pg-btn.secondary { background: var(--white); color: var(--accent); }
+.pg-btn.secondary { background: var(--white); color: var(--accent); border-color: var(--accent); }
 .pg-btn:disabled, .pg-btn[aria-disabled='true'] { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 .pg-btn:focus-visible, .pg-link:focus-visible, .pg-qty button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
@@ -62,7 +62,10 @@
 .pg-stock.out { color: #c53030; }
 .pg-card .pg-btn { margin-top: auto; }
 
-.pg-art { height: 110px; display: flex; align-items: flex-end; padding: 10px 14px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.55); font: 1.4rem var(--font-display); background: linear-gradient(135deg, #6b7a8f, #2c3e50); }
+.pg-art { height: 180px; display: flex; align-items: flex-end; padding: 10px 14px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.55); font: 1.4rem var(--font-display); background: linear-gradient(135deg, #6b7a8f, #2c3e50); }
+.pg-art.has-img { position: relative; height: 180px; padding: 0; background: var(--surface); text-shadow: none; }
+.pg-art.has-img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+.pg-art.has-img span { position: absolute; left: 0; bottom: 0; padding: 3px 12px; background: var(--ink); color: #fff; font: 600 0.9rem var(--font-body); }
 .pg-art.cat-impressionism { background: linear-gradient(135deg, #4f8aa0, #a8782f); }
 .pg-art.cat-post-impressionism { background: linear-gradient(135deg, #1e3a8a, #f2c94c); }
 .pg-art.cat-expressionism { background: linear-gradient(135deg, #c0392b, #f39c12); }
@@ -102,3 +105,8 @@
 .pg-data dd { color: var(--muted); }
 .pg-tips { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 0.875rem; }
 .pg-confirmation { display: flex; flex-direction: column; gap: 16px; }
+
+.pg-credits { margin-top: 32px; font-size: 0.875rem; color: var(--muted); }
+.pg-credits summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; color: var(--text); }
+.pg-credits ul { margin: 8px 0 0; padding-left: 18px; }
+.pg-credits li { margin-bottom: 4px; }
