@@ -1,15 +1,15 @@
 {
   "latest": {
-    "generatedAt": "2026-11-25T16:32:29.329Z",
+    "generatedAt": "2026-11-26T01:23:17.443Z",
     "commit": "8cd0c63",
     "trigger": "schedule",
-    "runUrl": "https://github.com/Erika-Zambrano/qa_automation_portafolio_ejzm/actions/runs/45654531585",
+    "runUrl": "https://github.com/Erika-Zambrano/qa_automation_portafolio_ejzm/actions/runs/45735128337",
     "total": 683,
     "passed": 683,
     "failed": 0,
     "flaky": 0,
     "skipped": 0,
-    "wallDuration": 92825
+    "wallDuration": 94333
   },
   "projects": [
     {
@@ -18,7 +18,7 @@
       "passed": 549,
       "failed": 0,
       "flaky": 0,
-      "duration": 4679
+      "duration": 4797
     },
     {
       "name": "portfolio",
@@ -26,7 +26,7 @@
       "passed": 13,
       "failed": 0,
       "flaky": 0,
-      "duration": 8918
+      "duration": 7599
     },
     {
       "name": "playground",
@@ -34,7 +34,7 @@
       "passed": 73,
       "failed": 0,
       "flaky": 0,
-      "duration": 65279
+      "duration": 68014
     },
     {
       "name": "api",
@@ -42,7 +42,7 @@
       "passed": 4,
       "failed": 0,
       "flaky": 0,
-      "duration": 2013
+      "duration": 1727
     },
     {
       "name": "api-playground-stateful",
@@ -50,7 +50,7 @@
       "passed": 44,
       "failed": 0,
       "flaky": 0,
-      "duration": 425
+      "duration": 435
     }
   ],
   "files": [
@@ -60,7 +60,7 @@
       "passed": 61,
       "failed": 0,
       "flaky": 0,
-      "duration": 1595,
+      "duration": 1610,
       "tags": [
         "@smoke",
         "@sanity",
@@ -73,7 +73,7 @@
       "passed": 101,
       "failed": 0,
       "flaky": 0,
-      "duration": 521,
+      "duration": 533,
       "tags": [
         "@smoke",
         "@sanity",
@@ -86,7 +86,7 @@
       "passed": 49,
       "failed": 0,
       "flaky": 0,
-      "duration": 928,
+      "duration": 940,
       "tags": [
         "@smoke",
         "@regression",
@@ -99,7 +99,7 @@
       "passed": 65,
       "failed": 0,
       "flaky": 0,
-      "duration": 310,
+      "duration": 322,
       "tags": [
         "@smoke",
         "@regression",
@@ -112,7 +112,7 @@
       "passed": 51,
       "failed": 0,
       "flaky": 0,
-      "duration": 351,
+      "duration": 392,
       "tags": [
         "@smoke",
         "@sanity",
@@ -125,7 +125,7 @@
       "passed": 104,
       "failed": 0,
       "flaky": 0,
-      "duration": 437,
+      "duration": 455,
       "tags": [
         "@smoke",
         "@sanity",
@@ -138,7 +138,7 @@
       "passed": 72,
       "failed": 0,
       "flaky": 0,
-      "duration": 385,
+      "duration": 381,
       "tags": [
         "@smoke",
         "@sanity",
@@ -151,7 +151,7 @@
       "passed": 46,
       "failed": 0,
       "flaky": 0,
-      "duration": 152,
+      "duration": 164,
       "tags": [
         "@regression"
       ]
@@ -162,7 +162,7 @@
       "passed": 6,
       "failed": 0,
       "flaky": 0,
-      "duration": 4845,
+      "duration": 3605,
       "tags": [
         "@smoke",
         "@regression"
@@ -174,7 +174,7 @@
       "passed": 7,
       "failed": 0,
       "flaky": 0,
-      "duration": 4073,
+      "duration": 3994,
       "tags": [
         "@smoke",
         "@regression"
@@ -186,7 +186,7 @@
       "passed": 17,
       "failed": 0,
       "flaky": 0,
-      "duration": 13239,
+      "duration": 13889,
       "tags": [
         "@smoke",
         "@regression"
@@ -198,7 +198,7 @@
       "passed": 15,
       "failed": 0,
       "flaky": 0,
-      "duration": 13943,
+      "duration": 14601,
       "tags": [
         "@smoke",
         "@regression"
@@ -210,7 +210,7 @@
       "passed": 15,
       "failed": 0,
       "flaky": 0,
-      "duration": 16338,
+      "duration": 17430,
       "tags": [
         "@smoke",
         "@regression"
@@ -222,7 +222,7 @@
       "passed": 3,
       "failed": 0,
       "flaky": 0,
-      "duration": 3001,
+      "duration": 3064,
       "tags": [
         "@smoke",
         "@regression"
@@ -234,7 +234,7 @@
       "passed": 23,
       "failed": 0,
       "flaky": 0,
-      "duration": 18758,
+      "duration": 19030,
       "tags": [
         "@smoke",
         "@regression"
@@ -246,7 +246,7 @@
       "passed": 4,
       "failed": 0,
       "flaky": 0,
-      "duration": 2013,
+      "duration": 1727,
       "tags": [
         "@sanity"
       ]
@@ -257,7 +257,7 @@
       "passed": 44,
       "failed": 0,
       "flaky": 0,
-      "duration": 425,
+      "duration": 435,
       "tags": [
         "@smoke",
         "@sanity",
@@ -271,7 +271,7 @@
       "title": "valid credentials return a token and the user",
       "project": "api-playground",
       "status": "passed",
-      "duration": 31,
+      "duration": 30,
       "tags": [
         "@smoke"
       ]
@@ -321,7 +321,7 @@
       "title": "a custom ttl controls expiresIn and exp",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -331,7 +331,7 @@
       "title": "wrong password returns 401 INVALID_CREDENTIALS",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -341,7 +341,7 @@
       "title": "passwords are case-sensitive",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -351,7 +351,7 @@
       "title": "unknown email and wrong password are indistinguishable",
       "project": "api-playground",
       "status": "passed",
-      "duration": 9,
+      "duration": 11,
       "tags": [
         "@regression"
       ]
@@ -391,7 +391,7 @@
       "title": "validation: missing password returns 400 password:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -411,7 +411,7 @@
       "title": "validation: blank email returns 400 email:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -421,7 +421,7 @@
       "title": "validation: email as number returns 400 email:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -431,7 +431,7 @@
       "title": "validation: password as number returns 400 password:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -461,7 +461,7 @@
       "title": "validation: email too long returns 400 email:TOO_LONG",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -491,7 +491,7 @@
       "title": "validation: ttl above max returns 400 ttl:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -501,7 +501,7 @@
       "title": "validation: ttl negative returns 400 ttl:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 9,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -521,7 +521,7 @@
       "title": "validation: ttl string returns 400 ttl:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -621,7 +621,7 @@
       "title": "validation failures also consume the quota",
       "project": "api-playground",
       "status": "passed",
-      "duration": 10,
+      "duration": 11,
       "tags": [
         "@regression"
       ]
@@ -641,7 +641,7 @@
       "title": "GET /me returns the user for a valid token",
       "project": "api-playground",
       "status": "passed",
-      "duration": 7,
+      "duration": 8,
       "tags": [
         "@smoke"
       ]
@@ -651,7 +651,7 @@
       "title": "expiresAt matches the token ttl",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -681,7 +681,7 @@
       "title": "Authorization with no scheme returns 401",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -721,7 +721,7 @@
       "title": "the Bearer scheme is case-insensitive",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -731,7 +731,7 @@
       "title": "a malformed token (one segment) returns 401 TOKEN_INVALID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -741,7 +741,7 @@
       "title": "a malformed token (two segments) returns 401 TOKEN_INVALID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -751,7 +751,7 @@
       "title": "a malformed token (four segments) returns 401 TOKEN_INVALID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -801,7 +801,7 @@
       "title": "a token signed with another secret is rejected",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -811,7 +811,7 @@
       "title": "the alg=none attack is rejected",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -831,7 +831,7 @@
       "title": "an expired token returns 401 TOKEN_EXPIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 1210,
+      "duration": 1211,
       "tags": [
         "@regression"
       ]
@@ -841,7 +841,7 @@
       "title": "a token is usable before it expires",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -851,7 +851,7 @@
       "title": "logout returns 204 with an empty body",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -861,7 +861,7 @@
       "title": "logout requires a valid token",
       "project": "api-playground",
       "status": "passed",
-      "duration": 9,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -871,7 +871,7 @@
       "title": "tokens are stateless: a token still works after logout",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -881,7 +881,7 @@
       "title": "a single artwork with standard shipping",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@smoke"
       ]
@@ -891,7 +891,7 @@
       "title": "express shipping costs more",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@sanity"
       ]
@@ -901,7 +901,7 @@
       "title": "the default shipping method is standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -931,7 +931,7 @@
       "title": "free shipping applies at exactly 10000 and not at 9900",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -991,7 +991,7 @@
       "title": "coupons are case-insensitive and trimmed",
       "project": "api-playground",
       "status": "passed",
-      "duration": 8,
+      "duration": 10,
       "tags": [
         "@regression"
       ]
@@ -1031,7 +1031,7 @@
       "title": "totals identity holds: cart 0 coupon=none shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 7,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -1071,7 +1071,7 @@
       "title": "totals identity holds: cart 0 coupon=FIXED5 shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1101,7 +1101,7 @@
       "title": "totals identity holds: cart 1 coupon=none shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -1111,7 +1111,7 @@
       "title": "totals identity holds: cart 1 coupon=none shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1121,7 +1121,7 @@
       "title": "totals identity holds: cart 1 coupon=SAVE10 shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1151,7 +1151,7 @@
       "title": "totals identity holds: cart 1 coupon=FIXED5 shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1161,7 +1161,7 @@
       "title": "totals identity holds: cart 1 coupon=FREESHIP shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1171,7 +1171,7 @@
       "title": "totals identity holds: cart 1 coupon=FREESHIP shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -1201,7 +1201,7 @@
       "title": "totals identity holds: cart 2 coupon=SAVE10 shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1211,7 +1211,7 @@
       "title": "totals identity holds: cart 2 coupon=SAVE10 shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1221,7 +1221,7 @@
       "title": "totals identity holds: cart 2 coupon=FIXED5 shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1231,7 +1231,7 @@
       "title": "totals identity holds: cart 2 coupon=FIXED5 shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1241,7 +1241,7 @@
       "title": "totals identity holds: cart 2 coupon=FREESHIP shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1261,7 +1261,7 @@
       "title": "totals identity holds: cart 3 coupon=none shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1321,7 +1321,7 @@
       "title": "totals identity holds: cart 3 coupon=FREESHIP shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1331,7 +1331,7 @@
       "title": "totals identity holds: cart 3 coupon=FREESHIP shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1341,7 +1341,7 @@
       "title": "totals identity holds: cart 4 coupon=none shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 17,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1381,7 +1381,7 @@
       "title": "totals identity holds: cart 4 coupon=FIXED5 shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1401,7 +1401,7 @@
       "title": "totals identity holds: cart 4 coupon=FREESHIP shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -1411,7 +1411,7 @@
       "title": "totals identity holds: cart 4 coupon=FREESHIP shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -1441,7 +1441,7 @@
       "title": "totals identity holds: cart 5 coupon=SAVE10 shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1451,7 +1451,7 @@
       "title": "totals identity holds: cart 5 coupon=SAVE10 shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1471,7 +1471,7 @@
       "title": "totals identity holds: cart 5 coupon=FIXED5 shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1501,7 +1501,7 @@
       "title": "totals identity holds: cart 6 coupon=none shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1521,7 +1521,7 @@
       "title": "totals identity holds: cart 6 coupon=SAVE10 shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1531,7 +1531,7 @@
       "title": "totals identity holds: cart 6 coupon=SAVE10 shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -1541,7 +1541,7 @@
       "title": "totals identity holds: cart 6 coupon=FIXED5 shipping=standard",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1571,7 +1571,7 @@
       "title": "totals identity holds: cart 6 coupon=FREESHIP shipping=express",
       "project": "api-playground",
       "status": "passed",
-      "duration": 8,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -1581,7 +1581,7 @@
       "title": "an unknown coupon returns 422 COUPON_INVALID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1591,7 +1591,7 @@
       "title": "the expired coupon returns 422 COUPON_EXPIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1621,7 +1621,7 @@
       "title": "coupon injection strings are just invalid coupons",
       "project": "api-playground",
       "status": "passed",
-      "duration": 11,
+      "duration": 12,
       "tags": [
         "@regression"
       ]
@@ -1641,7 +1641,7 @@
       "title": "items not an array returns 400 items:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1651,7 +1651,7 @@
       "title": "items as object returns 400 items:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1681,7 +1681,7 @@
       "title": "item not an object returns 400 items[0]:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1691,7 +1691,7 @@
       "title": "item as null returns 400 items[0]:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1701,7 +1701,7 @@
       "title": "productId as string returns 400 items[0].productId:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1791,7 +1791,7 @@
       "title": "shipping as number returns 400 shippingMethod:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1801,7 +1801,7 @@
       "title": "unknown field returns 400 discount:UNKNOWN_FIELD",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -1841,7 +1841,7 @@
       "title": "a sold out artwork returns 409 INSUFFICIENT_STOCK with available 0",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1861,7 +1861,7 @@
       "title": "asking for exactly the available copies works and one more fails",
       "project": "api-playground",
       "status": "passed",
-      "duration": 8,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1871,7 +1871,7 @@
       "title": "pricing a cart never changes the stock",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -1901,7 +1901,7 @@
       "title": "status=200 returns exactly that status",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1931,7 +1931,7 @@
       "title": "status=400 returns exactly that status",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1941,7 +1941,7 @@
       "title": "status=401 returns exactly that status",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1961,7 +1961,7 @@
       "title": "status=404 returns exactly that status",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -1991,7 +1991,7 @@
       "title": "status=422 returns exactly that status",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2021,7 +2021,7 @@
       "title": "status=502 returns exactly that status",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2051,7 +2051,7 @@
       "title": "status=599 returns exactly that status",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2121,7 +2121,7 @@
       "title": "invalid status \"199\" returns 400 OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2151,7 +2151,7 @@
       "title": "invalid status \"-200\" returns 400 OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2181,7 +2181,7 @@
       "title": "no delay answers quickly",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2191,7 +2191,7 @@
       "title": "delay and status combine",
       "project": "api-playground",
       "status": "passed",
-      "duration": 303,
+      "duration": 304,
       "tags": [
         "@regression"
       ]
@@ -2201,7 +2201,7 @@
       "title": "invalid delay \"-1\" returns 400 OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 8,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2211,7 +2211,7 @@
       "title": "invalid delay \"10001\" returns 400 OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -2231,7 +2231,7 @@
       "title": "invalid delay \"1.5\" returns 400 INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2241,7 +2241,7 @@
       "title": "malformed=true returns a truncated JSON body that cannot be parsed",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2251,7 +2251,7 @@
       "title": "malformed combines with a status code",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2281,7 +2281,7 @@
       "title": "failRate=0 never fails",
       "project": "api-playground",
       "status": "passed",
-      "duration": 28,
+      "duration": 30,
       "tags": [
         "@regression"
       ]
@@ -2301,7 +2301,7 @@
       "title": "invalid failRate \"2\" returns 400 OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2361,7 +2361,7 @@
       "title": "status and body combine for failing writes",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -2381,7 +2381,7 @@
       "title": "checkout requires a token",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@smoke"
       ]
@@ -2441,7 +2441,7 @@
       "title": "an Idempotency-Key that is symbols is rejected",
       "project": "api-playground",
       "status": "passed",
-      "duration": 14,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2471,7 +2471,7 @@
       "title": "an Idempotency-Key with 64 characters is accepted (validation runs next)",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2491,7 +2491,7 @@
       "title": "the key is checked before the body is validated",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2501,7 +2501,7 @@
       "title": "a body that is not an object returns 400",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2571,7 +2571,7 @@
       "title": "missing shippingAddress returns 422 shippingAddress:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2581,7 +2581,7 @@
       "title": "shippingAddress as string returns 422 shippingAddress:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -2611,7 +2611,7 @@
       "title": "missing fullName returns 422 shippingAddress.fullName:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2651,7 +2651,7 @@
       "title": "121-char street returns 422 shippingAddress.street:TOO_LONG",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2661,7 +2661,7 @@
       "title": "short city returns 422 shippingAddress.city:TOO_SHORT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2691,7 +2691,7 @@
       "title": "zip with symbols returns 422 shippingAddress.zip:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2711,7 +2711,7 @@
       "title": "lowercase country returns 422 shippingAddress.country:INVALID_OPTION",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -2731,7 +2731,7 @@
       "title": "card number with letters returns 422 payment.cardNumber:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -2751,7 +2751,7 @@
       "title": "card number too short returns 422 payment.cardNumber:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2771,7 +2771,7 @@
       "title": "card number failing Luhn returns 422 payment.cardNumber:INVALID_CARD",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2781,7 +2781,7 @@
       "title": "card number as number returns 422 payment.cardNumber:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2811,7 +2811,7 @@
       "title": "expiry with 4-digit year returns 422 payment.expiry:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2821,7 +2821,7 @@
       "title": "expiry without slash returns 422 payment.expiry:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2851,7 +2851,7 @@
       "title": "cvv with 5 digits returns 422 payment.cvv:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -2861,7 +2861,7 @@
       "title": "cvv with letters returns 422 payment.cvv:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2891,7 +2891,7 @@
       "title": "the card expiry of the current month is still valid (no 422 for expiry)",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2911,7 +2911,7 @@
       "title": "all problems are reported together",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -2921,7 +2921,7 @@
       "title": "an unknown product returns 404",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@sanity"
       ]
@@ -2931,7 +2931,7 @@
       "title": "a sold out artwork returns 409 INSUFFICIENT_STOCK",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@sanity"
       ]
@@ -2951,7 +2951,7 @@
       "title": "an invalid coupon returns 422 COUPON_INVALID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -2961,7 +2961,7 @@
       "title": "the expired coupon returns 422 COUPON_EXPIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -2971,7 +2971,7 @@
       "title": "a declined card returns 402 CARD_DECLINED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@sanity"
       ]
@@ -3021,7 +3021,7 @@
       "title": "the error response never echoes the card data",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3031,7 +3031,7 @@
       "title": "GET /api/health returns status ok",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@smoke"
       ]
@@ -3041,7 +3041,7 @@
       "title": "every response carries X-Request-Id, no-store and CORS headers",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@sanity"
       ]
@@ -3061,7 +3061,7 @@
       "title": "an invalid X-Request-Id (has spaces) is replaced by a generated one",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3071,7 +3071,7 @@
       "title": "an invalid X-Request-Id (aaaaaaaaaaaa) is replaced by a generated one",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3091,7 +3091,7 @@
       "title": "an invalid X-Request-Id (ñandú) is replaced by a generated one",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3111,7 +3111,7 @@
       "title": "error bodies carry the same request id as the header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -3121,7 +3121,7 @@
       "title": "unknown routes return 404 NOT_FOUND in the standard envelope",
       "project": "api-playground",
       "status": "passed",
-      "duration": 7,
+      "duration": 8,
       "tags": [
         "@sanity"
       ]
@@ -3131,7 +3131,7 @@
       "title": "OPTIONS /api/health answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3141,7 +3141,7 @@
       "title": "/api/health rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 16,
+      "duration": 17,
       "tags": [
         "@regression"
       ]
@@ -3151,7 +3151,7 @@
       "title": "OPTIONS /api/reset answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 8,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3171,7 +3171,7 @@
       "title": "OPTIONS /api/chaos answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -3181,7 +3181,7 @@
       "title": "/api/chaos rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 1,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -3191,7 +3191,7 @@
       "title": "OPTIONS /api/auth/login answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3201,7 +3201,7 @@
       "title": "/api/auth/login rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 15,
+      "duration": 17,
       "tags": [
         "@regression"
       ]
@@ -3231,7 +3231,7 @@
       "title": "OPTIONS /api/auth/me answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3241,7 +3241,7 @@
       "title": "/api/auth/me rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 15,
+      "duration": 16,
       "tags": [
         "@regression"
       ]
@@ -3261,7 +3261,7 @@
       "title": "/api/auth/logout rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 15,
+      "duration": 19,
       "tags": [
         "@regression"
       ]
@@ -3281,7 +3281,7 @@
       "title": "/api/products rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 15,
+      "duration": 16,
       "tags": [
         "@regression"
       ]
@@ -3291,7 +3291,7 @@
       "title": "OPTIONS /api/products/1 answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3301,7 +3301,7 @@
       "title": "/api/products/1 rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 14,
+      "duration": 24,
       "tags": [
         "@regression"
       ]
@@ -3321,7 +3321,7 @@
       "title": "/api/cart/price rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 14,
+      "duration": 18,
       "tags": [
         "@regression"
       ]
@@ -3331,7 +3331,7 @@
       "title": "OPTIONS /api/checkout answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3341,7 +3341,7 @@
       "title": "/api/checkout rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 14,
+      "duration": 16,
       "tags": [
         "@regression"
       ]
@@ -3351,7 +3351,7 @@
       "title": "OPTIONS /api/orders/ord_x answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3361,7 +3361,7 @@
       "title": "/api/orders/ord_x rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 14,
+      "duration": 16,
       "tags": [
         "@regression"
       ]
@@ -3371,7 +3371,7 @@
       "title": "OPTIONS /api/forms/submit answers the CORS preflight",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3381,7 +3381,7 @@
       "title": "/api/forms/submit rejects unsupported methods with 405 and an Allow header",
       "project": "api-playground",
       "status": "passed",
-      "duration": 16,
+      "duration": 15,
       "tags": [
         "@regression"
       ]
@@ -3391,7 +3391,7 @@
       "title": "POST with a non-JSON content type returns 415",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3401,7 +3401,7 @@
       "title": "POST with form-encoded body returns 415",
       "project": "api-playground",
       "status": "passed",
-      "duration": 14,
+      "duration": 16,
       "tags": [
         "@regression"
       ]
@@ -3411,7 +3411,7 @@
       "title": "malformed JSON (truncated object) returns 400 INVALID_JSON",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3421,7 +3421,7 @@
       "title": "malformed JSON (trailing comma) returns 400 INVALID_JSON",
       "project": "api-playground",
       "status": "passed",
-      "duration": 8,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3431,7 +3431,7 @@
       "title": "malformed JSON (single quotes) returns 400 INVALID_JSON",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3441,7 +3441,7 @@
       "title": "malformed JSON (plain word) returns 400 INVALID_JSON",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -3511,7 +3511,7 @@
       "title": "a body just under 100 KB is processed",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3531,7 +3531,7 @@
       "title": "every error uses the same envelope keys",
       "project": "api-playground",
       "status": "passed",
-      "duration": 8,
+      "duration": 9,
       "tags": [
         "@regression"
       ]
@@ -3551,7 +3551,7 @@
       "title": "the response echoes the normalized data",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@sanity"
       ]
@@ -3581,7 +3581,7 @@
       "title": "names are trimmed",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3591,7 +3591,7 @@
       "title": "unicode names are accepted: José Ángel Núñez",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3601,7 +3601,7 @@
       "title": "unicode names are accepted: 李小龍",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -3611,7 +3611,7 @@
       "title": "unicode names are accepted: Zoë 🎨 Ñandú",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3631,7 +3631,7 @@
       "title": "HTML payloads in message are stored as inert text",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3661,7 +3661,7 @@
       "title": "null byte payloads in message are stored as inert text",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3671,7 +3671,7 @@
       "title": "a message of exactly 500 characters is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3681,7 +3681,7 @@
       "title": "a name of exactly 80 characters is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -3691,7 +3691,7 @@
       "title": "every valid interest and every combination size is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 8,
+      "duration": 14,
       "tags": [
         "@regression"
       ]
@@ -3711,7 +3711,7 @@
       "title": "country BR is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3721,7 +3721,7 @@
       "title": "country CL is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3731,7 +3731,7 @@
       "title": "country CO is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -3741,7 +3741,7 @@
       "title": "country MX is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3761,7 +3761,7 @@
       "title": "country ES is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -3771,7 +3771,7 @@
       "title": "gender female is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -3781,7 +3781,7 @@
       "title": "gender male is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -3851,7 +3851,7 @@
       "title": "blank fullName returns 422 fullName:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3861,7 +3861,7 @@
       "title": "one-letter fullName returns 422 fullName:TOO_SHORT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3891,7 +3891,7 @@
       "title": "missing email returns 422 email:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3901,7 +3901,7 @@
       "title": "email without at returns 422 email:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3911,7 +3911,7 @@
       "title": "email without domain dot returns 422 email:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3941,7 +3941,7 @@
       "title": "email too long returns 422 email:TOO_LONG",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3951,7 +3951,7 @@
       "title": "missing country returns 422 country:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3961,7 +3961,7 @@
       "title": "unknown country returns 422 country:INVALID_OPTION",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -3971,7 +3971,7 @@
       "title": "lowercase country returns 422 country:INVALID_OPTION",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -3981,7 +3981,7 @@
       "title": "missing gender returns 422 gender:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4001,7 +4001,7 @@
       "title": "missing interests returns 422 interests:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4021,7 +4021,7 @@
       "title": "interests as string returns 422 interests:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 15,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4031,7 +4031,7 @@
       "title": "interests with numbers returns 422 interests:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4041,7 +4041,7 @@
       "title": "unknown interest returns 422 interests:INVALID_OPTION",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4051,7 +4051,7 @@
       "title": "duplicate interests returns 422 interests:DUPLICATE_ITEM",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4061,7 +4061,7 @@
       "title": "six interests returns 422 interests:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4071,7 +4071,7 @@
       "title": "missing birthDate returns 422 birthDate:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4091,7 +4091,7 @@
       "title": "birthDate with slashes returns 422 birthDate:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4101,7 +4101,7 @@
       "title": "birthDate text returns 422 birthDate:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4111,7 +4111,7 @@
       "title": "birthDate with time returns 422 birthDate:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4131,7 +4131,7 @@
       "title": "birthDate February 30 returns 422 birthDate:INVALID_DATE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4141,7 +4141,7 @@
       "title": "birthDate February 29 on a non-leap year returns 422 birthDate:INVALID_DATE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4181,7 +4181,7 @@
       "title": "missing collectingYears returns 422 collectingYears:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4191,7 +4191,7 @@
       "title": "collectingYears negative returns 422 collectingYears:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4201,7 +4201,7 @@
       "title": "collectingYears above 60 returns 422 collectingYears:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4221,7 +4221,7 @@
       "title": "collectingYears float returns 422 collectingYears:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -4241,7 +4241,7 @@
       "title": "message as number returns 422 message:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4251,7 +4251,7 @@
       "title": "newsletter as string returns 422 newsletter:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4261,7 +4261,7 @@
       "title": "newsletter as number returns 422 newsletter:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4271,7 +4271,7 @@
       "title": "missing acceptTerms returns 422 acceptTerms:REQUIRED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4281,7 +4281,7 @@
       "title": "acceptTerms false returns 422 acceptTerms:TERMS_NOT_ACCEPTED",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4301,7 +4301,7 @@
       "title": "acceptTerms as number returns 422 acceptTerms:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4361,7 +4361,7 @@
       "title": "a image/png attachment is accepted and echoed",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4421,7 +4421,7 @@
       "title": "attachment negative size returns 422 attachment.size:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -4481,7 +4481,7 @@
       "title": "attachment path traversal name returns 422 attachment.name:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4491,7 +4491,7 @@
       "title": "attachment name with slash returns 422 attachment.name:INVALID_FORMAT",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4571,7 +4571,7 @@
       "title": "attachment attachment as array returns 422 attachment:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4581,7 +4581,7 @@
       "title": "the default listing returns the first page of 5",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@smoke"
       ]
@@ -4591,7 +4591,7 @@
       "title": "every product matches the schema",
       "project": "api-playground",
       "status": "passed",
-      "duration": 43,
+      "duration": 41,
       "tags": [
         "@sanity"
       ]
@@ -4601,7 +4601,7 @@
       "title": "ids and skus are unique",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4641,7 +4641,7 @@
       "title": "page=2 pageSize=5 returns ids 6..10",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -4651,7 +4651,7 @@
       "title": "page=4 pageSize=5 returns ids 16..18",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4681,7 +4681,7 @@
       "title": "page=1 pageSize=1 returns ids 1..1",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4731,7 +4731,7 @@
       "title": "invalid query ?page=-1 returns 400 page:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4751,7 +4751,7 @@
       "title": "invalid query ?page=abc returns 400 page:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4761,7 +4761,7 @@
       "title": "invalid query ?page=1.5 returns 400 page:INVALID_TYPE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4781,7 +4781,7 @@
       "title": "invalid query ?pageSize=51 returns 400 pageSize:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4801,7 +4801,7 @@
       "title": "invalid query ?minPrice=-1 returns 400 minPrice:OUT_OF_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4851,7 +4851,7 @@
       "title": "invalid query ?minPrice=5000&maxPrice=1000 returns 400 minPrice:INVALID_RANGE",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4861,7 +4861,7 @@
       "title": "the boundary values pageSize=50 and page=1000 are valid",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -4891,7 +4891,7 @@
       "title": "filtering by artist with accents and spaces",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -4901,7 +4901,7 @@
       "title": "category=impressionism returns 2 artworks",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4921,7 +4921,7 @@
       "title": "category=expressionism returns 1 artworks",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -4931,7 +4931,7 @@
       "title": "category=surrealism returns 2 artworks",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4951,7 +4951,7 @@
       "title": "category=baroque returns 2 artworks",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -4961,7 +4961,7 @@
       "title": "category=abstract returns 3 artworks",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -4981,7 +4981,7 @@
       "title": "category=kinetic returns 3 artworks",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5051,7 +5051,7 @@
       "title": "filters combine with AND",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5111,7 +5111,7 @@
       "title": "sort=rating orders ascending",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5131,7 +5131,7 @@
       "title": "sort=name orders ascending",
       "project": "api-playground",
       "status": "passed",
-      "duration": 14,
+      "duration": 13,
       "tags": [
         "@regression"
       ]
@@ -5141,7 +5141,7 @@
       "title": "sort=-name orders descending",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5181,7 +5181,7 @@
       "title": "an unknown id (0) returns 404 PRODUCT_NOT_FOUND",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5191,7 +5191,7 @@
       "title": "an unknown id (19) returns 404 PRODUCT_NOT_FOUND",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5201,7 +5201,7 @@
       "title": "an unknown id (999) returns 404 PRODUCT_NOT_FOUND",
       "project": "api-playground",
       "status": "passed",
-      "duration": 12,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5221,7 +5221,7 @@
       "title": "a non-numeric id (abc) returns 400 INVALID_ID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5231,7 +5231,7 @@
       "title": "a non-numeric id (-1) returns 400 INVALID_ID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5251,7 +5251,7 @@
       "title": "a non-numeric id (1e2) returns 400 INVALID_ID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 6,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5261,7 +5261,7 @@
       "title": "a non-numeric id (%20) returns 400 INVALID_ID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5271,7 +5271,7 @@
       "title": "a non-numeric id (1%20) returns 400 INVALID_ID",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5301,7 +5301,7 @@
       "title": "q=' OR '1'='1 is harmless in the catalog search",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5311,7 +5311,7 @@
       "title": "artist=' OR '1'='1 is harmless in the catalog filter",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -5321,7 +5321,7 @@
       "title": "q=\"; DROP TABLE products;  is harmless in the catalog search",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5331,7 +5331,7 @@
       "title": "artist=\"; DROP TABLE products;  is harmless in the catalog filter",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5351,7 +5351,7 @@
       "title": "artist=<script>alert(1)</script is harmless in the catalog filter",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5361,7 +5361,7 @@
       "title": "q=${7*7} is harmless in the catalog search",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -5381,7 +5381,7 @@
       "title": "q={{constructor.constructo is harmless in the catalog search",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5401,7 +5401,7 @@
       "title": "q=../../../etc/passwd is harmless in the catalog search",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5421,7 +5421,7 @@
       "title": "q=%00 is harmless in the catalog search",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5431,7 +5431,7 @@
       "title": "artist=%00 is harmless in the catalog filter",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5441,7 +5441,7 @@
       "title": "q=\\u0000 is harmless in the catalog search",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -5451,7 +5451,7 @@
       "title": "artist=\\u0000 is harmless in the catalog filter",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5481,7 +5481,7 @@
       "title": "a hostile product id (..%2F..%2Fetc%2Fpass) never yields a server error",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5531,7 +5531,7 @@
       "title": "a hostile product id (null) never yields a server error",
       "project": "api-playground",
       "status": "passed",
-      "duration": 2,
+      "duration": 3,
       "tags": [
         "@regression"
       ]
@@ -5541,7 +5541,7 @@
       "title": "a hostile product id (undefined) never yields a server error",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -5571,7 +5571,7 @@
       "title": "hostile order ids return 404 without leaking details",
       "project": "api-playground",
       "status": "passed",
-      "duration": 14,
+      "duration": 15,
       "tags": [
         "@regression"
       ]
@@ -5591,7 +5591,7 @@
       "title": "no technology disclosure headers are sent",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 2,
       "tags": [
         "@regression"
       ]
@@ -5611,7 +5611,7 @@
       "title": "a very long string value is handled",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5621,7 +5621,7 @@
       "title": "forms reject the __proto__ key",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5641,7 +5641,7 @@
       "title": "forms reject the prototype key",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5671,7 +5671,7 @@
       "title": "registration cannot assign the admin role",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5681,7 +5681,7 @@
       "title": "a registered user is never an admin",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5701,7 +5701,7 @@
       "title": "a polluted request does not change later behaviour",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5711,7 +5711,7 @@
       "title": "a method override header does not change the method",
       "project": "api-playground",
       "status": "passed",
-      "duration": 3,
+      "duration": 4,
       "tags": [
         "@regression"
       ]
@@ -5731,7 +5731,7 @@
       "title": "JSON content type with a charset or different casing is accepted",
       "project": "api-playground",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -5741,7 +5741,7 @@
       "title": "the token is never reflected in error responses",
       "project": "api-playground",
       "status": "passed",
-      "duration": 4,
+      "duration": 5,
       "tags": [
         "@regression"
       ]
@@ -5761,7 +5761,7 @@
       "title": "Should display the topbar and all 4 nav links",
       "project": "portfolio",
       "status": "passed",
-      "duration": 1150,
+      "duration": 476,
       "tags": [
         "@smoke"
       ]
@@ -5771,7 +5771,7 @@
       "title": "Should display all 6 CV sections in Spanish",
       "project": "portfolio",
       "status": "passed",
-      "duration": 672,
+      "duration": 387,
       "tags": [
         "@smoke"
       ]
@@ -5781,7 +5781,7 @@
       "title": "Should navigate to the right page from each nav link",
       "project": "portfolio",
       "status": "passed",
-      "duration": 1086,
+      "duration": 821,
       "tags": [
         "@smoke"
       ]
@@ -5791,7 +5791,7 @@
       "title": "Should switch the language to English via the UI",
       "project": "portfolio",
       "status": "passed",
-      "duration": 582,
+      "duration": 571,
       "tags": [
         "@regression"
       ]
@@ -5801,7 +5801,7 @@
       "title": "Should validate that the language persists after a page reload",
       "project": "portfolio",
       "status": "passed",
-      "duration": 759,
+      "duration": 782,
       "tags": [
         "@regression"
       ]
@@ -5811,7 +5811,7 @@
       "title": "Should validate that the html lang attribute follows the selected language",
       "project": "portfolio",
       "status": "passed",
-      "duration": 596,
+      "duration": 568,
       "tags": [
         "@regression"
       ]
@@ -5821,7 +5821,7 @@
       "title": "Should display the homepage with its title and topbar",
       "project": "portfolio",
       "status": "passed",
-      "duration": 520,
+      "duration": 370,
       "tags": [
         "@smoke"
       ]
@@ -5831,7 +5831,7 @@
       "title": "Should display all 4 nav links on every page",
       "project": "portfolio",
       "status": "passed",
-      "duration": 994,
+      "duration": 948,
       "tags": [
         "@smoke"
       ]
@@ -5841,7 +5841,7 @@
       "title": "Should navigate to /cv and display the profile section",
       "project": "portfolio",
       "status": "passed",
-      "duration": 426,
+      "duration": 641,
       "tags": [
         "@smoke"
       ]
@@ -5851,7 +5851,7 @@
       "title": "Should navigate to /contact and display the contact form",
       "project": "portfolio",
       "status": "passed",
-      "duration": 403,
+      "duration": 353,
       "tags": [
         "@smoke"
       ]
@@ -5861,7 +5861,7 @@
       "title": "Should navigate to /reports and display a heading",
       "project": "portfolio",
       "status": "passed",
-      "duration": 514,
+      "duration": 530,
       "tags": [
         "@smoke"
       ]
@@ -5871,7 +5871,7 @@
       "title": "Should validate that the active nav link reflects the current page",
       "project": "portfolio",
       "status": "passed",
-      "duration": 806,
+      "duration": 797,
       "tags": [
         "@regression"
       ]
@@ -5881,7 +5881,7 @@
       "title": "Should display the language switcher with the current language",
       "project": "portfolio",
       "status": "passed",
-      "duration": 410,
+      "duration": 355,
       "tags": [
         "@regression"
       ]
@@ -5891,7 +5891,7 @@
       "title": "Should navigate to the gallery after a valid login",
       "project": "playground",
       "status": "passed",
-      "duration": 853,
+      "duration": 956,
       "tags": [
         "@smoke"
       ]
@@ -5901,7 +5901,7 @@
       "title": "Should display an error for wrong credentials",
       "project": "playground",
       "status": "passed",
-      "duration": 805,
+      "duration": 767,
       "tags": [
         "@regression"
       ]
@@ -5911,7 +5911,7 @@
       "title": "Should display an error for a locked account",
       "project": "playground",
       "status": "passed",
-      "duration": 789,
+      "duration": 821,
       "tags": [
         "@regression"
       ]
@@ -5921,7 +5921,7 @@
       "title": "Should validate the empty form shows field errors",
       "project": "playground",
       "status": "passed",
-      "duration": 659,
+      "duration": 776,
       "tags": [
         "@regression"
       ]
@@ -5931,7 +5931,7 @@
       "title": "Should switch the password visibility with the toggle",
       "project": "playground",
       "status": "passed",
-      "duration": 666,
+      "duration": 655,
       "tags": [
         "@regression"
       ]
@@ -5941,7 +5941,7 @@
       "title": "Should navigate back to the requested page after logging in",
       "project": "playground",
       "status": "passed",
-      "duration": 838,
+      "duration": 923,
       "tags": [
         "@regression"
       ]
@@ -5951,7 +5951,7 @@
       "title": "Should display the logged out state after logging out",
       "project": "playground",
       "status": "passed",
-      "duration": 694,
+      "duration": 716,
       "tags": [
         "@regression"
       ]
@@ -5961,7 +5961,7 @@
       "title": "Should display the login requirement when the token is rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 889,
+      "duration": 883,
       "tags": [
         "@regression"
       ]
@@ -5971,7 +5971,7 @@
       "title": "Should create an account and sign in when the terms are accepted",
       "project": "playground",
       "status": "passed",
-      "duration": 815,
+      "duration": 930,
       "tags": [
         "@smoke"
       ]
@@ -5981,7 +5981,7 @@
       "title": "Should validate the terms are mandatory",
       "project": "playground",
       "status": "passed",
-      "duration": 767,
+      "duration": 834,
       "tags": [
         "@smoke"
       ]
@@ -5991,7 +5991,7 @@
       "title": "Should display the terms and conditions when expanding the link",
       "project": "playground",
       "status": "passed",
-      "duration": 663,
+      "duration": 672,
       "tags": [
         "@regression"
       ]
@@ -6001,7 +6001,7 @@
       "title": "Should validate the empty form shows every required error",
       "project": "playground",
       "status": "passed",
-      "duration": 765,
+      "duration": 779,
       "tags": [
         "@regression"
       ]
@@ -6011,7 +6011,7 @@
       "title": "Should validate a weak password is rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 881,
+      "duration": 816,
       "tags": [
         "@regression"
       ]
@@ -6021,7 +6021,7 @@
       "title": "Should validate mismatched passwords are rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 884,
+      "duration": 906,
       "tags": [
         "@regression"
       ]
@@ -6031,7 +6031,7 @@
       "title": "Should display an error when the email is already registered",
       "project": "playground",
       "status": "passed",
-      "duration": 801,
+      "duration": 901,
       "tags": [
         "@regression"
       ]
@@ -6041,7 +6041,7 @@
       "title": "Should display an error when the server fails during sign up",
       "project": "playground",
       "status": "passed",
-      "duration": 769,
+      "duration": 825,
       "tags": [
         "@regression"
       ]
@@ -6051,7 +6051,7 @@
       "title": "Should navigate between sign up and login",
       "project": "playground",
       "status": "passed",
-      "duration": 701,
+      "duration": 729,
       "tags": [
         "@regression"
       ]
@@ -6061,7 +6061,7 @@
       "title": "Should display the login requirement for a guest",
       "project": "playground",
       "status": "passed",
-      "duration": 644,
+      "duration": 609,
       "tags": [
         "@smoke"
       ]
@@ -6071,7 +6071,7 @@
       "title": "Should display the empty cart notice for a logged in user",
       "project": "playground",
       "status": "passed",
-      "duration": 676,
+      "duration": 655,
       "tags": [
         "@regression"
       ]
@@ -6081,7 +6081,7 @@
       "title": "Should create an order when the payment succeeds",
       "project": "playground",
       "status": "passed",
-      "duration": 921,
+      "duration": 924,
       "tags": [
         "@smoke"
       ]
@@ -6091,7 +6091,7 @@
       "title": "Should validate the empty form shows the required errors",
       "project": "playground",
       "status": "passed",
-      "duration": 825,
+      "duration": 849,
       "tags": [
         "@regression"
       ]
@@ -6101,7 +6101,7 @@
       "title": "Should validate a card that fails the Luhn check is rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 985,
+      "duration": 1007,
       "tags": [
         "@regression"
       ]
@@ -6111,7 +6111,7 @@
       "title": "Should validate an expired card is rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 914,
+      "duration": 1008,
       "tags": [
         "@regression"
       ]
@@ -6121,7 +6121,7 @@
       "title": "Should display an error when the card is declined",
       "project": "playground",
       "status": "passed",
-      "duration": 983,
+      "duration": 940,
       "tags": [
         "@regression"
       ]
@@ -6131,7 +6131,7 @@
       "title": "Should display an error when the card has no funds",
       "project": "playground",
       "status": "passed",
-      "duration": 986,
+      "duration": 1022,
       "tags": [
         "@regression"
       ]
@@ -6141,7 +6141,7 @@
       "title": "Should validate the cart is kept after a declined payment",
       "project": "playground",
       "status": "passed",
-      "duration": 1022,
+      "duration": 957,
       "tags": [
         "@regression"
       ]
@@ -6151,7 +6151,7 @@
       "title": "Should switch the shipping cost when choosing express",
       "project": "playground",
       "status": "passed",
-      "duration": 706,
+      "duration": 825,
       "tags": [
         "@regression"
       ]
@@ -6161,7 +6161,7 @@
       "title": "Should validate the checkout request carries an idempotency key and the payload",
       "project": "playground",
       "status": "passed",
-      "duration": 907,
+      "duration": 915,
       "tags": [
         "@regression"
       ]
@@ -6171,7 +6171,7 @@
       "title": "Should display an error when the checkout request times out",
       "project": "playground",
       "status": "passed",
-      "duration": 900,
+      "duration": 946,
       "tags": [
         "@regression"
       ]
@@ -6181,7 +6181,7 @@
       "title": "Should display an error when the stock runs out before paying",
       "project": "playground",
       "status": "passed",
-      "duration": 906,
+      "duration": 945,
       "tags": [
         "@regression"
       ]
@@ -6191,7 +6191,7 @@
       "title": "Should create an order with the coupon discount applied",
       "project": "playground",
       "status": "passed",
-      "duration": 913,
+      "duration": 1111,
       "tags": [
         "@regression"
       ]
@@ -6201,7 +6201,7 @@
       "title": "Should validate the available stock is reduced after a purchase",
       "project": "playground",
       "status": "passed",
-      "duration": 1655,
+      "duration": 1888,
       "tags": [
         "@regression"
       ]
@@ -6211,7 +6211,7 @@
       "title": "Should create a request when every field is valid",
       "project": "playground",
       "status": "passed",
-      "duration": 1135,
+      "duration": 1090,
       "tags": [
         "@smoke"
       ]
@@ -6221,7 +6221,7 @@
       "title": "Should validate the empty form shows the required errors",
       "project": "playground",
       "status": "passed",
-      "duration": 721,
+      "duration": 808,
       "tags": [
         "@regression"
       ]
@@ -6231,7 +6231,7 @@
       "title": "Should validate the terms are mandatory",
       "project": "playground",
       "status": "passed",
-      "duration": 1090,
+      "duration": 1093,
       "tags": [
         "@regression"
       ]
@@ -6241,7 +6241,7 @@
       "title": "Should validate an invalid email is rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 1124,
+      "duration": 1231,
       "tags": [
         "@regression"
       ]
@@ -6251,7 +6251,7 @@
       "title": "Should validate an underage birth date is rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 1156,
+      "duration": 1216,
       "tags": [
         "@regression"
       ]
@@ -6261,7 +6261,7 @@
       "title": "Should validate a too long message is rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 1150,
+      "duration": 1287,
       "tags": [
         "@regression"
       ]
@@ -6271,7 +6271,7 @@
       "title": "Should validate interests are multi-select and gender is single-select",
       "project": "playground",
       "status": "passed",
-      "duration": 800,
+      "duration": 949,
       "tags": [
         "@regression"
       ]
@@ -6281,7 +6281,7 @@
       "title": "Should create a request with an attached file",
       "project": "playground",
       "status": "passed",
-      "duration": 1157,
+      "duration": 1327,
       "tags": [
         "@regression"
       ]
@@ -6291,7 +6291,7 @@
       "title": "Should validate a disallowed attachment type is rejected",
       "project": "playground",
       "status": "passed",
-      "duration": 1142,
+      "duration": 1290,
       "tags": [
         "@regression"
       ]
@@ -6301,7 +6301,7 @@
       "title": "Should display the terms when expanding the link",
       "project": "playground",
       "status": "passed",
-      "duration": 684,
+      "duration": 719,
       "tags": [
         "@regression"
       ]
@@ -6311,7 +6311,7 @@
       "title": "Should create a new request after resetting the form",
       "project": "playground",
       "status": "passed",
-      "duration": 1118,
+      "duration": 1169,
       "tags": [
         "@regression"
       ]
@@ -6321,7 +6321,7 @@
       "title": "Should validate the form values are sent in the request payload",
       "project": "playground",
       "status": "passed",
-      "duration": 1057,
+      "duration": 1095,
       "tags": [
         "@regression"
       ]
@@ -6331,7 +6331,7 @@
       "title": "Should display an error with the request id when the server fails",
       "project": "playground",
       "status": "passed",
-      "duration": 1067,
+      "duration": 1129,
       "tags": [
         "@regression"
       ]
@@ -6341,7 +6341,7 @@
       "title": "Should display an error when the response is malformed",
       "project": "playground",
       "status": "passed",
-      "duration": 1069,
+      "duration": 1111,
       "tags": [
         "@regression"
       ]
@@ -6351,7 +6351,7 @@
       "title": "Should validate the submit button is disabled while the request is in flight",
       "project": "playground",
       "status": "passed",
-      "duration": 1868,
+      "duration": 1916,
       "tags": [
         "@regression"
       ]
@@ -6361,7 +6361,7 @@
       "title": "Should navigate to every playground page from the topbar dropdown",
       "project": "playground",
       "status": "passed",
-      "duration": 1665,
+      "duration": 1675,
       "tags": [
         "@smoke"
       ]
@@ -6371,7 +6371,7 @@
       "title": "Should display the dropdown items only after opening it",
       "project": "playground",
       "status": "passed",
-      "duration": 698,
+      "duration": 718,
       "tags": [
         "@regression"
       ]
@@ -6381,7 +6381,7 @@
       "title": "Should display the guest session bar when nobody is logged in",
       "project": "playground",
       "status": "passed",
-      "duration": 638,
+      "duration": 671,
       "tags": [
         "@regression"
       ]
@@ -6391,7 +6391,7 @@
       "title": "Should display the first page of artworks with pagination",
       "project": "playground",
       "status": "passed",
-      "duration": 632,
+      "duration": 693,
       "tags": [
         "@smoke"
       ]
@@ -6401,7 +6401,7 @@
       "title": "Should navigate between result pages",
       "project": "playground",
       "status": "passed",
-      "duration": 863,
+      "duration": 838,
       "tags": [
         "@regression"
       ]
@@ -6411,7 +6411,7 @@
       "title": "Should validate the search filter narrows the results",
       "project": "playground",
       "status": "passed",
-      "duration": 734,
+      "duration": 756,
       "tags": [
         "@regression"
       ]
@@ -6421,7 +6421,7 @@
       "title": "Should display the empty state when no artwork matches",
       "project": "playground",
       "status": "passed",
-      "duration": 760,
+      "duration": 752,
       "tags": [
         "@regression"
       ]
@@ -6431,7 +6431,7 @@
       "title": "Should validate the artist filter keeps only that artist",
       "project": "playground",
       "status": "passed",
-      "duration": 747,
+      "duration": 770,
       "tags": [
         "@regression"
       ]
@@ -6441,7 +6441,7 @@
       "title": "Should validate the price sort orders the artworks ascending",
       "project": "playground",
       "status": "passed",
-      "duration": 630,
+      "duration": 739,
       "tags": [
         "@regression"
       ]
@@ -6451,7 +6451,7 @@
       "title": "Should display a sold out artwork with its add button disabled",
       "project": "playground",
       "status": "passed",
-      "duration": 713,
+      "duration": 651,
       "tags": [
         "@regression"
       ]
@@ -6461,7 +6461,7 @@
       "title": "Should validate the in stock filter hides sold out artworks",
       "project": "playground",
       "status": "passed",
-      "duration": 762,
+      "duration": 764,
       "tags": [
         "@regression"
       ]
@@ -6471,7 +6471,7 @@
       "title": "Should validate clearing the filters restores the full catalog",
       "project": "playground",
       "status": "passed",
-      "duration": 754,
+      "duration": 773,
       "tags": [
         "@regression"
       ]
@@ -6481,7 +6481,7 @@
       "title": "Should display an error and recover when the catalog request fails",
       "project": "playground",
       "status": "passed",
-      "duration": 787,
+      "duration": 754,
       "tags": [
         "@regression"
       ]
@@ -6491,7 +6491,7 @@
       "title": "Should display a loading-safe state when the catalog is slow",
       "project": "playground",
       "status": "passed",
-      "duration": 1469,
+      "duration": 1499,
       "tags": [
         "@regression"
       ]
@@ -6501,7 +6501,7 @@
       "title": "Should create a cart line and update the badge when adding an artwork",
       "project": "playground",
       "status": "passed",
-      "duration": 753,
+      "duration": 765,
       "tags": [
         "@smoke"
       ]
@@ -6511,7 +6511,7 @@
       "title": "Should validate the totals include tax and shipping",
       "project": "playground",
       "status": "passed",
-      "duration": 762,
+      "duration": 775,
       "tags": [
         "@regression"
       ]
@@ -6521,7 +6521,7 @@
       "title": "Should validate shipping is free above the threshold",
       "project": "playground",
       "status": "passed",
-      "duration": 714,
+      "duration": 733,
       "tags": [
         "@regression"
       ]
@@ -6531,7 +6531,7 @@
       "title": "Should validate quantity controls update the line and the total",
       "project": "playground",
       "status": "passed",
-      "duration": 935,
+      "duration": 937,
       "tags": [
         "@regression"
       ]
@@ -6541,7 +6541,7 @@
       "title": "Should validate a limited edition cannot exceed its stock",
       "project": "playground",
       "status": "passed",
-      "duration": 784,
+      "duration": 806,
       "tags": [
         "@regression"
       ]
@@ -6551,7 +6551,7 @@
       "title": "Should validate removing a line empties the cart",
       "project": "playground",
       "status": "passed",
-      "duration": 767,
+      "duration": 779,
       "tags": [
         "@regression"
       ]
@@ -6561,7 +6561,7 @@
       "title": "Should validate the cart persists after a reload",
       "project": "playground",
       "status": "passed",
-      "duration": 1082,
+      "duration": 1130,
       "tags": [
         "@regression"
       ]
@@ -6571,7 +6571,7 @@
       "title": "Should validate the SAVE10 coupon applies a discount",
       "project": "playground",
       "status": "passed",
-      "duration": 899,
+      "duration": 936,
       "tags": [
         "@regression"
       ]
@@ -6591,7 +6591,7 @@
       "title": "Should display an error for an expired coupon",
       "project": "playground",
       "status": "passed",
-      "duration": 879,
+      "duration": 907,
       "tags": [
         "@regression"
       ]
@@ -6601,7 +6601,7 @@
       "title": "Should validate the cart totals come from the pricing endpoint",
       "project": "playground",
       "status": "passed",
-      "duration": 731,
+      "duration": 736,
       "tags": [
         "@regression"
       ]
@@ -6611,7 +6611,7 @@
       "title": "Should switch the prices to the English format",
       "project": "playground",
       "status": "passed",
-      "duration": 712,
+      "duration": 648,
       "tags": [
         "@regression"
       ]
@@ -6621,7 +6621,7 @@
       "title": "GET /objects returns 200 with a non-empty array",
       "project": "api",
       "status": "passed",
-      "duration": 985,
+      "duration": 708,
       "tags": [
         "@sanity"
       ]
@@ -6631,7 +6631,7 @@
       "title": "GET /objects/:id returns 200 with id and name fields",
       "project": "api",
       "status": "passed",
-      "duration": 339,
+      "duration": 337,
       "tags": [
         "@sanity"
       ]
@@ -6641,7 +6641,7 @@
       "title": "POST /objects creates an object with the sent name",
       "project": "api",
       "status": "passed",
-      "duration": 352,
+      "duration": 345,
       "tags": [
         "@sanity"
       ]
@@ -6661,7 +6661,7 @@
       "title": "a valid checkout creates a confirmed order",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 19,
+      "duration": 20,
       "tags": [
         "@smoke"
       ]
@@ -6671,7 +6671,7 @@
       "title": "the order total matches the cart pricing endpoint",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 11,
+      "duration": 12,
       "tags": [
         "@sanity"
       ]
@@ -6681,7 +6681,7 @@
       "title": "the order stores coupon=none shipping=standard",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 9,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -6691,7 +6691,7 @@
       "title": "the order stores coupon=SAVE10 shipping=standard",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 7,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -6701,7 +6701,7 @@
       "title": "the order stores coupon=FIXED5 shipping=express",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 5,
+      "duration": 6,
       "tags": [
         "@regression"
       ]
@@ -6711,7 +6711,7 @@
       "title": "the order stores coupon=FREESHIP shipping=express",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -6721,7 +6721,7 @@
       "title": "the order never exposes the card number, cvv or the internal user id",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -6751,7 +6751,7 @@
       "title": "a confirmed order reduces the stock by the purchased quantity",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 8,
+      "duration": 9,
       "tags": [
         "@smoke"
       ]
@@ -6761,7 +6761,7 @@
       "title": "every line of the cart reduces its own stock",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 14,
+      "duration": 15,
       "tags": [
         "@regression"
       ]
@@ -6771,7 +6771,7 @@
       "title": "the new stock is visible in the listing and in the detail",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 10,
+      "duration": 12,
       "tags": [
         "@regression"
       ]
@@ -6801,7 +6801,7 @@
       "title": "a sold out artwork disappears from inStock=true and shows in inStock=false",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 8,
+      "duration": 9,
       "tags": [
         "@regression"
       ]
@@ -6811,7 +6811,7 @@
       "title": "a sold out artwork can no longer be priced in the cart",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 7,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -6881,7 +6881,7 @@
       "title": "parallel orders with the same idempotency key create one order",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 14,
+      "duration": 15,
       "tags": [
         "@regression"
       ]
@@ -6891,7 +6891,7 @@
       "title": "one order for the last copy and concurrent price checks stay consistent",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 9,
+      "duration": 10,
       "tags": [
         "@regression"
       ]
@@ -6901,7 +6901,7 @@
       "title": "repeating the same request with the same key returns the original order",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 8,
+      "duration": 9,
       "tags": [
         "@smoke"
       ]
@@ -6911,7 +6911,7 @@
       "title": "a replay does not reduce the stock again",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 10,
+      "duration": 11,
       "tags": [
         "@regression"
       ]
@@ -6931,7 +6931,7 @@
       "title": "the same key with a different body returns 422 IDEMPOTENCY_KEY_REUSED",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 13,
+      "duration": 12,
       "tags": [
         "@regression"
       ]
@@ -6941,7 +6941,7 @@
       "title": "a different address with the same key is a different body",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 9,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -6951,7 +6951,7 @@
       "title": "different keys create different orders",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -6961,7 +6961,7 @@
       "title": "the idempotency key is scoped per user",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 6,
+      "duration": 7,
       "tags": [
         "@regression"
       ]
@@ -6971,7 +6971,7 @@
       "title": "a failed attempt does not burn the key",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 17,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -6981,7 +6981,7 @@
       "title": "POST /api/reset forgets the idempotency keys",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 8,
+      "duration": 9,
       "tags": [
         "@regression"
       ]
@@ -7011,7 +7011,7 @@
       "title": "another user cannot read the order",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 9,
+      "duration": 10,
       "tags": [
         "@sanity"
       ]
@@ -7041,7 +7041,7 @@
       "title": "the order id is a signed token: tampering returns 404",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 16,
+      "duration": 18,
       "tags": [
         "@regression"
       ]
@@ -7051,7 +7051,7 @@
       "title": "an order for a forged owner cannot be created by editing the payload",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 7,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -7091,7 +7091,7 @@
       "title": "reset is idempotent",
       "project": "api-playground-stateful",
       "status": "passed",
-      "duration": 7,
+      "duration": 8,
       "tags": [
         "@regression"
       ]
@@ -7121,6 +7121,18 @@
       "flaky": 0,
       "skipped": 0,
       "wallDuration": 92825
+    },
+    {
+      "generatedAt": "2026-11-26T01:23:17.443Z",
+      "commit": "8cd0c63",
+      "trigger": "schedule",
+      "runUrl": "https://github.com/Erika-Zambrano/qa_automation_portafolio_ejzm/actions/runs/45735128337",
+      "total": 683,
+      "passed": 683,
+      "failed": 0,
+      "flaky": 0,
+      "skipped": 0,
+      "wallDuration": 94333
     }
   ]
 }
